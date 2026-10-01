@@ -8,6 +8,4 @@ a lot of the models are placeholders right now, but the code is largely done. i'
 
 lib/FloraOverhaul.dll (Windows) and lib/libFloraOverhaul.so (Linux) handle where the trees spawn during world generation. the source is in src/FloraOverhaul.c, and the headers in src/include are dave's from github.com/Majic-Jungle/splugins
 
-i still need to do the macOS version, i will get around to it.......
-
 code is MIT, new models are CC BY 4.0, see LICENSE
