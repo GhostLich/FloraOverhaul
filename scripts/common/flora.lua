@@ -381,9 +381,10 @@ function mod:onload(flora)
             saplingPlural = locale:get("flora_desertScrub_sapling_plural"),
             modelName = "whDesertScrub",
             saplingModelName = "whDesertScrubSapling",
+            requiresAxeToChop = true,
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.mesquiteBranch] = 3,
+                    [gameObject.typeIndexMap.mesquiteBranch] = 6,
                 },
                 seasonalReplenish = {
                     [gameObject.typeIndexMap.mesquiteBranch] = 3,

@@ -879,6 +879,10 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9281, 0.001, 1, 1, gameObjectType_baobab);
 		}
+		if(altitude > 0.0 && !info->beach && (info->desert || info->dry) && !(frozen || info->winterVeryCold))
+		{
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.024, 1, 3, gameObjectType_desertScrub);
+		}
 	}
 	else if(level == SP_SUBDIVISIONS - 2)
 	{
@@ -889,10 +893,6 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		if(altitude > 0.0 && !info->beach && info->tundra && !(info->desert || info->icecap))
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9311, 0.004, 1, 3, gameObjectType_cloudberryBush);
-		}
-		if(altitude > 0.0 && !info->beach && (info->desert || info->dry) && !(frozen || info->winterVeryCold))
-		{
-			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.006, 1, 3, gameObjectType_desertScrub);
 		}
 		if(altitude > 0.0 && !info->beach && (info->river || info->forestDensity == 2 || info->forestDensity == 3) && !(info->desert || info->rainforest || info->tundra || frozen || info->winterVeryCold))
 		{
