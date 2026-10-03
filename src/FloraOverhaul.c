@@ -127,7 +127,7 @@ static uint32_t gameObjectType_lemongrass;
 static uint32_t gameObjectType_figTreeWild;
 static uint32_t gameObjectType_lingonberryBush;
 static uint32_t gameObjectType_cloudberryBush;
-static uint32_t gameObjectType_desertScrub;
+static uint32_t gameObjectType_mesquiteTree;
 static uint32_t gameObjectType_grapevine;
 static uint32_t gameObjectType_barley;
 static uint32_t gameObjectType_watermelon;
@@ -295,7 +295,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_figTreeWild = threadState->getGameObjectTypeIndex(threadState, "figTree");
 		gameObjectType_lingonberryBush = threadState->getGameObjectTypeIndex(threadState, "lingonberryBush");
 		gameObjectType_cloudberryBush = threadState->getGameObjectTypeIndex(threadState, "cloudberryBush");
-		gameObjectType_desertScrub = threadState->getGameObjectTypeIndex(threadState, "desertScrub");
+		gameObjectType_mesquiteTree = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree");
 		gameObjectType_grapevine = threadState->getGameObjectTypeIndex(threadState, "grapevinePlant");
 		gameObjectType_barley = threadState->getGameObjectTypeIndex(threadState, "barleyPlant");
 		gameObjectType_watermelon = threadState->getGameObjectTypeIndex(threadState, "watermelonPlant");
@@ -881,7 +881,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		}
 		if(altitude > 0.0 && !info->beach && (info->desert || info->dry) && !(frozen || info->winterVeryCold))
 		{
-			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.024, 1, 3, gameObjectType_desertScrub);
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.024, 1, 3, gameObjectType_mesquiteTree);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 2)

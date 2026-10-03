@@ -128,7 +128,7 @@ function mod:onload(modelPlaceholder)
             },
         })
 
-        modelPlaceholder:addModel("whDesertScrub", {
+        modelPlaceholder:addModel("whMesquiteTree", {
             {
                 multiKeyBase = "mesquitePod",
                 multiCount = 6,

@@ -290,6 +290,24 @@ function mod:onload(resource)
         tradeBatchSize = 20,
         tradeValue = 1,
     })
+    typeMaps:insert("resource", resource.types, {
+        key = "banyanSeed",
+        name = locale:get("fruit_banyanSeed"),
+        plural = locale:get("fruit_banyanSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.banyanSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "banyanSeedRotten",
+        name = locale:get("fruit_banyanSeed_rotten"),
+        plural = locale:get("fruit_banyanSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.banyanSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
 
     typeMaps:insert("resource", resource.types, {
         key = "cycadSeed",

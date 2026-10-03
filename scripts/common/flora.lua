@@ -124,6 +124,7 @@ function mod:onload(flora)
         addFruit("cypressCone", "whCypressCone")
         addFruit("brazilNut", "whBrazilNut")
         addFruit("mahoganySeed", "whMahoganySeed")
+        addFruit("banyanSeed", "whBanyanSeed")
         addFruit("cycadSeed", "whCycadSeed")
         addFruit("juniperBerry", "whJuniperBerry")
         addFruit("treeFernSpores", "whTreeFernSpores")
@@ -373,14 +374,14 @@ function mod:onload(flora)
             isFoodCrop = true,
         })
 
-        addFlora("desertScrub", {
-            name = locale:get("flora_desertScrub"),
-            plural = locale:get("flora_desertScrub_plural"),
-            summary = locale:get("flora_desertScrub_summary"),
-            saplingName = locale:get("flora_desertScrub_sapling"),
-            saplingPlural = locale:get("flora_desertScrub_sapling_plural"),
-            modelName = "whDesertScrub",
-            saplingModelName = "whDesertScrubSapling",
+        addFlora("mesquiteTree", {
+            name = locale:get("flora_mesquiteTree"),
+            plural = locale:get("flora_mesquiteTree_plural"),
+            summary = locale:get("flora_mesquiteTree_summary"),
+            saplingName = locale:get("flora_mesquiteTree_sapling"),
+            saplingPlural = locale:get("flora_mesquiteTree_sapling_plural"),
+            modelName = "whMesquiteTree",
+            saplingModelName = "whMesquiteTreeSapling",
             requiresAxeToChop = true,
             resourceGroup = {
                 baseInventory = {
@@ -398,7 +399,7 @@ function mod:onload(flora)
                 },
             },
             markerPositions = bushMarkerPositions,
-            saplingClientModelFunction = getClientModelFunction("whDesertScrub", "whDesertScrubSapling", false, false, true),
+            saplingClientModelFunction = getClientModelFunction("whMesquiteTree", "whMesquiteTreeSapling", false, false, true),
             interactable = true,
             addToPhysics = true,
             fruitSeason = seasons.summer,
@@ -748,12 +749,10 @@ function mod:onload(flora)
         local banyanInfo = {
             localeKey = "banyan",
             woodKey = "banyan",
-            seedKey = "fig",
+            seedKey = "banyanSeed",
             moundKey = "whBanyan",
             saplingModelName = "whBanyanSapling",
             selectionGroupTypeIndex = selectionGroup:addGroup("allBanyans", locale:get("flora_banyan"), locale:get("flora_banyan_plural"), nil),
-            fruitCount = 6,
-            isFoodCrop = true,
             maturityDurationDays = 16,
         }
         addWildTree("banyan1", "whBanyan1", banyanInfo, 10, 8)

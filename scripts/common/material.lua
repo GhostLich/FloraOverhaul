@@ -73,7 +73,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, bushMat("cloudberryLeaf", vec3(0.12, 0.24, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("cloudberryLeafLow", vec3(0.12, 0.24, 0.08), 1.0))
 
-    mj:insertIndexed(material.types, bushMat("desertScrubLeaf", vec3(0.22, 0.24, 0.16), 1.0))
+    mj:insertIndexed(material.types, bushMat("mesquiteLeaf", vec3(0.22, 0.24, 0.16), 1.0))
     mj:insertIndexed(material.types, matWithB("mesquiteBark", vec3(0.2, 0.16, 0.13), 1.0, vec3(0.3, 0.25, 0.2), 1.0))
     mj:insertIndexed(material.types, matWithB("mesquiteWood", vec3(0.45, 0.25, 0.15), 0.5, vec3(0.38, 0.2, 0.12), 0.9))
     mj:insertIndexed(material.types, mat("mesquitePod", vec3(0.5, 0.4, 0.27), 0.7))
@@ -144,6 +144,8 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("mahoganyWood", vec3(0.45, 0.16, 0.1), 0.5, vec3(0.36, 0.12, 0.08), 0.9))
     mj:insertIndexed(material.types, mat("mahoganySeed", vec3(0.3, 0.18, 0.1), 0.8))
     mj:insertIndexed(material.types, mat("mahoganySeedRotten", vec3(0.1, 0.07, 0.05), 0.9))
+    mj:insertIndexed(material.types, mat("banyanSeed", vec3(0.3, 0.18, 0.1), 0.8))
+    mj:insertIndexed(material.types, mat("banyanSeedRotten", vec3(0.1, 0.07, 0.05), 0.9))
 
     mj:insertIndexed(material.types, bushMat("banyanLeaf", vec3(0.1, 0.2, 0.13), 1.0))
     mj:insertIndexed(material.types, bushMat("banyanLeafLow", vec3(0.1, 0.2, 0.13), 1.0))
@@ -333,7 +335,7 @@ function mod:onload(material)
     material.types.baobabFoliageAutumn.edgeDecal = edgeDecal.groupTypes.leavesBigger
     material.types.lingonberryLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.cloudberryLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.desertScrubLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.mesquiteLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.acaciaLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
     material.types.kapokLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
     material.types.rubberLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
@@ -389,6 +391,7 @@ function mod:onload(material)
     material.types.cacaoLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.cordgrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.cottonGrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
+    material.types.lemongrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
 end
 
 return mod
