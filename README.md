@@ -16,7 +16,9 @@ code is MIT, new models are CC BY 4.0, see LICENSE
 
 leaf fringes / colors / uvs may be pending or continued to be adjusted on ✔'d models
 
-Bamboo & Birch model replacements are for size adjustments
+✔'d models may also recieve more varients
+
+Bamboo & Birch vanilla model replacements are for size adjustments
 
 ```
 Acacia1 - ✔
@@ -34,7 +36,7 @@ AlderSapling - ✔
 
 ArganTree -
 ArganTreeSapling -
-ArganNut -
+ArganNut - ✔
 
 BaldCypress1 - ✔
 BaldCypress1Winter - ✔
