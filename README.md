@@ -16,9 +16,11 @@ code is MIT, new models are CC BY 4.0, see LICENSE
 
 leaf fringes / colors / uvs may be pending or continued to be adjusted on ✔'d models
 
-✔'d models may also recieve more varients
+✔'d models may also receive more variants
 
 Bamboo & Birch vanilla model replacements are for size adjustments
+
+i'm also planning to do a second pass on all the LODs to ensure they look as minimally terrible as possible while still being reasonably optimized
 
 ```
 Acacia1 - ✔
