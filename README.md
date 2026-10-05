@@ -112,15 +112,15 @@ Cycad4 - ✔
 CycadSapling - ✔
 CycadSeed - ✔
 
-Cypress1 -
-CypressSapling -
+Cypress1 - ✔
+CypressSapling - ✔
 CypressCone -
 
-DatePalm1 -
-DatePalm2 -
-DatePalm3 -
-DatePalmSapling -
-Date -
+DatePalm1 - ✔
+DatePalm2 - ✔
+DatePalm3 - ✔
+DatePalmSapling - ✔
+Date - 
 
 DoumPalm1 -
 DoumPalm2 -
