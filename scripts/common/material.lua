@@ -325,8 +325,8 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("cattailRoot", vec3(0.52, 0.45, 0.34), 1.0))
     mj:insertIndexed(material.types, mat("cattailRootCooked", vec3(0.3, 0.18, 0.08), 0.8))
     mj:insertIndexed(material.types, matWithB("cattailRootRotten", vec3(0.2, 0.17, 0.12), 1.0, vec3(0.3, 0.26, 0.18), 1.0))
-    mj:insertIndexed(material.types, bushMat("reedLeaf", vec3(0.2, 0.25, 0.1), 0.8))
-    mj:insertIndexed(material.types, bushMat("reedFlower", vec3(0.25, 0.17, 0.1), 0.9))
+    mj:insertIndexed(material.types, bushMat("cattailLeaf", vec3(0.2, 0.25, 0.1), 0.8))
+    mj:insertIndexed(material.types, bushMat("cattailFlower", vec3(0.25, 0.17, 0.1), 0.9))
 
     material.types.grapeLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.barleyFlower.edgeDecal = edgeDecal.groupTypes.wheatFlower

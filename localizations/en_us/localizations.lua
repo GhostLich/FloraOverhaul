@@ -73,9 +73,9 @@ localizations.values = {
     flora_watermelonPlantSapling = "Watermelon Seedling",
     flora_watermelonPlantSapling_plural = "Watermelon Seedlings",
 
-    flora_reedPlant = "Cattails",
-    flora_reedPlant_plural = "Cattails",
-    flora_reedPlant_summary = "Cattails grow at the water's edge along rivers. Their roots can be planted, or roasted on a campfire to eat.",
+    flora_cattail = "Cattails",
+    flora_cattail_plural = "Cattails",
+    flora_cattail_summary = "Cattails grow at the water's edge along rivers. Their roots can be planted, or roasted on a campfire to eat.",
 
     flora_cactus_wild_summary = "A spiky desert plant that bears sweet fruit in autumn. Plant the fruit to grow new cacti.",
 
@@ -102,8 +102,8 @@ localizations.values = {
     object_palmLeafDried = "Dried Palm Leaf",
     object_palmLeafDried_plural = "Dried Palm Leaves",
 
-    flora_reedPlantSapling = "Cattail Seedling",
-    flora_reedPlantSapling_plural = "Cattail Seedlings",
+    flora_cattailSapling = "Cattail Seedling",
+    flora_cattailSapling_plural = "Cattail Seedlings",
 
     log_fig = "Fig Log",
     log_fig_plural = "Fig Logs",

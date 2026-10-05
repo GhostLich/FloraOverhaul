@@ -488,14 +488,14 @@ function mod:onload(flora)
             isFoodCrop = true,
         })
 
-        addFlora("reedPlant", {
-            name = locale:get("flora_reedPlant"),
-            plural = locale:get("flora_reedPlant_plural"),
-            summary = locale:get("flora_reedPlant_summary"),
-            saplingName = locale:get("flora_reedPlantSapling"),
-            saplingPlural = locale:get("flora_reedPlantSapling_plural"),
-            modelName = "whReedPlant",
-            saplingModelName = "whReedPlantSapling",
+        addFlora("cattail", {
+            name = locale:get("flora_cattail"),
+            plural = locale:get("flora_cattail_plural"),
+            summary = locale:get("flora_cattail_summary"),
+            saplingName = locale:get("flora_cattailSapling"),
+            saplingPlural = locale:get("flora_cattailSapling_plural"),
+            modelName = "whCattail",
+            saplingModelName = "whCattailSapling",
             resourceGroup = {
                 baseInventory = {
                     [gameObject.typeIndexMap.cattailRoot] = 2,
