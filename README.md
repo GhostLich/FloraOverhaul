@@ -122,8 +122,9 @@ DatePalm3 - ✔
 DatePalmSapling - ✔
 Date - 
 
-DoumPalm1 -
-DoumPalm2 -
+DoumPalm1 - ✔
+DoumPalm2 - ✔
+DoumPalm3 - ✔
 
 DwarfBirch1 -
 DwarfBirch1Winter -
