@@ -882,7 +882,7 @@ function mod:onload(flora)
         })
 
         local doumPalmSelectionGroupTypeIndex = selectionGroup:addGroup("allDoumPalms", locale:get("flora_doumPalm"), locale:get("flora_doumPalm_plural"), nil)
-        for i = 1,2 do
+        for i = 1,3 do
             addFlora("doumPalm" .. mj:tostring(i), {
                 name = locale:get("flora_doumPalm"),
                 plural = locale:get("flora_doumPalm_plural"),
@@ -890,7 +890,7 @@ function mod:onload(flora)
                 saplingName = locale:get("flora_doumPalm_sapling"),
                 saplingPlural = locale:get("flora_doumPalm_sapling_plural"),
                 modelName = "whDoumPalm" .. mj:tostring(i),
-                saplingModelName = "whDatePalmSapling",
+                saplingModelName = "whDoumPalmSapling",
                 resourceGroup = {
                     baseInventory = {
                         [gameObject.typeIndexMap.datePalmLog] = 3,
@@ -909,7 +909,7 @@ function mod:onload(flora)
                 requiresAxeToChop = true,
                 markerPositions = treeMarkerPositions,
                 followCamOffset = treeFollowCamOffset,
-                saplingClientModelFunction = getClientModelFunction("whDatePalm", "whDatePalmSapling", false, false, true),
+                saplingClientModelFunction = getClientModelFunction("whDatePalm", "whDoumPalmSapling", false, false, true),
                 fruitSeason = seasons.summer,
                 seedResourceTypeIndex = resource.types.palmSeed.index,
                 speciesSelectionGroupTypeIndex = doumPalmSelectionGroupTypeIndex,
@@ -919,7 +919,7 @@ function mod:onload(flora)
                 playBirdSounds = true,
             })
         end
-        addVariations({"doumPalm1", "doumPalm2"})
+        addVariations({"doumPalm1", "doumPalm2", "doumPalm3"})
 
         local treeFernSelectionGroupTypeIndex = selectionGroup:addGroup("allTreeFerns", locale:get("flora_treeFern"), locale:get("flora_treeFern_plural"), nil)
         for i = 1,4 do

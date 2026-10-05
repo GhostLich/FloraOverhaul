@@ -30,6 +30,14 @@ function mod:onload(edgeDecal)
         },
         size = vec2(0.4, 0.0),
     })
+
+    mj:insertIndexed(edgeDecal.groupTypes, {
+        key = "doumPalmTrunk",
+        textureLocations = {
+            edgeDecal.textureLocations.bananaLeafA,
+        },
+        size = vec2(0.125, 0.0),
+    })
 end
 
 return mod

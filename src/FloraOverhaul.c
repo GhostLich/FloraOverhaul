@@ -98,7 +98,7 @@ static uint32_t gameObjectType_treeFernTypes[TREE_FERN_TYPE_COUNT];
 #define MAPLE_TYPE_COUNT 4
 static uint32_t gameObjectType_mapleTypes[MAPLE_TYPE_COUNT];
 
-#define DOUM_PALM_TYPE_COUNT 2
+#define DOUM_PALM_TYPE_COUNT 3
 static uint32_t gameObjectType_doumPalmTypes[DOUM_PALM_TYPE_COUNT];
 static uint32_t gameObjectType_dwarfBirch;
 static uint32_t gameObjectType_argan;
@@ -268,6 +268,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 
 		gameObjectType_doumPalmTypes[0] = threadState->getGameObjectTypeIndex(threadState, "doumPalm1");
 		gameObjectType_doumPalmTypes[1] = threadState->getGameObjectTypeIndex(threadState, "doumPalm2");
+		gameObjectType_doumPalmTypes[2] = threadState->getGameObjectTypeIndex(threadState, "doumPalm3");
 		gameObjectType_dwarfBirch = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch1");
 		gameObjectType_argan = threadState->getGameObjectTypeIndex(threadState, "arganTree");
 		gameObjectType_carob = threadState->getGameObjectTypeIndex(threadState, "carobTree");
@@ -743,11 +744,7 @@ static int addHotSteppe(SPBiomeThreadState* threadState, uint32_t* types, int ad
 		if(clump > -0.1 && randomInt(faceUniqueID, 5301, 6) == 0)
 		{
 			uint32_t roll = randomInt(faceUniqueID, 5302, 10);
-			if(roll < 3)
-			{
-				ADD_OBJECT(gameObjectType_doumPalmTypes[randomInt(faceUniqueID, 9651, DOUM_PALM_TYPE_COUNT)]);
-			}
-			else
+			if(roll >= 3)
 			{
 				ADD_OBJECT(roll < 5 ? gameObjectType_acaciaTypes[randomInt(faceUniqueID, 5303, ACACIA_TYPE_COUNT)] : gameObjectType_acacia2);
 			}
@@ -766,9 +763,9 @@ static int addDesertRiver(uint32_t* types, int addedCount, uint64_t faceUniqueID
 			uint32_t roll = randomInt(faceUniqueID, 7203 + i, 10);
 			if(roll < 4)
 			{
-				ADD_OBJECT(gameObjectType_doumPalmTypes[randomInt(faceUniqueID, 9661 + i, DOUM_PALM_TYPE_COUNT)]);
+				continue;
 			}
-			else if(roll < 7)
+			if(roll < 7)
 			{
 				ADD_OBJECT(gameObjectType_datePalmTypes[randomInt(faceUniqueID, 7303 + i, DATE_PALM_TYPE_COUNT)]);
 			}
@@ -1229,6 +1226,22 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		if(coast && dryLand)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8211, 4, 1, 0, &gameObjectType_tamarisk, 1);
+		}
+		if(coast && (info.desert || hotSteppe))
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8221, 12, 2, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
+		}
+		if((info.desert || hotSteppe) && info.nearRiver)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8231, 150, 2, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
+		}
+		else if(hotSteppe && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8241, 600, 2, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
+		}
+		if(info.tropical && info.savanna && info.nearRiver)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8251, 120, 2, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 3)

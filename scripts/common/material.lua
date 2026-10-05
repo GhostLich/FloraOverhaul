@@ -30,6 +30,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("palm_date", vec3(0.5, 0.25, 0.05), 0.4))
     mj:insertIndexed(material.types, matWithB("palm_leaf", vec3(0.25, 0.39, 0.15) * 0.5, 0.75, vec3(0.25, 0.39, 0.15) * 1.5, 0.4))
     mj:insertIndexed(material.types, matWithB("palm_trunk", vec3(0.25, 0.2, 0.15), 1.0, vec3(0.4, 0.33, 0.25), 1.0))
+    mj:insertIndexed(material.types, matWithB("palm_trunk2", vec3(0.25, 0.2, 0.15), 1.0, vec3(0.4, 0.33, 0.25), 1.0))
 
     mj:insertIndexed(material.types, mat("grape", vec3(0.08, 0.0, 0.08), 0.55))
     mj:insertIndexed(material.types, mat("grapeRotten", vec3(0.05, 0.02, 0.04), 0.8))
@@ -172,7 +173,9 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("treeFernSpores", vec3(0.35, 0.25, 0.12), 0.7))
     mj:insertIndexed(material.types, mat("treeFernSporesRotten", vec3(0.1, 0.08, 0.05), 0.9))
     mj:insertIndexed(material.types, matWithB("doumPalmLeaf", vec3(0.2, 0.28, 0.16), 0.8, vec3(0.3, 0.38, 0.24), 0.6))
+    mj:insertIndexed(material.types, matWithB("doumPalmLeaf2", vec3(0.42, 0.36, 0.24), 0.9, vec3(0.5, 0.42, 0.27), 0.8))
     mj:insertIndexed(material.types, matWithB("doumPalmTrunk", vec3(0.35, 0.3, 0.24), 1.0, vec3(0.25, 0.21, 0.17), 1.0))
+    mj:insertIndexed(material.types, matWithB("doumPalmTrunk2", vec3(0.35, 0.3, 0.24), 1.0, vec3(0.25, 0.21, 0.17), 1.0))
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeaf", vec3(0.14, 0.24, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeafLow", vec3(0.14, 0.24, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeafSmall", vec3(0.14, 0.24, 0.08), 1.0))
@@ -349,6 +352,8 @@ function mod:onload(material)
     material.types.mahoganyLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.banyanLeaf.edgeDecal = edgeDecal.groupTypes.oak
     material.types.banyanRoots.edgeDecal = edgeDecal.groupTypes.banyanRoots
+    material.types.doumPalmTrunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
+    material.types.palm_trunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
     material.types.banyanLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.juniperLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.juniperLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
