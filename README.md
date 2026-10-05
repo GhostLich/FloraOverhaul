@@ -125,6 +125,7 @@ Date -
 DoumPalm1 - ✔
 DoumPalm2 - ✔
 DoumPalm3 - ✔
+DoumPalmSapling - ✔
 
 DwarfBirch1 -
 DwarfBirch1Winter -
@@ -221,10 +222,10 @@ OliveTree2 -
 OliveTreeSapling -
 Olive -
 
-WildPalm1 -
-WildPalm2 -
-WildPalm3 -
-PalmSeed -
+WildPalm1 - ✔
+WildPalm2 - ✔
+WildPalm3 - ✔
+PalmSeed - ✔
 PalmLeaf -
 PalmLeafDried -
 
