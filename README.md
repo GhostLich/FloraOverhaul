@@ -268,10 +268,10 @@ Tamarisk1 -
 TamariskSapling -
 TamariskSeed -
 
-TreeFern1 -
-TreeFern2 -
-TreeFern3 -
-TreeFern4 -
+TreeFern1 - ✔
+TreeFern2 - ✔
+TreeFern3 - ✔
+TreeFern4 - ✔
 TreeFernSapling -
 TreeFernSpores -
 

@@ -157,6 +157,7 @@ function mod:onload(material)
 
     mj:insertIndexed(material.types, matWithB("cycad_leaf", vec3(0.06, 0.16, 0.05), 0.6, vec3(0.1, 0.24, 0.08), 0.5))
     mj:insertIndexed(material.types, matWithB("cycad_trunk", vec3(0.3, 0.26, 0.2), 1.0, vec3(0.2, 0.17, 0.13), 1.0))
+    mj:insertIndexed(material.types, matWithB("cycad_trunk2", vec3(0.3, 0.26, 0.2), 1.0, vec3(0.2, 0.17, 0.13), 1.0))
     mj:insertIndexed(material.types, mat("cycadSeed", vec3(0.6, 0.22, 0.04), 0.6))
     mj:insertIndexed(material.types, mat("cycadSeedRotten", vec3(0.14, 0.07, 0.03), 0.9))
 
@@ -170,6 +171,7 @@ function mod:onload(material)
 
     mj:insertIndexed(material.types, matWithB("treeFernLeaf", vec3(0.08, 0.22, 0.07), 1.0, vec3(0.16, 0.3, 0.1), 1.0))
     mj:insertIndexed(material.types, matWithB("treeFernTrunk", vec3(0.15, 0.1, 0.07), 1.0, vec3(0.1, 0.07, 0.05), 1.0))
+    mj:insertIndexed(material.types, matWithB("treeFernTrunk2", vec3(0.15, 0.1, 0.07), 1.0, vec3(0.1, 0.07, 0.05), 1.0))
     mj:insertIndexed(material.types, mat("treeFernSpores", vec3(0.35, 0.25, 0.12), 0.7))
     mj:insertIndexed(material.types, mat("treeFernSporesRotten", vec3(0.1, 0.08, 0.05), 0.9))
     mj:insertIndexed(material.types, matWithB("doumPalmLeaf", vec3(0.2, 0.28, 0.16), 0.8, vec3(0.3, 0.38, 0.24), 0.6))
@@ -354,6 +356,8 @@ function mod:onload(material)
     material.types.banyanRoots.edgeDecal = edgeDecal.groupTypes.banyanRoots
     material.types.doumPalmTrunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
     material.types.palm_trunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
+    material.types.treeFernTrunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
+    material.types.cycad_trunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
     material.types.banyanLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.juniperLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.juniperLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
