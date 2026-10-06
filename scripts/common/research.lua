@@ -40,6 +40,7 @@ function mod:onload(research)
         addMedicineStandIn("peppermintLeaf", {"foodPoisoningMedicine"})
         addMedicineStandIn("lemongrass", {"foodPoisoningMedicine", "virusMedicine"})
         addMedicineStandIn("sagebrushLeaf", {"burnMedicine", "virusMedicine"})
+        addMedicineStandIn("thyme", {"injuryMedicine"})
     end
 end
 

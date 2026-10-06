@@ -139,6 +139,10 @@ function mod:onload(flora)
         addFruit("tamariskSeed", "whTamariskSeed")
         addFruit("sagebrushSeed", "whSagebrushSeed")
         addFruit("sagebrushLeaf", "whSagebrushLeaf")
+        addFruit("chestnut", "whChestnut")
+        addFruit("hazelnut", "whHazelnut")
+        addFruit("thyme", "whThyme")
+        addFruit("arcticWillowSeed", "whArcticWillowSeed")
         addFruit("stonePineCone", "whStonePineCone")
         addFruit("baldCypressCone", "whBaldCypressCone")
         addFruit("cacaoPod", "whCacaoPod")
@@ -891,6 +895,73 @@ function mod:onload(flora)
         end
         addVariations({"dwarfBirch1", "dwarfBirch2", "dwarfBirch3"})
 
+        addFlora("hazelBush", {
+            name = locale:get("flora_hazelBush"),
+            plural = locale:get("flora_hazelBush_plural"),
+            summary = locale:get("flora_hazelBush_summary"),
+            saplingName = locale:get("flora_hazelBush_sapling"),
+            saplingPlural = locale:get("flora_hazelBush_sapling_plural"),
+            modelName = "whHazelBush",
+            saplingModelName = "whHazelBushSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.birchBranch] = 2,
+                },
+                seasonalReplenish = {
+                    [gameObject.typeIndexMap.birchBranch] = 2,
+                },
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.hazelnut] = 3,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.hazelnut,
+                    gameObject.typeIndexMap.birchBranch,
+                },
+            },
+            markerPositions = bushMarkerPositions,
+            clientModelFunction = getClientModelFunction("whHazelBush", "whHazelBush", true, false, false),
+            saplingClientModelFunction = getClientModelFunction("whHazelBush", "whHazelBushSapling", false, false, true),
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.autumn,
+            seedResourceTypeIndex = resource.types.hazelnut.index,
+            isFoodCrop = true,
+            useCraftSimple = true,
+        })
+
+        addFlora("arcticWillow", {
+            name = locale:get("flora_arcticWillow"),
+            plural = locale:get("flora_arcticWillow_plural"),
+            summary = locale:get("flora_arcticWillow_summary"),
+            saplingName = locale:get("flora_arcticWillow_sapling"),
+            saplingPlural = locale:get("flora_arcticWillow_sapling_plural"),
+            modelName = "whArcticWillow",
+            saplingModelName = "whArcticWillowSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.willowBark] = 2,
+                },
+                seasonalReplenish = {
+                    [gameObject.typeIndexMap.willowBark] = 2,
+                },
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.arcticWillowSeed] = 1,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.arcticWillowSeed,
+                    gameObject.typeIndexMap.willowBark,
+                },
+            },
+            markerPositions = bushMarkerPositions,
+            clientModelFunction = getClientModelFunction("whArcticWillow", "whArcticWillow", true, false, false),
+            saplingClientModelFunction = getClientModelFunction("whArcticWillow", "whArcticWillowSapling", false, false, true),
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.summer,
+            seedResourceTypeIndex = resource.types.arcticWillowSeed.index,
+            useCraftSimple = true,
+        })
+
         local sagebrushSelectionGroupTypeIndex = selectionGroup:addGroup("allSagebrush", locale:get("flora_sagebrush"), locale:get("flora_sagebrush_plural"), nil)
         for i = 1,3 do
             addFlora("sagebrush" .. mj:tostring(i), {
@@ -1054,6 +1125,46 @@ function mod:onload(flora)
             isFoodCrop = true,
             maturityDurationDays = 20,
         }, 5, 3)
+
+        addWildTree("chestnut1", "whChestnut1", {
+            localeKey = "chestnut",
+            woodKey = "oak",
+            seedKey = "chestnut",
+            moundKey = "whChestnut",
+            saplingModelName = "whChestnutSapling",
+            seasonal = true,
+            fruitCount = 4,
+            fruitSeason = seasons.autumn,
+            isFoodCrop = true,
+            maturityDurationDays = 20,
+        }, 6, 4)
+
+        addWildTree("saxaul1", "whSaxaul1", {
+            localeKey = "saxaul",
+            woodKey = "tamarisk",
+            seedKey = "tamariskSeed",
+            moundKey = "whSaxaul",
+            saplingModelName = "whSaxaulSapling",
+        }, 0, 3)
+
+        addWildTree("spruce1", "whSpruce1", {
+            localeKey = "spruce",
+            woodKey = "pine",
+            seedKey = "pineCone",
+            moundKey = "whSpruce",
+            saplingModelName = "whSpruceSapling",
+            snow = true,
+        }, 5, 3)
+
+        addWildTree("larch1", "whLarch1", {
+            localeKey = "larch",
+            woodKey = "pine",
+            seedKey = "pineCone",
+            moundKey = "whLarch",
+            saplingModelName = "whLarchSapling",
+            seasonal = true,
+            fruitSeason = seasons.autumn,
+        }, 4, 3)
 
         addWildTree("tamarisk1", "whTamarisk1", {
             localeKey = "tamarisk",
@@ -1235,6 +1346,35 @@ function mod:onload(flora)
             useCraftSimple = true,
         })
 
+        addFlora("elephantGrass", {
+            name = locale:get("flora_elephantGrass"),
+            plural = locale:get("flora_elephantGrass_plural"),
+            summary = locale:get("flora_elephantGrass_summary"),
+            saplingName = locale:get("flora_elephantGrassSapling"),
+            saplingPlural = locale:get("flora_elephantGrassSapling_plural"),
+            modelName = "whElephantGrass",
+            saplingModelName = "whElephantGrassSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.palmLeaf] = 2,
+                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.palmLeaf,
+                    gameObject.typeIndexMap.reedRhizome,
+                },
+                revertToSeedlingGatherResourceCounts = {
+                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                },
+            },
+            markerPositions = tallPlantMarkerPositions,
+            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            maturityDurationDays = 3,
+            fruitImmediatelyWhenMature = true,
+            interactable = true,
+            useCraftSimple = true,
+        })
+
         addFlora("cottonGrass", {
             name = locale:get("flora_cottonGrass"),
             plural = locale:get("flora_cottonGrass_plural"),
@@ -1356,6 +1496,33 @@ function mod:onload(flora)
             },
             markerPositions = tinyPlantMarkerPositions,
             seedResourceTypeIndex = resource.types.yarrowFlower.index,
+            maturityDurationDays = 3,
+            fruitImmediatelyWhenMature = true,
+            interactable = true,
+            useCraftSimple = true,
+        })
+
+        addFlora("thymePlant", {
+            name = locale:get("flora_thymePlant"),
+            plural = locale:get("flora_thymePlant_plural"),
+            summary = locale:get("flora_thymePlant_summary"),
+            saplingName = locale:get("flora_thymePlantSapling"),
+            saplingPlural = locale:get("flora_thymePlantSapling_plural"),
+            modelName = "whThymePlant",
+            saplingModelName = "whThymePlantSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.thyme] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.thyme,
+                },
+                revertToSeedlingGatherResourceCounts = {
+                    [gameObject.typeIndexMap.thyme] = 1,
+                },
+            },
+            markerPositions = tinyPlantMarkerPositions,
+            seedResourceTypeIndex = resource.types.thyme.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,

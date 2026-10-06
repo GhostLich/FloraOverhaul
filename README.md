@@ -36,6 +36,11 @@ Alder2Winter - ✔
 AlderCone - ✔
 AlderSapling - ✔
 
+ArcticWillow -
+ArcticWillowWinter -
+ArcticWillowSapling -
+ArcticWillowSeed -
+
 ArganTree -
 ArganTreeSapling -
 ArganNut - ✔
@@ -88,6 +93,11 @@ ReedPlantSapling -
 CattailRoot -
 CattailRootCooked -
 
+Chestnut1 -
+Chestnut1Winter -
+ChestnutSapling -
+Chestnut -
+
 CloudberryBush -
 CloudberryBushSapling -
 Cloudberry -
@@ -135,6 +145,9 @@ DwarfBirch3 - ✔
 DwarfBirch3Winter - ✔
 DwarfBirchSapling - ✔
 
+ElephantGrass -
+ElephantGrassSapling -
+
 GroundFern -
 GroundFernSapling -
 
@@ -156,6 +169,11 @@ GrapevinePlant -
 GrapevinePlantSapling -
 Grape -
 
+HazelBush -
+HazelBushWinter -
+HazelBushSapling -
+Hazelnut -
+
 Juniper1 -
 Juniper1Snow -
 Juniper2 -
@@ -168,6 +186,10 @@ Kapok2 -
 Kapok3 -
 KapokSapling -
 KapokSeed -
+
+Larch1 -
+Larch1Winter -
+LarchSapling -
 
 LemongrassPlant -
 LemongrassPlantSapling -
@@ -263,6 +285,20 @@ RubberTree4 -
 RubberTreeSapling -
 RubberSeed -
 
+Sagebrush1 -
+Sagebrush2 -
+Sagebrush3 -
+SagebrushSapling -
+SagebrushLeaf -
+SagebrushSeed -
+
+Saxaul1 -
+SaxaulSapling -
+
+Spruce1 -
+Spruce1Snow -
+SpruceSapling -
+
 StonePine1 -
 StonePine1Snow -
 StonePineSapling -
@@ -271,6 +307,10 @@ StonePineCone -
 Tamarisk1 -
 TamariskSapling -
 TamariskSeed -
+
+ThymePlant -
+ThymePlantSapling -
+Thyme -
 
 TreeFern1 - ✔
 TreeFern2 - ✔

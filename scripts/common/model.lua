@@ -189,6 +189,27 @@ local windStrengths = {
     whMaritimePine1Snow = vec2(0.997, 0.9),
     whStonePine1 = vec2(0.997, 0.9),
     whStonePine1Snow = vec2(0.997, 0.9),
+    whChestnut1 = vec2(0.998, 0.8),
+    whChestnut1Spring = vec2(0.998, 0.8),
+    whChestnut1Autumn = vec2(0.998, 0.8),
+    whChestnut1Winter = vec2(0.999, 0.8),
+    whHazelBush = vec2(0.95, 0.8),
+    whHazelBushSpring = vec2(0.95, 0.8),
+    whHazelBushAutumn = vec2(0.95, 0.8),
+    whHazelBushWinter = vec2(0.95, 0.8),
+    whArcticWillow = vec2(0.95, 0.8),
+    whArcticWillowSpring = vec2(0.95, 0.8),
+    whArcticWillowAutumn = vec2(0.95, 0.8),
+    whArcticWillowWinter = vec2(0.95, 0.8),
+    whSaxaul1 = vec2(0.99, 0.8),
+    whElephantGrass = vec2(0.85, 0.6),
+    whThymePlant = vec2(0.8, 0.6),
+    whSpruce1 = vec2(0.997, 0.9),
+    whSpruce1Snow = vec2(0.997, 0.9),
+    whLarch1 = vec2(0.997, 0.9),
+    whLarch1Spring = vec2(0.997, 0.9),
+    whLarch1Autumn = vec2(0.997, 0.9),
+    whLarch1Winter = vec2(0.999, 0.8),
     whCacaoTree = vec2(0.98, 0.8),
     whCacaoPodHangingFruit = vec2(0.98, 0.8),
     whPapyrus = vec2(0.9, 0.6),
@@ -214,6 +235,12 @@ local windStrengths = {
     whTamariskSapling = vec2(0.95, 0.8),
     whMaritimePineSapling = vec2(0.95, 0.8),
     whStonePineSapling = vec2(0.95, 0.8),
+    whSpruceSapling = vec2(0.95, 0.8),
+    whChestnutSapling = vec2(0.95, 0.8),
+    whHazelBushSapling = vec2(0.95, 0.8),
+    whArcticWillowSapling = vec2(0.95, 0.8),
+    whSaxaulSapling = vec2(0.95, 0.8),
+    whLarchSapling = vec2(0.95, 0.8),
     whCacaoTreeSapling = vec2(0.95, 0.8),
     whTreeFernSapling = vec2(0.9, 0.8),
 }
@@ -652,6 +679,46 @@ function mod:onload(model)
             whPlaneTree2Autumn = {
                 planeLeaf = "planeLeafAutumn",
                 planeLeafLow = "planeLeafLowAutumn",
+            },
+        }
+        remapModels.whChestnut1 = {
+            whChestnut1Spring = {
+                chestnutLeaf = "chestnutLeafSpring",
+                chestnutLeafLow = "chestnutLeafSpringLow",
+            },
+            whChestnut1Autumn = {
+                chestnutLeaf = "chestnutLeafAutumn",
+                chestnutLeafLow = "chestnutLeafAutumnLow",
+            },
+        }
+        remapModels.whHazelBush = {
+            whHazelBushSpring = {
+                hazelLeaf = "hazelLeafSpring",
+                hazelLeafLow = "hazelLeafSpringLow",
+            },
+            whHazelBushAutumn = {
+                hazelLeaf = "hazelLeafAutumn",
+                hazelLeafLow = "hazelLeafAutumnLow",
+            },
+        }
+        remapModels.whArcticWillow = {
+            whArcticWillowSpring = {
+                arcticWillowLeaf = "arcticWillowLeafSpring",
+                arcticWillowLeafLow = "arcticWillowLeafSpringLow",
+            },
+            whArcticWillowAutumn = {
+                arcticWillowLeaf = "arcticWillowLeafAutumn",
+                arcticWillowLeafLow = "arcticWillowLeafAutumnLow",
+            },
+        }
+        remapModels.whLarch1 = {
+            whLarch1Spring = {
+                larchLeaf = "larchLeafSpring",
+                larchLeafLow = "larchLeafLowSpring",
+            },
+            whLarch1Autumn = {
+                larchLeaf = "larchLeafAutumn",
+                larchLeafLow = "larchLeafLowAutumn",
             },
         }
         remapModels.whBaldCypress1 = {

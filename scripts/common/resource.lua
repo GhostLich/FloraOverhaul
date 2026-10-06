@@ -445,6 +445,65 @@ function mod:onload(resource)
     })
 
     typeMaps:insert("resource", resource.types, {
+        key = "chestnut",
+        name = locale:get("fruit_chestnut"),
+        plural = locale:get("fruit_chestnut_plural"),
+        foodValue = 0.4,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.chestnut,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "chestnutRotten",
+        name = locale:get("fruit_chestnut_rotten"),
+        plural = locale:get("fruit_chestnut_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.chestnutRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "hazelnut",
+        name = locale:get("fruit_hazelnut"),
+        plural = locale:get("fruit_hazelnut_plural"),
+        foodValue = 0.3,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hazelnut,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "hazelnutRotten",
+        name = locale:get("fruit_hazelnut_rotten"),
+        plural = locale:get("fruit_hazelnut_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hazelnutRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "thyme",
+        name = locale:get("fruit_thyme"),
+        plural = locale:get("fruit_thyme_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.thyme,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "thymeRotten",
+        name = locale:get("fruit_thyme_rotten"),
+        plural = locale:get("fruit_thyme_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.thymeRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
         key = "stonePineCone",
         name = locale:get("fruit_stonePineCone"),
         plural = locale:get("fruit_stonePineCone_plural"),
@@ -535,6 +594,25 @@ function mod:onload(resource)
         plural = locale:get("fruit_planeSeed_rotten_plural"),
         compostValue = 1,
         displayGameObjectTypeIndex = gameObjectTypeIndexMap.planeSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "arcticWillowSeed",
+        name = locale:get("fruit_arcticWillowSeed"),
+        plural = locale:get("fruit_arcticWillowSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.arcticWillowSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "arcticWillowSeedRotten",
+        name = locale:get("fruit_arcticWillowSeed_rotten"),
+        plural = locale:get("fruit_arcticWillowSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.arcticWillowSeedRotten,
         disallowsDecorationPlacing = true,
         tradeBatchSize = 20,
         tradeValue = 1,
@@ -874,7 +952,7 @@ function mod:onload(resource)
         })
     end
 
-    addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark"})
+    addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark", "thyme"})
     addMedicineGroup("medicineGinger", {"gingerRoot", "juniperBerry", "mesquitePod", "peppermintLeaf"})
     addMedicineGroup("medicineEchinacea", {"echinaceaFlower", "cloudberry", "lingonberry", "mesquitePod", "lemongrass"})
     addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf"})
