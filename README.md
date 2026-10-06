@@ -31,7 +31,8 @@ AcaciaSeed - ✔
 
 AgavePlant -
 AgavePlantSapling -
-AgaveSeed -
+AgaveHeart -
+AgaveHeartCooked -
 
 Alder1 - ✔
 Alder1Winter - ✔
@@ -43,7 +44,6 @@ AlderSapling - ✔
 ArcticWillow -
 ArcticWillowWinter -
 ArcticWillowSapling -
-ArcticWillowSeed -
 
 ArganTree -
 ArganTreeSapling -
@@ -57,7 +57,6 @@ BaldCypressCone -
 Banyan1 - ✔
 Banyan2 - ✔
 BanyanSapling - ✔
-BanyanSeed -
 
 Baobab1 - ✔
 Baobab1Winter - ✔
@@ -76,7 +75,6 @@ BrazilNut - ✔
 
 Bulrush -
 BulrushSapling -
-ReedRhizome -
 
 CacaoTree - ✔
 CacaoTreeSapling - ✔
@@ -90,7 +88,6 @@ CactusFruit -
 
 CarobTree - ✔
 CarobTreeSapling - ✔
-CarobPod - ✔
 
 Cattail -
 CattailSapling -
@@ -108,6 +105,7 @@ Cloudberry -
 
 CommonReed -
 CommonReedSapling -
+ReedRhizome -
 
 CordgrassCluster -
 CordgrassStalk -
@@ -128,7 +126,6 @@ CycadSeed - ✔
 
 Cypress1 - ✔
 CypressSapling - ✔
-CypressCone -
 
 DatePalm1 - ✔
 DatePalm2 - ✔
@@ -140,6 +137,7 @@ DoumPalm1 - ✔
 DoumPalm2 - ✔
 DoumPalm3 - ✔
 DoumPalmSapling - ✔
+DoumFruit -
 
 DwarfBirch1 - ✔
 DwarfBirch1Winter - ✔
@@ -179,24 +177,21 @@ Grape -
 HazelBush -
 HazelBushWinter -
 HazelBushSapling -
-Hazelnut -
 
 Juniper1 -
 Juniper1Snow -
 Juniper2 -
 Juniper2Snow -
-JuniperSapling -
-JuniperBerry -
 
 Kapok1 -
 Kapok2 -
 Kapok3 -
 KapokSapling -
 KapokSeed -
+KapokFibre -
 
 Larch1 -
 Larch1Winter -
-LarchSapling -
 
 LemongrassPlant -
 LemongrassPlantSapling -
@@ -209,7 +204,6 @@ Lingonberry -
 Mahogany1 -
 Mahogany2 -
 MahoganySapling -
-MahoganySeed -
 
 Mangrove1 -
 Mangrove2 -
@@ -229,7 +223,6 @@ MapleSeed -
 
 MaritimePine1 -
 MaritimePine1Snow -
-MaritimePineSapling -
 
 MesquiteTree - ✔
 MesquiteTreeSapling - ✔
@@ -248,7 +241,6 @@ Acorn -
 
 Oleander1 -
 OleanderSapling -
-OleanderSeed -
 
 OliveTree -
 OliveTree2 -
@@ -290,21 +282,18 @@ RubberTree2 -
 RubberTree3 -
 RubberTree4 -
 RubberTreeSapling -
-RubberSeed -
 
 Sagebrush1 -
 Sagebrush2 -
 Sagebrush3 -
 SagebrushSapling -
 SagebrushLeaf -
-SagebrushSeed -
 
 Saxaul1 -
 SaxaulSapling -
 
 SeaBuckthornBush -
 SeaBuckthornBushSapling -
-SeaBuckthorn -
 
 Spruce1 -
 Spruce1Snow -
@@ -312,7 +301,6 @@ SpruceSapling -
 
 StonePine1 -
 StonePine1Snow -
-StonePineSapling -
 StonePineCone -
 
 Tamarisk1 -
@@ -329,6 +317,7 @@ TreeFern3 - ✔
 TreeFern4 - ✔
 TreeFernSapling - ✔
 TreeFernSpores -
+Frond -
 
 WatermelonPlant -
 WatermelonPlantSapling -

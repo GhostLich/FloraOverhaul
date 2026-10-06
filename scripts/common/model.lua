@@ -281,6 +281,15 @@ local woodKeys = {
     "cacao",
 }
 
+local moundBases = {
+    appleTreeMound = {"whAcacia", "whArganTree", "whCacaoTree", "whFigTree", "whMahogany", "whOliveTree"},
+    birchMound = {"whAlder", "whArcticWillow", "whBaldCypress", "whChestnut", "whCypress", "whDwarfBirch", "whHazelBush", "whMaple", "whOak", "whPlaneTree", "whPoplar", "whRubberTree", "whSagebrush"},
+    willowMound = {"whBanyan", "whMangrove"},
+    aspenMound = {"whBaobab", "whBrazilNutTree", "whKapok"},
+    coconutTreeMound = {"whCycad", "whDatePalm", "whTreeFern"},
+    pineMound = {"whJuniper", "whLarch", "whMaritimePine", "whSaxaul", "whSpruce", "whStonePine", "whTamarisk"},
+}
+
 local willowBases = {
     willowBranch = "%sBranch",
     willowBranchLong = "%sBranchLong",
@@ -492,6 +501,23 @@ function mod:onload(model)
         }
         remapModels.whLingonberry = {
             whLingonberryHangingFruit = {},
+            whJuniperBerry = {
+                lingonberry = "juniperBerry",
+            },
+            whJuniperBerryHangingFruit = {
+                lingonberry = "juniperBerry",
+            },
+            whSeaBuckthorn = {
+                lingonberry = "seaBuckthorn",
+            },
+        }
+        remapModels.whLingonberryRotten = {
+            whJuniperBerryRotten = {
+                lingonberryRotten = "juniperBerryRotten",
+            },
+            whSeaBuckthornRotten = {
+                lingonberryRotten = "seaBuckthornRotten",
+            },
         }
         remapModels.whCloudberry = {
             whCloudberryHangingFruit = {},
@@ -509,6 +535,20 @@ function mod:onload(model)
         }
         remapModels.whMesquitePod = {
             whMesquitePodHangingFruit = {},
+            whCarobPod = {
+                mesquitePod = "carobPod",
+            },
+            whCarobPodHangingFruit = {
+                mesquitePod = "carobPod",
+            },
+        }
+        remapModels.whMesquitePodRotten = {
+            whCarobPodRotten = {
+                mesquitePodRotten = "carobPodRotten",
+            },
+        }
+        remapModels.whMesquiteTreeMound = {
+            whCarobTreeMound = {},
         }
         remapModels.whOak1 = {
             whOak1Spring = {
@@ -668,9 +708,6 @@ function mod:onload(model)
                 dwarfBirchBark = "sagebrushBark",
             },
         }
-        remapModels.whCarobPod = {
-            whCarobPodHangingFruit = {},
-        }
         remapModels.whPlaneTree1 = {
             whPlaneTree1Spring = {
                 planeLeaf = "planeLeafSpring",
@@ -770,9 +807,6 @@ function mod:onload(model)
                 dwarfBirchBark = "sagebrushBark",
             },
         }
-        remapModels.whDwarfBirchMound = {
-            whSagebrushMound = {},
-        }
         remapModels.whPlantainLeaf = {
             whSagebrushLeaf = {
                 plantainLeaf = "sagebrushLeafLow",
@@ -787,15 +821,48 @@ function mod:onload(model)
                 tamariskSeed = "sagebrushSeed",
             },
             whSaxaulSeed = {},
+            whAgaveSeed = {
+                tamariskSeed = "agaveSeed",
+            },
+            whArcticWillowSeed = {
+                tamariskSeed = "arcticWillowSeed",
+            },
+            whBanyanSeed = {
+                tamariskSeed = "banyanSeed",
+            },
+            whMahoganySeed = {
+                tamariskSeed = "mahoganySeed",
+            },
+            whOleanderSeed = {
+                tamariskSeed = "oleanderSeed",
+            },
+            whRubberSeed = {
+                tamariskSeed = "rubberSeed",
+            },
         }
         remapModels.whTamariskSeedRotten = {
             whSagebrushSeedRotten = {
                 tamariskSeedRotten = "sagebrushSeedRotten",
             },
             whSaxaulSeedRotten = {},
-        }
-        remapModels.whJuniperBerry = {
-            whJuniperBerryHangingFruit = {},
+            whAgaveSeedRotten = {
+                tamariskSeedRotten = "agaveSeedRotten",
+            },
+            whArcticWillowSeedRotten = {
+                tamariskSeedRotten = "arcticWillowSeedRotten",
+            },
+            whBanyanSeedRotten = {
+                tamariskSeedRotten = "banyanSeedRotten",
+            },
+            whMahoganySeedRotten = {
+                tamariskSeedRotten = "mahoganySeedRotten",
+            },
+            whOleanderSeedRotten = {
+                tamariskSeedRotten = "oleanderSeedRotten",
+            },
+            whRubberSeedRotten = {
+                tamariskSeedRotten = "rubberSeedRotten",
+            },
         }
         remapModels.whCacaoPod = {
             whCacaoPodHangingFruit = {},
@@ -812,6 +879,39 @@ function mod:onload(model)
             whAgaveHeartCooked = {},
             whRhizomeCooked = {},
         }
+        remapModels.whBaldCypressCone = {
+            whCypressCone = {
+                baldCypressCone = "cypressCone",
+            },
+        }
+        remapModels.whBaldCypressConeRotten = {
+            whCypressConeRotten = {
+                baldCypressConeRotten = "cypressConeRotten",
+            },
+        }
+        remapModels.whSpruceSapling = {
+            whJuniperSapling = {
+                spruceBark = "juniperBark",
+                spruceLeafSmall = "juniperLeafSmall",
+            },
+            whLarchSapling = {
+                spruceBark = "larchBark",
+                spruceLeafSmall = "larchLeafSmall",
+            },
+            whMaritimePineSapling = {
+                spruceBark = "maritimePineBark",
+                spruceLeafSmall = "maritimePineLeafSmall",
+            },
+            whStonePineSapling = {
+                spruceBark = "stonePineBark",
+                spruceLeafSmall = "stonePineLeafSmall",
+            },
+        }
+        for base,keys in pairs(moundBases) do
+            for i,key in ipairs(keys) do
+                addRemap(remapModels, base, key .. "Mound", {})
+            end
+        end
         remapModels.whPalmSeed = {
             whDoumFruit = {
                 palmSeed = "doumFruit",
@@ -844,10 +944,20 @@ function mod:onload(model)
             whGiantReedRhizomeRotten = {},
             whBulrushRhizomeRotten = {},
         }
-        remapModels.whHazelnut = {
+        remapModels.whAcorn = {
+            whHazelnut = {
+                acorn = "hazelnut",
+                acorn2 = "hazelnut2",
+            },
             whAcornCooked = {
-                hazelnut = "acornCooked",
-                hazelnut2 = "acorn2Cooked",
+                acorn = "acornCooked",
+                acorn2 = "acorn2Cooked",
+            },
+        }
+        remapModels.whAcornRotten = {
+            whHazelnutRotten = {
+                acornRotten = "hazelnutRotten",
+                acorn2Rotten = "hazelnut2Rotten",
             },
         }
         remapModels.whPalmLeaf = {
