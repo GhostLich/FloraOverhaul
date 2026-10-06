@@ -137,6 +137,8 @@ function mod:onload(flora)
         addFruit("oleanderSeed", "whOleanderSeed")
         addFruit("planeSeed", "whPlaneSeed")
         addFruit("tamariskSeed", "whTamariskSeed")
+        addFruit("sagebrushSeed", "whSagebrushSeed")
+        addFruit("sagebrushLeaf", "whSagebrushLeaf")
         addFruit("stonePineCone", "whStonePineCone")
         addFruit("baldCypressCone", "whBaldCypressCone")
         addFruit("cacaoPod", "whCacaoPod")
@@ -189,6 +191,9 @@ function mod:onload(flora)
         end
         coconutResourceGroup.seasonalReplenish[gameObject.typeIndexMap.palmLeaf] = 3
         table.insert(coconutResourceGroup.gatherableTypes, gameObject.typeIndexMap.palmLeaf)
+
+        gameObject.types.pumpkinPlant.clientModelFunction = getClientModelFunction("pumpkinPlant", "pumpkinPlant", true, false, false)
+        gameObject.types.sapling_pumpkinPlant.clientModelFunction = getClientModelFunction("pumpkinPlant", "pumpkinPlantSapling", true, false, false)
 
         local function addVariations(keys)
             local constructableTypeIndexes = {}
@@ -885,6 +890,47 @@ function mod:onload(flora)
             })
         end
         addVariations({"dwarfBirch1", "dwarfBirch2", "dwarfBirch3"})
+
+        local sagebrushSelectionGroupTypeIndex = selectionGroup:addGroup("allSagebrush", locale:get("flora_sagebrush"), locale:get("flora_sagebrush_plural"), nil)
+        for i = 1,3 do
+            addFlora("sagebrush" .. mj:tostring(i), {
+                name = locale:get("flora_sagebrush"),
+                plural = locale:get("flora_sagebrush_plural"),
+                summary = locale:get("flora_sagebrush_summary"),
+                saplingName = locale:get("flora_sagebrush_sapling"),
+                saplingPlural = locale:get("flora_sagebrush_sapling_plural"),
+                modelName = "whSagebrush" .. mj:tostring(i),
+                saplingModelName = "whSagebrushSapling",
+                resourceGroup = {
+                    baseInventory = {
+                        [gameObject.typeIndexMap.sagebrushLeaf] = 2,
+                        [gameObject.typeIndexMap.birchBranch] = 1,
+                    },
+                    seasonalReplenish = {
+                        [gameObject.typeIndexMap.sagebrushLeaf] = 2,
+                        [gameObject.typeIndexMap.birchBranch] = 1,
+                    },
+                    fruitReplenish = {
+                        [gameObject.typeIndexMap.sagebrushSeed] = 2,
+                    },
+                    gatherableTypes = {
+                        gameObject.typeIndexMap.sagebrushLeaf,
+                        gameObject.typeIndexMap.sagebrushSeed,
+                        gameObject.typeIndexMap.birchBranch,
+                    },
+                },
+                markerPositions = bushMarkerPositions,
+                clientModelFunction = getClientModelFunction("whSagebrush", "whSagebrush" .. mj:tostring(i), false, false, false),
+                saplingClientModelFunction = getClientModelFunction("whSagebrush", "whSagebrushSapling", false, false, true),
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.sagebrushSeed.index,
+                speciesSelectionGroupTypeIndex = sagebrushSelectionGroupTypeIndex,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"sagebrush1", "sagebrush2", "sagebrush3"})
 
         local doumPalmSelectionGroupTypeIndex = selectionGroup:addGroup("allDoumPalms", locale:get("flora_doumPalm"), locale:get("flora_doumPalm_plural"), nil)
         for i = 1,3 do

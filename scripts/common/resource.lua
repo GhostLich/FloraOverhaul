@@ -560,6 +560,44 @@ function mod:onload(resource)
     })
 
     typeMaps:insert("resource", resource.types, {
+        key = "sagebrushSeed",
+        name = locale:get("fruit_sagebrushSeed"),
+        plural = locale:get("fruit_sagebrushSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.sagebrushSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "sagebrushSeedRotten",
+        name = locale:get("fruit_sagebrushSeed_rotten"),
+        plural = locale:get("fruit_sagebrushSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.sagebrushSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "sagebrushLeaf",
+        name = locale:get("fruit_sagebrushLeaf"),
+        plural = locale:get("fruit_sagebrushLeaf_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.sagebrushLeaf,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "sagebrushLeafRotten",
+        name = locale:get("fruit_sagebrushLeaf_rotten"),
+        plural = locale:get("fruit_sagebrushLeaf_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.sagebrushLeafRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
         key = "baldCypressCone",
         name = locale:get("fruit_baldCypressCone"),
         plural = locale:get("fruit_baldCypressCone_plural"),
@@ -839,7 +877,7 @@ function mod:onload(resource)
     addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark"})
     addMedicineGroup("medicineGinger", {"gingerRoot", "juniperBerry", "mesquitePod", "peppermintLeaf"})
     addMedicineGroup("medicineEchinacea", {"echinaceaFlower", "cloudberry", "lingonberry", "mesquitePod", "lemongrass"})
-    addMedicineGroup("medicineElderberry", {"elderberry", "date"})
+    addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf"})
     addMedicineGroup("medicineMarigold", {"marigoldFlower", "yarrowFlower", "gotuKolaLeaf"})
     addMedicineGroup("medicineTurmeric", {"turmericRoot", "yarrowFlower", "plantainLeaf"})
     addMedicineGroup("medicineAloe", {"aloeLeaf", "plantainLeaf"})

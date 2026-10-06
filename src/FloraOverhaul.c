@@ -102,6 +102,8 @@ static uint32_t gameObjectType_mapleTypes[MAPLE_TYPE_COUNT];
 static uint32_t gameObjectType_doumPalmTypes[DOUM_PALM_TYPE_COUNT];
 #define DWARF_BIRCH_TYPE_COUNT 3
 static uint32_t gameObjectType_dwarfBirchTypes[DWARF_BIRCH_TYPE_COUNT];
+#define SAGEBRUSH_TYPE_COUNT 3
+static uint32_t gameObjectType_sagebrushTypes[SAGEBRUSH_TYPE_COUNT];
 static uint32_t gameObjectType_argan;
 static uint32_t gameObjectType_carob;
 #define ALDER_TYPE_COUNT 2
@@ -273,6 +275,9 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_dwarfBirchTypes[0] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch1");
 		gameObjectType_dwarfBirchTypes[1] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch2");
 		gameObjectType_dwarfBirchTypes[2] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch3");
+		gameObjectType_sagebrushTypes[0] = threadState->getGameObjectTypeIndex(threadState, "sagebrush1");
+		gameObjectType_sagebrushTypes[1] = threadState->getGameObjectTypeIndex(threadState, "sagebrush2");
+		gameObjectType_sagebrushTypes[2] = threadState->getGameObjectTypeIndex(threadState, "sagebrush3");
 		gameObjectType_argan = threadState->getGameObjectTypeIndex(threadState, "arganTree");
 		gameObjectType_carob = threadState->getGameObjectTypeIndex(threadState, "carobTree");
 		gameObjectType_alderTypes[0] = threadState->getGameObjectTypeIndex(threadState, "alder1");
@@ -898,7 +903,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9331, 0.002, 1, 3, gameObjectType_grapevine);
 		}
-		if(altitude > 0.0 && !info->beach && (info->steppe || info->temperate) && !(info->tropical || info->desert || info->rainforest || info->forestDensity >= 3 || info->tundra || frozen || info->winterVeryCold))
+		if(altitude > 0.0 && !info->beach && (info->steppe || info->temperate) && !(info->tropical || info->desert || info->rainforest || info->forestDensity >= 3 || info->tundra || frozen || (info->winterVeryCold && !info->steppe)))
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9341, 0.002, 3, 8, gameObjectType_barley);
 		}
@@ -1207,6 +1212,8 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 
 	bool dryLand = info.desert || hotSteppe || mediterranean || mediterraneanSteppe;
 	bool warmRiverLand = (mediterranean || mediterraneanSteppe || subtropical || (info.temperate && info.winterModerate)) && info.nearRiver;
+	bool coldDesert = info.desert && (info.winterCold || info.winterVeryCold) && !info.polar && !info.icecap;
+	bool dryPineWoodland = info.forestDensity == 1 && info.coniferous && (info.dry || info.drySummer) && !info.tropical && !info.tundra && !info.polar;
 	bool dampForest = info.forestDensity >= 2 && !info.drySummer && !info.desert && (info.temperate || info.rainforest || info.coniferous);
 
 	if(level == SP_SUBDIVISIONS - 6)
@@ -1246,6 +1253,10 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8251, 120, 2, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
 		}
+		if(aspenParkland && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8261, 20, 1, 2, gameObjectType_juniperTypes, JUNIPER_TYPE_COUNT);
+		}
 	}
 	else if(level == SP_SUBDIVISIONS - 3)
 	{
@@ -1267,11 +1278,11 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		}
 		if(yarrowLand && !info.beach)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8331, 15, 2, 2, &gameObjectType_yarrow, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8331, aspenParkland ? 8 : 15, 2, 2, &gameObjectType_yarrow, 1);
 		}
 		if(((info.temperate && !info.drySummer) || coolSteppe) && !info.beach)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8341, 15, 2, 2, &gameObjectType_plantain, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8341, aspenParkland ? 8 : 15, 2, 2, &gameObjectType_plantain, 1);
 		}
 		if(info.temperate && info.nearRiver && !info.beach)
 		{
@@ -1284,6 +1295,31 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		if(info.tropical && !info.beach)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8371, 12, 2, 2, &gameObjectType_lemongrass, 1);
+		}
+		if(coldDesert && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8411, 6, 1, 2, gameObjectType_sagebrushTypes, SAGEBRUSH_TYPE_COUNT);
+		}
+		else if(coolSteppe && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8411, 10, 1, 2, gameObjectType_sagebrushTypes, SAGEBRUSH_TYPE_COUNT);
+		}
+		else if(dryPineWoodland && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8411, 20, 1, 2, gameObjectType_sagebrushTypes, SAGEBRUSH_TYPE_COUNT);
+		}
+		else if(mediterranean && info.forestDensity <= 2 && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8411, 25, 1, 2, gameObjectType_sagebrushTypes, SAGEBRUSH_TYPE_COUNT);
+		}
+		else if(info.tundra && info.forestDensity == 0 && !info.nearRiver && !info.icecap && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8411, 30, 1, 2, gameObjectType_sagebrushTypes, SAGEBRUSH_TYPE_COUNT);
+		}
+		if(aspenParkland && !info.beach)
+		{
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8391, 12, 2, 2, &gameObjectType_garlicPlant, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8401, 12, 2, 2, &gameObjectType_echinaceaPlant, 1);
 		}
 	}
 

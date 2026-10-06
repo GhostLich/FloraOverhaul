@@ -161,6 +161,10 @@ local windStrengths = {
     whAlderSapling = vec2(0.95, 0.8),
     whPoplarSapling = vec2(0.95, 0.8),
     whDwarfBirchSapling = vec2(0.95, 0.8),
+    whSagebrush1 = vec2(0.95, 0.8),
+    whSagebrush2 = vec2(0.95, 0.8),
+    whSagebrush3 = vec2(0.95, 0.8),
+    whSagebrushSapling = vec2(0.95, 0.8),
     whArganTreeSapling = vec2(0.95, 0.8),
     whCarobTreeSapling = vec2(0.95, 0.8),
     whMangroveSapling = vec2(0.95, 0.8),
@@ -425,6 +429,24 @@ function mod:onload(model)
         remapModels.whGrape = {
             whGrapeHangingFruit = {},
         }
+        remapModels.pumpkinPlant = {
+            pumpkinPlantSpring = {},
+            pumpkinPlantAutumn = {
+                pumpkinLeaf = "pumpkinLeafAutumn",
+            },
+            pumpkinPlantWinter = {
+                pumpkinLeaf = "pumpkinLeafAutumn",
+            },
+        }
+        remapModels.pumpkinPlantSapling = {
+            pumpkinPlantSaplingSpring = {},
+            pumpkinPlantSaplingAutumn = {
+                pumpkinLeaf = "pumpkinLeafAutumn",
+            },
+            pumpkinPlantSaplingWinter = {
+                pumpkinLeaf = "pumpkinLeafAutumn",
+            },
+        }
         remapModels.whWaterMelon = {
             whWatermelonHangingFruit = {},
         }
@@ -573,6 +595,11 @@ function mod:onload(model)
                 dwarfBirchLeaf = "dwarfBirchLeafAutumn",
                 dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
             },
+            whSagebrush1 = {
+                dwarfBirchLeaf = "sagebrushLeaf",
+                dwarfBirchLeafLow = "sagebrushLeafLow",
+                dwarfBirchBark = "sagebrushBark",
+            },
         }
         remapModels.whDwarfBirch2 = {
             whDwarfBirch2Spring = {
@@ -583,6 +610,11 @@ function mod:onload(model)
                 dwarfBirchLeaf = "dwarfBirchLeafAutumn",
                 dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
             },
+            whSagebrush2 = {
+                dwarfBirchLeaf = "sagebrushLeaf",
+                dwarfBirchLeafLow = "sagebrushLeafLow",
+                dwarfBirchBark = "sagebrushBark",
+            },
         }
         remapModels.whDwarfBirch3 = {
             whDwarfBirch3Spring = {
@@ -592,6 +624,11 @@ function mod:onload(model)
             whDwarfBirch3Autumn = {
                 dwarfBirchLeaf = "dwarfBirchLeafAutumn",
                 dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
+            },
+            whSagebrush3 = {
+                dwarfBirchLeaf = "sagebrushLeaf",
+                dwarfBirchLeafLow = "sagebrushLeafLow",
+                dwarfBirchBark = "sagebrushBark",
             },
         }
         remapModels.whCarobPod = {
@@ -648,6 +685,34 @@ function mod:onload(model)
             whOleander1Winter = {
                 oleanderLeaf = "oleanderLeafPlain",
                 oleanderLeafLow = "oleanderLeafLowPlain",
+            },
+        }
+        remapModels.whDwarfBirchSapling = {
+            whSagebrushSapling = {
+                dwarfBirchLeafSmall = "sagebrushLeafSmall",
+                dwarfBirchBark = "sagebrushBark",
+            },
+        }
+        remapModels.whDwarfBirchMound = {
+            whSagebrushMound = {},
+        }
+        remapModels.whPlantainLeaf = {
+            whSagebrushLeaf = {
+                plantainLeaf = "sagebrushLeafLow",
+                plantainLeafLow = "sagebrushLeafLow",
+            },
+        }
+        remapModels.whPlantainLeafRotten = {
+            whSagebrushLeafRotten = {},
+        }
+        remapModels.whTamariskSeed = {
+            whSagebrushSeed = {
+                tamariskSeed = "sagebrushSeed",
+            },
+        }
+        remapModels.whTamariskSeedRotten = {
+            whSagebrushSeedRotten = {
+                tamariskSeedRotten = "sagebrushSeedRotten",
             },
         }
         remapModels.whJuniperBerry = {
