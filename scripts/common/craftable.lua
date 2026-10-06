@@ -44,6 +44,14 @@ function mod:onload(craftable)
             gameObject.typeIndexMap.mudBrickWet_hay,
             gameObject.typeIndexMap.mudBrickWet_hay,
         }
+        constructable.types.mudBrickWet.outputObjectInfo.outputArraysByResourceObjectType[gameObject.types.reedStemDried.index] = {
+            gameObject.typeIndexMap.mudBrickWet_hay,
+            gameObject.typeIndexMap.mudBrickWet_hay,
+        }
+        constructable.types.mudBrickWet.outputObjectInfo.outputArraysByResourceObjectType[gameObject.types.frondDried.index] = {
+            gameObject.typeIndexMap.mudBrickWet_hay,
+            gameObject.typeIndexMap.mudBrickWet_hay,
+        }
 
         craftable:addCraftable("campfireRoastedCattailRoot", {
             name = locale:get("craftable_campfireRoastedCattailRoot"),
@@ -69,6 +77,129 @@ function mod:onload(craftable)
             requiredResources = {
                 {
                     type = resource.types.cattailRoot.index,
+                    count = 1,
+                },
+            },
+
+            requiredCraftAreaGroups = {
+                craftAreaGroup.types.campfire.index,
+            },
+
+            attachResourceToHandIndex = 1,
+            attachResourceOffset = vec3xMat3(vec3(-0.7,0.1,0.02), craftable.cookingStickRotationOffset),
+            attachResourceRotation = mat3Rotate(mat3Identity, math.pi * 0.5, vec3(0.0,0.0,1.0)),
+
+            temporaryToolObjectType = gameObject.typeIndexMap.stick,
+            temporaryToolOffset = vec3xMat3(vec3(-0.35,0.0,0.0), craftable.cookingStickRotationOffset),
+            temporaryToolRotation = craftable.cookingStickRotation,
+        })
+
+        craftable:addCraftable("campfireRoastedAcorn", {
+            name = locale:get("craftable_campfireRoastedAcorn"),
+            plural = locale:get("craftable_campfireRoastedAcorn_plural"),
+            summary = locale:get("craftable_campfireRoastedAcorn_summary"),
+            iconGameObjectType = gameObject.typeIndexMap.acornCooked,
+            classification = constructable.classifications.craft.index,
+            isFoodPreperation = true,
+
+            outputObjectInfo = {
+                objectTypesArray = {
+                    gameObject.typeIndexMap.acornCooked,
+                }
+            },
+
+            buildSequence = craftable:createStandardBuildSequence(actionSequence.types.fireStickCook.index, nil),
+            inProgressBuildModel = "craftSimple",
+
+            skills = {
+                required = skill.types.campfireCooking.index,
+            },
+
+            requiredResources = {
+                {
+                    type = resource.types.acorn.index,
+                    count = 1,
+                },
+            },
+
+            requiredCraftAreaGroups = {
+                craftAreaGroup.types.campfire.index,
+            },
+
+            attachResourceToHandIndex = 1,
+            attachResourceOffset = vec3xMat3(vec3(-0.7,0.1,0.02), craftable.cookingStickRotationOffset),
+            attachResourceRotation = mat3Rotate(mat3Identity, math.pi * 0.5, vec3(0.0,0.0,1.0)),
+
+            temporaryToolObjectType = gameObject.typeIndexMap.stick,
+            temporaryToolOffset = vec3xMat3(vec3(-0.35,0.0,0.0), craftable.cookingStickRotationOffset),
+            temporaryToolRotation = craftable.cookingStickRotation,
+        })
+
+        craftable:addCraftable("campfireRoastedAgaveHeart", {
+            name = locale:get("craftable_campfireRoastedAgaveHeart"),
+            plural = locale:get("craftable_campfireRoastedAgaveHeart_plural"),
+            summary = locale:get("craftable_campfireRoastedAgaveHeart_summary"),
+            iconGameObjectType = gameObject.typeIndexMap.agaveHeartCooked,
+            classification = constructable.classifications.craft.index,
+            isFoodPreperation = true,
+
+            outputObjectInfo = {
+                objectTypesArray = {
+                    gameObject.typeIndexMap.agaveHeartCooked,
+                }
+            },
+
+            buildSequence = craftable:createStandardBuildSequence(actionSequence.types.fireStickCook.index, nil),
+            inProgressBuildModel = "craftSimple",
+
+            skills = {
+                required = skill.types.campfireCooking.index,
+            },
+
+            requiredResources = {
+                {
+                    type = resource.types.agaveHeart.index,
+                    count = 1,
+                },
+            },
+
+            requiredCraftAreaGroups = {
+                craftAreaGroup.types.campfire.index,
+            },
+
+            attachResourceToHandIndex = 1,
+            attachResourceOffset = vec3xMat3(vec3(-0.7,0.1,0.02), craftable.cookingStickRotationOffset),
+            attachResourceRotation = mat3Rotate(mat3Identity, math.pi * 0.5, vec3(0.0,0.0,1.0)),
+
+            temporaryToolObjectType = gameObject.typeIndexMap.stick,
+            temporaryToolOffset = vec3xMat3(vec3(-0.35,0.0,0.0), craftable.cookingStickRotationOffset),
+            temporaryToolRotation = craftable.cookingStickRotation,
+        })
+
+        craftable:addCraftable("campfireRoastedRhizome", {
+            name = locale:get("craftable_campfireRoastedRhizome"),
+            plural = locale:get("craftable_campfireRoastedRhizome_plural"),
+            summary = locale:get("craftable_campfireRoastedRhizome_summary"),
+            iconGameObjectType = gameObject.typeIndexMap.rhizomeCooked,
+            classification = constructable.classifications.craft.index,
+            isFoodPreperation = true,
+
+            outputObjectInfo = {
+                objectTypesArray = {
+                    gameObject.typeIndexMap.rhizomeCooked,
+                }
+            },
+
+            buildSequence = craftable:createStandardBuildSequence(actionSequence.types.fireStickCook.index, nil),
+            inProgressBuildModel = "craftSimple",
+
+            skills = {
+                required = skill.types.campfireCooking.index,
+            },
+
+            requiredResources = {
+                {
+                    group = resource.groups.roastableRhizome.index,
                     count = 1,
                 },
             },

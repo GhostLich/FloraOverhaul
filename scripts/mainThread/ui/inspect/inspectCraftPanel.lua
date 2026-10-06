@@ -19,6 +19,9 @@ function mod:onload(inspectCraftPanel)
             end
         end
         table.insert(list, afterFoundIndex and (afterFoundIndex + 1) or (#list + 1), constructable.types.campfireRoastedCattailRoot.index)
+        table.insert(list, afterFoundIndex and (afterFoundIndex + 2) or (#list + 1), constructable.types.campfireRoastedAcorn.index)
+        table.insert(list, afterFoundIndex and (afterFoundIndex + 3) or (#list + 1), constructable.types.campfireRoastedAgaveHeart.index)
+        table.insert(list, afterFoundIndex and (afterFoundIndex + 4) or (#list + 1), constructable.types.campfireRoastedRhizome.index)
 
         prevLoad(...)
     end

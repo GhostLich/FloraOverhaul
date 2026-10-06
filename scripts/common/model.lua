@@ -272,6 +272,13 @@ local woodKeys = {
     "plane",
     "baldCypress",
     "tamarisk",
+    "chestnut",
+    "larch",
+    "maritimePine",
+    "saxaul",
+    "hazel",
+    "sagebrush",
+    "cacao",
 }
 
 local willowBases = {
@@ -779,11 +786,13 @@ function mod:onload(model)
             whSagebrushSeed = {
                 tamariskSeed = "sagebrushSeed",
             },
+            whSaxaulSeed = {},
         }
         remapModels.whTamariskSeedRotten = {
             whSagebrushSeedRotten = {
                 tamariskSeedRotten = "sagebrushSeedRotten",
             },
+            whSaxaulSeedRotten = {},
         }
         remapModels.whJuniperBerry = {
             whJuniperBerryHangingFruit = {},
@@ -791,6 +800,83 @@ function mod:onload(model)
         remapModels.whCacaoPod = {
             whCacaoPodHangingFruit = {},
         }
+        remapModels.whCattailRoot = {
+            whAgaveHeart = {
+                cattailRoot = "agaveHeart",
+            },
+        }
+        remapModels.whCattailRootRotten = {
+            whAgaveHeartRotten = {},
+        }
+        remapModels.whCattailRootCooked = {
+            whAgaveHeartCooked = {},
+            whRhizomeCooked = {},
+        }
+        remapModels.whPalmSeed = {
+            whDoumFruit = {
+                palmSeed = "doumFruit",
+            },
+        }
+        remapModels.whPalmSeedRotten = {
+            whDoumFruitRotten = {},
+        }
+        remapModels.whTreeFernSpores = {
+            whGroundFernSpores = {},
+        }
+        remapModels.whTreeFernSporesRotten = {
+            whGroundFernSporesRotten = {},
+        }
+        remapModels.whReedRhizome = {
+            whFeatherGrassRhizome = {},
+            whElephantGrassRhizome = {},
+            whCordgrassRhizome = {},
+            whCottonGrassRhizome = {},
+            whPapyrusRhizome = {},
+            whGiantReedRhizome = {},
+            whBulrushRhizome = {},
+        }
+        remapModels.whReedRhizomeRotten = {
+            whFeatherGrassRhizomeRotten = {},
+            whElephantGrassRhizomeRotten = {},
+            whCordgrassRhizomeRotten = {},
+            whCottonGrassRhizomeRotten = {},
+            whPapyrusRhizomeRotten = {},
+            whGiantReedRhizomeRotten = {},
+            whBulrushRhizomeRotten = {},
+        }
+        remapModels.whHazelnut = {
+            whAcornCooked = {
+                hazelnut = "acornCooked",
+                hazelnut2 = "acorn2Cooked",
+            },
+        }
+        remapModels.whPalmLeaf = {
+            whFrond = {
+                palm_leaf = "treeFernLeaf",
+            },
+        }
+        remapModels.whPalmLeafDried = {
+            whFrondDried = {},
+        }
+        addRemap(remapModels, "greenHay", "whReedStem", {
+            greenHay = "reedStem",
+        })
+        addRemap(remapModels, "hay", "whReedStemDried", {})
+        addRemap(remapModels, "aloeLeaf", "whAgaveLeaf", {
+            aloeLeaf = "agaveLeaf",
+        })
+        addRemap(remapModels, "flaxDried", "whKapokFibre", {
+            flaxLeafDry = "kapokFibre",
+            flaxFlowerDry = "kapokFibre",
+        })
+        addRemap(remapModels, "flaxDried", "whAgaveFibre", {
+            flaxLeafDry = "agaveFibre",
+            flaxFlowerDry = "agaveFibre",
+        })
+        addRemap(remapModels, "pineCone", "whLarchCone", {})
+        addRemap(remapModels, "pineCone", "whMaritimePineCone", {})
+        addRemap(remapModels, "pineConeRotten", "whLarchConeRotten", {})
+        addRemap(remapModels, "pineConeRotten", "whMaritimePineConeRotten", {})
 
         prevLoadRemaps(model_)
     end

@@ -63,6 +63,9 @@ function mod:onload(flora)
     table.insert(flora.logTypeBaseKeys, "poplar")
     table.insert(flora.logTypeBaseKeys, "plane")
     table.insert(flora.logTypeBaseKeys, "baldCypress")
+    table.insert(flora.logTypeBaseKeys, "chestnut")
+    table.insert(flora.logTypeBaseKeys, "larch")
+    table.insert(flora.logTypeBaseKeys, "maritimePine")
     table.insert(flora.branchTypeBaseKeys, "fig")
     table.insert(flora.branchTypeBaseKeys, "baobab")
     table.insert(flora.branchTypeBaseKeys, "mesquite")
@@ -85,6 +88,13 @@ function mod:onload(flora)
     table.insert(flora.branchTypeBaseKeys, "plane")
     table.insert(flora.branchTypeBaseKeys, "baldCypress")
     table.insert(flora.branchTypeBaseKeys, "tamarisk")
+    table.insert(flora.branchTypeBaseKeys, "chestnut")
+    table.insert(flora.branchTypeBaseKeys, "larch")
+    table.insert(flora.branchTypeBaseKeys, "maritimePine")
+    table.insert(flora.branchTypeBaseKeys, "saxaul")
+    table.insert(flora.branchTypeBaseKeys, "hazel")
+    table.insert(flora.branchTypeBaseKeys, "sagebrush")
+    table.insert(flora.branchTypeBaseKeys, "cacao")
 
     local prevLoad = flora.load
 
@@ -154,6 +164,19 @@ function mod:onload(flora)
         addFruit("plantainLeaf", "whPlantainLeaf")
         addFruit("peppermintLeaf", "whPeppermintLeaf")
         addFruit("lemongrass", "whLemongrass")
+        addFruit("doumFruit", "whDoumFruit")
+        addFruit("saxaulSeed", "whSaxaulSeed")
+        addFruit("groundFernSpores", "whGroundFernSpores")
+        addFruit("featherGrassRhizome", "whFeatherGrassRhizome")
+        addFruit("elephantGrassRhizome", "whElephantGrassRhizome")
+        addFruit("cordgrassRhizome", "whCordgrassRhizome")
+        addFruit("cottonGrassRhizome", "whCottonGrassRhizome")
+        addFruit("larchCone", "whLarchCone")
+        addFruit("maritimePineCone", "whMaritimePineCone")
+        addFruit("papyrusRhizome", "whPapyrusRhizome")
+        addFruit("giantReedRhizome", "whGiantReedRhizome")
+        addFruit("bulrushRhizome", "whBulrushRhizome")
+        addFruit("agaveHeart", "whAgaveHeart")
 
         local function addItem(key, modelName, resourceTypeIndex)
             gameObject:addGameObject(key, {
@@ -180,6 +203,16 @@ function mod:onload(flora)
         addItem("palmLeaf", "whPalmLeaf", resource.types.grass.index)
         addItem("palmLeafDried", "whPalmLeafDried", resource.types.hay.index)
         addItem("willowBark", "whWillowBark", resource.types.willowBark.index)
+        addItem("acornCooked", "whAcornCooked", resource.types.acornCooked.index)
+        addItem("reedStem", "whReedStem", resource.types.grass.index)
+        addItem("reedStemDried", "whReedStemDried", resource.types.hay.index)
+        addItem("frond", "whFrond", resource.types.grass.index)
+        addItem("frondDried", "whFrondDried", resource.types.hay.index)
+        addItem("agaveLeaf", "whAgaveLeaf", resource.types.agaveLeaf.index)
+        addItem("agaveHeartCooked", "whAgaveHeartCooked", resource.types.agaveHeartCooked.index)
+        addItem("rhizomeCooked", "whRhizomeCooked", resource.types.rhizomeCooked.index)
+        addItem("kapokFibre", "whKapokFibre", resource.types.flaxDried.index)
+        addItem("agaveFibre", "whAgaveFibre", resource.types.flaxDried.index)
 
         local willowResourceGroupsDone = {}
         for i,key in ipairs({"willow1", "willow2"}) do
@@ -705,6 +738,12 @@ function mod:onload(flora)
             maturityDurationDays = 24,
         }, 30, 14)
 
+        for i,key in ipairs({"kapok1", "kapok2", "kapok3", "kapokBig1"}) do
+            local kapokResourceGroup = flora.types[key].resourceGroup
+            kapokResourceGroup.fruitReplenish[gameObject.typeIndexMap.kapokFibre] = 2
+            table.insert(kapokResourceGroup.gatherableTypes, gameObject.typeIndexMap.kapokFibre)
+        end
+
         local rubberTreeInfo = {
             localeKey = "rubberTree",
             woodKey = "rubber",
@@ -859,7 +898,6 @@ function mod:onload(flora)
             saplingModelName = "whArganTreeSapling",
             fruitCount = 4,
             fruitSeason = seasons.summer,
-            isFoodCrop = true,
         }, 4, 4)
 
         local mangroveInfo = {
@@ -933,17 +971,17 @@ function mod:onload(flora)
             saplingModelName = "whHazelBushSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.birchBranch] = 2,
+                    [gameObject.typeIndexMap.hazelBranch] = 2,
                 },
                 seasonalReplenish = {
-                    [gameObject.typeIndexMap.birchBranch] = 2,
+                    [gameObject.typeIndexMap.hazelBranch] = 2,
                 },
                 fruitReplenish = {
                     [gameObject.typeIndexMap.hazelnut] = 3,
                 },
                 gatherableTypes = {
                     gameObject.typeIndexMap.hazelnut,
-                    gameObject.typeIndexMap.birchBranch,
+                    gameObject.typeIndexMap.hazelBranch,
                 },
             },
             markerPositions = bushMarkerPositions,
@@ -1003,11 +1041,11 @@ function mod:onload(flora)
                 resourceGroup = {
                     baseInventory = {
                         [gameObject.typeIndexMap.sagebrushLeaf] = 2,
-                        [gameObject.typeIndexMap.birchBranch] = 1,
+                        [gameObject.typeIndexMap.sagebrushBranch] = 1,
                     },
                     seasonalReplenish = {
                         [gameObject.typeIndexMap.sagebrushLeaf] = 2,
-                        [gameObject.typeIndexMap.birchBranch] = 1,
+                        [gameObject.typeIndexMap.sagebrushBranch] = 1,
                     },
                     fruitReplenish = {
                         [gameObject.typeIndexMap.sagebrushSeed] = 2,
@@ -1015,7 +1053,7 @@ function mod:onload(flora)
                     gatherableTypes = {
                         gameObject.typeIndexMap.sagebrushLeaf,
                         gameObject.typeIndexMap.sagebrushSeed,
-                        gameObject.typeIndexMap.birchBranch,
+                        gameObject.typeIndexMap.sagebrushBranch,
                     },
                 },
                 markerPositions = bushMarkerPositions,
@@ -1049,10 +1087,10 @@ function mod:onload(flora)
                         [gameObject.typeIndexMap.palmLeaf] = 3,
                     },
                     fruitReplenish = {
-                        [gameObject.typeIndexMap.palmSeed] = 2,
+                        [gameObject.typeIndexMap.doumFruit] = 4,
                     },
                     gatherableTypes = {
-                        gameObject.typeIndexMap.palmSeed,
+                        gameObject.typeIndexMap.doumFruit,
                         gameObject.typeIndexMap.palmLeaf,
                     },
                 },
@@ -1061,11 +1099,12 @@ function mod:onload(flora)
                 followCamOffset = treeFollowCamOffset,
                 saplingClientModelFunction = getClientModelFunction("whDatePalm", "whDoumPalmSapling", false, false, true),
                 fruitSeason = seasons.summer,
-                seedResourceTypeIndex = resource.types.palmSeed.index,
+                seedResourceTypeIndex = resource.types.doumFruit.index,
                 speciesSelectionGroupTypeIndex = doumPalmSelectionGroupTypeIndex,
                 maturityDurationDays = 8,
                 isPathFindingCollider = false,
                 useCraftSimple = true,
+                isFoodCrop = true,
                 playBirdSounds = true,
             })
         end
@@ -1084,14 +1123,14 @@ function mod:onload(flora)
                 resourceGroup = {
                     baseInventory = {},
                     seasonalReplenish = {
-                        [gameObject.typeIndexMap.palmLeaf] = 3,
+                        [gameObject.typeIndexMap.frond] = 3,
                     },
                     fruitReplenish = {
                         [gameObject.typeIndexMap.treeFernSpores] = 2,
                     },
                     gatherableTypes = {
                         gameObject.typeIndexMap.treeFernSpores,
-                        gameObject.typeIndexMap.palmLeaf,
+                        gameObject.typeIndexMap.frond,
                     },
                 },
                 requiresAxeToChop = true,
@@ -1134,8 +1173,8 @@ function mod:onload(flora)
 
         addWildTree("maritimePine1", "whMaritimePine1", {
             localeKey = "maritimePine",
-            woodKey = "pine",
-            seedKey = "pineCone",
+            woodKey = "maritimePine",
+            seedKey = "maritimePineCone",
             moundKey = "whMaritimePine",
             saplingModelName = "whMaritimePineSapling",
             snow = true,
@@ -1156,7 +1195,7 @@ function mod:onload(flora)
 
         addWildTree("chestnut1", "whChestnut1", {
             localeKey = "chestnut",
-            woodKey = "oak",
+            woodKey = "chestnut",
             seedKey = "chestnut",
             moundKey = "whChestnut",
             saplingModelName = "whChestnutSapling",
@@ -1169,8 +1208,8 @@ function mod:onload(flora)
 
         addWildTree("saxaul1", "whSaxaul1", {
             localeKey = "saxaul",
-            woodKey = "tamarisk",
-            seedKey = "tamariskSeed",
+            woodKey = "saxaul",
+            seedKey = "saxaulSeed",
             moundKey = "whSaxaul",
             saplingModelName = "whSaxaulSapling",
         }, 0, 3)
@@ -1186,8 +1225,8 @@ function mod:onload(flora)
 
         addWildTree("larch1", "whLarch1", {
             localeKey = "larch",
-            woodKey = "pine",
-            seedKey = "pineCone",
+            woodKey = "larch",
+            seedKey = "larchCone",
             moundKey = "whLarch",
             saplingModelName = "whLarchSapling",
             seasonal = true,
@@ -1238,7 +1277,9 @@ function mod:onload(flora)
             modelName = "whCacaoTree",
             saplingModelName = "whCacaoTreeSapling",
             resourceGroup = {
-                baseInventory = {},
+                baseInventory = {
+                    [gameObject.typeIndexMap.cacaoBranch] = 3,
+                },
                 fruitReplenish = {
                     [gameObject.typeIndexMap.cacaoPod] = 6,
                 },
@@ -1268,23 +1309,24 @@ function mod:onload(flora)
             saplingModelName = "whPapyrusSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 2,
+                    [gameObject.typeIndexMap.papyrusRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.reedStem,
+                    gameObject.typeIndexMap.papyrusRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.papyrusRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
             useCraftSimple = true,
+            isFoodCrop = true,
         })
 
         addFlora("giantReed", {
@@ -1297,19 +1339,19 @@ function mod:onload(flora)
             saplingModelName = "whGiantReedSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 2,
+                    [gameObject.typeIndexMap.giantReedRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.reedStem,
+                    gameObject.typeIndexMap.giantReedRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.giantReedRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1326,23 +1368,24 @@ function mod:onload(flora)
             saplingModelName = "whBulrushSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 2,
+                    [gameObject.typeIndexMap.bulrushRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.reedStem,
+                    gameObject.typeIndexMap.bulrushRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.bulrushRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
             useCraftSimple = true,
+            isFoodCrop = true,
         })
 
         addFlora("cordgrass", {
@@ -1355,19 +1398,19 @@ function mod:onload(flora)
             saplingModelName = "whCordgrassSaplingCluster",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.grass] = 2,
+                    [gameObject.typeIndexMap.cordgrassRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.grass,
+                    gameObject.typeIndexMap.cordgrassRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.grass] = 1,
                 },
             },
             markerPositions = tinyPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.cordgrassRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1384,19 +1427,19 @@ function mod:onload(flora)
             saplingModelName = "whElephantGrassSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.grass] = 2,
+                    [gameObject.typeIndexMap.elephantGrassRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.grass,
+                    gameObject.typeIndexMap.elephantGrassRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.grass] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.elephantGrassRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1413,19 +1456,19 @@ function mod:onload(flora)
             saplingModelName = "whFeatherGrassSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.grass] = 2,
+                    [gameObject.typeIndexMap.featherGrassRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.grass,
+                    gameObject.typeIndexMap.featherGrassRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.grass] = 1,
                 },
             },
             markerPositions = tinyPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.featherGrassRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1442,19 +1485,19 @@ function mod:onload(flora)
             saplingModelName = "whCottonGrassSaplingCluster",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
-                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                    [gameObject.typeIndexMap.grass] = 2,
+                    [gameObject.typeIndexMap.cottonGrassRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.reedRhizome,
+                    gameObject.typeIndexMap.grass,
+                    gameObject.typeIndexMap.cottonGrassRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.grass] = 1,
                 },
             },
             markerPositions = tinyPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            seedResourceTypeIndex = resource.types.cottonGrassRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1471,15 +1514,15 @@ function mod:onload(flora)
             saplingModelName = "whCommonReedSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 2,
+                    [gameObject.typeIndexMap.reedStem] = 2,
                     [gameObject.typeIndexMap.reedRhizome] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
+                    gameObject.typeIndexMap.reedStem,
                     gameObject.typeIndexMap.reedRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.reedStem] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
@@ -1488,6 +1531,7 @@ function mod:onload(flora)
             fruitImmediatelyWhenMature = true,
             interactable = true,
             useCraftSimple = true,
+            isFoodCrop = true,
         })
 
         local groundFernSeasonalModelFunction = getClientModelFunction("whGroundFern", "whGroundFern", true, false, false)
@@ -1513,19 +1557,19 @@ function mod:onload(flora)
             end,
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
-                    [gameObject.typeIndexMap.treeFernSpores] = 1,
+                    [gameObject.typeIndexMap.frond] = 1,
+                    [gameObject.typeIndexMap.groundFernSpores] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.palmLeaf,
-                    gameObject.typeIndexMap.treeFernSpores,
+                    gameObject.typeIndexMap.frond,
+                    gameObject.typeIndexMap.groundFernSpores,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                    [gameObject.typeIndexMap.frond] = 1,
                 },
             },
             markerPositions = tinyPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.treeFernSpores.index,
+            seedResourceTypeIndex = resource.types.groundFernSpores.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,
@@ -1596,15 +1640,17 @@ function mod:onload(flora)
             saplingModelName = "whAgavePlantSapling",
             resourceGroup = {
                 baseInventory = {
-                    [gameObject.typeIndexMap.flax] = 2,
+                    [gameObject.typeIndexMap.agaveLeaf] = 2,
+                    [gameObject.typeIndexMap.agaveHeart] = 1,
                     [gameObject.typeIndexMap.agaveSeed] = 1,
                 },
                 gatherableTypes = {
-                    gameObject.typeIndexMap.flax,
+                    gameObject.typeIndexMap.agaveLeaf,
+                    gameObject.typeIndexMap.agaveHeart,
                     gameObject.typeIndexMap.agaveSeed,
                 },
                 revertToSeedlingGatherResourceCounts = {
-                    [gameObject.typeIndexMap.flax] = 1,
+                    [gameObject.typeIndexMap.agaveLeaf] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
@@ -1613,6 +1659,7 @@ function mod:onload(flora)
             fruitImmediatelyWhenMature = true,
             interactable = true,
             useCraftSimple = true,
+            isFoodCrop = true,
         })
 
         addFlora("gotuKolaPlant", {
@@ -1736,14 +1783,14 @@ function mod:onload(flora)
                 resourceGroup = {
                     baseInventory = {},
                     seasonalReplenish = {
-                        [gameObject.typeIndexMap.palmLeaf] = 4,
+                        [gameObject.typeIndexMap.frond] = 4,
                     },
                     fruitReplenish = {
                         [gameObject.typeIndexMap.cycadSeed] = 2,
                     },
                     gatherableTypes = {
                         gameObject.typeIndexMap.cycadSeed,
-                        gameObject.typeIndexMap.palmLeaf,
+                        gameObject.typeIndexMap.frond,
                     },
                 },
                 requiresAxeToChop = true,

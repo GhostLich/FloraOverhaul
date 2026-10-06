@@ -86,6 +86,46 @@ function mod:onload(storage)
     smallFruitStorage("peppermintLeaf", "peppermintLeafRotten", 0.12)
     smallFruitStorage("lemongrass", "lemongrassRotten", 0.12)
     smallFruitStorage("cacaoPod", "cacaoPodRotten", 0.18)
+    smallFruitStorage("doumFruit", "doumFruitRotten", 0.12)
+    smallFruitStorage("saxaulSeed", "saxaulSeedRotten", 0.12)
+    smallFruitStorage("groundFernSpores", "groundFernSporesRotten", 0.12)
+    smallFruitStorage("featherGrassRhizome", "featherGrassRhizomeRotten", 0.12)
+    smallFruitStorage("elephantGrassRhizome", "elephantGrassRhizomeRotten", 0.12)
+    smallFruitStorage("cordgrassRhizome", "cordgrassRhizomeRotten", 0.12)
+    smallFruitStorage("cottonGrassRhizome", "cottonGrassRhizomeRotten", 0.12)
+    smallFruitStorage("papyrusRhizome", "papyrusRhizomeRotten", 0.12)
+    smallFruitStorage("giantReedRhizome", "giantReedRhizomeRotten", 0.12)
+    smallFruitStorage("bulrushRhizome", "bulrushRhizomeRotten", 0.12)
+    smallFruitStorage("larchCone", "larchConeRotten", 0.12)
+    smallFruitStorage("maritimePineCone", "maritimePineConeRotten", 0.12)
+    table.insert(storage.types.acorn.resources, resource.types.acornCooked.index)
+    smallFruitStorage("agaveHeart", "agaveHeartRotten", 0.12)
+    table.insert(storage.types.agaveHeart.resources, resource.types.agaveHeartCooked.index)
+    table.insert(storage.types.reedRhizome.resources, resource.types.rhizomeCooked.index)
+
+    typeMaps:insert("storage", storage.types, {
+        key = "agaveLeaf",
+        name = locale:get("storage_agaveLeaf"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.agaveLeaf,
+        resources = {
+            resource.types.agaveLeaf.index,
+        },
+        storageBox = {
+            size =  vec3(0.08, 0.08, 0.08),
+            rotationFunction = function(uniqueID, seed)
+                local randomValue = rng:valueForUniqueID(uniqueID, seed)
+                local rotation = mat3Rotate(mat3Identity, randomValue * 6.282, vec3(0.0,1.0,0.0))
+                rotation = mat3Rotate(rotation, randomValue * 6.282, vec3(1.0,0.0,0.0))
+                return rotation
+            end,
+        },
+        maxCarryCount = 4,
+        maxCarryCountLimitedAbility = 2,
+        maxCarryCountForRunning = 1,
+        carryType = storage.carryTypes.small,
+        carryOffset = vec3(0.0,0.01,0.0),
+        windBlowAwayModerateChance = true,
+    })
 
     typeMaps:insert("storage", storage.types, {
         key = "willowBark",

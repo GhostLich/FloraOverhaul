@@ -18,6 +18,11 @@ function mod:onload(modelPlaceholder)
         prevInitRemaps(modelPlaceholder_)
 
         modelPlaceholder.burntFuelRemaps[gameObject.types.palmLeafDried.index] = modelPlaceholder:getRemaps("burntHay")
+        modelPlaceholder.burntFuelRemaps[gameObject.types.reedStemDried.index] = modelPlaceholder:getRemaps("burntHay")
+        modelPlaceholder.burntFuelRemaps[gameObject.types.frondDried.index] = modelPlaceholder:getRemaps("burntHay")
+        for i,key in ipairs({"cypressCone", "alderCone", "baldCypressCone", "larchCone", "maritimePineCone"}) do
+            modelPlaceholder.burntFuelRemaps[gameObject.types[key].index] = modelPlaceholder:getRemaps("pineConeBurnt")
+        end
     end
 
     local prevAddModels = modelPlaceholder.addModels

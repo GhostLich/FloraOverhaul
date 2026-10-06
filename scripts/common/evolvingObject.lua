@@ -73,6 +73,19 @@ function mod:onload(evolvingObject)
         addFruitRot("cacaoPod", dayLength * 4)
         addFruitRot("lingonberry", yearLength)
         addFruitRot("cloudberry", dayLength * rottenItemTimeDays)
+        addFruitRot("doumFruit", yearLength)
+        addFruitRot("saxaulSeed", yearLength)
+        addFruitRot("groundFernSpores", yearLength)
+        addFruitRot("featherGrassRhizome", yearLength)
+        addFruitRot("elephantGrassRhizome", yearLength)
+        addFruitRot("cordgrassRhizome", yearLength)
+        addFruitRot("cottonGrassRhizome", yearLength)
+        addFruitRot("papyrusRhizome", yearLength)
+        addFruitRot("giantReedRhizome", yearLength)
+        addFruitRot("bulrushRhizome", yearLength)
+        addFruitRot("agaveHeart", yearLength)
+        addFruitRot("larchCone", yearLength)
+        addFruitRot("maritimePineCone", yearLength)
 
         addFruitRot("cattailRoot", yearLength)
         evolvingObject.evolutions[gameObject.types.palmLeaf.index] = {
@@ -88,6 +101,56 @@ function mod:onload(evolvingObject)
         evolvingObject.evolutions[gameObject.types.cattailRootCooked.index] = {
             minTime = yearLength,
             toType = gameObject.types.cattailRootRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.agaveHeartCooked.index] = {
+            minTime = yearLength,
+            toType = gameObject.types.agaveHeartRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.rhizomeCooked.index] = {
+            minTime = yearLength,
+            toType = gameObject.types.reedRhizomeRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.acornCooked.index] = {
+            minTime = yearLength,
+            toType = gameObject.types.acornRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.reedStem.index] = {
+            minTime = 120.0,
+            toType = gameObject.types.reedStemDried.index,
+            categoryIndex = evolvingObject.categories.dry.index,
+        }
+        evolvingObject.evolutions[gameObject.types.reedStemDried.index] = {
+            minTime = yearLength,
+            toType = gameObject.types.hayRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.frond.index] = {
+            minTime = 120.0,
+            toType = gameObject.types.frondDried.index,
+            categoryIndex = evolvingObject.categories.dry.index,
+        }
+        evolvingObject.evolutions[gameObject.types.frondDried.index] = {
+            minTime = yearLength,
+            toType = gameObject.types.hayRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.agaveLeaf.index] = {
+            minTime = 240.0,
+            toType = gameObject.types.agaveFibre.index,
+            categoryIndex = evolvingObject.categories.dry.index,
+        }
+        evolvingObject.evolutions[gameObject.types.agaveFibre.index] = {
+            minTime = dayLength * rottenItemTimeDays,
+            toType = gameObject.types.flaxRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
+        evolvingObject.evolutions[gameObject.types.kapokFibre.index] = {
+            minTime = dayLength * rottenItemTimeDays,
+            toType = gameObject.types.flaxRotten.index,
             categoryIndex = evolvingObject.categories.rot.index,
         }
     end

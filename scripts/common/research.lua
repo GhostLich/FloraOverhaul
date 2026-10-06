@@ -13,6 +13,20 @@ function mod:onload(research)
         table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types.cattailRoot.index)
         research.researchTypesByResourceType[resource.types.cattailRoot.index] = {research.types.campfireCooking}
 
+        research.types.campfireCooking.constructableTypeIndexesByBaseResourceTypeIndex[resource.types.acorn.index] = constructable.types.campfireRoastedAcorn.index
+        table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types.acorn.index)
+        research.researchTypesByResourceType[resource.types.acorn.index] = {research.types.campfireCooking}
+
+        research.types.campfireCooking.constructableTypeIndexesByBaseResourceTypeIndex[resource.types.agaveHeart.index] = constructable.types.campfireRoastedAgaveHeart.index
+        table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types.agaveHeart.index)
+        research.researchTypesByResourceType[resource.types.agaveHeart.index] = {research.types.campfireCooking}
+
+        for i,key in ipairs({"reedRhizome", "papyrusRhizome", "bulrushRhizome"}) do
+            research.types.campfireCooking.constructableTypeIndexesByBaseResourceTypeIndex[resource.types[key].index] = constructable.types.campfireRoastedRhizome.index
+            table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types[key].index)
+            research.researchTypesByResourceType[resource.types[key].index] = {research.types.campfireCooking}
+        end
+
         local medicineResearch = research.types.medicine
         local function addMedicineStandIn(resourceKey, constructableKeys)
             local resourceTypeIndex = resource.types[resourceKey].index
@@ -42,6 +56,9 @@ function mod:onload(research)
         addMedicineStandIn("sagebrushLeaf", {"burnMedicine", "virusMedicine"})
         addMedicineStandIn("thyme", {"injuryMedicine"})
         addMedicineStandIn("seaBuckthorn", {"virusMedicine"})
+        addMedicineStandIn("carobPod", {"foodPoisoningMedicine"})
+        addMedicineStandIn("baobabFruit", {"virusMedicine"})
+        addMedicineStandIn("agaveLeaf", {"burnMedicine"})
     end
 end
 
