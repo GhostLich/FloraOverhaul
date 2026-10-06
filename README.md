@@ -127,9 +127,13 @@ DoumPalm2 - ✔
 DoumPalm3 - ✔
 DoumPalmSapling - ✔
 
-DwarfBirch1 -
-DwarfBirch1Winter -
-DwarfBirchSapling -
+DwarfBirch1 - ✔
+DwarfBirch1Winter - ✔
+DwarfBirch2 - ✔
+DwarfBirch2Winter - ✔
+DwarfBirch3 - ✔
+DwarfBirch3Winter - ✔
+DwarfBirchSapling - ✔
 
 GroundFern -
 GroundFernSapling -
@@ -198,8 +202,8 @@ MaritimePine1 -
 MaritimePine1Snow -
 MaritimePineSapling -
 
-MesquiteTree -
-MesquiteTreeSapling -
+MesquiteTree - ✔
+MesquiteTreeSapling - ✔
 MesquitePod -
 
 Oak1 -
@@ -272,7 +276,7 @@ TreeFern1 - ✔
 TreeFern2 - ✔
 TreeFern3 - ✔
 TreeFern4 - ✔
-TreeFernSapling -
+TreeFernSapling - ✔
 TreeFernSpores -
 
 WatermelonPlant -

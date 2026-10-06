@@ -140,6 +140,14 @@ local windStrengths = {
     whDwarfBirch1Spring = vec2(0.95, 0.8),
     whDwarfBirch1Autumn = vec2(0.95, 0.8),
     whDwarfBirch1Winter = vec2(0.98, 0.8),
+    whDwarfBirch2 = vec2(0.95, 0.8),
+    whDwarfBirch2Spring = vec2(0.95, 0.8),
+    whDwarfBirch2Autumn = vec2(0.95, 0.8),
+    whDwarfBirch2Winter = vec2(0.98, 0.8),
+    whDwarfBirch3 = vec2(0.95, 0.8),
+    whDwarfBirch3Spring = vec2(0.95, 0.8),
+    whDwarfBirch3Autumn = vec2(0.95, 0.8),
+    whDwarfBirch3Winter = vec2(0.98, 0.8),
     whArganTree = vec2(0.98, 0.8),
     whCarobTree = vec2(0.98, 0.8),
     whCarobPodHangingFruit = vec2(0.98, 0.8),
@@ -562,6 +570,26 @@ function mod:onload(model)
                 dwarfBirchLeafLow = "dwarfBirchLeafSpringLow",
             },
             whDwarfBirch1Autumn = {
+                dwarfBirchLeaf = "dwarfBirchLeafAutumn",
+                dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
+            },
+        }
+        remapModels.whDwarfBirch2 = {
+            whDwarfBirch2Spring = {
+                dwarfBirchLeaf = "dwarfBirchLeafSpring",
+                dwarfBirchLeafLow = "dwarfBirchLeafSpringLow",
+            },
+            whDwarfBirch2Autumn = {
+                dwarfBirchLeaf = "dwarfBirchLeafAutumn",
+                dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
+            },
+        }
+        remapModels.whDwarfBirch3 = {
+            whDwarfBirch3Spring = {
+                dwarfBirchLeaf = "dwarfBirchLeafSpring",
+                dwarfBirchLeafLow = "dwarfBirchLeafSpringLow",
+            },
+            whDwarfBirch3Autumn = {
                 dwarfBirchLeaf = "dwarfBirchLeafAutumn",
                 dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
             },

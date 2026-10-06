@@ -848,38 +848,43 @@ function mod:onload(flora)
             isFoodCrop = true,
         }, 4, 4)
 
-        addFlora("dwarfBirch1", {
-            name = locale:get("flora_dwarfBirch"),
-            plural = locale:get("flora_dwarfBirch_plural"),
-            summary = locale:get("flora_dwarfBirch_summary"),
-            saplingName = locale:get("flora_dwarfBirch_sapling"),
-            saplingPlural = locale:get("flora_dwarfBirch_sapling_plural"),
-            modelName = "whDwarfBirch1",
-            saplingModelName = "whDwarfBirchSapling",
-            resourceGroup = {
-                baseInventory = {
-                    [gameObject.typeIndexMap.birchBranch] = 2,
+        local dwarfBirchSelectionGroupTypeIndex = selectionGroup:addGroup("allDwarfBirches", locale:get("flora_dwarfBirch"), locale:get("flora_dwarfBirch_plural"), nil)
+        for i = 1,3 do
+            addFlora("dwarfBirch" .. mj:tostring(i), {
+                name = locale:get("flora_dwarfBirch"),
+                plural = locale:get("flora_dwarfBirch_plural"),
+                summary = locale:get("flora_dwarfBirch_summary"),
+                saplingName = locale:get("flora_dwarfBirch_sapling"),
+                saplingPlural = locale:get("flora_dwarfBirch_sapling_plural"),
+                modelName = "whDwarfBirch" .. mj:tostring(i),
+                saplingModelName = "whDwarfBirchSapling",
+                resourceGroup = {
+                    baseInventory = {
+                        [gameObject.typeIndexMap.birchBranch] = 2,
+                    },
+                    seasonalReplenish = {
+                        [gameObject.typeIndexMap.birchBranch] = 2,
+                    },
+                    fruitReplenish = {
+                        [gameObject.typeIndexMap.birchSeed] = 1,
+                    },
+                    gatherableTypes = {
+                        gameObject.typeIndexMap.birchSeed,
+                        gameObject.typeIndexMap.birchBranch,
+                    },
                 },
-                seasonalReplenish = {
-                    [gameObject.typeIndexMap.birchBranch] = 2,
-                },
-                fruitReplenish = {
-                    [gameObject.typeIndexMap.birchSeed] = 1,
-                },
-                gatherableTypes = {
-                    gameObject.typeIndexMap.birchSeed,
-                    gameObject.typeIndexMap.birchBranch,
-                },
-            },
-            markerPositions = bushMarkerPositions,
-            clientModelFunction = getClientModelFunction("whDwarfBirch", "whDwarfBirch1", true, false, false),
-            saplingClientModelFunction = getClientModelFunction("whDwarfBirch", "whDwarfBirchSapling", false, false, true),
-            interactable = true,
-            addToPhysics = true,
-            fruitSeason = seasons.autumn,
-            seedResourceTypeIndex = resource.types.birchSeed.index,
-            useCraftSimple = true,
-        })
+                markerPositions = bushMarkerPositions,
+                clientModelFunction = getClientModelFunction("whDwarfBirch", "whDwarfBirch" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("whDwarfBirch", "whDwarfBirchSapling", false, false, true),
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.birchSeed.index,
+                speciesSelectionGroupTypeIndex = dwarfBirchSelectionGroupTypeIndex,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"dwarfBirch1", "dwarfBirch2", "dwarfBirch3"})
 
         local doumPalmSelectionGroupTypeIndex = selectionGroup:addGroup("allDoumPalms", locale:get("flora_doumPalm"), locale:get("flora_doumPalm_plural"), nil)
         for i = 1,3 do

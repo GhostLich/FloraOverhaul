@@ -100,7 +100,8 @@ static uint32_t gameObjectType_mapleTypes[MAPLE_TYPE_COUNT];
 
 #define DOUM_PALM_TYPE_COUNT 3
 static uint32_t gameObjectType_doumPalmTypes[DOUM_PALM_TYPE_COUNT];
-static uint32_t gameObjectType_dwarfBirch;
+#define DWARF_BIRCH_TYPE_COUNT 3
+static uint32_t gameObjectType_dwarfBirchTypes[DWARF_BIRCH_TYPE_COUNT];
 static uint32_t gameObjectType_argan;
 static uint32_t gameObjectType_carob;
 #define ALDER_TYPE_COUNT 2
@@ -269,7 +270,9 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_doumPalmTypes[0] = threadState->getGameObjectTypeIndex(threadState, "doumPalm1");
 		gameObjectType_doumPalmTypes[1] = threadState->getGameObjectTypeIndex(threadState, "doumPalm2");
 		gameObjectType_doumPalmTypes[2] = threadState->getGameObjectTypeIndex(threadState, "doumPalm3");
-		gameObjectType_dwarfBirch = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch1");
+		gameObjectType_dwarfBirchTypes[0] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch1");
+		gameObjectType_dwarfBirchTypes[1] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch2");
+		gameObjectType_dwarfBirchTypes[2] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch3");
 		gameObjectType_argan = threadState->getGameObjectTypeIndex(threadState, "arganTree");
 		gameObjectType_carob = threadState->getGameObjectTypeIndex(threadState, "carobTree");
 		gameObjectType_alderTypes[0] = threadState->getGameObjectTypeIndex(threadState, "alder1");
@@ -785,7 +788,7 @@ static int addTundra(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t 
 		int shrubCount = randomInt(faceUniqueID, 7402, 2) + 1;
 		for(int i = 0; i < shrubCount; i++)
 		{
-			ADD_OBJECT(gameObjectType_dwarfBirch);
+			ADD_OBJECT(gameObjectType_dwarfBirchTypes[randomInt(faceUniqueID, 9751 + i, DWARF_BIRCH_TYPE_COUNT)]);
 		}
 	}
 	return addedCount;
@@ -1109,7 +1112,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				}
 				else if(roll < 5)
 				{
-					type = gameObjectType_dwarfBirch;
+					type = gameObjectType_dwarfBirchTypes[randomInt(faceUniqueID, 9761 + i, DWARF_BIRCH_TYPE_COUNT)];
 				}
 			}
 			else if(level == SP_SUBDIVISIONS - 4 && type == gameObjectType_pineTypes[3] && (info.winterCold || info.winterVeryCold))
