@@ -13,35 +13,44 @@ local function getForestKey(biomeTags)
         end
         return nil
     end
-    if biomeTags.temperate then
-        if biomeTags.drySummer then
-            if not biomeTags.coniferous then
-                return "mediterranean"
-            end
-        elseif biomeTags.temperatureWinterModerate and (biomeTags.temperatureSummerHot or biomeTags.temperatureSummerVeryHot) then
-            return "subtropical"
-        elseif biomeTags.birch and not biomeTags.coniferous then
-            return "oak"
-        elseif biomeTags.birch and biomeTags.coniferous then
-            return "mixed"
-        end
-        return nil
-    end
-    if biomeTags.tundra then
+    if biomeTags.mediterraneanForest then
+        return "mediterranean"
+    elseif biomeTags.subtropicalForest then
+        return "subtropical"
+    elseif biomeTags.oakForest then
+        return "oak"
+    elseif biomeTags.mixedForest then
+        return "mixed"
+    elseif biomeTags.tundra then
         return "forestTundra"
-    end
-    if biomeTags.steppe and not biomeTags.hot and not biomeTags.polar then
-        if biomeTags.temperatureWinterVeryCold then
-            return "aspenParkland"
-        elseif biomeTags.temperatureWinterModerate then
-            return "mediterraneanSteppe"
-        end
+    elseif biomeTags.aspenParkland then
+        return "aspenParkland"
+    elseif biomeTags.mediterraneanSteppe then
+        return "mediterraneanSteppe"
+    elseif biomeTags.oakSavanna then
         return "oakSavanna"
     end
     return nil
 end
 
 function mod:onload(biome)
+    local prevGetWoodDifficultyLevel = biome.getWoodDifficultyLevel
+    biome.getWoodDifficultyLevel = function(biome_, biomeTags)
+        if biomeTags.tropical and (biomeTags.savanna or biomeTags.rainforest) then
+            if biomeTags.mediumForest then
+                return biome.difficulties.easy
+            elseif biomeTags.denseForest then
+                return biome.difficulties.veryEasy
+            elseif biomeTags.sparseForest then
+                return biome.difficulties.normal
+            elseif biomeTags.verySparseForest then
+                return biome.difficulties.hard
+            end
+            return biome.difficulties.veryHard
+        end
+        return prevGetWoodDifficultyLevel(biome_, biomeTags)
+    end
+
     local prevGetDescriptionFromTags = biome.getDescriptionFromTags
     biome.getDescriptionFromTags = function(biome_, biomeTags)
         if biomeTags then
@@ -58,6 +67,9 @@ function mod:onload(biome)
 
             local forestDescription = nil
             local forestKey = getForestKey(biomeTags)
+            if (not density) and biomeTags.steppe and forestKey then
+                density = "verySparse"
+            end
             if density and forestKey then
                 forestDescription = locale:get("biome_forest_" .. forestKey .. "_" .. density)
             elseif (not density) and biomeTags.steppe and biomeTags.hot then
