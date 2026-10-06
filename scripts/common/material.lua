@@ -331,6 +331,16 @@ function mod:onload(material)
     mj:insertIndexed(material.types, bushMat("arcticWillowLeafAutumn", vec3(0.55, 0.45, 0.12), 1.0))
     mj:insertIndexed(material.types, bushMat("arcticWillowLeafAutumnLow", vec3(0.55, 0.45, 0.12), 1.0))
     mj:insertIndexed(material.types, matWithB("arcticWillowBark", vec3(0.3, 0.22, 0.16), 1.0, vec3(0.2, 0.15, 0.11), 1.0))
+    mj:insertIndexed(material.types, matWithB("agaveLeaf", vec3(0.16, 0.3, 0.26), 0.6, vec3(0.3, 0.42, 0.38), 0.6))
+    mj:insertIndexed(material.types, matWithB("agaveLeafLow", vec3(0.16, 0.3, 0.26), 0.6, vec3(0.3, 0.42, 0.38), 0.6))
+    mj:insertIndexed(material.types, mat("agaveSeed", vec3(0.1, 0.09, 0.08), 0.7))
+    mj:insertIndexed(material.types, mat("agaveSeedRotten", vec3(0.05, 0.05, 0.04), 0.9))
+    mj:insertIndexed(material.types, bushMat("featherGrassLeaf", vec3(0.4, 0.42, 0.25), 1.0))
+    mj:insertIndexed(material.types, bushMat("featherGrassTop", vec3(0.72, 0.7, 0.6), 1.0))
+    mj:insertIndexed(material.types, matWithB("seaBuckthornLeaf", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
+    mj:insertIndexed(material.types, matWithB("seaBuckthornLeafLow", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
+    mj:insertIndexed(material.types, mat("seaBuckthorn", vec3(0.85, 0.4, 0.03), 0.3))
+    mj:insertIndexed(material.types, mat("seaBuckthornRotten", vec3(0.2, 0.1, 0.03), 0.8))
     mj:insertIndexed(material.types, mat("arcticWillowSeed", vec3(0.62, 0.6, 0.52), 0.8))
     mj:insertIndexed(material.types, mat("arcticWillowSeedRotten", vec3(0.14, 0.13, 0.1), 0.9))
     mj:insertIndexed(material.types, matWithB("saxaulLeaf", vec3(0.3, 0.34, 0.24), 1.0, vec3(0.4, 0.43, 0.32), 1.0))
@@ -483,6 +493,8 @@ function mod:onload(material)
     material.types.saxaulLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.saxaulLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.elephantGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
+    material.types.featherGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
+    material.types.seaBuckthornLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.cacaoLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.cordgrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.cottonGrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower

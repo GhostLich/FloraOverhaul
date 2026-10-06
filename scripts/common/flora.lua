@@ -143,6 +143,8 @@ function mod:onload(flora)
         addFruit("hazelnut", "whHazelnut")
         addFruit("thyme", "whThyme")
         addFruit("arcticWillowSeed", "whArcticWillowSeed")
+        addFruit("agaveSeed", "whAgaveSeed")
+        addFruit("seaBuckthorn", "whSeaBuckthorn")
         addFruit("stonePineCone", "whStonePineCone")
         addFruit("baldCypressCone", "whBaldCypressCone")
         addFruit("cacaoPod", "whCacaoPod")
@@ -353,6 +355,32 @@ function mod:onload(flora)
             addToPhysics = true,
             fruitSeason = seasons.autumn,
             seedResourceTypeIndex = resource.types.lingonberry.index,
+            useCraftSimple = true,
+            isFoodCrop = true,
+        })
+
+        addFlora("seaBuckthornBush", {
+            name = locale:get("flora_seaBuckthornBush"),
+            plural = locale:get("flora_seaBuckthornBush_plural"),
+            summary = locale:get("flora_seaBuckthornBush_summary"),
+            saplingName = locale:get("flora_seaBuckthornBush_sapling"),
+            saplingPlural = locale:get("flora_seaBuckthornBush_sapling_plural"),
+            modelName = "whSeaBuckthornBush",
+            saplingModelName = "whSeaBuckthornBushSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.seaBuckthorn] = 6,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.seaBuckthorn,
+                },
+            },
+            markerPositions = bushMarkerPositions,
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.autumn,
+            seedResourceTypeIndex = resource.types.seaBuckthorn.index,
             useCraftSimple = true,
             isFoodCrop = true,
         })
@@ -1375,6 +1403,35 @@ function mod:onload(flora)
             useCraftSimple = true,
         })
 
+        addFlora("featherGrass", {
+            name = locale:get("flora_featherGrass"),
+            plural = locale:get("flora_featherGrass_plural"),
+            summary = locale:get("flora_featherGrass_summary"),
+            saplingName = locale:get("flora_featherGrassSapling"),
+            saplingPlural = locale:get("flora_featherGrassSapling_plural"),
+            modelName = "whFeatherGrass",
+            saplingModelName = "whFeatherGrassSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.palmLeaf] = 2,
+                    [gameObject.typeIndexMap.reedRhizome] = 1,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.palmLeaf,
+                    gameObject.typeIndexMap.reedRhizome,
+                },
+                revertToSeedlingGatherResourceCounts = {
+                    [gameObject.typeIndexMap.palmLeaf] = 1,
+                },
+            },
+            markerPositions = tinyPlantMarkerPositions,
+            seedResourceTypeIndex = resource.types.reedRhizome.index,
+            maturityDurationDays = 3,
+            fruitImmediatelyWhenMature = true,
+            interactable = true,
+            useCraftSimple = true,
+        })
+
         addFlora("cottonGrass", {
             name = locale:get("flora_cottonGrass"),
             plural = locale:get("flora_cottonGrass_plural"),
@@ -1524,6 +1581,35 @@ function mod:onload(flora)
             markerPositions = tinyPlantMarkerPositions,
             seedResourceTypeIndex = resource.types.thyme.index,
             maturityDurationDays = 3,
+            fruitImmediatelyWhenMature = true,
+            interactable = true,
+            useCraftSimple = true,
+        })
+
+        addFlora("agavePlant", {
+            name = locale:get("flora_agavePlant"),
+            plural = locale:get("flora_agavePlant_plural"),
+            summary = locale:get("flora_agavePlant_summary"),
+            saplingName = locale:get("flora_agavePlantSapling"),
+            saplingPlural = locale:get("flora_agavePlantSapling_plural"),
+            modelName = "whAgavePlant",
+            saplingModelName = "whAgavePlantSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.flax] = 2,
+                    [gameObject.typeIndexMap.agaveSeed] = 1,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.flax,
+                    gameObject.typeIndexMap.agaveSeed,
+                },
+                revertToSeedlingGatherResourceCounts = {
+                    [gameObject.typeIndexMap.flax] = 1,
+                },
+            },
+            markerPositions = tallPlantMarkerPositions,
+            seedResourceTypeIndex = resource.types.agaveSeed.index,
+            maturityDurationDays = 6,
             fruitImmediatelyWhenMature = true,
             interactable = true,
             useCraftSimple = true,

@@ -29,6 +29,10 @@ Acacia3 - ✔
 AcaciaSapling - ✔
 AcaciaSeed - ✔
 
+AgavePlant -
+AgavePlantSapling -
+AgaveSeed -
+
 Alder1 - ✔
 Alder1Winter - ✔
 Alder2 - ✔
@@ -88,8 +92,8 @@ CarobTree - ✔
 CarobTreeSapling - ✔
 CarobPod - ✔
 
-ReedPlant -
-ReedPlantSapling -
+Cattail -
+CattailSapling -
 CattailRoot -
 CattailRootCooked -
 
@@ -150,6 +154,9 @@ ElephantGrassSapling -
 
 GroundFern -
 GroundFernSapling -
+
+FeatherGrass -
+FeatherGrassSapling -
 
 FigTree -
 FigTreeWinter -
@@ -294,6 +301,10 @@ SagebrushSeed -
 
 Saxaul1 -
 SaxaulSapling -
+
+SeaBuckthornBush -
+SeaBuckthornBushSapling -
+SeaBuckthorn -
 
 Spruce1 -
 Spruce1Snow -
