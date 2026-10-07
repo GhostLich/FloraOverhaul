@@ -137,8 +137,8 @@ local gardens = {
     deciduous = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_raspberryBush", "plant_gooseberryBush", "plant_hazelBush", "plant_chestnut1"},
     mixed = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_raspberryBush", "plant_gooseberryBush", "plant_lingonberryBush", "plant_hazelBush"},
     coniferous = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_gooseberryBush", "plant_lingonberryBush"},
-    tundra = {"plant_lingonberryBush", "plant_cloudberryBush", "plant_elderberryTree", "plant_raspberryBush", "plant_barleyPlant"},
-    parkland = {"plant_appleTree", "plant_lingonberryBush", "plant_raspberryBush", "plant_gooseberryBush", "plant_barleyPlant"},
+    tundra = {"plant_lingonberryBush", "plant_cloudberryBush", "plant_elderberryTree", "plant_raspberryBush"},
+    parkland = {"plant_appleTree", "plant_lingonberryBush", "plant_raspberryBush", "plant_gooseberryBush"},
     oakSavanna = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_gooseberryBush"},
     desert = {"plant_datePalm1", "plant_figTree", "plant_watermelonPlant", "plant_orangeTree"},
 }
