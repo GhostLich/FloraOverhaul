@@ -7,6 +7,9 @@ local mod = {
 local function getForestKey(biomeTags)
     if biomeTags.tropical then
         if biomeTags.savanna then
+            if biomeTags.lushSavanna then
+                return "lushSavanna"
+            end
             return "acacia"
         elseif biomeTags.rainforest then
             return "kapok"
@@ -110,7 +113,11 @@ function mod:onload(biome)
             end
 
             if forestDescription or snowDescription then
-                local description = locale:getBiomeMainDescription(biomeTags) .. " " .. (forestDescription or locale:getBiomeForestDescription(biomeTags)) .. " " .. locale:getBiomeTemperatureDescription(biomeTags)
+                local mainDescription = locale:getBiomeMainDescription(biomeTags)
+                if biomeTags.lushSavanna then
+                    mainDescription = locale:get("biome_lushSavanna")
+                end
+                local description = mainDescription .. " " .. (forestDescription or locale:getBiomeForestDescription(biomeTags)) .. " " .. locale:getBiomeTemperatureDescription(biomeTags)
                 if snowDescription then
                     description = description .. " " .. snowDescription
                 end

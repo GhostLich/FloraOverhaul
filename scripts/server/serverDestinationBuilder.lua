@@ -11,6 +11,8 @@ local forests = {
         ["plant_acacia2"] = 1.0,
         ["plant_acacia3"] = 1.0,
         ["plant_baobab1"] = 0.1,
+        ["plant_banyan1"] = 0.05,
+        ["plant_banyan2"] = 0.05,
     },
     rainforest = {
         ["plant_rubberTree1"] = 0.5,
