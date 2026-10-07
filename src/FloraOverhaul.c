@@ -1897,7 +1897,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9371, 0.02, 3, 8, gameObjectType_commonReed);
 		}
-		if(altitude > -0.5 && altitude < 0.6 && info->river && coldWinter && !frozen)
+		if(altitude > -0.3 && altitude < 1.2 && info->river && coldWinter && !frozen)
 		{
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9381, 0.02, 3, 8, gameObjectType_bulrush);
 		}
