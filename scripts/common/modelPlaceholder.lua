@@ -171,6 +171,15 @@ function mod:onload(modelPlaceholder)
             },
         })
 
+        modelPlaceholder:addModel("whSeaBuckthornBush", {
+            {
+                multiKeyBase = "seaBuckthorn",
+                multiCount = 6,
+                defaultModelName = "whSeaBuckthornHangingFruit",
+                resourceTypeIndex = resource.types.seaBuckthorn.index,
+            },
+        })
+
         modelPlaceholder:addModel("whGrapevinePlant", {
             {
                 multiKeyBase = "grape",

@@ -206,6 +206,7 @@ local windStrengths = {
     whElephantGrass = vec2(0.85, 0.6),
     whFeatherGrass = vec2(0.85, 0.6),
     whSeaBuckthornBush = vec2(0.95, 0.8),
+    whSeaBuckthornHangingFruit = vec2(0.9, 0.8),
     whThymePlant = vec2(0.8, 0.6),
     whSpruce1 = vec2(0.997, 0.9),
     whSpruce1Snow = vec2(0.997, 0.9),
@@ -470,11 +471,28 @@ function mod:onload(model)
             whFigHangingFruit = {},
             whFigHangingFruitWinter = {},
         }
-        remapModels.whDate = {
-            whDateHangingFruit = {},
-        }
         remapModels.whGrape = {
             whGrapeHangingFruit = {},
+            whDate = {
+                grape = "date",
+            },
+            whDateHangingFruit = {
+                grape = "date",
+            },
+            whSeaBuckthorn = {
+                grape = "seaBuckthorn",
+            },
+            whSeaBuckthornHangingFruit = {
+                grape = "seaBuckthorn",
+            },
+        }
+        remapModels.whGrapeRotten = {
+            whDateRotten = {
+                grapeRotten = "dateRotten",
+            },
+            whSeaBuckthornRotten = {
+                grapeRotten = "seaBuckthornRotten",
+            },
         }
         remapModels.pumpkinPlant = {
             pumpkinPlantSpring = {},
@@ -508,16 +526,10 @@ function mod:onload(model)
             whJuniperBerryHangingFruit = {
                 lingonberry = "juniperBerry",
             },
-            whSeaBuckthorn = {
-                lingonberry = "seaBuckthorn",
-            },
         }
         remapModels.whLingonberryRotten = {
             whJuniperBerryRotten = {
                 lingonberryRotten = "juniperBerryRotten",
-            },
-            whSeaBuckthornRotten = {
-                lingonberryRotten = "seaBuckthornRotten",
             },
         }
         remapModels.whCloudberry = {
@@ -970,7 +982,7 @@ function mod:onload(model)
         })
         addRemap(remapModels, "hay", "whReedStemDried", {})
         addRemap(remapModels, "aloeLeaf", "whAgaveLeaf", {
-            aloeLeaf = "agaveLeaf",
+            aloeLeaf = "agaveLeafLow",
         })
         addRemap(remapModels, "flaxDried", "whKapokFibre", {
             flaxLeafDry = "kapokFibre",

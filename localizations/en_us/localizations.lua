@@ -993,6 +993,13 @@ localizations.values = {
     biome_forest_oakSavanna_sparse = "Oak, juniper & pine trees.",
     biome_forest_oakSavanna_verySparse = "Very few oak & juniper trees.",
     biome_forest_hotSteppe = "Very few acacia & doum palm trees.",
+    biome_forest_aridDesert = "Barren, a few saxaul shrubs.",
+    biome_forest_desert = "Cactus, mesquite & agave scrub.",
+    biome_forest_coldDesert = "Sagebrush & saxaul scrub.",
+    biome_forest_tundra = "Dwarf birch & arctic willow scrub.",
+    biome_forest_cloudForest = "Tree ferns.",
+    biome_snow_med = "Snowy Winter.",
+    biome_snow_heavy = "Heavy Winter Snow.",
 }
 
 return localizations

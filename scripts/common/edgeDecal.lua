@@ -46,6 +46,14 @@ function mod:onload(edgeDecal)
         },
         size = vec2(0.3, 0.25),
     })
+
+    mj:insertIndexed(edgeDecal.groupTypes, {
+        key = "agave",
+        textureLocations = {
+            edgeDecal.textureLocations.leavesAloe,
+        },
+        size = vec2(0.03, 0.03),
+    })
 end
 
 return mod

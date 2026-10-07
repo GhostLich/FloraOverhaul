@@ -36,7 +36,7 @@ end
 function mod:onload(biome)
     local prevGetWoodDifficultyLevel = biome.getWoodDifficultyLevel
     biome.getWoodDifficultyLevel = function(biome_, biomeTags)
-        if biomeTags.tropical and (biomeTags.savanna or biomeTags.rainforest) then
+        if (biomeTags.tropical and (biomeTags.savanna or biomeTags.rainforest)) or biomeTags.mediterraneanForest then
             if biomeTags.mediumForest then
                 return biome.difficulties.easy
             elseif biomeTags.denseForest then
@@ -49,6 +49,17 @@ function mod:onload(biome)
             return biome.difficulties.veryHard
         end
         return prevGetWoodDifficultyLevel(biome_, biomeTags)
+    end
+
+    local prevGetIsSuitableForTribeSpawn = biome.getIsSuitableForTribeSpawn
+    biome.getIsSuitableForTribeSpawn = function(biome_, biomeTags)
+        if biomeTags.mediterraneanForest or biomeTags.subtropicalForest or biomeTags.oakForest or biomeTags.mixedForest or biomeTags.cloudForest then
+            return true
+        end
+        if biomeTags.aspenParkland or biomeTags.mediterraneanSteppe or biomeTags.oakSavanna then
+            return true
+        end
+        return prevGetIsSuitableForTribeSpawn(biome_, biomeTags)
     end
 
     local prevGetDescriptionFromTags = biome.getDescriptionFromTags
@@ -74,10 +85,36 @@ function mod:onload(biome)
                 forestDescription = locale:get("biome_forest_" .. forestKey .. "_" .. density)
             elseif (not density) and biomeTags.steppe and biomeTags.hot then
                 forestDescription = locale:get("biome_forest_hotSteppe")
+            elseif not density then
+                if biomeTags.aridDesert then
+                    forestDescription = locale:get("biome_forest_aridDesert")
+                elseif biomeTags.desert then
+                    if biomeTags.temperatureWinterCold or biomeTags.temperatureWinterVeryCold then
+                        forestDescription = locale:get("biome_forest_coldDesert")
+                    else
+                        forestDescription = locale:get("biome_forest_desert")
+                    end
+                elseif biomeTags.tundra then
+                    forestDescription = locale:get("biome_forest_tundra")
+                end
+            end
+            if forestDescription and biomeTags.cloudForest then
+                forestDescription = forestDescription .. " " .. locale:get("biome_forest_cloudForest")
             end
 
-            if forestDescription then
-                return locale:getBiomeMainDescription(biomeTags) .. " " .. forestDescription .. " " .. locale:getBiomeTemperatureDescription(biomeTags)
+            local snowDescription = nil
+            if biomeTags.heavySnowWinter then
+                snowDescription = locale:get("biome_snow_heavy")
+            elseif biomeTags.medSnowWinter then
+                snowDescription = locale:get("biome_snow_med")
+            end
+
+            if forestDescription or snowDescription then
+                local description = locale:getBiomeMainDescription(biomeTags) .. " " .. (forestDescription or locale:getBiomeForestDescription(biomeTags)) .. " " .. locale:getBiomeTemperatureDescription(biomeTags)
+                if snowDescription then
+                    description = description .. " " .. snowDescription
+                end
+                return description
             end
         end
         return prevGetDescriptionFromTags(biome_, biomeTags)
