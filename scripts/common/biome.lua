@@ -19,11 +19,19 @@ local function getForestKey(biomeTags)
     if biomeTags.mediterraneanForest then
         return "mediterranean"
     elseif biomeTags.subtropicalForest then
+        if biomeTags.dryWinter and biomeTags.hot then
+            return "monsoon"
+        end
         return "subtropical"
     elseif biomeTags.oakForest then
         return "oak"
     elseif biomeTags.mixedForest then
         return "mixed"
+    elseif biomeTags.temperate and biomeTags.coniferous then
+        if biomeTags.drySummer and biomeTags.verySparseForest then
+            return "dryPine"
+        end
+        return "taiga"
     elseif biomeTags.tundra then
         return "forestTundra"
     elseif biomeTags.aspenParkland then
@@ -32,6 +40,55 @@ local function getForestKey(biomeTags)
         return "mediterraneanSteppe"
     elseif biomeTags.oakSavanna then
         return "oakSavanna"
+    end
+    return nil
+end
+
+local function getMainKey(biomeTags)
+    if biomeTags.lushSavanna then
+        return "lushSavanna"
+    elseif biomeTags.savanna then
+        return "savanna"
+    elseif biomeTags.cloudForest then
+        return "cloudForest"
+    elseif biomeTags.mediterraneanForest then
+        return "mediterranean"
+    elseif biomeTags.subtropicalForest then
+        if biomeTags.dryWinter and biomeTags.hot then
+            return "monsoon"
+        end
+        return "subtropical"
+    elseif biomeTags.oakForest then
+        return "deciduous"
+    elseif biomeTags.mixedForest then
+        return "mixed"
+    elseif biomeTags.temperate and biomeTags.coniferous then
+        if biomeTags.drySummer and biomeTags.verySparseForest then
+            return "dryPine"
+        end
+        return "taiga"
+    elseif biomeTags.icecap then
+        return "icecap"
+    elseif biomeTags.tundra then
+        if biomeTags.alpineTundra then
+            return "alpineTundra"
+        end
+        return "tundra"
+    elseif biomeTags.aridDesert then
+        return "aridDesert"
+    elseif biomeTags.desert then
+        if biomeTags.temperatureWinterCold or biomeTags.temperatureWinterVeryCold then
+            return "coldDesert"
+        end
+        return "desert"
+    elseif biomeTags.aspenParkland then
+        return "aspenParkland"
+    elseif biomeTags.mediterraneanSteppe then
+        return "scrubSteppe"
+    elseif biomeTags.oakSavanna then
+        return "oakSteppe"
+    elseif biomeTags.steppe and biomeTags.hot and not (biomeTags.temperatureWinterCold or biomeTags.temperatureWinterVeryCold) then
+        return "drySavanna"
     end
     return nil
 end
@@ -97,6 +154,8 @@ function mod:onload(biome)
                     else
                         forestDescription = locale:get("biome_forest_desert")
                     end
+                elseif biomeTags.alpineTundra then
+                    forestDescription = locale:get("biome_forest_alpineTundra")
                 elseif biomeTags.tundra then
                     forestDescription = locale:get("biome_forest_tundra")
                 end
@@ -112,10 +171,13 @@ function mod:onload(biome)
                 snowDescription = locale:get("biome_snow_med")
             end
 
-            if forestDescription or snowDescription then
-                local mainDescription = locale:getBiomeMainDescription(biomeTags)
-                if biomeTags.lushSavanna then
-                    mainDescription = locale:get("biome_lushSavanna")
+            local mainKey = getMainKey(biomeTags)
+            if forestDescription or snowDescription or mainKey then
+                local mainDescription = nil
+                if mainKey then
+                    mainDescription = locale:get("biome_main_" .. mainKey)
+                else
+                    mainDescription = locale:getBiomeMainDescription(biomeTags)
                 end
                 local description = mainDescription .. " " .. (forestDescription or locale:getBiomeForestDescription(biomeTags)) .. " " .. locale:getBiomeTemperatureDescription(biomeTags)
                 if snowDescription then

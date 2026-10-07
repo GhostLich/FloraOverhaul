@@ -38,6 +38,7 @@ static uint16_t biomeTag_mediterraneanSteppe;
 static uint16_t biomeTag_oakSavanna;
 static uint16_t biomeTag_aridDesert;
 static uint16_t biomeTag_lushSavanna;
+static uint16_t biomeTag_alpineTundra;
 
 #define BROADLEAF_TYPE_COUNT 7
 static uint32_t gameObjectType_broadleafTypes[BROADLEAF_TYPE_COUNT];
@@ -213,6 +214,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 	biomeTag_oakSavanna = threadState->getBiomeTag(threadState, "oakSavanna");
 	biomeTag_aridDesert = threadState->getBiomeTag(threadState, "aridDesert");
 	biomeTag_lushSavanna = threadState->getBiomeTag(threadState, "lushSavanna");
+	biomeTag_alpineTundra = threadState->getBiomeTag(threadState, "alpineTundra");
 
 	if(threadState->getGameObjectTypeIndex)
 	{
@@ -615,6 +617,10 @@ void spBiomeGetTagsForPoint(SPBiomeThreadState* threadState,
 			{
 				tagsOut[tagCount++] = biomeTag_lushSavanna;
 			}
+		}
+		if(info.tundra && info.tropicalLatitude)
+		{
+			tagsOut[tagCount++] = biomeTag_alpineTundra;
 		}
 	}
 
