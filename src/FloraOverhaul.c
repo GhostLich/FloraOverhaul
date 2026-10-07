@@ -23,6 +23,7 @@ static uint16_t biomeTag_temperatureSummerHot;
 static uint16_t biomeTag_temperatureSummerCold;
 static uint16_t biomeTag_temperatureSummerVeryCold;
 static uint16_t biomeTag_temperatureSummerVeryHot;
+static uint16_t biomeTag_heavySnowSummer;
 static uint16_t biomeTag_drySummer;
 static uint16_t biomeTag_dryWinter;
 static uint16_t biomeTag_desert;
@@ -39,6 +40,7 @@ static uint16_t biomeTag_oakSavanna;
 static uint16_t biomeTag_aridDesert;
 static uint16_t biomeTag_lushSavanna;
 static uint16_t biomeTag_alpineTundra;
+static uint16_t biomeTag_subarctic;
 
 #define BROADLEAF_TYPE_COUNT 7
 static uint32_t gameObjectType_broadleafTypes[BROADLEAF_TYPE_COUNT];
@@ -199,6 +201,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 	biomeTag_temperatureSummerCold = threadState->getBiomeTag(threadState, "temperatureSummerCold");
 	biomeTag_temperatureSummerVeryCold = threadState->getBiomeTag(threadState, "temperatureSummerVeryCold");
 	biomeTag_temperatureSummerVeryHot = threadState->getBiomeTag(threadState, "temperatureSummerVeryHot");
+	biomeTag_heavySnowSummer = threadState->getBiomeTag(threadState, "heavySnowSummer");
 	biomeTag_drySummer = threadState->getBiomeTag(threadState, "drySummer");
 	biomeTag_dryWinter = threadState->getBiomeTag(threadState, "dryWinter");
 	biomeTag_desert = threadState->getBiomeTag(threadState, "desert");
@@ -215,6 +218,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 	biomeTag_aridDesert = threadState->getBiomeTag(threadState, "aridDesert");
 	biomeTag_lushSavanna = threadState->getBiomeTag(threadState, "lushSavanna");
 	biomeTag_alpineTundra = threadState->getBiomeTag(threadState, "alpineTundra");
+	biomeTag_subarctic = threadState->getBiomeTag(threadState, "subarctic");
 
 	if(threadState->getGameObjectTypeIndex)
 	{
@@ -430,6 +434,7 @@ typedef struct BiomeInfo {
 	bool summerVeryHot;
 	bool summerCold;
 	bool summerVeryCold;
+	bool heavySnowSummer;
 	bool drySummer;
 	bool dryWinter;
 	bool desert;
@@ -462,6 +467,7 @@ typedef struct BiomeInfo {
 	bool oakSavanna;
 	bool mixedForest;
 	bool cloudForest;
+	bool subarctic;
 } BiomeInfo;
 
 static void getBiomeInfo(uint16_t* biomeTags, int tagCount, BiomeInfo* info)
@@ -492,6 +498,7 @@ static void getBiomeInfo(uint16_t* biomeTags, int tagCount, BiomeInfo* info)
 		}
 		else if(tag == biomeTag_temperatureSummerCold) info->summerCold = true;
 		else if(tag == biomeTag_temperatureSummerVeryCold) info->summerVeryCold = true;
+		else if(tag == biomeTag_heavySnowSummer) info->heavySnowSummer = true;
 		else if(tag == biomeTag_drySummer) info->drySummer = true;
 		else if(tag == biomeTag_dryWinter) info->dryWinter = true;
 		else if(tag == biomeTag_desert) info->desert = true;
@@ -499,6 +506,7 @@ static void getBiomeInfo(uint16_t* biomeTags, int tagCount, BiomeInfo* info)
 		else if(tag == biomeTag_lushSavanna) info->lushSavanna = true;
 		else if(tag == biomeTag_icecap) info->icecap = true;
 		else if(tag == biomeTag_dry) info->dry = true;
+		else if(tag == biomeTag_subarctic) info->subarctic = true;
 		else if(tag == biomeTag_denseForest) info->forestDensity = 4;
 		else if(tag == biomeTag_mediumForest) info->forestDensity = 3;
 		else if(tag == biomeTag_sparseForest) info->forestDensity = 2;
@@ -622,6 +630,10 @@ void spBiomeGetTagsForPoint(SPBiomeThreadState* threadState,
 		if(info.tundra && info.tropicalLatitude)
 		{
 			tagsOut[tagCount++] = biomeTag_alpineTundra;
+		}
+		if(info.temperate && info.winterVeryCold && temperatureSummer < 15.0 && !info.drySummer && !info.tropicalLatitude)
+		{
+			tagsOut[tagCount++] = biomeTag_subarctic;
 		}
 	}
 
@@ -840,6 +852,12 @@ static int addGalleryForest(SPBiomeThreadState* threadState, uint32_t* types, in
 			}
 		}
 	}
+	bool tidal = info->altitudeMeters < 1.5 && info->riverDistance > 0.05;
+	if(treeCount > 0 && !tidal && info->altitudeMeters < 900.0 && info->steepness <= 0.5 && randomInt(faceUniqueID, 6121, 16) == 0)
+	{
+		ADD_OBJECT(gameObjectType_kapokBig);
+		treeCount--;
+	}
 	bool banyan = false;
 	for(int i = 0; i < treeCount; i++)
 	{
@@ -849,13 +867,21 @@ static int addGalleryForest(SPBiomeThreadState* threadState, uint32_t* types, in
 			ADD_OBJECT(gameObjectType_banyanTypes[randomInt(faceUniqueID, 6202 + i, BANYAN_TYPE_COUNT)]);
 			banyan = true;
 		}
-		else if(roll < 12)
+		else if(roll < 11)
 		{
 			ADD_OBJECT(gameObjectType_mahoganyTypes[randomInt(faceUniqueID, 9601 + i, MAHOGANY_TYPE_COUNT)]);
 		}
-		else if(roll < 17)
+		else if(roll < 14)
 		{
 			ADD_OBJECT(gameObjectType_wildPalmTypes[randomInt(faceUniqueID, 6302 + i, WILD_PALM_TYPE_COUNT)]);
+		}
+		else if(tidal)
+		{
+			continue;
+		}
+		else if(info->altitudeMeters > 1200.0 || (info->altitudeMeters > 900.0 && randomInt(faceUniqueID, 6131 + i, 2) == 0))
+		{
+			ADD_OBJECT(gameObjectType_mahoganyTypes[randomInt(faceUniqueID, 9601 + i, MAHOGANY_TYPE_COUNT)]);
 		}
 		else
 		{
@@ -867,6 +893,7 @@ static int addGalleryForest(SPBiomeThreadState* threadState, uint32_t* types, in
 
 static int addRainforest(SPBiomeThreadState* threadState, uint32_t* types, int addedCount, BiomeInfo* info, SPVec3 noiseLoc, uint64_t faceUniqueID, int level)
 {
+	bool tidal = info->altitudeMeters < 1.5 && info->riverDistance > 0.05;
 	if(level == SP_SUBDIVISIONS - 7)
 	{
 		if(info->forestDensity >= 2 && isBrazilNutGrove(threadState, info, noiseLoc))
@@ -877,9 +904,17 @@ static int addRainforest(SPBiomeThreadState* threadState, uint32_t* types, int a
 				ADD_OBJECT(gameObjectType_brazilNutTree);
 			}
 		}
-		else if(info->forestDensity >= 3 && randomInt(faceUniqueID, 2301, 10) == 0)
+		else if(info->forestDensity >= 2 && !tidal && info->altitudeMeters < 900.0 && info->steepness <= 0.5)
 		{
-			ADD_OBJECT(gameObjectType_kapokBig);
+			uint32_t chance = info->forestDensity == 2 ? 20 : 10;
+			if(info->riverDistance < 0.02)
+			{
+				chance = 4;
+			}
+			if(randomInt(faceUniqueID, 2301, chance) == 0)
+			{
+				ADD_OBJECT(gameObjectType_kapokBig);
+			}
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 6)
@@ -912,16 +947,33 @@ static int addRainforest(SPBiomeThreadState* threadState, uint32_t* types, int a
 		{
 			ADD_OBJECT(gameObjectType_acaciaTypes[randomInt(faceUniqueID, 2332, ACACIA_TYPE_COUNT)]);
 		}
-		bool tidal = info->altitudeMeters < 1.5 && info->riverDistance > 0.05;
 		if(treeCount > 0 && !tidal && info->altitudeMeters < 1200.0 && randomInt(faceUniqueID, 2325, (info->forestDensity == 3 || info->nearRiver) ? 2 : 3) == 0)
 		{
 			ADD_OBJECT(gameObjectType_banyanTypes[randomInt(faceUniqueID, 2324, BANYAN_TYPE_COUNT)]);
 			treeCount--;
 		}
+		uint32_t kapokShare = 5;
+		if(info->riverDistance < 0.02)
+		{
+			kapokShare = 6;
+		}
+		else if(info->forestDensity == 4)
+		{
+			kapokShare = 4;
+		}
 		for(int i = 0; i < treeCount; i++)
 		{
 			uint32_t roll = randomInt(faceUniqueID, 1196 + i, 10) < 4 ? randomInt(info->standID, 2314, 8) : randomInt(faceUniqueID, 2314 + i, 8);
-			if(roll < 5)
+			bool kapok = roll < kapokShare;
+			if(kapok && tidal)
+			{
+				continue;
+			}
+			if(kapok && (info->altitudeMeters > 1200.0 || (info->altitudeMeters > 900.0 && randomInt(faceUniqueID, 2341 + i, 2) == 0)))
+			{
+				kapok = false;
+			}
+			if(kapok)
 			{
 				ADD_OBJECT(gameObjectType_kapokTypes[randomInt(faceUniqueID, 2304 + i, KAPOK_TYPE_COUNT)]);
 			}
@@ -961,21 +1013,17 @@ static int addRainforest(SPBiomeThreadState* threadState, uint32_t* types, int a
 			{
 				ADD_OBJECT(gameObjectType_rubberTreeTypes[randomInt(faceUniqueID, 2602 + i, RUBBER_TREE_TYPE_COUNT)]);
 			}
-			else if(roll < 10)
+			else if(roll >= 17)
 			{
-				ADD_OBJECT(gameObjectType_cacao);
+				ADD_OBJECT(gameObjectType_cycadTypes[randomInt(faceUniqueID, 2802 + i, CYCAD_TYPE_COUNT)]);
 			}
-			else if(roll < 14)
-			{
-				ADD_OBJECT(gameObjectType_wildPalmTypes[randomInt(faceUniqueID, 2702 + i, WILD_PALM_TYPE_COUNT)]);
-			}
-			else if(roll < 17)
+			else if(roll >= 14)
 			{
 				ADD_OBJECT(gameObjectType_bananaTree);
 			}
-			else
+			else if(roll >= 10)
 			{
-				ADD_OBJECT(gameObjectType_cycadTypes[randomInt(faceUniqueID, 2802 + i, CYCAD_TYPE_COUNT)]);
+				ADD_OBJECT(gameObjectType_wildPalmTypes[randomInt(faceUniqueID, 2702 + i, WILD_PALM_TYPE_COUNT)]);
 			}
 		}
 	}
@@ -1304,13 +1352,21 @@ static int addDesertRiver(uint32_t* types, int addedCount, BiomeInfo* info, uint
 
 static int addTundra(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level)
 {
-	if(level == SP_SUBDIVISIONS - 4 && (int)randomInt(faceUniqueID, 7401, info->nearRiver ? 3 : 8) < info->groveScale)
+	if(level != SP_SUBDIVISIONS - 4 || info->summerVeryCold)
 	{
-		int shrubCount = randomInt(faceUniqueID, 7402, 2) + 1;
+		return addedCount;
+	}
+	if((int)randomInt(faceUniqueID, 7401, 8) < info->groveScale)
+	{
+		int shrubCount = randomInt(faceUniqueID, 7402, 2) + 2;
 		for(int i = 0; i < shrubCount; i++)
 		{
 			ADD_OBJECT(gameObjectType_dwarfBirchTypes[randomInt(faceUniqueID, 9751 + i, DWARF_BIRCH_TYPE_COUNT)]);
 		}
+	}
+	else if(info->groveScale == 0 && info->grove > 0.0 && randomInt(faceUniqueID, 7403, 8) == 0)
+	{
+		ADD_OBJECT(gameObjectType_dwarfBirchTypes[randomInt(faceUniqueID, 9751, DWARF_BIRCH_TYPE_COUNT)]);
 	}
 	return addedCount;
 }
@@ -1482,6 +1538,58 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		}
 	}
 	return addedCount;
+}
+
+static int addCacao(SPBiomeThreadState* threadState, uint32_t* types, int addedCount, BiomeInfo* info, SPVec3 noiseLoc, uint64_t faceUniqueID, int level)
+{
+	if(level != SP_SUBDIVISIONS - 4 || info->beach || info->bambooGrove || info->summerVeryHot || info->steepness > 0.5)
+	{
+		return addedCount;
+	}
+	if(info->altitudeMeters < 1.5 && info->riverDistance > 0.05)
+	{
+		return addedCount;
+	}
+	if(info->altitudeMeters > 500.0 + randomInt(faceUniqueID, 2981, 400))
+	{
+		return addedCount;
+	}
+	uint32_t chance = 0;
+	if(info->savanna)
+	{
+		if(info->lushSavanna && info->riverDistance < 0.008)
+		{
+			chance = 60;
+		}
+	}
+	else if(info->nearRiver)
+	{
+		if(info->forestDensity >= 3)
+		{
+			chance = 7;
+		}
+		else if(info->forestDensity == 2)
+		{
+			chance = 20;
+		}
+	}
+	else if(info->forestDensity >= 3)
+	{
+		SPVec3 groveLoc = spVec3Mul(noiseLoc, 70000.0);
+		if(spNoiseGet(threadState->spNoise2, groveLoc, 2) > 0.0)
+		{
+			chance = info->forestDensity == 4 ? 7 : 10;
+		}
+	}
+	if(chance == 0)
+	{
+		return addedCount;
+	}
+	if(!info->summerHot)
+	{
+		chance *= 2;
+	}
+	return addPatch(types, addedCount, faceUniqueID, 2982, chance, 2, 1, &gameObjectType_cacao, 1);
 }
 
 static int addMangroves(uint32_t* types, int addedCount, uint64_t faceUniqueID, int level)
@@ -2121,7 +2229,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	{
 		addedCount = addDesertRiver(types, addedCount, &info, faceUniqueID, level);
 	}
-	if(arcticTundra && !info.beach && altitude > 0.0)
+	if(arcticTundra && !info.beach && altitude > 0.0 && (fabs(pointNormal.y) > 0.6 || randomInt(faceUniqueID, 7400, 3) == 0))
 	{
 		addedCount = addTundra(types, addedCount, &info, faceUniqueID, level);
 	}
@@ -2160,7 +2268,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	}
 
 	bool bog = false;
-	if((arcticTundra || (info.temperate && info.coniferous && (info.winterCold || info.winterVeryCold))) && !info.beach && altitude > 0.0)
+	if((arcticTundra || info.subarctic || (info.temperate && info.coniferous && (info.winterCold || info.winterVeryCold))) && !info.beach && altitude > 0.0)
 	{
 		SPVec3 bogLoc = spVec3Mul(noiseLoc, 173000.0);
 		bog = spNoiseGet(threadState->spNoise2, bogLoc, 2) > 0.33;
@@ -2277,7 +2385,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8691, 1, 1, 1, &gameObjectType_seaBuckthorn, 1);
 			}
 		}
-		if(bog)
+		if(bog && (arcticTundra || info.subarctic) && !info.summerVeryCold)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8581, 4, 1, 1, gameObjectType_dwarfBirchTypes, DWARF_BIRCH_TYPE_COUNT);
 		}
@@ -2285,9 +2393,9 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8621, 1, 1, 2, &gameObjectType_hazelBush, 1);
 		}
-		if(info.temperate && info.coniferous && info.winterVeryCold && !info.beach && altitude > 0.0 && (int)randomInt(faceUniqueID, 8270, info.nearRiver ? 6 : 24) < groveScale)
+		if(info.subarctic && info.forestDensity <= 2 && !info.nearRiver && !info.beach && altitude > 0.0 && tundraPatch < -0.14)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8271, 1, 1, 1, gameObjectType_dwarfBirchTypes, DWARF_BIRCH_TYPE_COUNT);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8271, info.summerCold ? 2 : 4, 1, 1, gameObjectType_dwarfBirchTypes, DWARF_BIRCH_TYPE_COUNT);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 3)
@@ -2388,10 +2496,6 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8701, 60, 2, 1, &gameObjectType_aloePlant, 1);
 		}
-		if(info.aridDesert && !info.beach && altitude > 0.0)
-		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8731, 40, 2, 1, &gameObjectType_featherGrass, 1);
-		}
 		if(!info.winterVeryCold && (!info.winterCold || info.summerHot) && !info.beach && !info.nearRiver && !oasis && altitude > 0.0 && info.altitudeMeters < 2500.0)
 		{
 			uint32_t agaveChance = 0;
@@ -2424,13 +2528,79 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				addedCount = addSunPatch(types, addedCount, faceUniqueID, 8711, agaveChance, 2, 2, &gameObjectType_agave, 1, sunPercent);
 			}
 		}
-		if(info.tundra && info.tropicalLatitude && !info.beach && altitude > 0.0)
+		if(!info.beach && altitude > 0.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8721, 5, 3, 2, &gameObjectType_featherGrass, 1);
-		}
-		if(coolSteppe && !info.beach && altitude > 0.0)
-		{
-			addedCount = addSunPatch(types, addedCount, faceUniqueID, 8721, aspenParkland ? 12 : 30, 3, 2, &gameObjectType_featherGrass, 1, sunPercent);
+			uint32_t featherGrassChance = 0;
+			if(info.tundra)
+			{
+				if(info.tropicalLatitude && !info.summerVeryCold && !info.nearRiver && tundraPatch <= 0.14)
+				{
+					if(info.heavySnowSummer)
+					{
+						featherGrassChance = tundraPatch < -0.14 ? 0 : 20;
+					}
+					else
+					{
+						featherGrassChance = tundraPatch < -0.14 ? 30 : 10;
+					}
+				}
+			}
+			else if(coolSteppe)
+			{
+				if(!info.nearRiver && info.grove <= 0.14)
+				{
+					featherGrassChance = aspenParkland ? 10 : 16;
+					if(info.grove < -0.14)
+					{
+						featherGrassChance /= 2;
+					}
+				}
+			}
+			else if(hotSteppe)
+			{
+				if((info.winterCold || info.winterVeryCold) && !info.nearRiver)
+				{
+					featherGrassChance = 30;
+				}
+			}
+			else if(info.aridDesert)
+			{
+				if(coldDesert)
+				{
+					featherGrassChance = 40;
+				}
+				else if(wadi)
+				{
+					featherGrassChance = 10;
+				}
+				else if(info.winterModerate)
+				{
+					featherGrassChance = 80;
+				}
+			}
+			else if(info.desert)
+			{
+				if(coldDesert)
+				{
+					featherGrassChance = 16;
+				}
+				else if(info.winterModerate && !info.summerVeryHot)
+				{
+					featherGrassChance = 40;
+				}
+			}
+			else if(mediterranean && info.forestDensity == 1 && groveScale == 0)
+			{
+				featherGrassChance = 20;
+			}
+			else if(dryPineWoodland && groveScale == 0)
+			{
+				featherGrassChance = 30;
+			}
+			if(featherGrassChance > 0)
+			{
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8721, featherGrassChance, info.desert ? 2 : 3, info.desert ? 1 : 2, &gameObjectType_featherGrass, 1);
+			}
 		}
 		if(bog)
 		{
@@ -2455,6 +2625,10 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	}
 
 	addedCount = addBaobab(threadState, types, addedCount, &info, noiseLoc, faceUniqueID, level, wadi);
+	if(tropicalForest)
+	{
+		addedCount = addCacao(threadState, types, addedCount, &info, noiseLoc, faceUniqueID, level);
+	}
 
 	if(tropicalForest)
 	{
