@@ -441,7 +441,7 @@ function mod:onload(model)
                 windStrengthsBase[k] = v
             end
         else
-            mj:warn("Flora Overhaul: windStrengthsBase not found")
+            mj:warn("Endemic Flora: windStrengthsBase not found")
         end
         prevSetup(model_)
     end

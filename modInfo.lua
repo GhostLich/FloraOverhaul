@@ -1,6 +1,6 @@
 local modInfo = {
     loadOrder = 1,
-    name = "Flora Overhaul",
+    name = "Endemic: Flora",
     description = "A complete overhaul of plant spawns and addition of 50+ new plants.",
     version = "0.1.0",
     type = "world",

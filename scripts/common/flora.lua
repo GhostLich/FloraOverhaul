@@ -111,7 +111,7 @@ function mod:onload(flora)
         prevLoad(flora_, gameObject)
 
         if not (addFlora and addFruit and getClientModelFunction and treeMarkerPositions and bushMarkerPositions and tallPlantMarkerPositions and tinyPlantMarkerPositions) then
-            mj:warn("Flora Overhaul: flora functions not found")
+            mj:warn("Endemic Flora: flora functions not found")
             return
         end
 

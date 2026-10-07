@@ -1,4 +1,4 @@
-# FloraOverhaul
+# Endemic: Flora
 
 a sapiens mod that gives every biome its own unique trees and plants, not finished yet
 
@@ -8,7 +8,7 @@ a lot of the models are placeholders right now, but the code is largely done. i'
 
 now includes my fix for villages to make them spawn with biome-appropriate trees and crops
 
-lib/FloraOverhaul.dll (Windows) and lib/libFloraOverhaul.so (Linux) handle where the trees spawn during world generation. the source is in src/FloraOverhaul.c, and the headers in src/include are dave's from github.com/Majic-Jungle/splugins
+lib/EndemicFlora.dll (Windows) and lib/libEndemicFlora.so (Linux) handle where the trees spawn during world generation. the source is in src/EndemicFlora.c, and the headers in src/include are dave's from github.com/Majic-Jungle/splugins
 
 code is MIT, new models are CC BY 4.0, see LICENSE
 
