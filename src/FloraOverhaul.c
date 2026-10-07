@@ -1279,6 +1279,10 @@ static uint32_t swapTree(uint32_t type, BiomeInfo* info, uint64_t faceUniqueID, 
 			{
 				type = gameObjectType_larch;
 			}
+			else if(info->nearRiver && roll == 9)
+			{
+				type = gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
+			}
 		}
 		else if(level == SP_SUBDIVISIONS - 4 && type == gameObjectType_pineTypes[3] && (info->winterCold || info->winterVeryCold))
 		{
@@ -1302,6 +1306,10 @@ static uint32_t swapTree(uint32_t type, BiomeInfo* info, uint64_t faceUniqueID, 
 			{
 				type = gameObjectType_poplar;
 			}
+			else if(info->nearRiver && !info->summerHot && roll >= 13)
+			{
+				type = gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
+			}
 		}
 	}
 	else if(isInList(type, gameObjectType_broadleafTypes, BROADLEAF_TYPE_COUNT))
@@ -1310,6 +1318,10 @@ static uint32_t swapTree(uint32_t type, BiomeInfo* info, uint64_t faceUniqueID, 
 		if(info->cloudForest && roll < 8)
 		{
 			type = gameObjectType_treeFernTypes[randomInt(faceUniqueID, 3203 + i, TREE_FERN_TYPE_COUNT)];
+		}
+		else if(info->cloudForest && roll < 11)
+		{
+			type = gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
 		}
 		else if(info->temperate && info->nearRiver && !info->drySummer && roll < 10)
 		{
@@ -1322,9 +1334,17 @@ static uint32_t swapTree(uint32_t type, BiomeInfo* info, uint64_t faceUniqueID, 
 			{
 				type = gameObjectType_planeTreeTypes[randomInt(faceUniqueID, 9741 + i, PLANE_TREE_TYPE_COUNT)];
 			}
-			else
+			else if(riverRoll >= (info->hot ? 0 : (info->summerHot ? 2 : 7)))
 			{
-				type = (riverRoll < 7 ? gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)] : gameObjectType_poplar);
+				type = gameObjectType_poplar;
+			}
+			else if(info->riverDistance < 0.008 || roll < 5)
+			{
+				type = gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
+			}
+			else if(info->deciduous)
+			{
+				type = gameObjectType_oakTypes[randomInt(faceUniqueID, 3202 + i, OAK_TYPE_COUNT)];
 			}
 		}
 		else if(info->subtropical)
@@ -1354,7 +1374,7 @@ static uint32_t swapTree(uint32_t type, BiomeInfo* info, uint64_t faceUniqueID, 
 			}
 			else if(info->forestDensity >= 3 && roll < 17)
 			{
-				type = (roll == 15 ? gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)] : gameObjectType_poplar);
+				type = (roll == 15 && !info->hot ? gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)] : gameObjectType_poplar);
 			}
 		}
 		else if(info->mixedForest && roll < 4)
@@ -1776,6 +1796,10 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			if(altitude > 0.0)
 			{
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8121, 4, 1, 1, &gameObjectType_poplar, 1);
+				if(riverDistance < 0.008 && !info.hot)
+				{
+					addedCount = addPatch(types, addedCount, faceUniqueID, 8131, 6, 1, 1, gameObjectType_alderTypes, ALDER_TYPE_COUNT);
+				}
 			}
 		}
 		if(seaside && !info.tropical && (info.temperate || mediterranean))
