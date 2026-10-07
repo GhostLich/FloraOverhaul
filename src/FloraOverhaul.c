@@ -433,6 +433,12 @@ typedef struct BiomeInfo {
 	bool beach;
 	bool seaside;
 	bool bambooGrove;
+	double grove;
+	int groveScale;
+	int canopy;
+	int shadePercent;
+	int sunPercent;
+	uint64_t standID;
 	bool tropicalForest;
 	bool mediterranean;
 	bool subtropical;
@@ -616,19 +622,54 @@ static uint32_t getStandRoll(uint64_t standID, uint64_t faceUniqueID, uint32_t s
 	return randomInt(faceUniqueID, seed + i, max);
 }
 
-static int getGroveScale(SPBiomeThreadState* threadState, BiomeInfo* info, SPVec3 noiseLoc)
+static void setGrove(SPBiomeThreadState* threadState, BiomeInfo* info, SPVec3 noiseLoc)
 {
-	if((!info->temperate && !info->tundra && !info->coolSteppe) || info->forestDensity > 2 || info->nearRiver)
+	info->groveScale = 1;
+	info->shadePercent = 100;
+	info->sunPercent = 100;
+	if(!info->temperate && !info->tundra && !info->coolSteppe)
 	{
-		return 1;
+		return;
 	}
 	SPVec3 groveLoc = spVec3Mul(noiseLoc, 45000.0);
-	double grove = spNoiseGet(threadState->spNoise2, groveLoc, 2);
-	if(info->forestDensity == 1 && !info->coolSteppe)
+	info->grove = spNoiseGet(threadState->spNoise2, groveLoc, 2);
+	if(info->temperate && info->forestDensity == 4)
 	{
-		return grove > 0.2 ? 6 : 0;
+		info->sunPercent = 35;
 	}
-	return grove > 0.14 ? 4 : 0;
+	if(info->nearRiver)
+	{
+		return;
+	}
+	if(info->temperate && info->forestDensity == 3)
+	{
+		info->canopy = 6;
+		if(info->grove < -0.14)
+		{
+			info->canopy = 3;
+			info->shadePercent = 50;
+			info->sunPercent = 150;
+		}
+		else if(info->grove > 0.14)
+		{
+			info->canopy = 9;
+			info->shadePercent = 150;
+			info->sunPercent = 50;
+		}
+	}
+	else if(info->forestDensity < 3)
+	{
+		if(info->forestDensity == 1 && !info->coolSteppe)
+		{
+			info->groveScale = info->grove > 0.2 ? 6 : 0;
+		}
+		else
+		{
+			info->groveScale = info->grove > 0.14 ? 4 : 0;
+		}
+		info->shadePercent = info->groveScale * 100;
+		info->sunPercent = info->groveScale == 0 ? 133 : 0;
+	}
 }
 
 static int addSavanna(SPBiomeThreadState* threadState, uint32_t* types, int addedCount, BiomeInfo* info, SPVec3 noiseLoc, uint64_t faceUniqueID, int level)
@@ -810,7 +851,7 @@ static int addRainforest(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		}
 		for(int i = 0; i < treeCount; i++)
 		{
-			uint32_t roll = randomInt(faceUniqueID, 2314 + i, 10);
+			uint32_t roll = randomInt(faceUniqueID, 1196 + i, 10) < 4 ? randomInt(info->standID, 2314, 10) : randomInt(faceUniqueID, 2314 + i, 10);
 			if(roll < 5)
 			{
 				ADD_OBJECT(gameObjectType_kapokTypes[randomInt(faceUniqueID, 2304 + i, KAPOK_TYPE_COUNT)]);
@@ -950,26 +991,7 @@ static uint32_t getRiversideTree(BiomeInfo* info, uint64_t faceUniqueID, int i)
 	return gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
 }
 
-static int getMediumCanopy(SPBiomeThreadState* threadState, BiomeInfo* info, SPVec3 noiseLoc)
-{
-	if(!info->temperate || info->forestDensity != 3 || info->nearRiver)
-	{
-		return 0;
-	}
-	SPVec3 groveLoc = spVec3Mul(noiseLoc, 45000.0);
-	double grove = spNoiseGet(threadState->spNoise2, groveLoc, 2);
-	if(grove < -0.14)
-	{
-		return 3;
-	}
-	if(grove > 0.14)
-	{
-		return 9;
-	}
-	return 6;
-}
-
-static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i)
+static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int i)
 {
 	if(info->nearRiver && randomInt(faceUniqueID, 4311 + i, 2) == 0)
 	{
@@ -983,7 +1005,7 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t standID, uint64_t
 	{
 		return gameObjectType_maritimePine;
 	}
-	uint32_t roll = getStandRoll(standID, faceUniqueID, 4302, i, 20);
+	uint32_t roll = getStandRoll(info->standID, faceUniqueID, 4302, i, 20);
 	if(roll < 6)
 	{
 		return gameObjectType_oliveTreeTypes[randomInt(faceUniqueID, 9621 + i, OLIVE_TREE_TYPE_COUNT)];
@@ -1007,11 +1029,10 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t standID, uint64_t
 	return gameObjectType_stonePine;
 }
 
-static int addMediterranean(SPBiomeThreadState* threadState, uint32_t* types, int addedCount, BiomeInfo* info, SPVec3 noiseLoc, uint64_t faceUniqueID, int level)
+static int addMediterranean(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level)
 {
-	int groveScale = getGroveScale(threadState, info, noiseLoc);
-	int canopy = getMediumCanopy(threadState, info, noiseLoc);
-	uint64_t standID = getStandID(threadState, noiseLoc);
+	int groveScale = info->groveScale;
+	int canopy = info->canopy;
 	if(level == SP_SUBDIVISIONS - 6 && groveScale == 1 && canopy == 0)
 	{
 		int treeCount = 0;
@@ -1036,18 +1057,18 @@ static int addMediterranean(SPBiomeThreadState* threadState, uint32_t* types, in
 		}
 		for(int i = 0; i < treeCount; i++)
 		{
-			ADD_OBJECT(getMediterraneanTree(info, standID, faceUniqueID, i));
+			ADD_OBJECT(getMediterraneanTree(info, faceUniqueID, i));
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 4)
 	{
 		if(groveScale > 1 && randomInt(faceUniqueID, 4305, info->forestDensity == 1 ? 11 : 4) == 0)
 		{
-			ADD_OBJECT(getMediterraneanTree(info, standID, faceUniqueID, 0));
+			ADD_OBJECT(getMediterraneanTree(info, faceUniqueID, 0));
 		}
 		if((int)randomInt(faceUniqueID, 4306, 40) < canopy)
 		{
-			ADD_OBJECT(getMediterraneanTree(info, standID, faceUniqueID, 0));
+			ADD_OBJECT(getMediterraneanTree(info, faceUniqueID, 0));
 		}
 		if((int)randomInt(faceUniqueID, 4303, 10) < groveScale)
 		{
@@ -1131,9 +1152,9 @@ static int addDesertRiver(uint32_t* types, int addedCount, BiomeInfo* info, uint
 	return addedCount;
 }
 
-static int addTundra(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level, int groveScale)
+static int addTundra(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level)
 {
-	if(level == SP_SUBDIVISIONS - 4 && (int)randomInt(faceUniqueID, 7401, info->nearRiver ? 3 : 8) < groveScale)
+	if(level == SP_SUBDIVISIONS - 4 && (int)randomInt(faceUniqueID, 7401, info->nearRiver ? 3 : 8) < info->groveScale)
 	{
 		int shrubCount = randomInt(faceUniqueID, 7402, 2) + 1;
 		for(int i = 0; i < shrubCount; i++)
@@ -1205,13 +1226,13 @@ static int addSpawn(uint32_t* types, int addedCount, uint64_t faceUniqueID, uint
 	return addedCount;
 }
 
-static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level, int groveScale, int shadePercent, int sunPercent)
+static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level)
 {
 	bool frozen = info->polar || info->icecap;
 	bool coldWinter = info->winterCold || info->winterVeryCold;
 	double altitude = info->altitudeMeters;
-	double shadeScale = shadePercent / 100.0;
-	double sunScale = sunPercent / 100.0;
+	double shadeScale = info->shadePercent / 100.0;
+	double sunScale = info->sunPercent / 100.0;
 
 	if(level == SP_SUBDIVISIONS - 3)
 	{
@@ -1263,7 +1284,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		}
 		if(altitude > 0.0 && !info->beach && (info->desert || info->dry) && !(info->aridDesert || frozen || info->winterVeryCold))
 		{
-			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.008 * groveScale, 1, 3, gameObjectType_mesquiteTree);
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, 0.008 * info->groveScale, 1, 3, gameObjectType_mesquiteTree);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 2)
@@ -1360,9 +1381,9 @@ static uint32_t getBroadleaf(uint64_t faceUniqueID, int i, bool aspen)
 	return gameObjectType_broadleafTypes[randomInt(faceUniqueID, 1131 + i, 4)];
 }
 
-static uint32_t getSteppeTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, int level)
+static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int level)
 {
-	uint32_t roll = getStandRoll(standID, faceUniqueID, 3401, i, 20);
+	uint32_t roll = getStandRoll(info->standID, faceUniqueID, 3401, i, 20);
 	if(info->aspenParkland)
 	{
 		if(roll < 1)
@@ -1427,9 +1448,9 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t standID, uint64_t faceUn
 	return getPine(faceUniqueID, i, level);
 }
 
-static uint32_t getTundraTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, int level)
+static uint32_t getTundraTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int level)
 {
-	uint32_t roll = getStandRoll(standID, faceUniqueID, 3501, i, 10);
+	uint32_t roll = getStandRoll(info->standID, faceUniqueID, 3501, i, 10);
 	if(roll < 3)
 	{
 		return gameObjectType_juniperTypes[randomInt(faceUniqueID, 9721 + i, JUNIPER_TYPE_COUNT)];
@@ -1449,7 +1470,7 @@ static uint32_t getTundraTree(BiomeInfo* info, uint64_t standID, uint64_t faceUn
 	return getPine(faceUniqueID, i, level);
 }
 
-static uint32_t getConiferTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, int level)
+static uint32_t getConiferTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int level)
 {
 	if(info->winterCold || info->winterVeryCold)
 	{
@@ -1462,7 +1483,7 @@ static uint32_t getConiferTree(BiomeInfo* info, uint64_t standID, uint64_t faceU
 		}
 		else
 		{
-			uint32_t roll = getStandRoll(standID, faceUniqueID, 3701, i, 20);
+			uint32_t roll = getStandRoll(info->standID, faceUniqueID, 3701, i, 20);
 			if(roll < 6)
 			{
 				return gameObjectType_spruce;
@@ -1476,9 +1497,9 @@ static uint32_t getConiferTree(BiomeInfo* info, uint64_t standID, uint64_t faceU
 	return getPine(faceUniqueID, i, level);
 }
 
-static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, bool aspen)
+static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, bool aspen)
 {
-	uint32_t roll = getStandRoll(standID, faceUniqueID, 3101, i, 20);
+	uint32_t roll = getStandRoll(info->standID, faceUniqueID, 3101, i, 20);
 	if(info->subtropical)
 	{
 		if(roll < 10)
@@ -1520,14 +1541,14 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t standID, uint64_t fac
 	return getBroadleaf(faceUniqueID, i, aspen);
 }
 
-static uint32_t getTemperateTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, int level, bool aspen)
+static uint32_t getTemperateTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int level, bool aspen)
 {
 	uint32_t type = 0;
 	if(level == SP_SUBDIVISIONS - 6 && info->seaside && randomInt(faceUniqueID, 3104 + i, 10) < 3)
 	{
 		return gameObjectType_maritimePine;
 	}
-	if(!info->birch || (info->coniferous && getStandRoll(standID, faceUniqueID, 1171, i, 2) == 0))
+	if(!info->birch || (info->coniferous && getStandRoll(info->standID, faceUniqueID, 1171, i, 2) == 0))
 	{
 		if(level == SP_SUBDIVISIONS - 6 && info->nearRiver && (info->winterCold || info->winterVeryCold) && randomInt(faceUniqueID, 3102 + i, 20) < 7)
 		{
@@ -1535,7 +1556,7 @@ static uint32_t getTemperateTree(BiomeInfo* info, uint64_t standID, uint64_t fac
 		}
 		if(!type)
 		{
-			type = getConiferTree(info, standID, faceUniqueID, i, level);
+			type = getConiferTree(info, faceUniqueID, i, level);
 		}
 		return type;
 	}
@@ -1557,12 +1578,12 @@ static uint32_t getTemperateTree(BiomeInfo* info, uint64_t standID, uint64_t fac
 	}
 	if(!type)
 	{
-		type = getBroadleafTree(info, standID, faceUniqueID, i, aspen);
+		type = getBroadleafTree(info, faceUniqueID, i, aspen);
 	}
 	return type;
 }
 
-static uint32_t getForestTree(BiomeInfo* info, uint64_t standID, uint64_t faceUniqueID, int i, int level, bool aspen)
+static uint32_t getForestTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int level, bool aspen)
 {
 	bool riverTree = level == SP_SUBDIVISIONS - 6 && info->river && randomInt(faceUniqueID, 1151 + i, 2) == 0;
 	if(info->tropicalForest)
@@ -1583,15 +1604,15 @@ static uint32_t getForestTree(BiomeInfo* info, uint64_t standID, uint64_t faceUn
 	}
 	if(info->coolSteppe)
 	{
-		return getSteppeTree(info, standID, faceUniqueID, i, level);
+		return getSteppeTree(info, faceUniqueID, i, level);
 	}
 	if(info->tundra)
 	{
-		return getTundraTree(info, standID, faceUniqueID, i, level);
+		return getTundraTree(info, faceUniqueID, i, level);
 	}
 	if(info->temperate)
 	{
-		return getTemperateTree(info, standID, faceUniqueID, i, level, aspen);
+		return getTemperateTree(info, faceUniqueID, i, level, aspen);
 	}
 	return getPine(faceUniqueID, i, level);
 }
@@ -1600,9 +1621,8 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 {
 	SPVec3 aspenLoc = spVec3Mul(noiseLoc, 92273.0);
 	bool aspen = spNoiseGet(threadState->spNoise1, aspenLoc, 2) > 0.2;
-	uint64_t standID = getStandID(threadState, noiseLoc);
-	int groveScale = getGroveScale(threadState, info, noiseLoc);
-	int canopy = getMediumCanopy(threadState, info, noiseLoc);
+	int groveScale = info->groveScale;
+	int canopy = info->canopy;
 
 	if(level == SP_SUBDIVISIONS - 7)
 	{
@@ -1659,7 +1679,7 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 		}
 		for(int i = 0; i < treeCount; i++)
 		{
-			uint32_t type = getForestTree(info, standID, faceUniqueID, i, level, aspen);
+			uint32_t type = getForestTree(info, faceUniqueID, i, level, aspen);
 			if(type)
 			{
 				ADD_OBJECT(type);
@@ -1693,7 +1713,7 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 			}
 			if(randomInt(faceUniqueID, 1105, chance) == 0)
 			{
-				uint32_t type = getForestTree(info, standID, faceUniqueID, 0, SP_SUBDIVISIONS - 6, aspen);
+				uint32_t type = getForestTree(info, faceUniqueID, 0, SP_SUBDIVISIONS - 6, aspen);
 				if(type)
 				{
 					ADD_OBJECT(type);
@@ -1702,7 +1722,7 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 		}
 		if((info->coniferous || info->birch) && (int)randomInt(faceUniqueID, 1106, 12) < canopy)
 		{
-			uint32_t type = getForestTree(info, standID, faceUniqueID, 0, SP_SUBDIVISIONS - 6, aspen);
+			uint32_t type = getForestTree(info, faceUniqueID, 0, SP_SUBDIVISIONS - 6, aspen);
 			if(type)
 			{
 				ADD_OBJECT(type);
@@ -1729,7 +1749,7 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 			treeCount *= groveScale;
 			for(int i = 0; i < treeCount; i++)
 			{
-				uint32_t type = getForestTree(info, standID, faceUniqueID, i, level, false);
+				uint32_t type = getForestTree(info, faceUniqueID, i, level, false);
 				if(type)
 				{
 					ADD_OBJECT(type);
@@ -1769,39 +1789,20 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	info.beach = (altitude + spNoiseGet(threadState->spNoise1, beachNoiseLoc, 2) * 0.00000005 + spNoiseGet(threadState->spNoise1, beachNoiseLocLarge, 2) * 0.0000005) < 0.0000001;
 
 	setForestTypes(&info);
-	int groveScale = getGroveScale(threadState, &info, noiseLoc);
-	int canopy = getMediumCanopy(threadState, &info, noiseLoc);
-	int shadePercent = groveScale * 100;
-	int sunPercent = 100;
-	if(groveScale == 0)
+	setGrove(threadState, &info, noiseLoc);
+	if(level == SP_SUBDIVISIONS - 6 || level == SP_SUBDIVISIONS - 4)
 	{
-		sunPercent = 133;
+		info.standID = getStandID(threadState, noiseLoc);
 	}
-	else if(groveScale > 1)
-	{
-		sunPercent = 0;
-	}
-	if(canopy == 3)
-	{
-		shadePercent = 50;
-		sunPercent = 150;
-	}
-	else if(canopy == 9)
-	{
-		shadePercent = 150;
-		sunPercent = 50;
-	}
+	int groveScale = info.groveScale;
+	int shadePercent = info.shadePercent;
+	int sunPercent = info.sunPercent;
 	if(info.tropical || info.subtropical)
 	{
 		SPVec3 bambooLoc = spVec3Mul(noiseLoc, 40000.0);
 		info.bambooGrove = spNoiseGet(threadState->spNoise2, bambooLoc, 2) > (info.savanna && info.river ? 0.175 : 0.265);
 	}
-	double tundraPatch = 0.0;
-	if(info.tundra)
-	{
-		SPVec3 tundraLoc = spVec3Mul(noiseLoc, 45000.0);
-		tundraPatch = spNoiseGet(threadState->spNoise2, tundraLoc, 2);
-	}
+	double tundraPatch = info.grove;
 	bool tropicalForest = info.tropicalForest;
 	bool subtropical = info.subtropical;
 	bool mediterranean = info.mediterranean;
@@ -1876,7 +1877,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			continue;
 		}
 
-		if(thinDenseForestCrops && (isInList(type, gameObjectType_cropTypes, CROP_TYPE_COUNT) || isInList(type, gameObjectType_temperatePlantTypes, TEMPERATE_PLANT_TYPE_COUNT)))
+		if(thinDenseForestCrops && !isSunPlant(type) && (isInList(type, gameObjectType_cropTypes, CROP_TYPE_COUNT) || isInList(type, gameObjectType_temperatePlantTypes, TEMPERATE_PLANT_TYPE_COUNT)))
 		{
 			continue;
 		}
@@ -1926,7 +1927,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		ADD_OBJECT(type);
 	}
 
-	addedCount = addWildPlants(types, addedCount, &info, faceUniqueID, level, groveScale, shadePercent, sunPercent);
+	addedCount = addWildPlants(types, addedCount, &info, faceUniqueID, level);
 
 	if(blocked)
 	{
@@ -1943,7 +1944,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	}
 	if(info.tundra && !info.beach)
 	{
-		addedCount = addTundra(types, addedCount, &info, faceUniqueID, level, groveScale);
+		addedCount = addTundra(types, addedCount, &info, faceUniqueID, level);
 	}
 	if(cloudForest && !info.beach)
 	{
@@ -2268,7 +2269,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 	}
 	if(mediterranean && info.forestDensity > 0)
 	{
-		return addMediterranean(threadState, types, addedCount, &info, noiseLoc, faceUniqueID, level);
+		return addMediterranean(types, addedCount, &info, faceUniqueID, level);
 	}
 	if(hotSteppe && !info.beach && !info.winterVeryCold)
 	{
