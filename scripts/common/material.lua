@@ -186,7 +186,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeafSpringLow", vec3(0.2, 0.32, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeafAutumn", vec3(0.5, 0.18, 0.06), 1.0))
     mj:insertIndexed(material.types, bushMat("dwarfBirchLeafAutumnLow", vec3(0.5, 0.18, 0.06), 1.0))
-    mj:insertIndexed(material.types, matWithB("dwarfBirchBark", vec3(0.32, 0.2, 0.16), 1.0, vec3(0.22, 0.14, 0.11), 1.0))
+    mj:insertIndexed(material.types, matWithB("dwarfBirchBark", vec3(0.5, 0.5, 0.5), 0.8, vec3(0.2, 0.2, 0.2), 0.8))
     mj:insertIndexed(material.types, matWithB("sagebrushLeaf", vec3(0.2, 0.25, 0.19), 1.0, vec3(0.27, 0.33, 0.26), 1.0))
     mj:insertIndexed(material.types, matWithB("sagebrushLeafLow", vec3(0.2, 0.25, 0.19), 1.0, vec3(0.27, 0.33, 0.26), 1.0))
     mj:insertIndexed(material.types, matWithB("sagebrushLeafSmall", vec3(0.2, 0.25, 0.19), 1.0, vec3(0.27, 0.33, 0.26), 1.0))
@@ -311,11 +311,11 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("chestnutRotten", vec3(0.1, 0.06, 0.04), 0.9))
     mj:insertIndexed(material.types, mat("chestnut2", vec3(0.5, 0.4, 0.25), 0.7))
     mj:insertIndexed(material.types, mat("chestnut2Rotten", vec3(0.14, 0.11, 0.07), 0.9))
-    mj:insertIndexed(material.types, bushMat("hazelLeaf", vec3(0.12, 0.25, 0.07), 1.0))
-    mj:insertIndexed(material.types, bushMat("hazelLeafLow", vec3(0.12, 0.25, 0.07), 1.0))
-    mj:insertIndexed(material.types, bushMat("hazelLeafSmall", vec3(0.12, 0.25, 0.07), 1.0))
-    mj:insertIndexed(material.types, bushMat("hazelLeafSpring", vec3(0.22, 0.35, 0.1), 1.0))
-    mj:insertIndexed(material.types, bushMat("hazelLeafSpringLow", vec3(0.22, 0.35, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeaf", vec3(0.2, 0.3, 0.08), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafLow", vec3(0.2, 0.3, 0.08), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafSmall", vec3(0.2, 0.3, 0.08), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafSpring", vec3(0.3, 0.4, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafSpringLow", vec3(0.3, 0.4, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafAutumn", vec3(0.5, 0.4, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafAutumnLow", vec3(0.5, 0.4, 0.1), 1.0))
     mj:insertIndexed(material.types, matWithB("hazelBark", vec3(0.3, 0.24, 0.2), 1.0, vec3(0.2, 0.16, 0.13), 1.0))
@@ -464,7 +464,7 @@ function mod:onload(material)
     material.types.dwarfBirchLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.dwarfBirchLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.dwarfBirchLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.sagebrushLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
+    material.types.sagebrushLeaf.edgeDecal = edgeDecal.groupTypes.sagebrush
     material.types.sagebrushLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.mapleLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.mapleLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesA
@@ -511,10 +511,10 @@ function mod:onload(material)
     material.types.hazelLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.arcticWillowLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.arcticWillowLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.arcticWillowLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.arcticWillowLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.arcticWillowLeaf.edgeDecal = edgeDecal.groupTypes.sagebrush
+    material.types.arcticWillowLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
+    material.types.arcticWillowLeafSpring.edgeDecal = edgeDecal.groupTypes.sagebrush
+    material.types.arcticWillowLeafAutumn.edgeDecal = edgeDecal.groupTypes.sagebrush
     material.types.saxaulLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.saxaulLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.elephantGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower

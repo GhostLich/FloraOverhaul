@@ -38,6 +38,14 @@ function mod:onload(edgeDecal)
         },
         size = vec2(0.125, 0.0),
     })
+
+    mj:insertIndexed(edgeDecal.groupTypes, {
+        key = "sagebrush",
+        textureLocations = {
+            edgeDecal.textureLocations.willowLeaf,
+        },
+        size = vec2(0.3, 0.25),
+    })
 end
 
 return mod

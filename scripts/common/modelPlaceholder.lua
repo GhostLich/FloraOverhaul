@@ -142,6 +142,17 @@ function mod:onload(modelPlaceholder)
             },
         })
 
+        for i,modelName in ipairs({"whHazelBush", "whHazelBushWinter"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "hazelnut",
+                    multiCount = 6,
+                    defaultModelName = "whHazelnutHangingFruit",
+                    resourceTypeIndex = resource.types.hazelnut.index,
+                },
+            })
+        end
+
         modelPlaceholder:addModel("whLingonberryBush", {
             {
                 multiKeyBase = "gooseberry",

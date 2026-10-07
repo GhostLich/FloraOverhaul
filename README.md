@@ -31,8 +31,6 @@ AcaciaSeed - ✔
 
 AgavePlant -
 AgavePlantSapling -
-AgaveHeart -
-AgaveHeartCooked -
 
 Alder1 - ✔
 Alder1Winter - ✔
@@ -41,9 +39,7 @@ Alder2Winter - ✔
 AlderCone - ✔
 AlderSapling - ✔
 
-ArcticWillow -
-ArcticWillowWinter -
-ArcticWillowSapling -
+ArcticWillowWinter - ✔
 
 ArganTree -
 ArganTreeSapling -
@@ -137,7 +133,6 @@ DoumPalm1 - ✔
 DoumPalm2 - ✔
 DoumPalm3 - ✔
 DoumPalmSapling - ✔
-DoumFruit -
 
 DwarfBirch1 - ✔
 DwarfBirch1Winter - ✔
@@ -174,8 +169,8 @@ GrapevinePlant -
 GrapevinePlantSapling -
 Grape -
 
-HazelBush -
-HazelBushWinter -
+HazelBush - ✔
+HazelBushWinter - ✔
 HazelBushSapling -
 
 Juniper1 -
@@ -188,7 +183,6 @@ Kapok2 -
 Kapok3 -
 KapokSapling -
 KapokSeed -
-KapokFibre -
 
 Larch1 -
 Larch1Winter -
@@ -283,11 +277,10 @@ RubberTree3 -
 RubberTree4 -
 RubberTreeSapling -
 
-Sagebrush1 -
-Sagebrush2 -
-Sagebrush3 -
-SagebrushSapling -
-SagebrushLeaf -
+Sagebrush1 - ✔
+Sagebrush2 - ✔
+Sagebrush3 - ✔
+SagebrushSapling - ✔
 
 Saxaul1 -
 SaxaulSapling -
@@ -317,7 +310,6 @@ TreeFern3 - ✔
 TreeFern4 - ✔
 TreeFernSapling - ✔
 TreeFernSpores -
-Frond -
 
 WatermelonPlant -
 WatermelonPlantSapling -
