@@ -208,6 +208,12 @@ local windStrengths = {
     whSeaBuckthornBush = vec2(0.95, 0.8),
     whSeaBuckthornHangingFruit = vec2(0.9, 0.8),
     whThymePlant = vec2(0.8, 0.6),
+    whSyrianRuePlant = vec2(0.8, 0.6),
+    whAngelicaPlant = vec2(0.8, 0.6),
+    whEphedraBush = vec2(0.95, 0.8),
+    whHennaBush = vec2(0.95, 0.8),
+    whMyrrhBush = vec2(0.98, 0.8),
+    whDragonsBloodTree = vec2(0.98, 0.8),
     whSpruce1 = vec2(0.997, 0.9),
     whSpruce1Snow = vec2(0.997, 0.9),
     whLarch1 = vec2(0.997, 0.9),
@@ -247,6 +253,10 @@ local windStrengths = {
     whSeaBuckthornBushSapling = vec2(0.9, 0.8),
     whLarchSapling = vec2(0.95, 0.8),
     whCacaoTreeSapling = vec2(0.95, 0.8),
+    whEphedraBushSapling = vec2(0.9, 0.8),
+    whHennaBushSapling = vec2(0.9, 0.8),
+    whMyrrhBushSapling = vec2(0.95, 0.8),
+    whDragonsBloodTreeSapling = vec2(0.95, 0.8),
     whTreeFernSapling = vec2(0.9, 0.8),
 }
 
@@ -820,15 +830,23 @@ function mod:onload(model)
         }
         remapModels.whPlantainLeafRotten = {
             whSagebrushLeafRotten = {},
+            whHennaLeafRotten = {},
+        }
+        remapModels.whThymeRotten = {
+            whSyrianRueRotten = {},
+        }
+        remapModels.whLemongrassRotten = {
+            whEphedraRotten = {},
         }
         remapModels.whTamariskSeed = {
             whSagebrushSeed = {
                 tamariskSeed = "sagebrushSeed",
             },
             whSaxaulSeed = {},
-            whAgaveSeed = {
-                tamariskSeed = "agaveSeed",
-            },
+            whEphedraSeed = {},
+            whHennaSeed = {},
+            whMyrrhSeed = {},
+            whDragonsBloodSeed = {},
             whArcticWillowSeed = {
                 tamariskSeed = "arcticWillowSeed",
             },
@@ -850,9 +868,10 @@ function mod:onload(model)
                 tamariskSeedRotten = "sagebrushSeedRotten",
             },
             whSaxaulSeedRotten = {},
-            whAgaveSeedRotten = {
-                tamariskSeedRotten = "agaveSeedRotten",
-            },
+            whEphedraSeedRotten = {},
+            whHennaSeedRotten = {},
+            whMyrrhSeedRotten = {},
+            whDragonsBloodSeedRotten = {},
             whArcticWillowSeedRotten = {
                 tamariskSeedRotten = "arcticWillowSeedRotten",
             },
@@ -868,6 +887,8 @@ function mod:onload(model)
             whRubberSeedRotten = {
                 tamariskSeedRotten = "rubberSeedRotten",
             },
+            whMyrrhRotten = {},
+            whDragonsBloodRotten = {},
         }
         remapModels.whCacaoPod = {
             whCacaoPodHangingFruit = {},
@@ -879,6 +900,7 @@ function mod:onload(model)
         }
         remapModels.whCattailRootRotten = {
             whAgaveHeartRotten = {},
+            whAngelicaRootRotten = {},
         }
         remapModels.whCattailRootCooked = {
             whAgaveHeartCooked = {},

@@ -155,7 +155,7 @@ function mod:onload(modelPlaceholder)
 
         modelPlaceholder:addModel("whLingonberryBush", {
             {
-                multiKeyBase = "gooseberry",
+                multiKeyBase = "lingonberry",
                 multiCount = 6,
                 defaultModelName = "whLingonberryHangingFruit",
                 resourceTypeIndex = resource.types.lingonberry.index,
@@ -164,7 +164,7 @@ function mod:onload(modelPlaceholder)
 
         modelPlaceholder:addModel("whCloudberryBush", {
             {
-                multiKeyBase = "raspberry",
+                multiKeyBase = "cloudberry",
                 multiCount = 6,
                 defaultModelName = "whCloudberryHangingFruit",
                 resourceTypeIndex = resource.types.cloudberry.index,
@@ -191,7 +191,7 @@ function mod:onload(modelPlaceholder)
 
         modelPlaceholder:addModel("whWatermelonPlant", {
             {
-                multiKeyBase = "pumpkin",
+                multiKeyBase = "watermelon",
                 multiCount = 1,
                 defaultModelName = "whWatermelonHangingFruit",
                 resourceTypeIndex = resource.types.watermelon.index,

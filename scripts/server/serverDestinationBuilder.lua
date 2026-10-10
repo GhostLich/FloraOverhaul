@@ -158,7 +158,7 @@ local herbs = {
 local medicineSwaps = {
     savanna = {garlic = "lemongrass"},
     rainforest = {garlic = "lemongrass", marigold = "gotuKola"},
-    mediterranean = {turmeric = "yarrow", marigold = "thyme"},
+    mediterranean = {turmeric = "yarrow"},
     subtropical = {turmeric = "yarrow", aloe = "plantain"},
     deciduous = {turmeric = "yarrow", aloe = "plantain"},
     mixed = {turmeric = "yarrow", aloe = "plantain"},

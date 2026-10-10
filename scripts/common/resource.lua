@@ -501,6 +501,114 @@ function mod:onload(resource)
         tradeBatchSize = 20,
         tradeValue = 1,
     })
+    typeMaps:insert("resource", resource.types, {
+        key = "syrianRue",
+        name = locale:get("fruit_syrianRue"),
+        plural = locale:get("fruit_syrianRue_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.syrianRue,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "syrianRueRotten",
+        name = locale:get("fruit_syrianRue_rotten"),
+        plural = locale:get("fruit_syrianRue_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.syrianRueRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "angelicaRoot",
+        name = locale:get("fruit_angelicaRoot"),
+        plural = locale:get("fruit_angelicaRoot_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.angelicaRoot,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "angelicaRootRotten",
+        name = locale:get("fruit_angelicaRoot_rotten"),
+        plural = locale:get("fruit_angelicaRoot_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.angelicaRootRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "ephedra",
+        name = locale:get("fruit_ephedra"),
+        plural = locale:get("fruit_ephedra_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.ephedra,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "ephedraRotten",
+        name = locale:get("fruit_ephedra_rotten"),
+        plural = locale:get("fruit_ephedra_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.ephedraRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "hennaLeaf",
+        name = locale:get("fruit_hennaLeaf"),
+        plural = locale:get("fruit_hennaLeaf_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hennaLeaf,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "hennaLeafRotten",
+        name = locale:get("fruit_hennaLeaf_rotten"),
+        plural = locale:get("fruit_hennaLeaf_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hennaLeafRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "myrrh",
+        name = locale:get("fruit_myrrh"),
+        plural = locale:get("fruit_myrrh_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.myrrh,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "myrrhRotten",
+        name = locale:get("fruit_myrrh_rotten"),
+        plural = locale:get("fruit_myrrh_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.myrrhRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "dragonsBlood",
+        name = locale:get("fruit_dragonsBlood"),
+        plural = locale:get("fruit_dragonsBlood_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.dragonsBlood,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "dragonsBloodRotten",
+        name = locale:get("fruit_dragonsBlood_rotten"),
+        plural = locale:get("fruit_dragonsBlood_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.dragonsBloodRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
 
     typeMaps:insert("resource", resource.types, {
         key = "stonePineCone",
@@ -593,25 +701,6 @@ function mod:onload(resource)
         plural = locale:get("fruit_planeSeed_rotten_plural"),
         compostValue = 1,
         displayGameObjectTypeIndex = gameObjectTypeIndexMap.planeSeedRotten,
-        disallowsDecorationPlacing = true,
-        tradeBatchSize = 20,
-        tradeValue = 1,
-    })
-
-    typeMaps:insert("resource", resource.types, {
-        key = "agaveSeed",
-        name = locale:get("fruit_agaveSeed"),
-        plural = locale:get("fruit_agaveSeed_plural"),
-        displayGameObjectTypeIndex = gameObjectTypeIndexMap.agaveSeed,
-        tradeBatchSize = 20,
-        tradeValue = 3,
-    })
-    typeMaps:insert("resource", resource.types, {
-        key = "agaveSeedRotten",
-        name = locale:get("fruit_agaveSeed_rotten"),
-        plural = locale:get("fruit_agaveSeed_rotten_plural"),
-        compostValue = 1,
-        displayGameObjectTypeIndex = gameObjectTypeIndexMap.agaveSeedRotten,
         disallowsDecorationPlacing = true,
         tradeBatchSize = 20,
         tradeValue = 1,
@@ -1026,6 +1115,82 @@ function mod:onload(resource)
     })
 
     typeMaps:insert("resource", resource.types, {
+        key = "ephedraSeed",
+        name = locale:get("fruit_ephedraSeed"),
+        plural = locale:get("fruit_ephedraSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.ephedraSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "ephedraSeedRotten",
+        name = locale:get("fruit_ephedraSeed_rotten"),
+        plural = locale:get("fruit_ephedraSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.ephedraSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "hennaSeed",
+        name = locale:get("fruit_hennaSeed"),
+        plural = locale:get("fruit_hennaSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hennaSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "hennaSeedRotten",
+        name = locale:get("fruit_hennaSeed_rotten"),
+        plural = locale:get("fruit_hennaSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.hennaSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "myrrhSeed",
+        name = locale:get("fruit_myrrhSeed"),
+        plural = locale:get("fruit_myrrhSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.myrrhSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "myrrhSeedRotten",
+        name = locale:get("fruit_myrrhSeed_rotten"),
+        plural = locale:get("fruit_myrrhSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.myrrhSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
+        key = "dragonsBloodSeed",
+        name = locale:get("fruit_dragonsBloodSeed"),
+        plural = locale:get("fruit_dragonsBloodSeed_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.dragonsBloodSeed,
+        tradeBatchSize = 20,
+        tradeValue = 3,
+    })
+    typeMaps:insert("resource", resource.types, {
+        key = "dragonsBloodSeedRotten",
+        name = locale:get("fruit_dragonsBloodSeed_rotten"),
+        plural = locale:get("fruit_dragonsBloodSeed_rotten_plural"),
+        compostValue = 1,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.dragonsBloodSeedRotten,
+        disallowsDecorationPlacing = true,
+        tradeBatchSize = 20,
+        tradeValue = 1,
+    })
+
+    typeMaps:insert("resource", resource.types, {
         key = "groundFernSpores",
         name = locale:get("fruit_groundFernSpores"),
         plural = locale:get("fruit_groundFernSpores_plural"),
@@ -1277,14 +1442,14 @@ function mod:onload(resource)
         })
     end
 
-    addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark", "thyme"})
-    addMedicineGroup("medicineGinger", {"gingerRoot", "juniperBerry", "mesquitePod", "peppermintLeaf", "carobPod"})
-    addMedicineGroup("medicineEchinacea", {"echinaceaFlower", "cloudberry", "lingonberry", "mesquitePod", "lemongrass", "seaBuckthorn", "baobabFruit"})
-    addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf"})
-    addMedicineGroup("medicineMarigold", {"marigoldFlower", "yarrowFlower", "gotuKolaLeaf"})
-    addMedicineGroup("medicineTurmeric", {"turmericRoot", "yarrowFlower", "plantainLeaf"})
-    addMedicineGroup("medicineAloe", {"aloeLeaf", "plantainLeaf", "agaveLeaf"})
-    addMedicineGroup("medicineGarlic", {"garlic", "lemongrass"})
+    addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark", "thyme", "myrrh", "syrianRue", "dragonsBlood"})
+    addMedicineGroup("medicineGinger", {"gingerRoot", "juniperBerry", "mesquitePod", "peppermintLeaf", "carobPod", "syrianRue", "angelicaRoot", "lemongrass"})
+    addMedicineGroup("medicineEchinacea", {"echinaceaFlower", "cloudberry", "lingonberry", "mesquitePod", "seaBuckthorn", "baobabFruit", "cactusFruit"})
+    addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf", "gotuKolaLeaf", "hennaLeaf"})
+    addMedicineGroup("medicineMarigold", {"marigoldFlower", "yarrowFlower", "gotuKolaLeaf", "hennaLeaf", "ephedra"})
+    addMedicineGroup("medicineTurmeric", {"turmericRoot", "yarrowFlower", "plantainLeaf", "sagebrushLeaf", "myrrh"})
+    addMedicineGroup("medicineAloe", {"aloeLeaf", "plantainLeaf", "agaveLeaf", "seaBuckthorn", "dragonsBlood"})
+    addMedicineGroup("medicineGarlic", {"garlic", "lemongrass", "ephedra", "angelicaRoot"})
 
     typeMaps:insert("resourceGroup", resource.groups, {
         key = "roastableRhizome",

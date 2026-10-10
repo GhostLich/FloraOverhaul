@@ -53,8 +53,13 @@ function mod:onload(evolvingObject)
         addFruitRot("chestnut", yearLength)
         addFruitRot("hazelnut", yearLength)
         addFruitRot("thyme", yearLength)
+        addFruitRot("syrianRue", yearLength)
+        addFruitRot("angelicaRoot", yearLength)
+        addFruitRot("ephedra", yearLength)
+        addFruitRot("hennaLeaf", yearLength)
+        addFruitRot("myrrh", yearLength)
+        addFruitRot("dragonsBlood", yearLength)
         addFruitRot("arcticWillowSeed", yearLength)
-        addFruitRot("agaveSeed", yearLength)
         addFruitRot("seaBuckthorn", yearLength)
         addFruitRot("poplarSeed", yearLength)
         addFruitRot("mangroveSeed", yearLength)
@@ -75,6 +80,10 @@ function mod:onload(evolvingObject)
         addFruitRot("cloudberry", dayLength * rottenItemTimeDays)
         addFruitRot("doumFruit", yearLength)
         addFruitRot("saxaulSeed", yearLength)
+        addFruitRot("ephedraSeed", yearLength)
+        addFruitRot("hennaSeed", yearLength)
+        addFruitRot("myrrhSeed", yearLength)
+        addFruitRot("dragonsBloodSeed", yearLength)
         addFruitRot("groundFernSpores", yearLength)
         addFruitRot("featherGrassRhizome", yearLength)
         addFruitRot("elephantGrassRhizome", yearLength)
@@ -139,7 +148,7 @@ function mod:onload(evolvingObject)
             categoryIndex = evolvingObject.categories.rot.index,
         }
         evolvingObject.evolutions[gameObject.types.agaveLeaf.index] = {
-            minTime = 240.0,
+            minTime = dayLength * 2.0,
             toType = gameObject.types.agaveFibre.index,
             categoryIndex = evolvingObject.categories.dry.index,
         }
@@ -153,6 +162,9 @@ function mod:onload(evolvingObject)
             toType = gameObject.types.flaxRotten.index,
             categoryIndex = evolvingObject.categories.rot.index,
         }
+
+        evolvingObject:loadDerivedEvolutions()
+        evolvingObject:createFromTypesByToTypes()
     end
 end
 

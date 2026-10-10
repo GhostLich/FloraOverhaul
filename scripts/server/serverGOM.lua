@@ -23,6 +23,7 @@ function mod:onload(serverGOM)
         end
 
         local serverWorld = mjrequire "server/serverWorld"
+        local serverFlora = mjrequire "server/objects/serverFlora"
         local key = "waterPlants_" .. objectID
         if serverWorld.worldDatabase:dataForKey(key) then
             return
@@ -37,7 +38,7 @@ function mod:onload(serverGOM)
             local point = terrain:getHighestDetailTerrainPointAtPoint(normalize(object.pos + perpNormal * distance))
             local altitude = length(point) - 1.0
             if altitude < mj:mToP(-0.05) and altitude > mj:mToP(-maxDepth) then
-                serverGOM:createGameObject({
+                local newObjectID = serverGOM:createGameObject({
                     objectTypeIndex = object.objectTypeIndex,
                     addLevel = mj.SUBDIVISIONS - 3,
                     pos = point,
@@ -49,6 +50,10 @@ function mod:onload(serverGOM)
                     sharedState = {},
                     privateState = {},
                 })
+                local newObject = newObjectID and serverGOM:getObjectWithID(newObjectID)
+                if newObject then
+                    serverFlora:refillInventory(newObject, newObject.sharedState, true, true)
+                end
             end
         end
     end

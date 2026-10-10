@@ -47,39 +47,24 @@ function mod:onload(storage)
     smallFruitStorage("date", "dateRotten", 0.18)
     smallFruitStorage("grape", "grapeRotten", 0.18)
     smallFruitStorage("cactusFruit", "cactusFruitRotten", 0.12)
-    smallFruitStorage("palmSeed", "palmSeedRotten", 0.12)
-    smallFruitStorage("acaciaSeed", "acaciaSeedRotten", 0.12)
-    smallFruitStorage("kapokSeed", "kapokSeedRotten", 0.12)
-    smallFruitStorage("rubberSeed", "rubberSeedRotten", 0.12)
     smallFruitStorage("acorn", "acornRotten", 0.12)
     smallFruitStorage("olive", "oliveRotten", 0.12)
-    smallFruitStorage("cypressCone", "cypressConeRotten", 0.12)
     smallFruitStorage("brazilNut", "brazilNutRotten", 0.15)
-    smallFruitStorage("mahoganySeed", "mahoganySeedRotten", 0.12)
-    smallFruitStorage("banyanSeed", "banyanSeedRotten", 0.12)
-    smallFruitStorage("cycadSeed", "cycadSeedRotten", 0.12)
     smallFruitStorage("juniperBerry", "juniperBerryRotten", 0.12)
-    smallFruitStorage("treeFernSpores", "treeFernSporesRotten", 0.12)
-    smallFruitStorage("mapleSeed", "mapleSeedRotten", 0.12)
     smallFruitStorage("arganNut", "arganNutRotten", 0.12)
     smallFruitStorage("carobPod", "carobPodRotten", 0.18)
-    smallFruitStorage("alderCone", "alderConeRotten", 0.12)
     smallFruitStorage("stonePineCone", "stonePineConeRotten", 0.15)
     smallFruitStorage("chestnut", "chestnutRotten", 0.15)
     smallFruitStorage("hazelnut", "hazelnutRotten", 0.12)
     smallFruitStorage("thyme", "thymeRotten", 0.12)
-    smallFruitStorage("arcticWillowSeed", "arcticWillowSeedRotten", 0.12)
-    smallFruitStorage("agaveSeed", "agaveSeedRotten", 0.12)
+    smallFruitStorage("syrianRue", "syrianRueRotten", 0.12)
+    smallFruitStorage("angelicaRoot", "angelicaRootRotten", 0.18)
+    smallFruitStorage("ephedra", "ephedraRotten", 0.18)
+    smallFruitStorage("hennaLeaf", "hennaLeafRotten", 0.12)
+    smallFruitStorage("myrrh", "myrrhRotten", 0.12)
+    smallFruitStorage("dragonsBlood", "dragonsBloodRotten", 0.12)
     smallFruitStorage("seaBuckthorn", "seaBuckthornRotten", 0.18)
-    smallFruitStorage("poplarSeed", "poplarSeedRotten", 0.12)
-    smallFruitStorage("mangroveSeed", "mangroveSeedRotten", 0.12)
-    smallFruitStorage("oleanderSeed", "oleanderSeedRotten", 0.12)
-    smallFruitStorage("planeSeed", "planeSeedRotten", 0.12)
-    smallFruitStorage("tamariskSeed", "tamariskSeedRotten", 0.12)
-    smallFruitStorage("sagebrushSeed", "sagebrushSeedRotten", 0.12)
     smallFruitStorage("sagebrushLeaf", "sagebrushLeafRotten", 0.12)
-    smallFruitStorage("baldCypressCone", "baldCypressConeRotten", 0.12)
-    smallFruitStorage("reedRhizome", "reedRhizomeRotten", 0.12)
     smallFruitStorage("yarrowFlower", "yarrowFlowerRotten", 0.12)
     smallFruitStorage("gotuKolaLeaf", "gotuKolaLeafRotten", 0.12)
     smallFruitStorage("plantainLeaf", "plantainLeafRotten", 0.12)
@@ -87,31 +72,35 @@ function mod:onload(storage)
     smallFruitStorage("lemongrass", "lemongrassRotten", 0.12)
     smallFruitStorage("cacaoPod", "cacaoPodRotten", 0.18)
     smallFruitStorage("doumFruit", "doumFruitRotten", 0.12)
-    smallFruitStorage("saxaulSeed", "saxaulSeedRotten", 0.12)
-    smallFruitStorage("groundFernSpores", "groundFernSporesRotten", 0.12)
-    smallFruitStorage("featherGrassRhizome", "featherGrassRhizomeRotten", 0.12)
-    smallFruitStorage("elephantGrassRhizome", "elephantGrassRhizomeRotten", 0.12)
-    smallFruitStorage("cordgrassRhizome", "cordgrassRhizomeRotten", 0.12)
-    smallFruitStorage("cottonGrassRhizome", "cottonGrassRhizomeRotten", 0.12)
-    smallFruitStorage("papyrusRhizome", "papyrusRhizomeRotten", 0.12)
-    smallFruitStorage("giantReedRhizome", "giantReedRhizomeRotten", 0.12)
-    smallFruitStorage("bulrushRhizome", "bulrushRhizomeRotten", 0.12)
-    smallFruitStorage("larchCone", "larchConeRotten", 0.12)
-    smallFruitStorage("maritimePineCone", "maritimePineConeRotten", 0.12)
     table.insert(storage.types.acorn.resources, resource.types.acornCooked.index)
     smallFruitStorage("agaveHeart", "agaveHeartRotten", 0.12)
     table.insert(storage.types.agaveHeart.resources, resource.types.agaveHeartCooked.index)
-    table.insert(storage.types.reedRhizome.resources, resource.types.rhizomeCooked.index)
+
+    for i,key in ipairs({"palmSeed", "acaciaSeed", "kapokSeed", "rubberSeed", "mahoganySeed", "banyanSeed", "cycadSeed", "treeFernSpores", "mapleSeed", "arcticWillowSeed", "poplarSeed", "mangroveSeed", "oleanderSeed", "planeSeed", "tamariskSeed", "sagebrushSeed", "saxaulSeed", "groundFernSpores", "ephedraSeed", "hennaSeed", "myrrhSeed", "dragonsBloodSeed"}) do
+        table.insert(storage.types.seed.resources, resource.types[key].index)
+        table.insert(storage.types.seed.resources, resource.types[key .. "Rotten"].index)
+    end
+
+    for i,key in ipairs({"cypressCone", "alderCone", "baldCypressCone", "larchCone", "maritimePineCone"}) do
+        table.insert(storage.types.pineCone.resources, resource.types[key].index)
+        table.insert(storage.types.pineCone.resources, resource.types[key .. "Rotten"].index)
+    end
+
+    table.insert(storage.types.flax.resources, resource.types.agaveLeaf.index)
+
+    local rhizomeResources = {resource.types.rhizomeCooked.index}
+    for i,key in ipairs({"reedRhizome", "papyrusRhizome", "giantReedRhizome", "bulrushRhizome", "cordgrassRhizome", "elephantGrassRhizome", "featherGrassRhizome", "cottonGrassRhizome"}) do
+        table.insert(rhizomeResources, resource.types[key].index)
+        table.insert(rhizomeResources, resource.types[key .. "Rotten"].index)
+    end
 
     typeMaps:insert("storage", storage.types, {
-        key = "agaveLeaf",
-        name = locale:get("storage_agaveLeaf"),
-        displayGameObjectTypeIndex = gameObjectTypeIndexMap.agaveLeaf,
-        resources = {
-            resource.types.agaveLeaf.index,
-        },
+        key = "rhizome",
+        name = locale:get("storage_rhizome"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.reedRhizome,
+        resources = rhizomeResources,
         storageBox = {
-            size =  vec3(0.08, 0.08, 0.08),
+            size =  vec3(0.12, 0.12, 0.12),
             rotationFunction = function(uniqueID, seed)
                 local randomValue = rng:valueForUniqueID(uniqueID, seed)
                 local rotation = mat3Rotate(mat3Identity, randomValue * 6.282, vec3(0.0,1.0,0.0))

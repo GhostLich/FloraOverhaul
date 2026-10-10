@@ -333,8 +333,6 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("arcticWillowBark", vec3(0.3, 0.22, 0.16), 1.0, vec3(0.2, 0.15, 0.11), 1.0))
     mj:insertIndexed(material.types, matWithB("agaveLeaf", vec3(0.16, 0.3, 0.26), 0.6, vec3(0.3, 0.42, 0.38), 0.6))
     mj:insertIndexed(material.types, matWithB("agaveLeafLow", vec3(0.16, 0.3, 0.26), 0.6, vec3(0.3, 0.42, 0.38), 0.6))
-    mj:insertIndexed(material.types, mat("agaveSeed", vec3(0.1, 0.09, 0.08), 0.7))
-    mj:insertIndexed(material.types, mat("agaveSeedRotten", vec3(0.05, 0.05, 0.04), 0.9))
     mj:insertIndexed(material.types, bushMat("featherGrassLeaf", vec3(0.4, 0.42, 0.25), 1.0))
     mj:insertIndexed(material.types, bushMat("featherGrassTop", vec3(0.72, 0.7, 0.6), 1.0))
     mj:insertIndexed(material.types, matWithB("seaBuckthornLeaf", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
@@ -391,8 +389,9 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("gotuKolaCenterRotten", vec3(0.07, 0.08, 0.04), 0.9))
     mj:insertIndexed(material.types, bushMat("gotuKolaLeaf", vec3(0.1, 0.26, 0.07), 1.0))
     mj:insertIndexed(material.types, bushMat("gotuKolaLow", vec3(0.11, 0.28, 0.07), 1.0))
-    mj:insertIndexed(material.types, bushMat("plantainLeaf", vec3(0.12, 0.26, 0.08), 1.0))
-    mj:insertIndexed(material.types, bushMat("plantainLeafLow", vec3(0.12, 0.26, 0.08), 1.0))
+    mj:insertIndexed(material.types, matWithB("plantainLeaf", vec3(0.12, 0.26, 0.08), 1.0, vec3(0.07, 0.16, 0.05), 1.0))
+    mj:insertIndexed(material.types, matWithB("plantainLeafLow", vec3(0.12, 0.26, 0.08), 1.0, vec3(0.07, 0.16, 0.05), 1.0))
+    mj:insertIndexed(material.types, mat("plantainFlower", vec3(0.42, 0.37, 0.22), 0.9))
     mj:insertIndexed(material.types, mat("plantainLeafRotten", vec3(0.08, 0.08, 0.04), 0.9))
     mj:insertIndexed(material.types, bushMat("peppermintLeaf", vec3(0.1, 0.3, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("peppermintLeafLow", vec3(0.1, 0.3, 0.1), 1.0))
@@ -403,6 +402,29 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("lemongrassRotten", vec3(0.14, 0.13, 0.07), 0.9))
     mj:insertIndexed(material.types, mat("doumFruit", vec3(0.42, 0.24, 0.1), 0.6))
     mj:insertIndexed(material.types, mat("agaveHeart", vec3(0.62, 0.6, 0.42), 0.9))
+    mj:insertIndexed(material.types, bushMat("syrianRueLeaf", vec3(0.2, 0.3, 0.14), 1.0))
+    mj:insertIndexed(material.types, bushMat("syrianRueLow", vec3(0.45, 0.5, 0.4), 1.0))
+    mj:insertIndexed(material.types, mat("syrianRueCenter", vec3(0.7, 0.65, 0.25), 0.9))
+    mj:insertIndexed(material.types, mat("syrianRuePetals", vec3(0.85, 0.85, 0.78), 0.9))
+    mj:insertIndexed(material.types, matWithB("angelicaLeaf", vec3(0.16, 0.3, 0.1), 1.0, vec3(0.1, 0.18, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("angelicaLow", vec3(0.42, 0.5, 0.32), 1.0))
+    mj:insertIndexed(material.types, mat("angelicaCenter", vec3(0.55, 0.65, 0.35), 0.9))
+    mj:insertIndexed(material.types, mat("angelicaPetals", vec3(0.72, 0.8, 0.55), 0.9))
+    mj:insertIndexed(material.types, mat("angelicaRoot", vec3(0.5, 0.4, 0.28), 1.0))
+    mj:insertIndexed(material.types, matWithB("ephedraLeaf", vec3(0.28, 0.38, 0.14), 1.0, vec3(0.38, 0.46, 0.2), 1.0))
+    mj:insertIndexed(material.types, matWithB("ephedraLeafLow", vec3(0.28, 0.38, 0.14), 1.0, vec3(0.38, 0.46, 0.2), 1.0))
+    mj:insertIndexed(material.types, matWithB("ephedraLeafSmall", vec3(0.28, 0.38, 0.14), 1.0, vec3(0.38, 0.46, 0.2), 1.0))
+    mj:insertIndexed(material.types, matWithB("ephedraBark", vec3(0.42, 0.36, 0.26), 1.0, vec3(0.3, 0.26, 0.19), 1.0))
+    mj:insertIndexed(material.types, bushMat("ephedraStem", vec3(0.3, 0.4, 0.15), 1.0))
+    mj:insertIndexed(material.types, matWithB("hennaLeaf", vec3(0.14, 0.26, 0.08), 1.0, vec3(0.2, 0.32, 0.12), 1.0))
+    mj:insertIndexed(material.types, matWithB("hennaLeafLow", vec3(0.14, 0.26, 0.08), 1.0, vec3(0.2, 0.32, 0.12), 1.0))
+    mj:insertIndexed(material.types, bushMat("hennaLeafSmall", vec3(0.14, 0.26, 0.08), 1.0))
+    mj:insertIndexed(material.types, matWithB("myrrhLeaf", vec3(0.2, 0.26, 0.12), 1.0, vec3(0.28, 0.33, 0.17), 1.0))
+    mj:insertIndexed(material.types, matWithB("myrrhBark", vec3(0.5, 0.44, 0.34), 1.0, vec3(0.36, 0.3, 0.22), 1.0))
+    mj:insertIndexed(material.types, mat("myrrh", vec3(0.5, 0.28, 0.1), 0.5))
+    mj:insertIndexed(material.types, bushMat("dragonsBloodLeaf", vec3(0.1, 0.24, 0.07), 0.9))
+    mj:insertIndexed(material.types, matWithB("dragonsBloodBark", vec3(0.5, 0.47, 0.42), 1.0, vec3(0.36, 0.33, 0.29), 1.0))
+    mj:insertIndexed(material.types, mat("dragonsBlood", vec3(0.35, 0.03, 0.03), 0.4))
     mj:insertIndexed(material.types, mat("acornCooked", vec3(0.16, 0.1, 0.05), 0.7))
     mj:insertIndexed(material.types, mat("acorn2Cooked", vec3(0.26, 0.16, 0.07), 0.7))
     mj:insertIndexed(material.types, mat("reedStem", vec3(0.24, 0.3, 0.14), 0.8))
@@ -525,6 +547,12 @@ function mod:onload(material)
     material.types.seaBuckthornLeaf.edgeDecal = edgeDecal.groupTypes.sagebrush
     material.types.seaBuckthornLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.cacaoLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.dragonsBloodLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.ephedraLeaf.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.ephedraLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
+    material.types.hennaLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.hennaLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.myrrhLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
     material.types.cordgrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.cottonGrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.lemongrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower

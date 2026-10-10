@@ -41,6 +41,10 @@ Alder2Winter - ✔
 AlderCone - ✔
 AlderSapling - ✔
 
+AngelicaPlant -
+AngelicaPlantSapling -
+AngelicaRoot -
+
 ArcticWillowWinter - ✔
 
 ArganTree -
@@ -136,6 +140,10 @@ DoumPalm2 - ✔
 DoumPalm3 - ✔
 DoumPalmSapling - ✔
 
+DragonsBloodTree -
+DragonsBloodTreeSapling -
+DragonsBlood -
+
 DwarfBirch1 - ✔
 DwarfBirch1Winter - ✔
 DwarfBirch2 - ✔
@@ -146,6 +154,10 @@ DwarfBirchSapling - ✔
 
 ElephantGrass -
 ElephantGrassSapling -
+
+EphedraBush -
+EphedraBushSapling -
+Ephedra -
 
 GroundFern -
 GroundFernSapling -
@@ -174,6 +186,10 @@ Grape -
 HazelBush - ✔
 HazelBushWinter - ✔
 HazelBushSapling -
+
+HennaBush -
+HennaBushSapling -
+HennaLeaf -
 
 Juniper1 -
 Juniper1Snow -
@@ -223,6 +239,10 @@ MaritimePine1Snow -
 MesquiteTree - ✔
 MesquiteTreeSapling - ✔
 MesquitePod -
+
+MyrrhBush -
+MyrrhBushSapling -
+Myrrh -
 
 Oak1 -
 Oak1Winter -
@@ -297,6 +317,10 @@ SpruceSapling -
 StonePine1 -
 StonePine1Snow -
 StonePineCone -
+
+SyrianRuePlant -
+SyrianRuePlantSapling -
+SyrianRue -
 
 Tamarisk1 -
 TamariskSapling -
