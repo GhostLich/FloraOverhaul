@@ -41,9 +41,9 @@ Alder2Winter - ✔
 AlderCone - ✔
 AlderSapling - ✔
 
-AngelicaPlant -
-AngelicaPlantSapling -
-AngelicaRoot -
+AngelicaPlant - ✔
+AngelicaPlantSapling - ✔
+AngelicaRoot - ✔
 
 ArcticWillowWinter - ✔
 
@@ -159,8 +159,8 @@ EphedraBush -
 EphedraBushSapling -
 Ephedra -
 
-GroundFern -
-GroundFernSapling -
+GroundFern - ✔
+GroundFernSapling - ✔
 
 FeatherGrass -
 FeatherGrassSapling -
@@ -172,8 +172,8 @@ Fig -
 
 KapokBig1 -
 
-GiantReed -
-GiantReedSapling -
+GiantReed - ✔
+GiantReedSapling - ✔
 
 GotuKolaPlant -
 GotuKolaPlantSapling -
@@ -273,9 +273,9 @@ PalmLeafDried -
 Papyrus -
 PapyrusSapling -
 
-PeppermintPlant -
-PeppermintPlantSapling -
-PeppermintLeaf -
+PeppermintPlant - ✔
+PeppermintPlantSapling - ✔
+PeppermintLeaf - ✔
 
 PlaneTree1 -
 PlaneTree1Winter -
@@ -284,9 +284,9 @@ PlaneTree2Winter -
 PlaneTreeSapling -
 PlaneSeed -
 
-PlantainPlant -
-PlantainPlantSapling -
-PlantainLeaf -
+PlantainPlant - ✔
+PlantainPlantSapling - ✔
+PlantainLeaf - ✔
 
 Poplar1 -
 Poplar1Winter -
@@ -343,7 +343,7 @@ WaterMelon -
 
 WillowBark -
 
-YarrowPlant -
-YarrowPlantSapling -
-YarrowFlower -
+YarrowPlant - ✔
+YarrowPlantSapling - ✔
+YarrowFlower - 
 ```
