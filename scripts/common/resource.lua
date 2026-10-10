@@ -1428,6 +1428,15 @@ function mod:onload(resource)
         tradeValue = 5,
     })
 
+    typeMaps:insert("resource", resource.types, {
+        key = "nettle",
+        name = locale:get("resource_nettle"),
+        plural = locale:get("resource_nettle_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.nettle,
+        tradeBatchSize = 20,
+        tradeValue = 5,
+    })
+
     local function addMedicineGroup(key, resourceKeys)
         local resourceTypes = {}
         for i,resourceKey in ipairs(resourceKeys) do
@@ -1445,7 +1454,7 @@ function mod:onload(resource)
     addMedicineGroup("medicinePoppy", {"poppyFlower", "willowBark", "thyme", "myrrh", "syrianRue", "dragonsBlood"})
     addMedicineGroup("medicineGinger", {"gingerRoot", "juniperBerry", "mesquitePod", "peppermintLeaf", "carobPod", "syrianRue", "angelicaRoot", "lemongrass"})
     addMedicineGroup("medicineEchinacea", {"echinaceaFlower", "cloudberry", "lingonberry", "mesquitePod", "seaBuckthorn", "baobabFruit", "cactusFruit"})
-    addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf", "gotuKolaLeaf", "hennaLeaf"})
+    addMedicineGroup("medicineElderberry", {"elderberry", "date", "sagebrushLeaf", "gotuKolaLeaf", "hennaLeaf", "nettle"})
     addMedicineGroup("medicineMarigold", {"marigoldFlower", "yarrowFlower", "gotuKolaLeaf", "hennaLeaf", "ephedra"})
     addMedicineGroup("medicineTurmeric", {"turmericRoot", "yarrowFlower", "plantainLeaf", "sagebrushLeaf", "myrrh"})
     addMedicineGroup("medicineAloe", {"aloeLeaf", "plantainLeaf", "agaveLeaf", "seaBuckthorn", "dragonsBlood"})

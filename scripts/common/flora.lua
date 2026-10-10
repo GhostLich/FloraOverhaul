@@ -222,6 +222,8 @@ function mod:onload(flora)
         addItem("rhizomeCooked", "whRhizomeCooked", resource.types.rhizomeCooked.index)
         addItem("kapokFibre", "whKapokFibre", resource.types.flaxDried.index)
         addItem("agaveFibre", "whAgaveFibre", resource.types.flaxDried.index)
+        addItem("nettle", "whNettle", resource.types.nettle.index)
+        addItem("nettleFibre", "whNettleFibre", resource.types.flaxDried.index)
 
         local willowResourceGroupsDone = {}
         for i,key in ipairs({"willow1", "willow2"}) do
@@ -1935,6 +1937,33 @@ function mod:onload(flora)
             },
             markerPositions = tinyPlantMarkerPositions,
             seedResourceTypeIndex = resource.types.peppermintLeaf.index,
+            maturityDurationDays = 3,
+            fruitImmediatelyWhenMature = true,
+            interactable = true,
+            useCraftSimple = true,
+        })
+
+        addFlora("nettlePlant", {
+            name = locale:get("flora_nettlePlant"),
+            plural = locale:get("flora_nettlePlant_plural"),
+            summary = locale:get("flora_nettlePlant_summary"),
+            saplingName = locale:get("flora_nettlePlantSapling"),
+            saplingPlural = locale:get("flora_nettlePlantSapling_plural"),
+            modelName = "whNettlePlant",
+            saplingModelName = "whNettlePlantSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.nettle] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.nettle,
+                },
+                revertToSeedlingGatherResourceCounts = {
+                    [gameObject.typeIndexMap.nettle] = 1,
+                },
+            },
+            markerPositions = tallPlantMarkerPositions,
+            seedResourceTypeIndex = resource.types.nettle.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,

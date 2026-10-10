@@ -222,9 +222,9 @@ local windStrengths = {
     whLarch1Winter = vec2(0.999, 0.8),
     whCacaoTree = vec2(0.98, 0.8),
     whCacaoPodHangingFruit = vec2(0.98, 0.8),
-    whPapyrus = vec2(0.9, 0.6),
+    whPapyrus = vec2(0.97, 0.8),
     whGiantReed = vec2(0.97, 0.8),
-    whCommonReed = vec2(0.9, 0.6),
+    whCommonReed = vec2(0.94, 0.6),
     whBulrush = vec2(0.9, 0.6),
     whCordgrassStalk = vec2(0.9, 0.6),
     whCordgrassStalkSapling = vec2(0.6, 0.6),
@@ -238,6 +238,7 @@ local windStrengths = {
     whGotuKolaPlant = vec2(0.8, 0.6),
     whPlantainPlant = vec2(0.8, 0.6),
     whPeppermintPlant = vec2(0.8, 0.6),
+    whNettlePlant = vec2(0.85, 0.6),
     whLemongrassPlant = vec2(0.85, 0.6),
     whOleanderSapling = vec2(0.9, 0.8),
     whPlaneTreeSapling = vec2(0.95, 0.8),
@@ -1013,6 +1014,10 @@ function mod:onload(model)
         addRemap(remapModels, "flaxDried", "whAgaveFibre", {
             flaxLeafDry = "agaveFibre",
             flaxFlowerDry = "agaveFibre",
+        })
+        addRemap(remapModels, "flaxDried", "whNettleFibre", {
+            flaxLeafDry = "nettleFibre",
+            flaxFlowerDry = "nettleFibre",
         })
         addRemap(remapModels, "pineCone", "whLarchCone", {})
         addRemap(remapModels, "pineCone", "whMaritimePineCone", {})

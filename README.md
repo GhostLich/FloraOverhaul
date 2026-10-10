@@ -105,9 +105,9 @@ CloudberryBush -
 CloudberryBushSapling -
 Cloudberry -
 
-CommonReed -
-CommonReedSapling -
-ReedRhizome -
+CommonReed - ✔
+CommonReedSapling - ✔
+ReedRhizome - ✔
 
 CordgrassCluster -
 CordgrassStalk -
@@ -244,6 +244,10 @@ MyrrhBush -
 MyrrhBushSapling -
 Myrrh -
 
+NettlePlant - ✔
+NettlePlantSapling - ✔
+Nettle - ✔
+
 Oak1 -
 Oak1Winter -
 Oak2 -
@@ -318,9 +322,9 @@ StonePine1 -
 StonePine1Snow -
 StonePineCone -
 
-SyrianRuePlant -
-SyrianRuePlantSapling -
-SyrianRue -
+SyrianRuePlant - ✔
+SyrianRuePlantSapling - ✔
+SyrianRue - ✔
 
 Tamarisk1 -
 TamariskSapling -

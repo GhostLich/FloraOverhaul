@@ -397,6 +397,9 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("peppermintLeafLow", vec3(0.1, 0.3, 0.1), 1.0, vec3(0.06, 0.18, 0.06), 1.0))
     mj:insertIndexed(material.types, mat("peppermintFlower", vec3(0.4, 0.3, 0.5), 0.8))
     mj:insertIndexed(material.types, mat("peppermintLeafRotten", vec3(0.07, 0.09, 0.05), 0.9))
+    mj:insertIndexed(material.types, matWithB("nettleLeaf", vec3(0.09, 0.22, 0.07), 1.0, vec3(0.05, 0.13, 0.04), 1.0))
+    mj:insertIndexed(material.types, matWithB("nettleLeafLow", vec3(0.09, 0.22, 0.07), 1.0, vec3(0.05, 0.13, 0.04), 1.0))
+    mj:insertIndexed(material.types, mat("nettleFlower", vec3(0.36, 0.42, 0.24), 0.9))
     mj:insertIndexed(material.types, bushMat("lemongrassLeaf", vec3(0.28, 0.36, 0.14), 1.0))
     mj:insertIndexed(material.types, bushMat("lemongrassTop", vec3(0.4, 0.42, 0.2), 1.0))
     mj:insertIndexed(material.types, mat("lemongrassRotten", vec3(0.14, 0.13, 0.07), 0.9))
@@ -430,6 +433,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("reedStem", vec3(0.24, 0.3, 0.14), 0.8))
     mj:insertIndexed(material.types, mat("kapokFibre", vec3(0.8, 0.77, 0.68), 1.0))
     mj:insertIndexed(material.types, mat("agaveFibre", vec3(0.7, 0.66, 0.48), 1.0))
+    mj:insertIndexed(material.types, mat("nettleFibre", vec3(0.6, 0.6, 0.46), 1.0))
     mj:insertIndexed(material.types, matWithB("chestnutWood", vec3(0.6, 0.47, 0.3), 0.5, vec3(0.52, 0.4, 0.25), 0.9))
     mj:insertIndexed(material.types, matWithB("larchWood", vec3(0.6, 0.4, 0.26), 0.5, vec3(0.52, 0.33, 0.21), 0.9))
     mj:insertIndexed(material.types, matWithB("maritimePineWood", vec3(0.64, 0.5, 0.32), 0.5, vec3(0.56, 0.42, 0.26), 0.9))
@@ -556,6 +560,8 @@ function mod:onload(material)
     material.types.cordgrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.cottonGrassHead.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.lemongrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
+    material.types.commonReedPlume.edgeDecal = edgeDecal.groupTypes.beard
+    material.types.giantReedFlower.edgeDecal = edgeDecal.groupTypes.beard
 end
 
 return mod

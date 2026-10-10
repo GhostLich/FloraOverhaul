@@ -157,6 +157,16 @@ function mod:onload(evolvingObject)
             toType = gameObject.types.flaxRotten.index,
             categoryIndex = evolvingObject.categories.rot.index,
         }
+        evolvingObject.evolutions[gameObject.types.nettle.index] = {
+            minTime = dayLength * 2.0,
+            toType = gameObject.types.nettleFibre.index,
+            categoryIndex = evolvingObject.categories.dry.index,
+        }
+        evolvingObject.evolutions[gameObject.types.nettleFibre.index] = {
+            minTime = dayLength * rottenItemTimeDays,
+            toType = gameObject.types.flaxRotten.index,
+            categoryIndex = evolvingObject.categories.rot.index,
+        }
         evolvingObject.evolutions[gameObject.types.kapokFibre.index] = {
             minTime = dayLength * rottenItemTimeDays,
             toType = gameObject.types.flaxRotten.index,

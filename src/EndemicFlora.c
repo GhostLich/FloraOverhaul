@@ -169,6 +169,7 @@ static uint32_t gameObjectType_yarrow;
 static uint32_t gameObjectType_gotuKola;
 static uint32_t gameObjectType_plantain;
 static uint32_t gameObjectType_peppermint;
+static uint32_t gameObjectType_nettle;
 static uint32_t gameObjectType_lemongrass;
 static uint32_t gameObjectType_figTreeWild;
 static uint32_t gameObjectType_lingonberryBush;
@@ -394,6 +395,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_gotuKola = threadState->getGameObjectTypeIndex(threadState, "gotuKolaPlant");
 		gameObjectType_plantain = threadState->getGameObjectTypeIndex(threadState, "plantainPlant");
 		gameObjectType_peppermint = threadState->getGameObjectTypeIndex(threadState, "peppermintPlant");
+		gameObjectType_nettle = threadState->getGameObjectTypeIndex(threadState, "nettlePlant");
 		gameObjectType_lemongrass = threadState->getGameObjectTypeIndex(threadState, "lemongrassPlant");
 		gameObjectType_figTreeWild = threadState->getGameObjectTypeIndex(threadState, "figTree");
 		gameObjectType_lingonberryBush = threadState->getGameObjectTypeIndex(threadState, "lingonberryBush");
@@ -3536,6 +3538,41 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		else if(dampForest && info.temperate && info.forestDensity >= 3 && !info.beach && altitude > 0.0)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8351, 30, 2, 2, &gameObjectType_peppermint, 1);
+		}
+		if(!info.beach && altitude > 0.0 && info.altitudeMeters < 2500.0)
+		{
+			if(mintLand && !mediterranean && !mediterraneanSteppe && !subtropical)
+			{
+				addedCount = addPatch(types, addedCount, faceUniqueID, 9651, info.temperate ? 36 : 72, 3, 3, &gameObjectType_nettle, 1);
+			}
+			else if(coldDesert && (coldOasis || info.nearRiver))
+			{
+				addedCount = addPatch(types, addedCount, faceUniqueID, 9651, 30, 2, 2, &gameObjectType_nettle, 1);
+			}
+			else if(info.forestDensity > 0 && info.altitudeMeters > 1.5)
+			{
+				uint32_t nettleChance = 0;
+				if((info.deciduous || info.mixedForest) && !subtropical && !cloudForest)
+				{
+					nettleChance = info.mixedForest ? 14400 : 7200;
+				}
+				else if(cloudForest)
+				{
+					nettleChance = 14400;
+				}
+				else if(info.oakSavanna || aspenParkland)
+				{
+					nettleChance = 7200;
+				}
+				if(info.subarctic)
+				{
+					nettleChance *= 2;
+				}
+				if(nettleChance > 0 && (int)randomInt(faceUniqueID, 9660, nettleChance) < shadePercent)
+				{
+					addedCount = addPatch(types, addedCount, faceUniqueID, 9661, 1, 3, 3, &gameObjectType_nettle, 1);
+				}
+			}
 		}
 		if(gotuKolaLand && !info.beach && altitude > 0.0)
 		{

@@ -87,6 +87,7 @@ function mod:onload(storage)
     end
 
     table.insert(storage.types.flax.resources, resource.types.agaveLeaf.index)
+    table.insert(storage.types.flax.resources, resource.types.nettle.index)
 
     local rhizomeResources = {resource.types.rhizomeCooked.index}
     for i,key in ipairs({"reedRhizome", "papyrusRhizome", "giantReedRhizome", "bulrushRhizome", "cordgrassRhizome", "elephantGrassRhizome", "featherGrassRhizome", "cottonGrassRhizome"}) do
