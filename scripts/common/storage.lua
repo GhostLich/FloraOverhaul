@@ -47,6 +47,8 @@ function mod:onload(storage)
     smallFruitStorage("date", "dateRotten", 0.18)
     smallFruitStorage("grape", "grapeRotten", 0.18)
     smallFruitStorage("cactusFruit", "cactusFruitRotten", 0.12)
+    smallFruitStorage("pricklyPearPad", "pricklyPearPadRotten", 0.18)
+    smallFruitStorage("chollaBud", "chollaBudRotten", 0.12)
     smallFruitStorage("acorn", "acornRotten", 0.12)
     smallFruitStorage("olive", "oliveRotten", 0.12)
     smallFruitStorage("brazilNut", "brazilNutRotten", 0.15)
@@ -76,7 +78,7 @@ function mod:onload(storage)
     smallFruitStorage("agaveHeart", "agaveHeartRotten", 0.12)
     table.insert(storage.types.agaveHeart.resources, resource.types.agaveHeartCooked.index)
 
-    for i,key in ipairs({"palmSeed", "acaciaSeed", "kapokSeed", "rubberSeed", "mahoganySeed", "banyanSeed", "cycadSeed", "treeFernSpores", "mapleSeed", "arcticWillowSeed", "poplarSeed", "mangroveSeed", "oleanderSeed", "planeSeed", "tamariskSeed", "sagebrushSeed", "saxaulSeed", "groundFernSpores", "ephedraSeed", "hennaSeed", "myrrhSeed", "dragonsBloodSeed"}) do
+    for i,key in ipairs({"palmSeed", "acaciaSeed", "kapokSeed", "rubberSeed", "mahoganySeed", "banyanSeed", "cycadSeed", "treeFernSpores", "mapleSeed", "arcticWillowSeed", "poplarSeed", "mangroveSeed", "oleanderSeed", "planeSeed", "tamariskSeed", "sagebrushSeed", "saxaulSeed", "groundFernSpores", "ephedraSeed", "hennaSeed", "myrrhSeed", "dragonsBloodSeed", "euphorbiaSeed"}) do
         table.insert(storage.types.seed.resources, resource.types[key].index)
         table.insert(storage.types.seed.resources, resource.types[key .. "Rotten"].index)
     end

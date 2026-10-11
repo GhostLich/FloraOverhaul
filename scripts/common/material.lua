@@ -91,6 +91,26 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("cactusFruit", vec3(0.45, 0.05, 0.15), 0.6))
     mj:insertIndexed(material.types, mat("cactusFruitRotten", vec3(0.12, 0.03, 0.05), 0.8))
     mj:insertIndexed(material.types, mat("cactusLow", vec3(0.25, 0.3, 0.25), 0.6))
+    mj:insertIndexed(material.types, mat("cardon", vec3(0.22, 0.3, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("cardonLow", vec3(0.22, 0.3, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("pricklyPear", vec3(0.28, 0.38, 0.22), 0.6))
+    mj:insertIndexed(material.types, mat("pricklyPearLow", vec3(0.28, 0.38, 0.22), 0.6))
+    mj:insertIndexed(material.types, mat("barrelCactus", vec3(0.24, 0.34, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("barrelCactusLow", vec3(0.24, 0.34, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("cholla", vec3(0.38, 0.42, 0.28), 0.6))
+    mj:insertIndexed(material.types, mat("chollaLow", vec3(0.38, 0.42, 0.28), 0.6))
+    mj:insertIndexed(material.types, mat("euphorbia", vec3(0.18, 0.32, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("euphorbiaLow", vec3(0.18, 0.32, 0.2), 0.6))
+    mj:insertIndexed(material.types, mat("cardonFruit", vec3(0.5, 0.1, 0.08), 0.6))
+    mj:insertIndexed(material.types, mat("cardonFruitRotten", vec3(0.13, 0.04, 0.03), 0.8))
+    mj:insertIndexed(material.types, mat("pricklyPearFruit", vec3(0.55, 0.08, 0.3), 0.6))
+    mj:insertIndexed(material.types, mat("pricklyPearFruitRotten", vec3(0.14, 0.03, 0.08), 0.8))
+    mj:insertIndexed(material.types, mat("barrelCactusFruit", vec3(0.7, 0.6, 0.15), 0.6))
+    mj:insertIndexed(material.types, mat("barrelCactusFruitRotten", vec3(0.18, 0.15, 0.05), 0.8))
+    mj:insertIndexed(material.types, mat("chollaBud", vec3(0.45, 0.5, 0.25), 0.6))
+    mj:insertIndexed(material.types, mat("chollaBudRotten", vec3(0.14, 0.14, 0.07), 0.8))
+    mj:insertIndexed(material.types, mat("pricklyPearPad", vec3(0.28, 0.38, 0.22), 0.6))
+    mj:insertIndexed(material.types, mat("pricklyPearPadRotten", vec3(0.12, 0.13, 0.07), 0.8))
 
     mj:insertIndexed(material.types, mat("palmLeafDried", vec3(0.42, 0.36, 0.24), 0.9))
 
@@ -519,6 +539,11 @@ function mod:onload(material)
     material.types.sagebrushLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.agaveLeaf.edgeDecal = edgeDecal.groupTypes.agave
     material.types.cactus.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.cardon.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.pricklyPear.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.barrelCactus.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.cholla.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.euphorbia.edgeDecal = edgeDecal.groupTypes.agave
     material.types.mapleLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.mapleLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.mapleLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesA

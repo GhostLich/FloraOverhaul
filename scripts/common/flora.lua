@@ -121,6 +121,9 @@ function mod:onload(flora)
         addFruit("watermelon", "whWaterMelon")
         addFruit("baobabFruit", "whBaobabFruit")
         addFruit("cactusFruit", "whCactusFruit")
+        addFruit("pricklyPearPad", "whPricklyPearPad")
+        addFruit("chollaBud", "whChollaBud")
+        addFruit("euphorbiaSeed", "whEuphorbiaSeed")
         addFruit("cattailRoot", "whCattailRoot")
         addFruit("palmSeed", "whPalmSeed")
         addFruit("lingonberry", "whLingonberry")
@@ -224,6 +227,12 @@ function mod:onload(flora)
         addItem("agaveFibre", "whAgaveFibre", resource.types.flaxDried.index)
         addItem("nettle", "whNettle", resource.types.nettle.index)
         addItem("nettleFibre", "whNettleFibre", resource.types.flaxDried.index)
+        addItem("cardonFruit", "whCardonFruit", resource.types.cactusFruit.index)
+        addItem("cardonFruitRotten", "whCardonFruitRotten", resource.types.cactusFruitRotten.index)
+        addItem("pricklyPearFruit", "whPricklyPearFruit", resource.types.cactusFruit.index)
+        addItem("pricklyPearFruitRotten", "whPricklyPearFruitRotten", resource.types.cactusFruitRotten.index)
+        addItem("barrelCactusFruit", "whBarrelCactusFruit", resource.types.cactusFruit.index)
+        addItem("barrelCactusFruitRotten", "whBarrelCactusFruitRotten", resource.types.cactusFruitRotten.index)
 
         local willowResourceGroupsDone = {}
         for i,key in ipairs({"willow1", "willow2"}) do
@@ -727,11 +736,11 @@ function mod:onload(flora)
         for i = 1,3 do
             local key = "cactus" .. mj:tostring(i)
             addFlora(key, {
-                name = locale:get("flora_cactus"),
-                plural = locale:get("flora_cactus_plural"),
-                summary = locale:get("flora_cactus_wild_summary"),
-                saplingName = locale:get("flora_cactus_sapling"),
-                saplingPlural = locale:get("flora_cactus_sapling_plural"),
+                name = locale:get("flora_saguaro"),
+                plural = locale:get("flora_saguaro_plural"),
+                summary = locale:get("flora_saguaro_summary"),
+                saplingName = locale:get("flora_saguaro_sapling"),
+                saplingPlural = locale:get("flora_saguaro_sapling_plural"),
                 modelName = "whCactus" .. mj:tostring(i),
                 saplingModelName = "whCactusSapling",
                 resourceGroup = {
@@ -745,15 +754,156 @@ function mod:onload(flora)
                 },
                 requiresAxeToChop = true,
                 markerPositions = bushMarkerPositions,
-                fruitSeason = seasons.autumn,
+                fruitSeason = seasons.summer,
                 seedResourceTypeIndex = resource.types.cactusFruit.index,
                 maturityDurationDays = 6,
                 isPathFindingCollider = true,
                 useCraftSimple = true,
                 isFoodCrop = true,
             })
+            requireSeedObject(key, "cactusFruit")
         end
         addVariations({"cactus1", "cactus2", "cactus3"})
+
+        addFlora("cardon", {
+            name = locale:get("flora_cardon"),
+            plural = locale:get("flora_cardon_plural"),
+            summary = locale:get("flora_cardon_summary"),
+            saplingName = locale:get("flora_cardon_sapling"),
+            saplingPlural = locale:get("flora_cardon_sapling_plural"),
+            modelName = "whCardon",
+            saplingModelName = "whCardonSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.cardonFruit] = 4,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.cardonFruit,
+                },
+            },
+            requiresAxeToChop = true,
+            markerPositions = bushMarkerPositions,
+            fruitSeason = seasons.summer,
+            seedResourceTypeIndex = resource.types.cactusFruit.index,
+            maturityDurationDays = 8,
+            isPathFindingCollider = true,
+            useCraftSimple = true,
+            isFoodCrop = true,
+        })
+        requireSeedObject("cardon", "cardonFruit")
+
+        addFlora("pricklyPear", {
+            name = locale:get("flora_pricklyPear"),
+            plural = locale:get("flora_pricklyPear_plural"),
+            summary = locale:get("flora_pricklyPear_summary"),
+            saplingName = locale:get("flora_pricklyPear_sapling"),
+            saplingPlural = locale:get("flora_pricklyPear_sapling_plural"),
+            modelName = "whPricklyPear",
+            saplingModelName = "whPricklyPearSapling",
+            resourceGroup = {
+                baseInventory = {},
+                seasonalReplenish = {
+                    [gameObject.typeIndexMap.pricklyPearPad] = 2,
+                },
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.pricklyPearFruit] = 4,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.pricklyPearFruit,
+                    gameObject.typeIndexMap.pricklyPearPad,
+                },
+            },
+            markerPositions = bushMarkerPositions,
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.autumn,
+            seedResourceTypeIndex = resource.types.pricklyPearPad.index,
+            maturityDurationDays = 4,
+            useCraftSimple = true,
+            isFoodCrop = true,
+        })
+
+        addFlora("barrelCactus", {
+            name = locale:get("flora_barrelCactus"),
+            plural = locale:get("flora_barrelCactus_plural"),
+            summary = locale:get("flora_barrelCactus_summary"),
+            saplingName = locale:get("flora_barrelCactus_sapling"),
+            saplingPlural = locale:get("flora_barrelCactus_sapling_plural"),
+            modelName = "whBarrelCactus",
+            saplingModelName = "whBarrelCactusSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.barrelCactusFruit] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.barrelCactusFruit,
+                },
+            },
+            markerPositions = bushMarkerPositions,
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.autumn,
+            seedResourceTypeIndex = resource.types.cactusFruit.index,
+            maturityDurationDays = 4,
+            useCraftSimple = true,
+            isFoodCrop = true,
+        })
+        requireSeedObject("barrelCactus", "barrelCactusFruit")
+
+        addFlora("cholla", {
+            name = locale:get("flora_cholla"),
+            plural = locale:get("flora_cholla_plural"),
+            summary = locale:get("flora_cholla_summary"),
+            saplingName = locale:get("flora_cholla_sapling"),
+            saplingPlural = locale:get("flora_cholla_sapling_plural"),
+            modelName = "whCholla",
+            saplingModelName = "whChollaSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.chollaBud] = 4,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.chollaBud,
+                },
+            },
+            requiresAxeToChop = true,
+            markerPositions = bushMarkerPositions,
+            fruitSeason = seasons.spring,
+            seedResourceTypeIndex = resource.types.chollaBud.index,
+            maturityDurationDays = 6,
+            isPathFindingCollider = true,
+            useCraftSimple = true,
+            isFoodCrop = true,
+        })
+
+        addFlora("candelabraEuphorbia", {
+            name = locale:get("flora_candelabraEuphorbia"),
+            plural = locale:get("flora_candelabraEuphorbia_plural"),
+            summary = locale:get("flora_candelabraEuphorbia_summary"),
+            saplingName = locale:get("flora_candelabraEuphorbia_sapling"),
+            saplingPlural = locale:get("flora_candelabraEuphorbia_sapling_plural"),
+            modelName = "whCandelabraEuphorbia",
+            saplingModelName = "whCandelabraEuphorbiaSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.euphorbiaSeed] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.euphorbiaSeed,
+                },
+            },
+            requiresAxeToChop = true,
+            markerPositions = bushMarkerPositions,
+            fruitSeason = seasons.summer,
+            seedResourceTypeIndex = resource.types.euphorbiaSeed.index,
+            maturityDurationDays = 8,
+            isPathFindingCollider = true,
+            useCraftSimple = true,
+        })
 
         local baobabSelectionGroupTypeIndex = selectionGroup:addGroup("allBaobabs", locale:get("flora_baobab"), locale:get("flora_baobab_plural"), nil)
         for i = 1,2 do

@@ -187,6 +187,11 @@ static uint32_t gameObjectType_cottonGrass;
 
 #define CACTUS_TYPE_COUNT 3
 static uint32_t gameObjectType_cactusTypes[CACTUS_TYPE_COUNT];
+static uint32_t gameObjectType_cardon;
+static uint32_t gameObjectType_pricklyPear;
+static uint32_t gameObjectType_barrelCactus;
+static uint32_t gameObjectType_cholla;
+static uint32_t gameObjectType_candelabraEuphorbia;
 
 static bool hasTypes = false;
 
@@ -413,6 +418,11 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_cactusTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cactus1");
 		gameObjectType_cactusTypes[1] = threadState->getGameObjectTypeIndex(threadState, "cactus2");
 		gameObjectType_cactusTypes[2] = threadState->getGameObjectTypeIndex(threadState, "cactus3");
+		gameObjectType_cardon = threadState->getGameObjectTypeIndex(threadState, "cardon");
+		gameObjectType_pricklyPear = threadState->getGameObjectTypeIndex(threadState, "pricklyPear");
+		gameObjectType_barrelCactus = threadState->getGameObjectTypeIndex(threadState, "barrelCactus");
+		gameObjectType_cholla = threadState->getGameObjectTypeIndex(threadState, "cholla");
+		gameObjectType_candelabraEuphorbia = threadState->getGameObjectTypeIndex(threadState, "candelabraEuphorbia");
 
 		hasTypes = true;
 	}
@@ -3735,6 +3745,68 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 					addedCount = addSpawn(types, addedCount, faceUniqueID, 9241 + i * 10, cactusChance, 1, cactusMax, gameObjectType_cactusTypes[i]);
 				}
 			}
+			if(!info.polar && !info.icecap)
+			{
+				double cardonChance = 0.0;
+				double chollaChance = 0.0;
+				double barrelChance = 0.0;
+				if(info.aridDesert)
+				{
+					cardonChance = (wadi || steepness > 0.3) ? 0.008 : 0.0;
+					chollaChance = 0.002;
+					barrelChance = steepness > 0.3 ? 0.012 : 0.018;
+				}
+				else if(info.desert)
+				{
+					cardonChance = 0.012;
+					chollaChance = steepness > 0.3 ? 0.004 : 0.012;
+					barrelChance = 0.006;
+				}
+				else if(hotSteppe)
+				{
+					cardonChance = 0.004;
+					chollaChance = 0.004;
+				}
+				if(info.winterHot && info.altitudeMeters < 1000.0)
+				{
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9801, cardonChance, 1, 2, gameObjectType_cardon);
+				}
+				addedCount = addSpawn(types, addedCount, faceUniqueID, 9811, chollaChance, 1, 3, gameObjectType_cholla);
+				addedCount = addSpawn(types, addedCount, faceUniqueID, 9821, barrelChance, 1, 2, gameObjectType_barrelCactus);
+
+				if(info.savanna && !info.lushSavanna && info.forestDensity <= 1)
+				{
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.012 : 0.003, 1, 2, gameObjectType_candelabraEuphorbia);
+				}
+				else if(hotSteppe && info.winterHot)
+				{
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.006 : 0.002, 1, 2, gameObjectType_candelabraEuphorbia);
+				}
+			}
+		}
+		if(!info.polar && !info.icecap && !info.summerCold && !info.summerVeryCold && !info.beach && !info.nearRiver && !info.river && !oasis && !coldOasis && altitude > 0.0 && info.altitudeMeters < 3000.0)
+		{
+			double pricklyPearChance = 0.0;
+			if(info.desert)
+			{
+				if(coldDesert)
+				{
+					pricklyPearChance = info.aridDesert ? 0.01 : 0.016;
+				}
+				else
+				{
+					pricklyPearChance = info.aridDesert ? 0.002 : 0.008;
+				}
+			}
+			else if(hotSteppe)
+			{
+				pricklyPearChance = 0.006;
+			}
+			else if(mediterraneanSteppe)
+			{
+				pricklyPearChance = 0.004;
+			}
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9841, pricklyPearChance, 1, 3, gameObjectType_pricklyPear);
 		}
 		if(info.desert && !info.aridDesert && !coldDesert && !info.beach && altitude > 0.0)
 		{

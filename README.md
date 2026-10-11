@@ -76,6 +76,10 @@ BarleyPlantSapling - ✔
 BarleyPlantSaplingCluster - ✔
 Barley -
 
+BarrelCactus -
+BarrelCactusSapling -
+BarrelCactusFruit -
+
 BrazilNutTree - ✔
 BrazilNutTreeSapling - ✔
 BrazilNut - ✔
@@ -90,6 +94,13 @@ Cactus3 -
 CactusSapling -
 CactusFruit -
 
+CandelabraEuphorbia -
+CandelabraEuphorbiaSapling -
+
+Cardon -
+CardonSapling -
+CardonFruit -
+
 CarobTree - ✔
 CarobTreeSapling - ✔
 
@@ -103,6 +114,10 @@ Chestnut1Winter - ✔
 ChestnutSapling - ✔
 Chestnut -
 
+Cholla -
+ChollaSapling -
+ChollaBud -
+
 CloudberryBush -
 CloudberryBushSapling -
 Cloudberry -
@@ -111,15 +126,15 @@ CommonReed - ✔
 CommonReedSapling - ✔
 ReedRhizome - ✔
 
-CordgrassCluster -
-CordgrassStalk -
-CordgrassSaplingCluster -
-CordgrassStalkSapling -
+CordgrassCluster - ✔
+CordgrassStalk - ✔
+CordgrassSaplingCluster - ✔
+CordgrassStalkSapling - ✔
 
-CottonGrassCluster -
-CottonGrassStalk -
-CottonGrassSaplingCluster -
-CottonGrassStalkSapling -
+CottonGrassCluster - ✔
+CottonGrassStalk - ✔
+CottonGrassSaplingCluster - ✔
+CottonGrassStalkSapling - ✔
 
 Cycad1 - ✔
 Cycad2 - ✔
@@ -299,9 +314,14 @@ Poplar1Winter -
 PoplarSapling -
 PoplarSeed -
 
-RubberTree1 -
-RubberTree2 -
-RubberTree3 -
+PricklyPear -
+PricklyPearSapling -
+PricklyPearFruit -
+PricklyPearPad -
+
+RubberTree1 - ✔
+RubberTree2 - ✔
+RubberTree3 - ✔
 RubberTreeSapling -
 
 Sagebrush1 - ✔

@@ -96,6 +96,42 @@ function mod:onload(modelPlaceholder)
             })
         end
 
+        modelPlaceholder:addModel("whCardon", {
+            {
+                multiKeyBase = "cactusFruit",
+                multiCount = 4,
+                defaultModelName = "whCardonFruitHangingFruit",
+                resourceTypeIndex = resource.types.cactusFruit.index,
+            },
+        })
+
+        modelPlaceholder:addModel("whPricklyPear", {
+            {
+                multiKeyBase = "cactusFruit",
+                multiCount = 4,
+                defaultModelName = "whPricklyPearFruitHangingFruit",
+                resourceTypeIndex = resource.types.cactusFruit.index,
+            },
+        })
+
+        modelPlaceholder:addModel("whBarrelCactus", {
+            {
+                multiKeyBase = "cactusFruit",
+                multiCount = 2,
+                defaultModelName = "whBarrelCactusFruitHangingFruit",
+                resourceTypeIndex = resource.types.cactusFruit.index,
+            },
+        })
+
+        modelPlaceholder:addModel("whCholla", {
+            {
+                multiKeyBase = "chollaBud",
+                multiCount = 4,
+                defaultModelName = "whChollaBudHangingFruit",
+                resourceTypeIndex = resource.types.chollaBud.index,
+            },
+        })
+
         for i,modelName in ipairs({"whJuniper1", "whJuniper1Snow", "whJuniper2", "whJuniper2Snow"}) do
             modelPlaceholder:addModel(modelName, {
                 {

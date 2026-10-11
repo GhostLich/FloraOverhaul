@@ -534,6 +534,18 @@ function mod:onload(model)
         remapModels.whCactusFruit = {
             whCactusFruitHangingFruit = {},
         }
+        remapModels.whCardonFruit = {
+            whCardonFruitHangingFruit = {},
+        }
+        remapModels.whPricklyPearFruit = {
+            whPricklyPearFruitHangingFruit = {},
+        }
+        remapModels.whBarrelCactusFruit = {
+            whBarrelCactusFruitHangingFruit = {},
+        }
+        remapModels.whChollaBud = {
+            whChollaBudHangingFruit = {},
+        }
         remapModels.whLingonberry = {
             whLingonberryHangingFruit = {},
             whJuniperBerry = {
@@ -850,6 +862,7 @@ function mod:onload(model)
                 tamariskSeed = "sagebrushSeed",
             },
             whSaxaulSeed = {},
+            whEuphorbiaSeed = {},
             whEphedraSeed = {},
             whHennaSeed = {},
             whMyrrhSeed = {},
@@ -875,6 +888,7 @@ function mod:onload(model)
                 tamariskSeedRotten = "sagebrushSeedRotten",
             },
             whSaxaulSeedRotten = {},
+            whEuphorbiaSeedRotten = {},
             whEphedraSeedRotten = {},
             whHennaSeedRotten = {},
             whMyrrhSeedRotten = {},
