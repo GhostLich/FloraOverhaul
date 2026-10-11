@@ -28,7 +28,7 @@ function mod:onload(research)
         table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types.agaveHeart.index)
         addCookingResearch(resource.types.agaveHeart.index)
 
-        for i,key in ipairs({"reedRhizome", "papyrusRhizome", "bulrushRhizome"}) do
+        for i,key in ipairs({"reedRhizome", "papyrusRhizome", "tuleRhizome"}) do
             research.types.campfireCooking.constructableTypeIndexesByBaseResourceTypeIndex[resource.types[key].index] = constructable.types.campfireRoastedRhizome.index
             table.insert(research.types.campfireCooking.resourceTypeIndexes, resource.types[key].index)
             addCookingResearch(resource.types[key].index)

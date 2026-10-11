@@ -80,9 +80,6 @@ BrazilNutTree - ✔
 BrazilNutTreeSapling - ✔
 BrazilNut - ✔
 
-Bulrush -
-BulrushSapling -
-
 CacaoTree - ✔
 CacaoTreeSapling - ✔
 CacaoPod - ✔
@@ -344,6 +341,9 @@ TreeFern3 - ✔
 TreeFern4 - ✔
 TreeFernSapling - ✔
 TreeFernSpores -
+
+Tule -
+TuleSapling -
 
 WatermelonPlant -
 WatermelonPlantSapling -

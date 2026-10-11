@@ -228,7 +228,7 @@ local windStrengths = {
     whPapyrus = vec2(0.97, 0.8),
     whGiantReed = vec2(0.97, 0.8),
     whCommonReed = vec2(0.94, 0.6),
-    whBulrush = vec2(0.9, 0.6),
+    whTule = vec2(0.9, 0.6),
     whCordgrassStalk = vec2(0.92, 0.68),
     whCordgrassStalkSapling = vec2(0.6, 0.6),
     whCottonGrassStalk = vec2(0.92, 0.68),
@@ -967,7 +967,7 @@ function mod:onload(model)
             whCottonGrassRhizome = {},
             whPapyrusRhizome = {},
             whGiantReedRhizome = {},
-            whBulrushRhizome = {},
+            whTuleRhizome = {},
         }
         remapModels.whReedRhizomeRotten = {
             whFeatherGrassRhizomeRotten = {},
@@ -976,7 +976,7 @@ function mod:onload(model)
             whCottonGrassRhizomeRotten = {},
             whPapyrusRhizomeRotten = {},
             whGiantReedRhizomeRotten = {},
-            whBulrushRhizomeRotten = {},
+            whTuleRhizomeRotten = {},
         }
         remapModels.whAcorn = {
             whHazelnut = {

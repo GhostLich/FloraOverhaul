@@ -174,7 +174,7 @@ function mod:onload(flora)
         addFruit("maritimePineCone", "whMaritimePineCone")
         addFruit("papyrusRhizome", "whPapyrusRhizome")
         addFruit("giantReedRhizome", "whGiantReedRhizome")
-        addFruit("bulrushRhizome", "whBulrushRhizome")
+        addFruit("tuleRhizome", "whTuleRhizome")
         addFruit("agaveHeart", "whAgaveHeart")
         addFruit("syrianRue", "whSyrianRue")
         addFruit("angelicaRoot", "whAngelicaRoot")
@@ -1503,30 +1503,30 @@ function mod:onload(flora)
             useCraftSimple = true,
         })
 
-        addFlora("bulrush", {
-            name = locale:get("flora_bulrush"),
-            plural = locale:get("flora_bulrush_plural"),
-            summary = locale:get("flora_bulrush_summary"),
-            saplingName = locale:get("flora_bulrushSapling"),
-            saplingPlural = locale:get("flora_bulrushSapling_plural"),
-            modelName = "whBulrush",
-            saplingModelName = "whBulrushSapling",
+        addFlora("tule", {
+            name = locale:get("flora_tule"),
+            plural = locale:get("flora_tule_plural"),
+            summary = locale:get("flora_tule_summary"),
+            saplingName = locale:get("flora_tuleSapling"),
+            saplingPlural = locale:get("flora_tuleSapling_plural"),
+            modelName = "whTule",
+            saplingModelName = "whTuleSapling",
             resourceGroup = {
                 baseInventory = {
                     [gameObject.typeIndexMap.reedStem] = 2,
-                    [gameObject.typeIndexMap.bulrushRhizome] = 1,
+                    [gameObject.typeIndexMap.tuleRhizome] = 1,
                 },
                 gatherableTypes = {
                     gameObject.typeIndexMap.reedStem,
-                    gameObject.typeIndexMap.bulrushRhizome,
+                    gameObject.typeIndexMap.tuleRhizome,
                 },
                 revertToSeedlingGatherResourceCounts = {
                     [gameObject.typeIndexMap.reedStem] = 1,
-                    [gameObject.typeIndexMap.bulrushRhizome] = 1,
+                    [gameObject.typeIndexMap.tuleRhizome] = 1,
                 },
             },
             markerPositions = tallPlantMarkerPositions,
-            seedResourceTypeIndex = resource.types.bulrushRhizome.index,
+            seedResourceTypeIndex = resource.types.tuleRhizome.index,
             maturityDurationDays = 3,
             fruitImmediatelyWhenMature = true,
             interactable = true,

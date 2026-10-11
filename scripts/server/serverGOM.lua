@@ -68,7 +68,7 @@ function mod:onload(serverGOM)
         }
         local reedTypes = {
             gameObject.types.cattail.index,
-            gameObject.types.bulrush.index,
+            gameObject.types.tule.index,
             gameObject.types.commonReed.index,
             gameObject.types.giantReed.index,
             gameObject.types.papyrus.index,

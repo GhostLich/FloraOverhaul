@@ -181,7 +181,7 @@ static uint32_t gameObjectType_barley;
 static uint32_t gameObjectType_watermelon;
 static uint32_t gameObjectType_cattail;
 static uint32_t gameObjectType_commonReed;
-static uint32_t gameObjectType_bulrush;
+static uint32_t gameObjectType_tule;
 static uint32_t gameObjectType_cordgrass;
 static uint32_t gameObjectType_cottonGrass;
 
@@ -407,7 +407,7 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_watermelon = threadState->getGameObjectTypeIndex(threadState, "watermelonPlant");
 		gameObjectType_cattail = threadState->getGameObjectTypeIndex(threadState, "cattail");
 		gameObjectType_commonReed = threadState->getGameObjectTypeIndex(threadState, "commonReed");
-		gameObjectType_bulrush = threadState->getGameObjectTypeIndex(threadState, "bulrush");
+		gameObjectType_tule = threadState->getGameObjectTypeIndex(threadState, "tule");
 		gameObjectType_cordgrass = threadState->getGameObjectTypeIndex(threadState, "cordgrass");
 		gameObjectType_cottonGrass = threadState->getGameObjectTypeIndex(threadState, "cottonGrass");
 		gameObjectType_cactusTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cactus1");
@@ -1914,7 +1914,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 		}
 		if(altitude > -0.3 && altitude < 1.2 && info->river && coldWinter && !frozen)
 		{
-			addedCount = addSpawn(types, addedCount, faceUniqueID, 9381, 0.02, 3, 8, gameObjectType_bulrush);
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9381, 0.02, 3, 8, gameObjectType_tule);
 		}
 		if(info->marsh && altitude > -0.3 && altitude < 1.2 && info->riverDistance > 0.02 && info->steepness <= 0.5 && !(info->tropical || info->desert || frozen || info->subarctic || (info->subtropical && info->hot) || (hotSteppe && !coldWinter)))
 		{

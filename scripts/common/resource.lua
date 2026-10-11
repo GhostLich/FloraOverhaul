@@ -1324,19 +1324,19 @@ function mod:onload(resource)
     })
 
     typeMaps:insert("resource", resource.types, {
-        key = "bulrushRhizome",
-        name = locale:get("fruit_bulrushRhizome"),
-        plural = locale:get("fruit_bulrushRhizome_plural"),
-        displayGameObjectTypeIndex = gameObjectTypeIndexMap.bulrushRhizome,
+        key = "tuleRhizome",
+        name = locale:get("fruit_tuleRhizome"),
+        plural = locale:get("fruit_tuleRhizome_plural"),
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.tuleRhizome,
         tradeBatchSize = 20,
         tradeValue = 3,
     })
     typeMaps:insert("resource", resource.types, {
-        key = "bulrushRhizomeRotten",
-        name = locale:get("fruit_bulrushRhizome_rotten"),
-        plural = locale:get("fruit_bulrushRhizome_rotten_plural"),
+        key = "tuleRhizomeRotten",
+        name = locale:get("fruit_tuleRhizome_rotten"),
+        plural = locale:get("fruit_tuleRhizome_rotten_plural"),
         compostValue = 1,
-        displayGameObjectTypeIndex = gameObjectTypeIndexMap.bulrushRhizomeRotten,
+        displayGameObjectTypeIndex = gameObjectTypeIndexMap.tuleRhizomeRotten,
         disallowsDecorationPlacing = true,
         tradeBatchSize = 20,
         tradeValue = 1,
@@ -1467,7 +1467,7 @@ function mod:onload(resource)
         resourceTypes = {
             resource.types.reedRhizome.index,
             resource.types.papyrusRhizome.index,
-            resource.types.bulrushRhizome.index,
+            resource.types.tuleRhizome.index,
         },
         displayGameObjectTypeIndex = gameObjectTypeIndexMap.reedRhizome,
     })
