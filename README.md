@@ -50,8 +50,8 @@ ArcticWillow - ✔
 ArcticWillowWinter - ✔
 ArcticWillowSapling -
 
-ArganTree -
-ArganTreeSapling -
+ArganTree - ✔
+ArganTreeSapling - ✔
 ArganNut - ✔
 
 BaldCypress1 - ✔
@@ -101,9 +101,9 @@ CattailSapling -
 CattailRoot -
 CattailRootCooked -
 
-Chestnut1 -
-Chestnut1Winter -
-ChestnutSapling -
+Chestnut1 - ✔
+Chestnut1Winter - ✔
+ChestnutSapling - ✔
 Chestnut -
 
 CloudberryBush -

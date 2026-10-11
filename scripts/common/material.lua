@@ -519,9 +519,9 @@ function mod:onload(material)
     material.types.planeLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.tamariskLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.tamariskLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
-    material.types.baldCypressLeaf.edgeDecal = edgeDecal.groupTypes.pine
-    material.types.baldCypressLeafSpring.edgeDecal = edgeDecal.groupTypes.pine
-    material.types.baldCypressLeafAutumn.edgeDecal = edgeDecal.groupTypes.pine
+    material.types.baldCypressLeaf.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.baldCypressLeafSpring.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.baldCypressLeafAutumn.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.baldCypressLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.maritimePineLeaf.edgeDecal = edgeDecal.groupTypes.pine
     material.types.maritimePineLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
