@@ -755,43 +755,49 @@ function mod:onload(flora)
         end
         addVariations({"cactus1", "cactus2", "cactus3"})
 
-        addFlora("baobab1", {
-            name = locale:get("flora_baobab"),
-            plural = locale:get("flora_baobab_plural"),
-            summary = locale:get("flora_baobab_summary"),
-            saplingName = locale:get("flora_baobab_sapling"),
-            saplingPlural = locale:get("flora_baobab_sapling_plural"),
-            modelName = "whBaobab1",
-            saplingModelName = "whBaobabSapling",
-            resourceGroup = {
-                baseInventory = {
-                    [gameObject.typeIndexMap.baobabBranch] = 6,
-                    [gameObject.typeIndexMap.baobabLog] = 12,
+        local baobabSelectionGroupTypeIndex = selectionGroup:addGroup("allBaobabs", locale:get("flora_baobab"), locale:get("flora_baobab_plural"), nil)
+        for i = 1,2 do
+            local key = "baobab" .. mj:tostring(i)
+            addFlora(key, {
+                name = locale:get("flora_baobab"),
+                plural = locale:get("flora_baobab_plural"),
+                summary = locale:get("flora_baobab_summary"),
+                saplingName = locale:get("flora_baobab_sapling"),
+                saplingPlural = locale:get("flora_baobab_sapling_plural"),
+                modelName = "whBaobab" .. mj:tostring(i),
+                saplingModelName = "whBaobabSapling",
+                resourceGroup = {
+                    baseInventory = {
+                        [gameObject.typeIndexMap.baobabBranch] = 6,
+                        [gameObject.typeIndexMap.baobabLog] = 12,
+                    },
+                    seasonalReplenish = {
+                        [gameObject.typeIndexMap.baobabBranch] = 6,
+                    },
+                    fruitReplenish = {
+                        [gameObject.typeIndexMap.baobabFruit] = 6,
+                    },
+                    gatherableTypes = {
+                        gameObject.typeIndexMap.baobabFruit,
+                        gameObject.typeIndexMap.baobabBranch,
+                    },
                 },
-                seasonalReplenish = {
-                    [gameObject.typeIndexMap.baobabBranch] = 6,
-                },
-                fruitReplenish = {
-                    [gameObject.typeIndexMap.baobabFruit] = 6,
-                },
-                gatherableTypes = {
-                    gameObject.typeIndexMap.baobabFruit,
-                    gameObject.typeIndexMap.baobabBranch,
-                },
-            },
-            requiresAxeToChop = true,
-            markerPositions = treeMarkerPositions,
-            followCamOffset = treeFollowCamOffset,
-            clientModelFunction = getClientModelFunction("whBaobab", "whBaobab1", true, false, false),
-            saplingClientModelFunction = getClientModelFunction("whBaobab", "whBaobabSapling", false, false, true),
-            fruitSeason = seasons.autumn,
-            seedResourceTypeIndex = resource.types.baobabFruit.index,
-            maturityDurationDays = 16,
-            isPathFindingCollider = true,
-            useCraftSimple = true,
-            isFoodCrop = true,
-            playBirdSounds = true,
-        })
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                clientModelFunction = getClientModelFunction("whBaobab", "whBaobab" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("whBaobab", "whBaobabSapling", false, false, true),
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.baobabFruit.index,
+                speciesSelectionGroupTypeIndex = baobabSelectionGroupTypeIndex,
+                maturityDurationDays = 16,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+                isFoodCrop = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"baobab1", "baobab2"})
 
         local function addWildTree(key, modelName, info, logCount, branchCount)
             local branchKey = info.woodKey .. "Branch"

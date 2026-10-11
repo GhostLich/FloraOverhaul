@@ -61,7 +61,8 @@ static uint32_t gameObjectType_aspenBig;
 #define ACACIA_TYPE_COUNT 2
 static uint32_t gameObjectType_acaciaTypes[ACACIA_TYPE_COUNT];
 static uint32_t gameObjectType_acacia2;
-static uint32_t gameObjectType_baobab;
+#define BAOBAB_TYPE_COUNT 2
+static uint32_t gameObjectType_baobabTypes[BAOBAB_TYPE_COUNT];
 static uint32_t gameObjectType_acaciaBranch;
 
 #define KAPOK_TYPE_COUNT 3
@@ -262,7 +263,8 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_acaciaTypes[0] = threadState->getGameObjectTypeIndex(threadState, "acacia1");
 		gameObjectType_acaciaTypes[1] = threadState->getGameObjectTypeIndex(threadState, "acacia3");
 		gameObjectType_acacia2 = threadState->getGameObjectTypeIndex(threadState, "acacia2");
-		gameObjectType_baobab = threadState->getGameObjectTypeIndex(threadState, "baobab1");
+		gameObjectType_baobabTypes[0] = threadState->getGameObjectTypeIndex(threadState, "baobab1");
+		gameObjectType_baobabTypes[1] = threadState->getGameObjectTypeIndex(threadState, "baobab2");
 		gameObjectType_acaciaBranch = threadState->getGameObjectTypeIndex(threadState, "acaciaBranch");
 
 		gameObjectType_kapokTypes[0] = threadState->getGameObjectTypeIndex(threadState, "kapok1");
@@ -1571,10 +1573,10 @@ static int addBaobab(SPBiomeThreadState* threadState, uint32_t* types, int added
 	}
 	if(randomInt(faceUniqueID, 1331, 100) < chance)
 	{
-		ADD_OBJECT(gameObjectType_baobab);
+		ADD_OBJECT(gameObjectType_baobabTypes[randomInt(faceUniqueID, 1333, BAOBAB_TYPE_COUNT)]);
 		if(grove && randomInt(faceUniqueID, 1332, 3) == 0)
 		{
-			ADD_OBJECT(gameObjectType_baobab);
+			ADD_OBJECT(gameObjectType_baobabTypes[randomInt(faceUniqueID, 1334, BAOBAB_TYPE_COUNT)]);
 		}
 	}
 	return addedCount;

@@ -62,6 +62,8 @@ BanyanSapling - ✔
 
 Baobab1 - ✔
 Baobab1Winter - ✔
+Baobab2 - ✔
+Baobab2Winter -
 BaobabSapling - ✔
 BaobabFruit - ✔
 

@@ -73,25 +73,17 @@ function mod:onload(modelPlaceholder)
             })
         end
 
-        modelPlaceholder:addModel("whBaobab1", {
-            {
-                multiKeyBase = "baobabFruit",
-                multiCount = 6,
-                defaultModelName = "whBaobabFruitHangingFruit",
-                resourceTypeIndex = resource.types.baobabFruit.index,
-                scale = 1.0,
-            },
-        })
-
-        modelPlaceholder:addModel("whBaobab1Winter", {
-            {
-                multiKeyBase = "baobabFruit",
-                multiCount = 6,
-                defaultModelName = "whBaobabFruitHangingFruit",
-                resourceTypeIndex = resource.types.baobabFruit.index,
-                scale = 1.0,
-            },
-        })
+        for i,modelName in ipairs({"whBaobab1", "whBaobab1Winter", "whBaobab2", "whBaobab2Winter"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "baobabFruit",
+                    multiCount = 6,
+                    defaultModelName = "whBaobabFruitHangingFruit",
+                    resourceTypeIndex = resource.types.baobabFruit.index,
+                    scale = 1.0,
+                },
+            })
+        end
 
         for i = 1,3 do
             modelPlaceholder:addModel("whCactus" .. mj:tostring(i), {

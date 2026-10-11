@@ -34,6 +34,10 @@ local windStrengths = {
     whBaobab1Spring = vec2(1.0, 1.0),
     whBaobab1Autumn = vec2(1.0, 1.0),
     whBaobab1Winter = vec2(1.0, 1.0),
+    whBaobab2 = vec2(1.0, 1.0),
+    whBaobab2Spring = vec2(1.0, 1.0),
+    whBaobab2Autumn = vec2(1.0, 1.0),
+    whBaobab2Winter = vec2(1.0, 1.0),
     whBaobabSapling = vec2(0.95, 0.8),
     whBaobabFruitHangingFruit = vec2(1.0, 1.0),
     whWildPalm1 = vec2(0.997, 0.8),
@@ -551,6 +555,14 @@ function mod:onload(model)
                 baobabFoliage = "baobabFoliageSpring",
             },
             whBaobab1Autumn = {
+                baobabFoliage = "baobabFoliageAutumn",
+            },
+        }
+        remapModels.whBaobab2 = {
+            whBaobab2Spring = {
+                baobabFoliage = "baobabFoliageSpring",
+            },
+            whBaobab2Autumn = {
                 baobabFoliage = "baobabFoliageAutumn",
             },
         }
