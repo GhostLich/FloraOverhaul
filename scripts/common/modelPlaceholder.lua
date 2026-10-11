@@ -272,8 +272,25 @@ function mod:onload(modelPlaceholder)
 
         modelPlaceholder:addModel("whCottonGrassCluster", {
             {
-                multiKeyBase = "wheatPlant",
-                multiCount = 10,
+                key = "wheatPlant_1",
+                defaultModelName = "whCottonGrassStalk",
+                scale = 1.0,
+                offsetToWalkableHeight = true,
+            },
+            {
+                key = "wheatPlant_3",
+                defaultModelName = "whCottonGrassStalk",
+                scale = 1.0,
+                offsetToWalkableHeight = true,
+            },
+            {
+                key = "wheatPlant_8",
+                defaultModelName = "whCottonGrassStalk",
+                scale = 1.0,
+                offsetToWalkableHeight = true,
+            },
+            {
+                key = "wheatPlant_10",
                 defaultModelName = "whCottonGrassStalk",
                 scale = 1.0,
                 offsetToWalkableHeight = true,
