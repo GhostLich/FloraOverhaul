@@ -899,8 +899,7 @@ function mod:onload(flora)
         addWildTree("rubberTree1", "whRubberTree1", rubberTreeInfo, 5, 4)
         addWildTree("rubberTree2", "whRubberTree2", rubberTreeInfo, 6, 4)
         addWildTree("rubberTree3", "whRubberTree3", rubberTreeInfo, 5, 3)
-        addWildTree("rubberTree4", "whRubberTree4", rubberTreeInfo, 5, 4)
-        addVariations({"rubberTree1", "rubberTree2", "rubberTree3", "rubberTree4"})
+        addVariations({"rubberTree1", "rubberTree2", "rubberTree3"})
 
         local oakInfo = {
             localeKey = "oak",

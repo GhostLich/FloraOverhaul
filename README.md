@@ -305,7 +305,6 @@ PoplarSeed -
 RubberTree1 -
 RubberTree2 -
 RubberTree3 -
-RubberTree4 -
 RubberTreeSapling -
 
 Sagebrush1 - ✔

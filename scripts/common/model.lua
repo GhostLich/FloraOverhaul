@@ -64,7 +64,6 @@ local windStrengths = {
     whRubberTree1 = vec2(0.998, 0.8),
     whRubberTree2 = vec2(0.998, 0.8),
     whRubberTree3 = vec2(0.998, 0.8),
-    whRubberTree4 = vec2(0.998, 0.8),
     whRubberTreeSapling = vec2(0.95, 0.8),
     whOak1 = vec2(0.998, 0.8),
     whOak1Spring = vec2(0.998, 0.8),

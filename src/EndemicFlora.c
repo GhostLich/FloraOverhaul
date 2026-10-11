@@ -76,7 +76,7 @@ static uint32_t gameObjectType_mahoganyTypes[MAHOGANY_TYPE_COUNT];
 #define BANYAN_TYPE_COUNT 2
 static uint32_t gameObjectType_banyanTypes[BANYAN_TYPE_COUNT];
 
-#define RUBBER_TREE_TYPE_COUNT 4
+#define RUBBER_TREE_TYPE_COUNT 3
 static uint32_t gameObjectType_rubberTreeTypes[RUBBER_TREE_TYPE_COUNT];
 
 #define OAK_TYPE_COUNT 4
@@ -281,7 +281,6 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_rubberTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "rubberTree1");
 		gameObjectType_rubberTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "rubberTree2");
 		gameObjectType_rubberTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "rubberTree3");
-		gameObjectType_rubberTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "rubberTree4");
 
 		gameObjectType_oakTypes[0] = threadState->getGameObjectTypeIndex(threadState, "oak1");
 		gameObjectType_oakTypes[1] = threadState->getGameObjectTypeIndex(threadState, "oak2");
