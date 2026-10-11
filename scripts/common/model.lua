@@ -472,9 +472,11 @@ function mod:onload(model)
         remapModels.whFigTree = {
             whFigTreeSpring = {
                 leafyBushA = "leafyBushASpring",
+                figLeafLow = "figLeafSpringLow",
             },
             whFigTreeAutumn = {
                 leafyBushA = "autumn1Leaf",
+                figLeafLow = "autumn1",
             },
         }
         remapModels.whFigTreeSapling = {
@@ -553,17 +555,21 @@ function mod:onload(model)
         remapModels.whBaobab1 = {
             whBaobab1Spring = {
                 baobabFoliage = "baobabFoliageSpring",
+                baobabFoliageLow = "baobabFoliageSpringLow",
             },
             whBaobab1Autumn = {
                 baobabFoliage = "baobabFoliageAutumn",
+                baobabFoliageLow = "baobabFoliageAutumnLow",
             },
         }
         remapModels.whBaobab2 = {
             whBaobab2Spring = {
                 baobabFoliage = "baobabFoliageSpring",
+                baobabFoliageLow = "baobabFoliageSpringLow",
             },
             whBaobab2Autumn = {
                 baobabFoliage = "baobabFoliageAutumn",
+                baobabFoliageLow = "baobabFoliageAutumnLow",
             },
         }
         remapModels.whBaobabFruit = {
@@ -792,9 +798,11 @@ function mod:onload(model)
         remapModels.whBaldCypress1 = {
             whBaldCypress1Spring = {
                 baldCypressLeaf = "baldCypressLeafSpring",
+                baldCypressLeafLow = "baldCypressLeafSpringLow",
             },
             whBaldCypress1Autumn = {
                 baldCypressLeaf = "baldCypressLeafAutumn",
+                baldCypressLeafLow = "baldCypressLeafAutumnLow",
             },
         }
         remapModels.whGroundFern = {
