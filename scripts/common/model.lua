@@ -769,27 +769,14 @@ function mod:onload(model)
                 hazelLeafLow = "hazelLeafAutumnLow",
             },
         }
-        remapModels.whSagebrush2 = {
-            whArcticWillow = {
-                sagebrushLeaf = "arcticWillowLeaf",
-                sagebrushLeafLow = "arcticWillowLeafLow",
-                sagebrushBark = "arcticWillowBark",
-            },
+        remapModels.whArcticWillow = {
             whArcticWillowSpring = {
-                sagebrushLeaf = "arcticWillowLeafSpring",
-                sagebrushLeafLow = "arcticWillowLeafSpringLow",
-                sagebrushBark = "arcticWillowBark",
+                arcticWillowLeaf = "arcticWillowLeafSpring",
+                arcticWillowLeafLow = "arcticWillowLeafSpringLow",
             },
             whArcticWillowAutumn = {
-                sagebrushLeaf = "arcticWillowLeafAutumn",
-                sagebrushLeafLow = "arcticWillowLeafAutumnLow",
-                sagebrushBark = "arcticWillowBark",
-            },
-        }
-        remapModels.whSagebrushSapling = {
-            whArcticWillowSapling = {
-                sagebrushLeafSmall = "arcticWillowLeafSmall",
-                sagebrushBark = "arcticWillowBark",
+                arcticWillowLeaf = "arcticWillowLeafAutumn",
+                arcticWillowLeafLow = "arcticWillowLeafAutumnLow",
             },
         }
         remapModels.whLarch1 = {
@@ -1016,9 +1003,6 @@ function mod:onload(model)
             greenHay = "reedStem",
         })
         addRemap(remapModels, "hay", "whReedStemDried", {})
-        addRemap(remapModels, "aloeLeaf", "whAgaveLeaf", {
-            aloeLeaf = "agaveLeafLow",
-        })
         addRemap(remapModels, "flaxDried", "whKapokFibre", {
             flaxLeafDry = "kapokFibre",
             flaxFlowerDry = "kapokFibre",

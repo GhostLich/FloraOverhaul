@@ -540,10 +540,10 @@ function mod:onload(material)
     material.types.hazelLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.arcticWillowLeaf.edgeDecal = edgeDecal.groupTypes.sagebrush
+    material.types.arcticWillowLeaf.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.arcticWillowLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
-    material.types.arcticWillowLeafSpring.edgeDecal = edgeDecal.groupTypes.sagebrush
-    material.types.arcticWillowLeafAutumn.edgeDecal = edgeDecal.groupTypes.sagebrush
+    material.types.arcticWillowLeafSpring.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
+    material.types.arcticWillowLeafAutumn.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.saxaulLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.saxaulLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.elephantGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower

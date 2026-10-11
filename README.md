@@ -31,8 +31,9 @@ Acacia3 - ✔
 AcaciaSapling - ✔
 AcaciaSeed - ✔
 
-AgavePlant -
-AgavePlantSapling -
+AgavePlant - ✔
+AgavePlantSapling - ✔
+AgaveLeaf - ✔
 
 Alder1 - ✔
 Alder1Winter - ✔
@@ -45,7 +46,9 @@ AngelicaPlant - ✔
 AngelicaPlantSapling - ✔
 AngelicaRoot - ✔
 
+ArcticWillow - ✔
 ArcticWillowWinter - ✔
+ArcticWillowSapling -
 
 ArganTree -
 ArganTreeSapling -
