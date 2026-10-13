@@ -62,7 +62,6 @@ local windStrengths = {
     whFigTreeSaplingAutumn = vec2(0.95, 0.8),
     whFigTreeSaplingWinter = vec2(0.99, 0.8),
     whFigHangingFruit = vec2(0.98, 0.8),
-    whFigHangingFruitWinter = vec2(0.998, 0.8),
     whDatePalm1 = vec2(0.997, 0.8),
     whDatePalm2 = vec2(0.997, 0.8),
     whDatePalm3 = vec2(0.997, 0.8),
@@ -706,7 +705,6 @@ function mod:onload(model)
         }
         remapModels.whFig = {
             whFigHangingFruit = {},
-            whFigHangingFruitWinter = {},
         }
         remapModels.whGrape = {
             whGrapeHangingFruit = {},

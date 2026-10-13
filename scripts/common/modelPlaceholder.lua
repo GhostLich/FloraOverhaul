@@ -29,6 +29,10 @@ function mod:onload(modelPlaceholder)
     modelPlaceholder.addModels = function(modelPlaceholder_)
         prevAddModels(modelPlaceholder_)
 
+        for i,modelName in ipairs({"appleTreeWinter", "elderberryTreeWinter", "peachTreeWinter"}) do
+            modelPlaceholder:addModel(modelName, {})
+        end
+
         modelPlaceholder:addModel("whFigTree", {
             {
                 multiKeyBase = "fig",
@@ -45,15 +49,6 @@ function mod:onload(modelPlaceholder)
                     multiKeyBase = "apple",
                     multiCount = 6,
                     defaultModelName = "appleHangingFruit",
-                    resourceTypeIndex = resource.types.apple.index,
-                    scale = 1.0,
-                },
-            })
-            modelPlaceholder:addModel("whAppleTree" .. mj:tostring(i) .. "Winter", {
-                {
-                    multiKeyBase = "apple",
-                    multiCount = 6,
-                    defaultModelName = "appleHangingFruitWinter",
                     resourceTypeIndex = resource.types.apple.index,
                     scale = 1.0,
                 },
@@ -82,15 +77,6 @@ function mod:onload(modelPlaceholder)
                     scale = 1.0,
                 },
             })
-            modelPlaceholder:addModel("whElderberryTree" .. mj:tostring(i) .. "Winter", {
-                {
-                    multiKeyBase = "elderberry",
-                    multiCount = 6,
-                    defaultModelName = "elderberryHangingFruitWinter",
-                    resourceTypeIndex = resource.types.elderberry.index,
-                    scale = 1.0,
-                },
-            })
         end
 
         for i = 2,4 do
@@ -99,15 +85,6 @@ function mod:onload(modelPlaceholder)
                     multiKeyBase = "peach",
                     multiCount = (i == 3 and 4 or 7),
                     defaultModelName = "peachHangingFruit",
-                    resourceTypeIndex = resource.types.peach.index,
-                    scale = 1.0,
-                },
-            })
-            modelPlaceholder:addModel("whPeachTree" .. mj:tostring(i) .. "Winter", {
-                {
-                    multiKeyBase = "peach",
-                    multiCount = (i == 3 and 4 or 7),
-                    defaultModelName = "peachHangingFruitWinter",
                     resourceTypeIndex = resource.types.peach.index,
                     scale = 1.0,
                 },
@@ -125,16 +102,6 @@ function mod:onload(modelPlaceholder)
                 },
             })
         end
-
-        modelPlaceholder:addModel("whFigTreeWinter", {
-            {
-                multiKeyBase = "fig",
-                multiCount = 6,
-                defaultModelName = "whFigHangingFruitWinter",
-                resourceTypeIndex = resource.types.fig.index,
-                scale = 1.0,
-            },
-        })
 
         for i = 1,3 do
             modelPlaceholder:addModel("whDatePalm" .. mj:tostring(i), {
