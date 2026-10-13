@@ -64,6 +64,7 @@ function mod:onload(flora)
     table.insert(flora.logTypeBaseKeys, "plane")
     table.insert(flora.logTypeBaseKeys, "baldCypress")
     table.insert(flora.logTypeBaseKeys, "chestnut")
+    table.insert(flora.logTypeBaseKeys, "beech")
     table.insert(flora.logTypeBaseKeys, "larch")
     table.insert(flora.logTypeBaseKeys, "maritimePine")
     table.insert(flora.branchTypeBaseKeys, "fig")
@@ -89,6 +90,7 @@ function mod:onload(flora)
     table.insert(flora.branchTypeBaseKeys, "baldCypress")
     table.insert(flora.branchTypeBaseKeys, "tamarisk")
     table.insert(flora.branchTypeBaseKeys, "chestnut")
+    table.insert(flora.branchTypeBaseKeys, "beech")
     table.insert(flora.branchTypeBaseKeys, "larch")
     table.insert(flora.branchTypeBaseKeys, "maritimePine")
     table.insert(flora.branchTypeBaseKeys, "saxaul")
@@ -124,9 +126,12 @@ function mod:onload(flora)
         addFruit("pricklyPearPad", "whPricklyPearPad")
         addFruit("chollaBud", "whChollaBud")
         addFruit("euphorbiaSeed", "whEuphorbiaSeed")
+        addFruit("dragonTreeSeed", "whDragonTreeSeed")
+        addFruit("giantGroundselSeed", "whGiantGroundselSeed")
         addFruit("cattailRoot", "whCattailRoot")
         addFruit("palmSeed", "whPalmSeed")
         addFruit("lingonberry", "whLingonberry")
+        addFruit("blueberry", "whBlueberry")
         addFruit("cloudberry", "whCloudberry")
         addFruit("mesquitePod", "whMesquitePod")
         addFruit("acaciaSeed", "whAcaciaSeed")
@@ -153,6 +158,7 @@ function mod:onload(flora)
         addFruit("sagebrushSeed", "whSagebrushSeed")
         addFruit("sagebrushLeaf", "whSagebrushLeaf")
         addFruit("chestnut", "whChestnut")
+        addFruit("beechnut", "whBeechnut")
         addFruit("hazelnut", "whHazelnut")
         addFruit("thyme", "whThyme")
         addFruit("arcticWillowSeed", "whArcticWillowSeed")
@@ -412,6 +418,38 @@ function mod:onload(flora)
             isFoodCrop = true,
         })
 
+        local blueberrySelectionGroupTypeIndex = selectionGroup:addGroup("allBlueberryBushes", locale:get("flora_blueberryBush"), locale:get("flora_blueberryBush_plural"), nil)
+        for i = 1,4 do
+            addFlora("blueberryBush" .. mj:tostring(i), {
+                name = locale:get("flora_blueberryBush"),
+                plural = locale:get("flora_blueberryBush_plural"),
+                summary = locale:get("flora_blueberryBush_summary"),
+                saplingName = locale:get("flora_blueberryBush_sapling"),
+                saplingPlural = locale:get("flora_blueberryBush_sapling_plural"),
+                modelName = "whBlueberry" .. mj:tostring(i),
+                saplingModelName = "whBlueberryBushSapling",
+                resourceGroup = {
+                    baseInventory = {},
+                    fruitReplenish = {
+                        [gameObject.typeIndexMap.blueberry] = 6,
+                    },
+                    gatherableTypes = {
+                        gameObject.typeIndexMap.blueberry,
+                    },
+                },
+                markerPositions = bushMarkerPositions,
+                clientModelFunction = getClientModelFunction("whBlueberry", "whBlueberry" .. mj:tostring(i), true, false, false),
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.blueberry.index,
+                speciesSelectionGroupTypeIndex = blueberrySelectionGroupTypeIndex,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+        end
+        addVariations({"blueberryBush1", "blueberryBush2", "blueberryBush3", "blueberryBush4"})
+
         addFlora("seaBuckthornBush", {
             name = locale:get("flora_seaBuckthornBush"),
             plural = locale:get("flora_seaBuckthornBush_plural"),
@@ -437,6 +475,30 @@ function mod:onload(flora)
             useCraftSimple = true,
             isFoodCrop = true,
         })
+        local seaBuckthornSelectionGroupTypeIndex = selectionGroup:addGroup("allSeaBuckthornBushes", locale:get("flora_seaBuckthornBush"), locale:get("flora_seaBuckthornBush_plural"), nil)
+        gameObject.types.seaBuckthornBush.baseSelectionGroupTypeIndex = seaBuckthornSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.seaBuckthornBush.index, {seaBuckthornSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("seaBuckthornBush" .. mj:tostring(i), {
+                name = locale:get("flora_seaBuckthornBush"),
+                plural = locale:get("flora_seaBuckthornBush_plural"),
+                summary = locale:get("flora_seaBuckthornBush_summary"),
+                saplingName = locale:get("flora_seaBuckthornBush_sapling"),
+                saplingPlural = locale:get("flora_seaBuckthornBush_sapling_plural"),
+                modelName = "whSeaBuckthornBush" .. mj:tostring(i),
+                saplingModelName = "whSeaBuckthornBushSapling",
+                resourceGroup = flora.types.seaBuckthornBush.resourceGroup,
+                markerPositions = bushMarkerPositions,
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.seaBuckthorn.index,
+                speciesSelectionGroupTypeIndex = seaBuckthornSelectionGroupTypeIndex,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+        end
+        addVariations({"seaBuckthornBush", "seaBuckthornBush2", "seaBuckthornBush3", "seaBuckthornBush4"})
 
         addFlora("ephedraBush", {
             name = locale:get("flora_ephedraBush"),
@@ -564,6 +626,90 @@ function mod:onload(flora)
             seedResourceTypeIndex = resource.types.dragonsBloodSeed.index,
             useCraftSimple = true,
         })
+        local dragonsBloodSelectionGroupTypeIndex = selectionGroup:addGroup("allDragonsBloodTrees", locale:get("flora_dragonsBloodTree"), locale:get("flora_dragonsBloodTree_plural"), nil)
+        gameObject.types.dragonsBloodTree.baseSelectionGroupTypeIndex = dragonsBloodSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.dragonsBloodTree.index, {dragonsBloodSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("dragonsBloodTree" .. mj:tostring(i), {
+                name = locale:get("flora_dragonsBloodTree"),
+                plural = locale:get("flora_dragonsBloodTree_plural"),
+                summary = locale:get("flora_dragonsBloodTree_summary"),
+                saplingName = locale:get("flora_dragonsBloodTree_sapling"),
+                saplingPlural = locale:get("flora_dragonsBloodTree_sapling_plural"),
+                modelName = "whDragonsBloodTree" .. mj:tostring(i),
+                saplingModelName = "whDragonsBloodTreeSapling",
+                resourceGroup = flora.types.dragonsBloodTree.resourceGroup,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                isPathFindingCollider = true,
+                playBirdSounds = true,
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.dragonsBloodSeed.index,
+                speciesSelectionGroupTypeIndex = dragonsBloodSelectionGroupTypeIndex,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"dragonsBloodTree", "dragonsBloodTree2", "dragonsBloodTree3", "dragonsBloodTree4"})
+        local dragonTreeSelectionGroupTypeIndex = selectionGroup:addGroup("allDragonTrees", locale:get("flora_dragonTree"), locale:get("flora_dragonTree_plural"), nil)
+        addFlora("dragonTree", {
+            name = locale:get("flora_dragonTree"),
+            plural = locale:get("flora_dragonTree_plural"),
+            summary = locale:get("flora_dragonTree_summary"),
+            saplingName = locale:get("flora_dragonTree_sapling"),
+            saplingPlural = locale:get("flora_dragonTree_sapling_plural"),
+            modelName = "whDragonTree",
+            saplingModelName = "whDragonTreeSapling",
+            resourceGroup = {
+                baseInventory = {
+                    [gameObject.typeIndexMap.dragonsBlood] = 3,
+                },
+                seasonalReplenish = {
+                    [gameObject.typeIndexMap.dragonsBlood] = 3,
+                },
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.dragonTreeSeed] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.dragonsBlood,
+                    gameObject.typeIndexMap.dragonTreeSeed,
+                },
+            },
+            markerPositions = treeMarkerPositions,
+            followCamOffset = treeFollowCamOffset,
+            isPathFindingCollider = true,
+            playBirdSounds = true,
+            interactable = true,
+            addToPhysics = true,
+            fruitSeason = seasons.autumn,
+            seedResourceTypeIndex = resource.types.dragonTreeSeed.index,
+            speciesSelectionGroupTypeIndex = dragonTreeSelectionGroupTypeIndex,
+            useCraftSimple = true,
+        })
+        for i = 2,3 do
+            addFlora("dragonTree" .. mj:tostring(i), {
+                name = locale:get("flora_dragonTree"),
+                plural = locale:get("flora_dragonTree_plural"),
+                summary = locale:get("flora_dragonTree_summary"),
+                saplingName = locale:get("flora_dragonTree_sapling"),
+                saplingPlural = locale:get("flora_dragonTree_sapling_plural"),
+                modelName = "whDragonTree" .. mj:tostring(i),
+                saplingModelName = "whDragonTreeSapling",
+                resourceGroup = flora.types.dragonTree.resourceGroup,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                isPathFindingCollider = true,
+                playBirdSounds = true,
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.dragonTreeSeed.index,
+                speciesSelectionGroupTypeIndex = dragonTreeSelectionGroupTypeIndex,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"dragonTree", "dragonTree2", "dragonTree3"})
 
         addFlora("cloudberryBush", {
             name = locale:get("flora_cloudberryBush"),
@@ -624,6 +770,32 @@ function mod:onload(flora)
             useCraftSimple = true,
             isFoodCrop = true,
         })
+        local mesquiteSelectionGroupTypeIndex = selectionGroup:addGroup("allMesquiteTrees", locale:get("flora_mesquiteTree"), locale:get("flora_mesquiteTree_plural"), nil)
+        gameObject.types.mesquiteTree.baseSelectionGroupTypeIndex = mesquiteSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.mesquiteTree.index, {mesquiteSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("mesquiteTree" .. mj:tostring(i), {
+                name = locale:get("flora_mesquiteTree"),
+                plural = locale:get("flora_mesquiteTree_plural"),
+                summary = locale:get("flora_mesquiteTree_summary"),
+                saplingName = locale:get("flora_mesquiteTree_sapling"),
+                saplingPlural = locale:get("flora_mesquiteTree_sapling_plural"),
+                modelName = "whMesquiteTree" .. mj:tostring(i),
+                saplingModelName = "whMesquiteTreeSapling",
+                requiresAxeToChop = true,
+                resourceGroup = flora.types.mesquiteTree.resourceGroup,
+                markerPositions = bushMarkerPositions,
+                saplingClientModelFunction = getClientModelFunction("whMesquiteTree", "whMesquiteTreeSapling", false, false, true),
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.mesquitePod.index,
+                speciesSelectionGroupTypeIndex = mesquiteSelectionGroupTypeIndex,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+        end
+        addVariations({"mesquiteTree", "mesquiteTree2", "mesquiteTree3", "mesquiteTree4"})
 
         addFlora("grapevinePlant", {
             name = locale:get("flora_grapevinePlant"),
@@ -792,6 +964,32 @@ function mod:onload(flora)
             isFoodCrop = true,
         })
         requireSeedObject("cardon", "cardonFruit")
+        local cardonSelectionGroupTypeIndex = selectionGroup:addGroup("allCardons", locale:get("flora_cardon"), locale:get("flora_cardon_plural"), nil)
+        gameObject.types.cardon.baseSelectionGroupTypeIndex = cardonSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.cardon.index, {cardonSelectionGroupTypeIndex})
+        for i = 2,3 do
+            addFlora("cardon" .. mj:tostring(i), {
+                name = locale:get("flora_cardon"),
+                plural = locale:get("flora_cardon_plural"),
+                summary = locale:get("flora_cardon_summary"),
+                saplingName = locale:get("flora_cardon_sapling"),
+                saplingPlural = locale:get("flora_cardon_sapling_plural"),
+                modelName = "whCardon" .. mj:tostring(i),
+                saplingModelName = "whCardonSapling",
+                resourceGroup = flora.types.cardon.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = bushMarkerPositions,
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.cactusFruit.index,
+                speciesSelectionGroupTypeIndex = cardonSelectionGroupTypeIndex,
+                maturityDurationDays = 8,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+            requireSeedObject("cardon" .. mj:tostring(i), "cardonFruit")
+        end
+        addVariations({"cardon", "cardon2", "cardon3"})
 
         addFlora("pricklyPear", {
             name = locale:get("flora_pricklyPear"),
@@ -878,6 +1076,31 @@ function mod:onload(flora)
             useCraftSimple = true,
             isFoodCrop = true,
         })
+        local chollaSelectionGroupTypeIndex = selectionGroup:addGroup("allChollas", locale:get("flora_cholla"), locale:get("flora_cholla_plural"), nil)
+        gameObject.types.cholla.baseSelectionGroupTypeIndex = chollaSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.cholla.index, {chollaSelectionGroupTypeIndex})
+        for i = 2,3 do
+            addFlora("cholla" .. mj:tostring(i), {
+                name = locale:get("flora_cholla"),
+                plural = locale:get("flora_cholla_plural"),
+                summary = locale:get("flora_cholla_summary"),
+                saplingName = locale:get("flora_cholla_sapling"),
+                saplingPlural = locale:get("flora_cholla_sapling_plural"),
+                modelName = "whCholla" .. mj:tostring(i),
+                saplingModelName = "whChollaSapling",
+                resourceGroup = flora.types.cholla.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = bushMarkerPositions,
+                fruitSeason = seasons.spring,
+                seedResourceTypeIndex = resource.types.chollaBud.index,
+                speciesSelectionGroupTypeIndex = chollaSelectionGroupTypeIndex,
+                maturityDurationDays = 6,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+        end
+        addVariations({"cholla", "cholla2", "cholla3"})
 
         addFlora("candelabraEuphorbia", {
             name = locale:get("flora_candelabraEuphorbia"),
@@ -904,9 +1127,222 @@ function mod:onload(flora)
             isPathFindingCollider = true,
             useCraftSimple = true,
         })
+        local euphorbiaSelectionGroupTypeIndex = selectionGroup:addGroup("allCandelabraEuphorbias", locale:get("flora_candelabraEuphorbia"), locale:get("flora_candelabraEuphorbia_plural"), nil)
+        gameObject.types.candelabraEuphorbia.baseSelectionGroupTypeIndex = euphorbiaSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.candelabraEuphorbia.index, {euphorbiaSelectionGroupTypeIndex})
+        for i = 2,3 do
+            addFlora("candelabraEuphorbia" .. mj:tostring(i), {
+                name = locale:get("flora_candelabraEuphorbia"),
+                plural = locale:get("flora_candelabraEuphorbia_plural"),
+                summary = locale:get("flora_candelabraEuphorbia_summary"),
+                saplingName = locale:get("flora_candelabraEuphorbia_sapling"),
+                saplingPlural = locale:get("flora_candelabraEuphorbia_sapling_plural"),
+                modelName = "whCandelabraEuphorbia" .. mj:tostring(i),
+                saplingModelName = "whCandelabraEuphorbiaSapling",
+                resourceGroup = flora.types.candelabraEuphorbia.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = bushMarkerPositions,
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.euphorbiaSeed.index,
+                speciesSelectionGroupTypeIndex = euphorbiaSelectionGroupTypeIndex,
+                maturityDurationDays = 8,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"candelabraEuphorbia", "candelabraEuphorbia2", "candelabraEuphorbia3"})
+
+        local giantGroundselSelectionGroupTypeIndex = selectionGroup:addGroup("allGiantGroundsels", locale:get("flora_giantGroundsel"), locale:get("flora_giantGroundsel_plural"), nil)
+        addFlora("giantGroundsel", {
+            name = locale:get("flora_giantGroundsel"),
+            plural = locale:get("flora_giantGroundsel_plural"),
+            summary = locale:get("flora_giantGroundsel_summary"),
+            saplingName = locale:get("flora_giantGroundsel_sapling"),
+            saplingPlural = locale:get("flora_giantGroundsel_sapling_plural"),
+            modelName = "whGiantGroundsel",
+            saplingModelName = "whGiantGroundselSapling",
+            resourceGroup = {
+                baseInventory = {},
+                fruitReplenish = {
+                    [gameObject.typeIndexMap.giantGroundselSeed] = 2,
+                },
+                gatherableTypes = {
+                    gameObject.typeIndexMap.giantGroundselSeed,
+                },
+            },
+            requiresAxeToChop = true,
+            markerPositions = bushMarkerPositions,
+            fruitSeason = seasons.summer,
+            seedResourceTypeIndex = resource.types.giantGroundselSeed.index,
+            speciesSelectionGroupTypeIndex = giantGroundselSelectionGroupTypeIndex,
+            maturityDurationDays = 8,
+            isPathFindingCollider = true,
+            useCraftSimple = true,
+        })
+        for i = 2,4 do
+            addFlora("giantGroundsel" .. mj:tostring(i), {
+                name = locale:get("flora_giantGroundsel"),
+                plural = locale:get("flora_giantGroundsel_plural"),
+                summary = locale:get("flora_giantGroundsel_summary"),
+                saplingName = locale:get("flora_giantGroundsel_sapling"),
+                saplingPlural = locale:get("flora_giantGroundsel_sapling_plural"),
+                modelName = "whGiantGroundsel" .. mj:tostring(i),
+                saplingModelName = "whGiantGroundselSapling",
+                resourceGroup = flora.types.giantGroundsel.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = bushMarkerPositions,
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.giantGroundselSeed.index,
+                speciesSelectionGroupTypeIndex = giantGroundselSelectionGroupTypeIndex,
+                maturityDurationDays = 8,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"giantGroundsel", "giantGroundsel2", "giantGroundsel3", "giantGroundsel4"})
+
+        for i = 3,4 do
+            addFlora("willow" .. mj:tostring(i), {
+                name = locale:get("flora_willow"),
+                plural = locale:get("flora_willow_plural"),
+                summary = locale:get("flora_willow_summary"),
+                saplingName = locale:get("flora_willow_sapling"),
+                saplingPlural = locale:get("flora_willow_sapling_plural"),
+                modelName = "whWillow" .. mj:tostring(i),
+                saplingModelName = "willowSapling",
+                resourceGroup = flora.types.willow1.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                clientModelFunction = getClientModelFunction("willow", "whWillow" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("willow", "willowSapling", true, false, true),
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.willowSeed.index,
+                speciesSelectionGroupTypeIndex = selectionGroup.types.allWillowTrees.index,
+                isPathFindingCollider = true,
+                useCraftSimple = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"willow1", "willow2", "willow3", "willow4"})
+
+        local appleSelectionGroupTypeIndex = selectionGroup:addGroup("allAppleTrees", locale:get("flora_appleTree"), locale:get("flora_appleTree_plural"), nil)
+        gameObject.types.appleTree.baseSelectionGroupTypeIndex = appleSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.appleTree.index, {appleSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("appleTree" .. mj:tostring(i), {
+                name = locale:get("flora_appleTree"),
+                plural = locale:get("flora_appleTree_plural"),
+                summary = locale:get("flora_appleTree_summary"),
+                saplingName = locale:get("flora_appleTree_sapling"),
+                saplingPlural = locale:get("flora_appleTree_sapling_plural"),
+                modelName = "whAppleTree" .. mj:tostring(i),
+                saplingModelName = "appleTreeSapling",
+                resourceGroup = flora.types.appleTree.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                clientModelFunction = getClientModelFunction("appleTree", "whAppleTree" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("appleTree", "appleTreeSapling", true, false, true),
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.apple.index,
+                speciesSelectionGroupTypeIndex = appleSelectionGroupTypeIndex,
+                isPathFindingCollider = false,
+                useCraftSimple = true,
+                isFoodCrop = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"appleTree", "appleTree2", "appleTree3", "appleTree4"})
+
+        local orangeSelectionGroupTypeIndex = selectionGroup:addGroup("allOrangeTrees", locale:get("flora_orangeTree"), locale:get("flora_orangeTree_plural"), nil)
+        gameObject.types.orangeTree.baseSelectionGroupTypeIndex = orangeSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.orangeTree.index, {orangeSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("orangeTree" .. mj:tostring(i), {
+                name = locale:get("flora_orangeTree"),
+                plural = locale:get("flora_orangeTree_plural"),
+                summary = locale:get("flora_orangeTree_summary"),
+                saplingName = locale:get("flora_orangeTree_sapling"),
+                saplingPlural = locale:get("flora_orangeTree_sapling_plural"),
+                modelName = "whOrangeTree" .. mj:tostring(i),
+                saplingModelName = "orangeTreeSapling",
+                resourceGroup = flora.types.orangeTree.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                saplingClientModelFunction = getClientModelFunction("orangeTree", "orangeTreeSapling", false, false, true),
+                fruitSeason = seasons.winter,
+                seedResourceTypeIndex = resource.types.orange.index,
+                speciesSelectionGroupTypeIndex = orangeSelectionGroupTypeIndex,
+                isPathFindingCollider = false,
+                useCraftSimple = true,
+                isFoodCrop = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"orangeTree", "orangeTree2", "orangeTree3", "orangeTree4"})
+
+        local elderberrySelectionGroupTypeIndex = selectionGroup:addGroup("allElderberryTrees", locale:get("flora_elderberryTree"), locale:get("flora_elderberryTree_plural"), nil)
+        gameObject.types.elderberryTree.baseSelectionGroupTypeIndex = elderberrySelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.elderberryTree.index, {elderberrySelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("elderberryTree" .. mj:tostring(i), {
+                name = locale:get("flora_elderberryTree"),
+                plural = locale:get("flora_elderberryTree_plural"),
+                summary = locale:get("flora_elderberryTree_summary"),
+                saplingName = locale:get("flora_elderberryTree_sapling"),
+                saplingPlural = locale:get("flora_elderberryTree_sapling_plural"),
+                modelName = "whElderberryTree" .. mj:tostring(i),
+                saplingModelName = "elderberryTreeSapling",
+                resourceGroup = flora.types.elderberryTree.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                clientModelFunction = getClientModelFunction("elderberryTree", "whElderberryTree" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("elderberryTree", "elderberryTreeSapling", true, false, true),
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.elderberry.index,
+                speciesSelectionGroupTypeIndex = elderberrySelectionGroupTypeIndex,
+                isPathFindingCollider = false,
+                useCraftSimple = true,
+                isFoodCrop = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"elderberryTree", "elderberryTree2", "elderberryTree3", "elderberryTree4"})
+
+        local peachSelectionGroupTypeIndex = selectionGroup:addGroup("allPeachTrees", locale:get("flora_peachTree"), locale:get("flora_peachTree_plural"), nil)
+        gameObject.types.peachTree.baseSelectionGroupTypeIndex = peachSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.peachTree.index, {peachSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("peachTree" .. mj:tostring(i), {
+                name = locale:get("flora_peachTree"),
+                plural = locale:get("flora_peachTree_plural"),
+                summary = locale:get("flora_peachTree_summary"),
+                saplingName = locale:get("flora_peachTree_sapling"),
+                saplingPlural = locale:get("flora_peachTree_sapling_plural"),
+                modelName = "whPeachTree" .. mj:tostring(i),
+                saplingModelName = "peachTreeSapling",
+                resourceGroup = flora.types.peachTree.resourceGroup,
+                requiresAxeToChop = true,
+                markerPositions = treeMarkerPositions,
+                followCamOffset = treeFollowCamOffset,
+                clientModelFunction = getClientModelFunction("peachTree", "whPeachTree" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("peachTree", "peachTreeSapling", true, false, true),
+                fruitSeason = seasons.summer,
+                seedResourceTypeIndex = resource.types.peach.index,
+                speciesSelectionGroupTypeIndex = peachSelectionGroupTypeIndex,
+                isPathFindingCollider = false,
+                useCraftSimple = true,
+                isFoodCrop = true,
+                playBirdSounds = true,
+            })
+        end
+        addVariations({"peachTree", "peachTree2", "peachTree3", "peachTree4"})
 
         local baobabSelectionGroupTypeIndex = selectionGroup:addGroup("allBaobabs", locale:get("flora_baobab"), locale:get("flora_baobab_plural"), nil)
-        for i = 1,2 do
+        for i = 1,4 do
             local key = "baobab" .. mj:tostring(i)
             addFlora(key, {
                 name = locale:get("flora_baobab"),
@@ -947,7 +1383,7 @@ function mod:onload(flora)
                 playBirdSounds = true,
             })
         end
-        addVariations({"baobab1", "baobab2"})
+        addVariations({"baobab1", "baobab2", "baobab3", "baobab4"})
 
         local function addWildTree(key, modelName, info, logCount, branchCount)
             local branchKey = info.woodKey .. "Branch"
@@ -1004,7 +1440,8 @@ function mod:onload(flora)
         addWildTree("acacia1", "whAcacia1", acaciaInfo, 3, 3)
         addWildTree("acacia2", "whAcacia2", acaciaInfo, 2, 2)
         addWildTree("acacia3", "whAcacia3", acaciaInfo, 3, 3)
-        addVariations({"acacia1", "acacia2", "acacia3"})
+        addWildTree("acacia4", "whAcacia4", acaciaInfo, 2, 2)
+        addVariations({"acacia1", "acacia2", "acacia3", "acacia4"})
 
         local kapokSelectionGroupTypeIndex = selectionGroup:addGroup("allKapoks", locale:get("flora_kapok"), locale:get("flora_kapok_plural"), nil)
         local kapokInfo = {
@@ -1047,9 +1484,10 @@ function mod:onload(flora)
             selectionGroupTypeIndex = selectionGroup:addGroup("allRubberTrees", locale:get("flora_rubberTree"), locale:get("flora_rubberTree_plural"), nil),
         }
         addWildTree("rubberTree1", "whRubberTree1", rubberTreeInfo, 5, 4)
-        addWildTree("rubberTree2", "whRubberTree2", rubberTreeInfo, 6, 4)
-        addWildTree("rubberTree3", "whRubberTree3", rubberTreeInfo, 5, 3)
-        addVariations({"rubberTree1", "rubberTree2", "rubberTree3"})
+        addWildTree("rubberTree2", "whRubberTree2", rubberTreeInfo, 4, 3)
+        addWildTree("rubberTree3", "whRubberTree3", rubberTreeInfo, 7, 4)
+        addWildTree("rubberTree4", "whRubberTree4", rubberTreeInfo, 5, 4)
+        addVariations({"rubberTree1", "rubberTree2", "rubberTree3", "rubberTree4"})
 
         local oakInfo = {
             localeKey = "oak",
@@ -1082,25 +1520,37 @@ function mod:onload(flora)
         addWildTree("oliveTree2", "whOliveTree2", oliveTreeInfo, 4, 4)
         addVariations({"oliveTree", "oliveTree2"})
 
-        addWildTree("cypress1", "whCypress1", {
+        local cypressInfo = {
             localeKey = "cypress",
             woodKey = "cypress",
             seedKey = "cypressCone",
             moundKey = "whCypress",
             saplingModelName = "whCypressSapling",
-        }, 4, 3)
+            selectionGroupTypeIndex = selectionGroup:addGroup("allCypresses", locale:get("flora_cypress"), locale:get("flora_cypress_plural"), nil),
+        }
+        addWildTree("cypress1", "whCypress1", cypressInfo, 4, 3)
+        addWildTree("cypress2", "whCypress2", cypressInfo, 4, 3)
+        addWildTree("cypress3", "whCypress3", cypressInfo, 4, 3)
+        addWildTree("cypress4", "whCypress4", cypressInfo, 4, 3)
+        addVariations({"cypress1", "cypress2", "cypress3", "cypress4"})
 
-        addWildTree("brazilNutTree", "whBrazilNutTree", {
+        local brazilNutTreeInfo = {
             localeKey = "brazilNutTree",
             woodKey = "brazilNut",
             seedKey = "brazilNut",
             moundKey = "whBrazilNutTree",
             saplingModelName = "whBrazilNutTreeSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allBrazilNutTrees", locale:get("flora_brazilNutTree"), locale:get("flora_brazilNutTree_plural"), nil),
             fruitCount = 6,
             fruitSeason = seasons.autumn,
             isFoodCrop = true,
             maturityDurationDays = 24,
-        }, 24, 10)
+        }
+        addWildTree("brazilNutTree", "whBrazilNutTree", brazilNutTreeInfo, 24, 10)
+        addWildTree("brazilNutTree2", "whBrazilNutTree2", brazilNutTreeInfo, 12, 6)
+        addWildTree("brazilNutTree3", "whBrazilNutTree3", brazilNutTreeInfo, 12, 6)
+        addWildTree("brazilNutTree4", "whBrazilNutTree4", brazilNutTreeInfo, 24, 10)
+        addVariations({"brazilNutTree", "brazilNutTree2", "brazilNutTree3", "brazilNutTree4"})
 
         local mahoganyInfo = {
             localeKey = "mahogany",
@@ -1112,8 +1562,10 @@ function mod:onload(flora)
             maturityDurationDays = 16,
         }
         addWildTree("mahogany1", "whMahogany1", mahoganyInfo, 14, 6)
-        addWildTree("mahogany2", "whMahogany2", mahoganyInfo, 14, 6)
-        addVariations({"mahogany1", "mahogany2"})
+        addWildTree("mahogany2", "whMahogany2", mahoganyInfo, 7, 4)
+        addWildTree("mahogany3", "whMahogany3", mahoganyInfo, 20, 8)
+        addWildTree("mahogany4", "whMahogany4", mahoganyInfo, 10, 6)
+        addVariations({"mahogany1", "mahogany2", "mahogany3", "mahogany4"})
 
         local banyanInfo = {
             localeKey = "banyan",
@@ -1126,7 +1578,9 @@ function mod:onload(flora)
         }
         addWildTree("banyan1", "whBanyan1", banyanInfo, 10, 8)
         addWildTree("banyan2", "whBanyan2", banyanInfo, 12, 8)
-        addVariations({"banyan1", "banyan2"})
+        addWildTree("banyan3", "whBanyan3", banyanInfo, 12, 8)
+        addWildTree("banyan4", "whBanyan4", banyanInfo, 10, 8)
+        addVariations({"banyan1", "banyan2", "banyan3", "banyan4"})
 
         local juniperInfo = {
             localeKey = "juniper",
@@ -1141,7 +1595,9 @@ function mod:onload(flora)
         }
         addWildTree("juniper1", "whJuniper1", juniperInfo, 2, 3)
         addWildTree("juniper2", "whJuniper2", juniperInfo, 2, 3)
-        addVariations({"juniper1", "juniper2"})
+        addWildTree("juniper3", "whJuniper3", juniperInfo, 2, 3)
+        addWildTree("juniper4", "whJuniper4", juniperInfo, 2, 3)
+        addVariations({"juniper1", "juniper2", "juniper3", "juniper4"})
 
         local mapleInfo = {
             localeKey = "maple",
@@ -1171,27 +1627,41 @@ function mod:onload(flora)
         }
         addWildTree("alder1", "whAlder1", alderInfo, 4, 3)
         addWildTree("alder2", "whAlder2", alderInfo, 4, 3)
-        addVariations({"alder1", "alder2"})
+        addWildTree("alder3", "whAlder3", alderInfo, 4, 3)
+        addWildTree("alder4", "whAlder4", alderInfo, 4, 3)
+        addVariations({"alder1", "alder2", "alder3", "alder4"})
 
-        addWildTree("poplar1", "whPoplar1", {
+        local poplarInfo = {
             localeKey = "poplar",
             woodKey = "poplar",
             seedKey = "poplarSeed",
             moundKey = "whPoplar",
             saplingModelName = "whPoplarSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allPoplars", locale:get("flora_poplar"), locale:get("flora_poplar_plural"), nil),
             seasonal = true,
             maturityDurationDays = 6,
-        }, 5, 3)
+        }
+        addWildTree("poplar1", "whPoplar1", poplarInfo, 5, 3)
+        addWildTree("poplar2", "whPoplar2", poplarInfo, 3, 3)
+        addWildTree("poplar3", "whPoplar3", poplarInfo, 7, 3)
+        addWildTree("poplar4", "whPoplar4", poplarInfo, 5, 3)
+        addVariations({"poplar1", "poplar2", "poplar3", "poplar4"})
 
-        addWildTree("arganTree", "whArganTree", {
+        local arganTreeInfo = {
             localeKey = "arganTree",
             woodKey = "argan",
             seedKey = "arganNut",
             moundKey = "whArganTree",
             saplingModelName = "whArganTreeSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allArganTrees", locale:get("flora_arganTree"), locale:get("flora_arganTree_plural"), nil),
             fruitCount = 4,
             fruitSeason = seasons.summer,
-        }, 4, 4)
+        }
+        addWildTree("arganTree", "whArganTree", arganTreeInfo, 4, 4)
+        addWildTree("arganTree2", "whArganTree2", arganTreeInfo, 4, 4)
+        addWildTree("arganTree3", "whArganTree3", arganTreeInfo, 4, 4)
+        addWildTree("arganTree4", "whArganTree4", arganTreeInfo, 4, 4)
+        addVariations({"arganTree", "arganTree2", "arganTree3", "arganTree4"})
 
         local mangroveInfo = {
             localeKey = "mangrove",
@@ -1203,21 +1673,29 @@ function mod:onload(flora)
         }
         addWildTree("mangrove1", "whMangrove1", mangroveInfo, 0, 4)
         addWildTree("mangrove2", "whMangrove2", mangroveInfo, 0, 4)
-        addVariations({"mangrove1", "mangrove2"})
+        addWildTree("mangrove3", "whMangrove3", mangroveInfo, 0, 4)
+        addWildTree("mangrove4", "whMangrove4", mangroveInfo, 0, 4)
+        addVariations({"mangrove1", "mangrove2", "mangrove3", "mangrove4"})
 
-        addWildTree("carobTree", "whCarobTree", {
+        local carobTreeInfo = {
             localeKey = "carobTree",
             woodKey = "carob",
             seedKey = "carobPod",
             moundKey = "whCarobTree",
             saplingModelName = "whCarobTreeSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allCarobTrees", locale:get("flora_carobTree"), locale:get("flora_carobTree_plural"), nil),
             fruitCount = 6,
             fruitSeason = seasons.autumn,
             isFoodCrop = true,
-        }, 4, 4)
+        }
+        addWildTree("carobTree", "whCarobTree", carobTreeInfo, 4, 4)
+        addWildTree("carobTree2", "whCarobTree2", carobTreeInfo, 4, 4)
+        addWildTree("carobTree3", "whCarobTree3", carobTreeInfo, 4, 4)
+        addWildTree("carobTree4", "whCarobTree4", carobTreeInfo, 4, 4)
+        addVariations({"carobTree", "carobTree2", "carobTree3", "carobTree4"})
 
         local dwarfBirchSelectionGroupTypeIndex = selectionGroup:addGroup("allDwarfBirches", locale:get("flora_dwarfBirch"), locale:get("flora_dwarfBirch_plural"), nil)
-        for i = 1,3 do
+        for i = 1,4 do
             addFlora("dwarfBirch" .. mj:tostring(i), {
                 name = locale:get("flora_dwarfBirch"),
                 plural = locale:get("flora_dwarfBirch_plural"),
@@ -1252,7 +1730,7 @@ function mod:onload(flora)
                 useCraftSimple = true,
             })
         end
-        addVariations({"dwarfBirch1", "dwarfBirch2", "dwarfBirch3"})
+        addVariations({"dwarfBirch1", "dwarfBirch2", "dwarfBirch3", "dwarfBirch4"})
 
         addFlora("hazelBush", {
             name = locale:get("flora_hazelBush"),
@@ -1287,6 +1765,32 @@ function mod:onload(flora)
             isFoodCrop = true,
             useCraftSimple = true,
         })
+        local hazelSelectionGroupTypeIndex = selectionGroup:addGroup("allHazelBushes", locale:get("flora_hazelBush"), locale:get("flora_hazelBush_plural"), nil)
+        gameObject.types.hazelBush.baseSelectionGroupTypeIndex = hazelSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.hazelBush.index, {hazelSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("hazelBush" .. mj:tostring(i), {
+                name = locale:get("flora_hazelBush"),
+                plural = locale:get("flora_hazelBush_plural"),
+                summary = locale:get("flora_hazelBush_summary"),
+                saplingName = locale:get("flora_hazelBush_sapling"),
+                saplingPlural = locale:get("flora_hazelBush_sapling_plural"),
+                modelName = "whHazelBush" .. mj:tostring(i),
+                saplingModelName = "whHazelBushSapling",
+                resourceGroup = flora.types.hazelBush.resourceGroup,
+                markerPositions = bushMarkerPositions,
+                clientModelFunction = getClientModelFunction("whHazelBush", "whHazelBush" .. mj:tostring(i), true, false, false),
+                saplingClientModelFunction = getClientModelFunction("whHazelBush", "whHazelBushSapling", false, false, true),
+                interactable = true,
+                addToPhysics = true,
+                fruitSeason = seasons.autumn,
+                seedResourceTypeIndex = resource.types.hazelnut.index,
+                speciesSelectionGroupTypeIndex = hazelSelectionGroupTypeIndex,
+                isFoodCrop = true,
+                useCraftSimple = true,
+            })
+        end
+        addVariations({"hazelBush", "hazelBush2", "hazelBush3", "hazelBush4"})
 
         addFlora("arcticWillow", {
             name = locale:get("flora_arcticWillow"),
@@ -1451,53 +1955,98 @@ function mod:onload(flora)
             fruitSeason = seasons.autumn,
         }
         addWildTree("planeTree1", "whPlaneTree1", planeTreeInfo, 6, 4)
-        addWildTree("planeTree2", "whPlaneTree2", planeTreeInfo, 6, 4)
-        addVariations({"planeTree1", "planeTree2"})
+        addWildTree("planeTree2", "whPlaneTree2", planeTreeInfo, 5, 3)
+        addWildTree("planeTree3", "whPlaneTree3", planeTreeInfo, 5, 3)
+        addWildTree("planeTree4", "whPlaneTree4", planeTreeInfo, 6, 4)
+        addVariations({"planeTree1", "planeTree2", "planeTree3", "planeTree4"})
 
-        addWildTree("baldCypress1", "whBaldCypress1", {
+        local baldCypressInfo = {
             localeKey = "baldCypress",
             woodKey = "baldCypress",
             seedKey = "baldCypressCone",
             moundKey = "whBaldCypress",
             saplingModelName = "whBaldCypressSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allBaldCypresses", locale:get("flora_baldCypress"), locale:get("flora_baldCypress_plural"), nil),
             seasonal = true,
             fruitSeason = seasons.autumn,
-        }, 6, 4)
+        }
+        addWildTree("baldCypress1", "whBaldCypress1", baldCypressInfo, 6, 4)
+        addWildTree("baldCypress2", "whBaldCypress2", baldCypressInfo, 6, 4)
+        addWildTree("baldCypress3", "whBaldCypress3", baldCypressInfo, 6, 4)
+        addWildTree("baldCypress4", "whBaldCypress4", baldCypressInfo, 6, 4)
+        addVariations({"baldCypress1", "baldCypress2", "baldCypress3", "baldCypress4"})
 
-        addWildTree("maritimePine1", "whMaritimePine1", {
+        local maritimePineInfo = {
             localeKey = "maritimePine",
             woodKey = "maritimePine",
             seedKey = "maritimePineCone",
             moundKey = "whMaritimePine",
             saplingModelName = "whMaritimePineSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allMaritimePines", locale:get("flora_maritimePine"), locale:get("flora_maritimePine_plural"), nil),
             snow = true,
-        }, 4, 3)
+        }
+        addWildTree("maritimePine1", "whMaritimePine1", maritimePineInfo, 4, 3)
+        addWildTree("maritimePine2", "whMaritimePine2", maritimePineInfo, 3, 3)
+        addWildTree("maritimePine3", "whMaritimePine3", maritimePineInfo, 3, 3)
+        addWildTree("maritimePine4", "whMaritimePine4", maritimePineInfo, 6, 3)
+        addVariations({"maritimePine1", "maritimePine2", "maritimePine3", "maritimePine4"})
 
-        addWildTree("stonePine1", "whStonePine1", {
+        local stonePineInfo = {
             localeKey = "stonePine",
             woodKey = "pine",
             seedKey = "stonePineCone",
             moundKey = "whStonePine",
             saplingModelName = "whStonePineSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allStonePines", locale:get("flora_stonePine"), locale:get("flora_stonePine_plural"), nil),
             snow = true,
             fruitCount = 4,
             fruitSeason = seasons.autumn,
             isFoodCrop = true,
             maturityDurationDays = 20,
-        }, 5, 3)
+        }
+        addWildTree("stonePine1", "whStonePine1", stonePineInfo, 5, 3)
+        addWildTree("stonePine2", "whStonePine2", stonePineInfo, 3, 3)
+        addWildTree("stonePine3", "whStonePine3", stonePineInfo, 6, 3)
+        addWildTree("stonePine4", "whStonePine4", stonePineInfo, 4, 3)
+        addVariations({"stonePine1", "stonePine2", "stonePine3", "stonePine4"})
 
-        addWildTree("chestnut1", "whChestnut1", {
+        local chestnutInfo = {
             localeKey = "chestnut",
             woodKey = "chestnut",
             seedKey = "chestnut",
             moundKey = "whChestnut",
             saplingModelName = "whChestnutSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allChestnuts", locale:get("flora_chestnut"), locale:get("flora_chestnut_plural"), nil),
             seasonal = true,
             fruitCount = 4,
             fruitSeason = seasons.autumn,
             isFoodCrop = true,
             maturityDurationDays = 20,
-        }, 6, 4)
+        }
+        addWildTree("chestnut1", "whChestnut1", chestnutInfo, 6, 4)
+        addWildTree("chestnut2", "whChestnut2", chestnutInfo, 8, 4)
+        addWildTree("chestnut3", "whChestnut3", chestnutInfo, 5, 3)
+        addWildTree("chestnut4", "whChestnut4", chestnutInfo, 5, 3)
+        addVariations({"chestnut1", "chestnut2", "chestnut3", "chestnut4"})
+
+        local beechInfo = {
+            localeKey = "beech",
+            woodKey = "beech",
+            seedKey = "beechnut",
+            moundKey = "whBeech",
+            saplingModelName = "whBeechSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allBeeches", locale:get("flora_beech"), locale:get("flora_beech_plural"), nil),
+            seasonal = true,
+            fruitCount = 4,
+            fruitSeason = seasons.autumn,
+            isFoodCrop = true,
+            maturityDurationDays = 20,
+        }
+        addWildTree("beech1", "whBeech1", beechInfo, 6, 4)
+        addWildTree("beech2", "whBeech2", beechInfo, 8, 4)
+        addWildTree("beech3", "whBeech3", beechInfo, 5, 3)
+        addWildTree("beech4", "whBeech4", beechInfo, 4, 3)
+        addVariations({"beech1", "beech2", "beech3", "beech4"})
 
         addWildTree("saxaul1", "whSaxaul1", {
             localeKey = "saxaul",
@@ -1516,23 +2065,35 @@ function mod:onload(flora)
             snow = true,
         }, 5, 3)
 
-        addWildTree("larch1", "whLarch1", {
+        local larchInfo = {
             localeKey = "larch",
             woodKey = "larch",
             seedKey = "larchCone",
             moundKey = "whLarch",
             saplingModelName = "whLarchSapling",
+            selectionGroupTypeIndex = selectionGroup:addGroup("allLarches", locale:get("flora_larch"), locale:get("flora_larch_plural"), nil),
             seasonal = true,
             fruitSeason = seasons.autumn,
-        }, 4, 3)
+        }
+        addWildTree("larch1", "whLarch1", larchInfo, 4, 3)
+        addWildTree("larch2", "whLarch2", larchInfo, 6, 3)
+        addWildTree("larch3", "whLarch3", larchInfo, 5, 3)
+        addWildTree("larch4", "whLarch4", larchInfo, 2, 3)
+        addVariations({"larch1", "larch2", "larch3", "larch4"})
 
-        addWildTree("tamarisk1", "whTamarisk1", {
+        local tamariskInfo = {
             localeKey = "tamarisk",
             woodKey = "tamarisk",
             seedKey = "tamariskSeed",
             moundKey = "whTamarisk",
             saplingModelName = "whTamariskSapling",
-        }, 0, 3)
+            selectionGroupTypeIndex = selectionGroup:addGroup("allTamarisks", locale:get("flora_tamarisk"), locale:get("flora_tamarisk_plural"), nil),
+        }
+        addWildTree("tamarisk1", "whTamarisk1", tamariskInfo, 0, 3)
+        addWildTree("tamarisk2", "whTamarisk2", tamariskInfo, 0, 3)
+        addWildTree("tamarisk3", "whTamarisk3", tamariskInfo, 0, 3)
+        addWildTree("tamarisk4", "whTamarisk4", tamariskInfo, 0, 3)
+        addVariations({"tamarisk1", "tamarisk2", "tamarisk3", "tamarisk4"})
 
         addFlora("oleander1", {
             name = locale:get("flora_oleander"),
@@ -2016,6 +2577,30 @@ function mod:onload(flora)
             useCraftSimple = true,
             isFoodCrop = true,
         })
+        local agaveSelectionGroupTypeIndex = selectionGroup:addGroup("allAgaves", locale:get("flora_agavePlant"), locale:get("flora_agavePlant_plural"), nil)
+        gameObject.types.agavePlant.baseSelectionGroupTypeIndex = agaveSelectionGroupTypeIndex
+        selectionGroup:addObjectTypeToGroups(gameObject.types.agavePlant.index, {agaveSelectionGroupTypeIndex})
+        for i = 2,4 do
+            addFlora("agavePlant" .. mj:tostring(i), {
+                name = locale:get("flora_agavePlant"),
+                plural = locale:get("flora_agavePlant_plural"),
+                summary = locale:get("flora_agavePlant_summary"),
+                saplingName = locale:get("flora_agavePlantSapling"),
+                saplingPlural = locale:get("flora_agavePlantSapling_plural"),
+                modelName = "whAgavePlant" .. mj:tostring(i),
+                saplingModelName = "whAgavePlantSapling",
+                resourceGroup = flora.types.agavePlant.resourceGroup,
+                markerPositions = tallPlantMarkerPositions,
+                seedResourceTypeIndex = resource.types.agaveLeaf.index,
+                speciesSelectionGroupTypeIndex = agaveSelectionGroupTypeIndex,
+                maturityDurationDays = 6,
+                fruitImmediatelyWhenMature = true,
+                interactable = true,
+                useCraftSimple = true,
+                isFoodCrop = true,
+            })
+        end
+        addVariations({"agavePlant", "agavePlant2", "agavePlant3", "agavePlant4"})
 
         addFlora("gotuKolaPlant", {
             name = locale:get("flora_gotuKolaPlant"),

@@ -26,6 +26,10 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("figTrunk", vec3(0.2, 0.18, 0.15), 1.0, vec3(0.3, 0.28, 0.24), 1.0))
     mj:insertIndexed(material.types, matWithB("figLeafLow", vec3(0.2, 0.264, 0.12), 1.0, vec3(0.4, 0.528, 0.24), 1.0))
     mj:insertIndexed(material.types, bushMat("figLeafSpringLow", vec3(0.48, 0.4, 0.4), 1.0))
+    mj:insertIndexed(material.types, matWithB("appleLeaf", vec3(0.2, 0.264, 0.12), 1.0, vec3(0.4, 0.528, 0.24), 1.0))
+    mj:insertIndexed(material.types, matWithB("appleLeafLow", vec3(0.2, 0.264, 0.12), 1.0, vec3(0.4, 0.528, 0.24), 1.0))
+    mj:insertIndexed(material.types, bushMat("appleLeafSpring", vec3(0.48, 0.4, 0.4), 1.0))
+    mj:insertIndexed(material.types, bushMat("appleLeafSpringLow", vec3(0.48, 0.4, 0.4), 1.0))
 
     mj:insertIndexed(material.types, mat("date", vec3(0.35, 0.17, 0.05), 0.3))
     mj:insertIndexed(material.types, mat("dateRotten", vec3(0.12, 0.06, 0.03), 0.8))
@@ -60,6 +64,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("baobabBark", vec3(0.45, 0.38, 0.33), 1.0, vec3(0.36, 0.31, 0.28), 1.0))
     mj:insertIndexed(material.types, matWithB("baobabWood", vec3(0.6, 0.52, 0.38), 0.5, vec3(0.5, 0.43, 0.3), 0.9))
     mj:insertIndexed(material.types, matWithB("baobabFoliage", vec3(0.14, 0.24, 0.08), 1.0, vec3(0.2, 0.3, 0.1), 1.0))
+    mj:insertIndexed(material.types, matWithB("baobabFoliageSmall", vec3(0.14, 0.24, 0.08), 1.0, vec3(0.2, 0.3, 0.1), 1.0))
     mj:insertIndexed(material.types, matWithB("baobabFoliageLow", vec3(0.14, 0.24, 0.08), 1.0, vec3(0.2, 0.3, 0.1), 1.0))
     mj:insertIndexed(material.types, matWithB("baobabFoliageSpring", vec3(0.2, 0.32, 0.1), 1.0, vec3(0.26, 0.38, 0.12), 1.0))
     mj:insertIndexed(material.types, matWithB("baobabFoliageSpringLow", vec3(0.2, 0.32, 0.1), 1.0, vec3(0.26, 0.38, 0.12), 1.0))
@@ -75,6 +80,15 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("lingonberryRotten", vec3(0.12, 0.02, 0.03), 0.8))
     mj:insertIndexed(material.types, bushMat("lingonberryLeaf", vec3(0.04, 0.12, 0.05), 1.0))
     mj:insertIndexed(material.types, bushMat("lingonberryLeafLow", vec3(0.04, 0.12, 0.05), 1.0))
+    mj:insertIndexed(material.types, mat("blueberry", vec3(0.07, 0.09, 0.3), 0.4))
+    mj:insertIndexed(material.types, mat("blueberryRotten", vec3(0.05, 0.05, 0.1), 0.8))
+    mj:insertIndexed(material.types, bushMat("blueberryLeaf", vec3(0.1, 0.24, 0.08), 1.0))
+    mj:insertIndexed(material.types, bushMat("blueberryLeafLow", vec3(0.1, 0.24, 0.08), 1.0))
+    mj:insertIndexed(material.types, bushMat("blueberryLeafAutumn", vec3(0.36, 0.14, 0.09), 1.0))
+    mj:insertIndexed(material.types, bushMat("blueberryLeafAutumnLow", vec3(0.36, 0.14, 0.09), 1.0))
+    mj:insertIndexed(material.types, bushMat("blueberryLeafWinter", vec3(0.26, 0.11, 0.09), 1.0))
+    mj:insertIndexed(material.types, bushMat("blueberryLeafWinterLow", vec3(0.26, 0.11, 0.09), 1.0))
+    mj:insertIndexed(material.types, matWithB("blueberryBark", vec3(0.3, 0.22, 0.16), 1.0, vec3(0.2, 0.15, 0.11), 1.0))
 
     mj:insertIndexed(material.types, mat("cloudberry", vec3(0.6, 0.35, 0.08), 0.5))
     mj:insertIndexed(material.types, mat("cloudberryRotten", vec3(0.18, 0.1, 0.03), 0.8))
@@ -99,8 +113,14 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("barrelCactusLow", vec3(0.24, 0.34, 0.2), 0.6))
     mj:insertIndexed(material.types, mat("cholla", vec3(0.38, 0.42, 0.28), 0.6))
     mj:insertIndexed(material.types, mat("chollaLow", vec3(0.38, 0.42, 0.28), 0.6))
+    mj:insertIndexed(material.types, matWithB("chollaTrunk", vec3(0.16, 0.12, 0.1), 1.0, vec3(0.1, 0.08, 0.06), 1.0))
     mj:insertIndexed(material.types, mat("euphorbia", vec3(0.18, 0.32, 0.2), 0.6))
     mj:insertIndexed(material.types, mat("euphorbiaLow", vec3(0.18, 0.32, 0.2), 0.6))
+    mj:insertIndexed(material.types, matWithB("euphorbiaTrunk", vec3(0.3, 0.25, 0.19), 1.0, vec3(0.2, 0.17, 0.13), 1.0))
+    mj:insertIndexed(material.types, bushMat("giantGroundselLeaf", vec3(0.16, 0.3, 0.13), 0.8))
+    mj:insertIndexed(material.types, bushMat("giantGroundselLeafLow", vec3(0.16, 0.3, 0.13), 0.8))
+    mj:insertIndexed(material.types, matWithB("giantGroundselThatch", vec3(0.36, 0.28, 0.17), 1.0, vec3(0.27, 0.21, 0.13), 1.0))
+    mj:insertIndexed(material.types, matWithB("giantGroundselTrunk", vec3(0.26, 0.22, 0.18), 1.0, vec3(0.18, 0.15, 0.12), 1.0))
     mj:insertIndexed(material.types, mat("cardonFruit", vec3(0.5, 0.1, 0.08), 0.6))
     mj:insertIndexed(material.types, mat("cardonFruitRotten", vec3(0.13, 0.04, 0.03), 0.8))
     mj:insertIndexed(material.types, mat("pricklyPearFruit", vec3(0.55, 0.08, 0.3), 0.6))
@@ -115,6 +135,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("palmLeafDried", vec3(0.42, 0.36, 0.24), 0.9))
 
     mj:insertIndexed(material.types, matWithB("acaciaLeaf", vec3(0.2, 0.24, 0.12), 1.0, vec3(0.3, 0.32, 0.18), 1.0))
+    mj:insertIndexed(material.types, matWithB("acaciaLeafSmall", vec3(0.2, 0.24, 0.12), 1.0, vec3(0.3, 0.32, 0.18), 1.0))
     mj:insertIndexed(material.types, matWithB("acaciaLeafLow", vec3(0.2, 0.24, 0.12), 1.0, vec3(0.3, 0.32, 0.18), 1.0))
     mj:insertIndexed(material.types, matWithB("acaciaBark", vec3(0.18, 0.15, 0.12), 1.0, vec3(0.28, 0.23, 0.18), 1.0))
     mj:insertIndexed(material.types, matWithB("acaciaWood", vec3(0.5, 0.3, 0.18), 0.5, vec3(0.42, 0.25, 0.15), 0.9))
@@ -122,6 +143,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("acaciaSeedRotten", vec3(0.1, 0.07, 0.05), 0.9))
 
     mj:insertIndexed(material.types, bushMat("kapokLeaf", vec3(0.08, 0.2, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("kapokLeafSmall", vec3(0.08, 0.2, 0.06), 1.0))
     mj:insertIndexed(material.types, bushMat("kapokLeafLow", vec3(0.08, 0.2, 0.06), 1.0))
     mj:insertIndexed(material.types, matWithB("kapokBark", vec3(0.55, 0.36, 0.24), 1.0, vec3(0.32, 0.2, 0.13), 1.0))
     mj:insertIndexed(material.types, matWithB("kapokWood", vec3(0.62, 0.57, 0.45), 0.5, vec3(0.55, 0.5, 0.4), 0.9))
@@ -129,6 +151,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("kapokSeedRotten", vec3(0.08, 0.07, 0.05), 0.9))
 
     mj:insertIndexed(material.types, bushMat("rubberLeaf", vec3(0.05, 0.14, 0.04), 0.9))
+    mj:insertIndexed(material.types, bushMat("rubberLeafSmall", vec3(0.05, 0.14, 0.04), 0.9))
     mj:insertIndexed(material.types, bushMat("rubberLeafLow", vec3(0.05, 0.14, 0.04), 0.9))
     mj:insertIndexed(material.types, matWithB("rubberBark", vec3(0.33, 0.28, 0.23), 0.9, vec3(0.27, 0.23, 0.19), 1.0))
     mj:insertIndexed(material.types, matWithB("rubberWood", vec3(0.66, 0.62, 0.5), 0.5, vec3(0.58, 0.54, 0.43), 0.9))
@@ -136,6 +159,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("rubberSeedRotten", vec3(0.08, 0.08, 0.05), 0.9))
 
     mj:insertIndexed(material.types, bushMat("oakLeaf", vec3(0.1, 0.2, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("oakLeafSmall", vec3(0.1, 0.2, 0.06), 1.0))
     mj:insertIndexed(material.types, bushMat("oakLeafLow", vec3(0.1, 0.2, 0.06), 1.0))
     mj:insertIndexed(material.types, bushMat("oakLeafSpring", vec3(0.2, 0.32, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("oakLeafSpringLow", vec3(0.2, 0.32, 0.08), 1.0))
@@ -164,6 +188,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("cypressConeRotten", vec3(0.09, 0.08, 0.05), 0.9))
 
     mj:insertIndexed(material.types, bushMat("brazilNutLeaf", vec3(0.07, 0.17, 0.05), 1.0))
+    mj:insertIndexed(material.types, bushMat("brazilNutLeafSmall", vec3(0.07, 0.17, 0.05), 1.0))
     mj:insertIndexed(material.types, bushMat("brazilNutLeafLow", vec3(0.07, 0.17, 0.05), 1.0))
     mj:insertIndexed(material.types, matWithB("brazilNutBark", vec3(0.4, 0.38, 0.34), 1.0, vec3(0.28, 0.26, 0.23), 1.0))
     mj:insertIndexed(material.types, matWithB("brazilNutWood", vec3(0.55, 0.38, 0.25), 0.5, vec3(0.46, 0.31, 0.2), 0.9))
@@ -196,6 +221,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("juniperLeaf", vec3(0.05, 0.1, 0.1), 1.0, vec3(0.1, 0.2, 0.2), 1.0))
     mj:insertIndexed(material.types, matWithB("juniperLeafLow", vec3(0.05, 0.1, 0.1), 1.0, vec3(0.1, 0.2, 0.2), 1.0))
     mj:insertIndexed(material.types, matWithB("juniperLeafSmall", vec3(0.05, 0.1, 0.1), 1.0, vec3(0.1, 0.2, 0.2), 1.0))
+    mj:insertIndexed(material.types, mat("juniperLeafSnow", vec3(0.55, 0.55, 0.55), 0.5))
     mj:insertIndexed(material.types, matWithB("juniperBark", vec3(0.3, 0.2, 0.15), 1.0, vec3(0.2, 0.14, 0.11), 1.0))
     mj:insertIndexed(material.types, matWithB("juniperWood", vec3(0.6, 0.38, 0.28), 0.5, vec3(0.5, 0.3, 0.22), 0.9))
     mj:insertIndexed(material.types, mat("juniperBerry", vec3(0.12, 0.16, 0.28), 0.7))
@@ -235,12 +261,14 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("mapleSeed", vec3(0.45, 0.35, 0.2), 0.7))
     mj:insertIndexed(material.types, mat("mapleSeedRotten", vec3(0.12, 0.09, 0.06), 0.9))
     mj:insertIndexed(material.types, matWithB("arganLeaf", vec3(0.1, 0.17, 0.09), 1.0, vec3(0.16, 0.24, 0.12), 1.0))
+    mj:insertIndexed(material.types, matWithB("arganLeafSmall", vec3(0.1, 0.17, 0.09), 1.0, vec3(0.16, 0.24, 0.12), 1.0))
     mj:insertIndexed(material.types, matWithB("arganLeafLow", vec3(0.1, 0.17, 0.09), 1.0, vec3(0.16, 0.24, 0.12), 1.0))
     mj:insertIndexed(material.types, matWithB("arganBark", vec3(0.32, 0.28, 0.24), 1.0, vec3(0.22, 0.19, 0.16), 1.0))
     mj:insertIndexed(material.types, matWithB("arganWood", vec3(0.55, 0.4, 0.28), 0.5, vec3(0.46, 0.33, 0.22), 0.9))
     mj:insertIndexed(material.types, mat("arganNut", vec3(0.4, 0.3, 0.12), 0.7))
     mj:insertIndexed(material.types, mat("arganNutRotten", vec3(0.12, 0.09, 0.05), 0.9))
     mj:insertIndexed(material.types, bushMat("carobLeaf", vec3(0.08, 0.18, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("carobLeafSmall", vec3(0.08, 0.18, 0.06), 1.0))
     mj:insertIndexed(material.types, bushMat("carobLeafLow", vec3(0.08, 0.18, 0.06), 1.0))
     mj:insertIndexed(material.types, matWithB("carobBark", vec3(0.3, 0.25, 0.2), 1.0, vec3(0.2, 0.16, 0.13), 1.0))
     mj:insertIndexed(material.types, matWithB("carobWood", vec3(0.5, 0.3, 0.2), 0.5, vec3(0.42, 0.24, 0.16), 0.9))
@@ -300,6 +328,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("tamariskLeafLow", vec3(0.18, 0.24, 0.18), 1.0, vec3(0.28, 0.34, 0.26), 1.0))
     mj:insertIndexed(material.types, matWithB("tamariskLeafSmall", vec3(0.18, 0.24, 0.18), 1.0, vec3(0.28, 0.34, 0.26), 1.0))
     mj:insertIndexed(material.types, matWithB("tamariskBark", vec3(0.3, 0.2, 0.16), 1.0, vec3(0.2, 0.13, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("tamariskBlossom", vec3(0.62, 0.38, 0.45), 0.8))
     mj:insertIndexed(material.types, matWithB("tamariskWood", vec3(0.55, 0.4, 0.3), 0.5, vec3(0.46, 0.33, 0.24), 0.9))
     mj:insertIndexed(material.types, mat("tamariskSeed", vec3(0.4, 0.35, 0.3), 0.8))
     mj:insertIndexed(material.types, mat("tamariskSeedRotten", vec3(0.12, 0.1, 0.08), 0.9))
@@ -348,6 +377,18 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("chestnutRotten", vec3(0.1, 0.06, 0.04), 0.9))
     mj:insertIndexed(material.types, mat("chestnut2", vec3(0.5, 0.4, 0.25), 0.7))
     mj:insertIndexed(material.types, mat("chestnut2Rotten", vec3(0.14, 0.11, 0.07), 0.9))
+    mj:insertIndexed(material.types, bushMat("beechLeaf", vec3(0.12, 0.26, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafLow", vec3(0.12, 0.26, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafSmall", vec3(0.12, 0.26, 0.06), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafSpring", vec3(0.24, 0.4, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafSpringLow", vec3(0.24, 0.4, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafAutumn", vec3(0.5, 0.27, 0.07), 1.0))
+    mj:insertIndexed(material.types, bushMat("beechLeafAutumnLow", vec3(0.5, 0.27, 0.07), 1.0))
+    mj:insertIndexed(material.types, matWithB("beechBark", vec3(0.34, 0.34, 0.32), 1.0, vec3(0.24, 0.24, 0.23), 1.0))
+    mj:insertIndexed(material.types, mat("beechnut", vec3(0.3, 0.17, 0.08), 0.5))
+    mj:insertIndexed(material.types, mat("beechnutRotten", vec3(0.1, 0.07, 0.04), 0.9))
+    mj:insertIndexed(material.types, mat("beechnut2", vec3(0.4, 0.3, 0.16), 0.8))
+    mj:insertIndexed(material.types, mat("beechnut2Rotten", vec3(0.13, 0.1, 0.06), 0.9))
     mj:insertIndexed(material.types, bushMat("hazelLeaf", vec3(0.2, 0.3, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafLow", vec3(0.2, 0.3, 0.08), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafSmall", vec3(0.2, 0.3, 0.08), 1.0))
@@ -355,6 +396,8 @@ function mod:onload(material)
     mj:insertIndexed(material.types, bushMat("hazelLeafSpringLow", vec3(0.3, 0.4, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafAutumn", vec3(0.5, 0.4, 0.1), 1.0))
     mj:insertIndexed(material.types, bushMat("hazelLeafAutumnLow", vec3(0.5, 0.4, 0.1), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafWinter", vec3(0.3, 0.2, 0.11), 1.0))
+    mj:insertIndexed(material.types, bushMat("hazelLeafWinterLow", vec3(0.3, 0.2, 0.11), 1.0))
     mj:insertIndexed(material.types, matWithB("hazelBark", vec3(0.3, 0.24, 0.2), 1.0, vec3(0.2, 0.16, 0.13), 1.0))
     mj:insertIndexed(material.types, mat("hazelnut", vec3(0.42, 0.28, 0.14), 0.5))
     mj:insertIndexed(material.types, mat("hazelnutRotten", vec3(0.11, 0.08, 0.05), 0.9))
@@ -376,6 +419,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, matWithB("seaBuckthornLeafLow", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
     mj:insertIndexed(material.types, matWithB("seaBuckthornLeafSmall", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
     mj:insertIndexed(material.types, matWithB("seaBuckthornLeafSmallLow", vec3(0.24, 0.32, 0.24), 1.0, vec3(0.4, 0.46, 0.38), 1.0))
+    mj:insertIndexed(material.types, matWithB("seaBuckthornBark", vec3(0.24, 0.2, 0.16), 1.0, vec3(0.16, 0.13, 0.11), 1.0))
     mj:insertIndexed(material.types, mat("seaBuckthorn", vec3(0.85, 0.4, 0.03), 0.3))
     mj:insertIndexed(material.types, mat("seaBuckthornRotten", vec3(0.2, 0.1, 0.03), 0.8))
     mj:insertIndexed(material.types, mat("arcticWillowSeed", vec3(0.62, 0.6, 0.52), 0.8))
@@ -472,6 +516,9 @@ function mod:onload(material)
     mj:insertIndexed(material.types, bushMat("dragonsBloodLeafLow", vec3(0.1, 0.24, 0.07), 0.9))
     mj:insertIndexed(material.types, matWithB("dragonsBloodBark", vec3(0.5, 0.47, 0.42), 1.0, vec3(0.36, 0.33, 0.29), 1.0))
     mj:insertIndexed(material.types, mat("dragonsBlood", vec3(0.35, 0.03, 0.03), 0.4))
+    mj:insertIndexed(material.types, bushMat("dragonTreeLeaf", vec3(0.1, 0.22, 0.12), 0.8))
+    mj:insertIndexed(material.types, bushMat("dragonTreeLeafLow", vec3(0.1, 0.22, 0.12), 0.8))
+    mj:insertIndexed(material.types, matWithB("dragonTreeBark", vec3(0.42, 0.4, 0.37), 1.0, vec3(0.3, 0.28, 0.26), 1.0))
     mj:insertIndexed(material.types, mat("acornCooked", vec3(0.16, 0.1, 0.05), 0.7))
     mj:insertIndexed(material.types, mat("acorn2Cooked", vec3(0.26, 0.16, 0.07), 0.7))
     mj:insertIndexed(material.types, mat("reedStem", vec3(0.24, 0.3, 0.14), 0.8))
@@ -479,6 +526,7 @@ function mod:onload(material)
     mj:insertIndexed(material.types, mat("agaveFibre", vec3(0.7, 0.66, 0.48), 1.0))
     mj:insertIndexed(material.types, mat("nettleFibre", vec3(0.6, 0.6, 0.46), 1.0))
     mj:insertIndexed(material.types, matWithB("chestnutWood", vec3(0.6, 0.47, 0.3), 0.5, vec3(0.52, 0.4, 0.25), 0.9))
+    mj:insertIndexed(material.types, matWithB("beechWood", vec3(0.7, 0.55, 0.42), 0.5, vec3(0.62, 0.47, 0.35), 0.9))
     mj:insertIndexed(material.types, matWithB("larchWood", vec3(0.6, 0.4, 0.26), 0.5, vec3(0.52, 0.33, 0.21), 0.9))
     mj:insertIndexed(material.types, matWithB("maritimePineWood", vec3(0.64, 0.5, 0.32), 0.5, vec3(0.56, 0.42, 0.26), 0.9))
     mj:insertIndexed(material.types, matWithB("saxaulWood", vec3(0.6, 0.52, 0.4), 0.5, vec3(0.5, 0.43, 0.33), 0.9))
@@ -506,21 +554,34 @@ function mod:onload(material)
     material.types.grapeLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.barleyFlower.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.baobabFoliage.edgeDecal = edgeDecal.groupTypes.leavesBigger
+    material.types.baobabFoliageSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.baobabFoliageSpring.edgeDecal = edgeDecal.groupTypes.leavesBigger
     material.types.baobabFoliageAutumn.edgeDecal = edgeDecal.groupTypes.leavesBigger
     material.types.lingonberryLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.blueberryLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.blueberryLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.blueberryLeafWinter.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.cloudberryLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.mesquiteLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.acaciaLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
+    material.types.acaciaLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.kapokLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
+    material.types.kapokLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.rubberLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
+    material.types.rubberLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.oakLeaf.edgeDecal = edgeDecal.groupTypes.oak
+    material.types.oakLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.oakLeafSpring.edgeDecal = edgeDecal.groupTypes.oak
     material.types.oakLeafAutumn.edgeDecal = edgeDecal.groupTypes.oak
     material.types.oliveLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.cypressLeaf.edgeDecal = edgeDecal.groupTypes.pine
+    material.types.appleLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.appleLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.leafyBushMid.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.orangeTreeFoliage.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.cypressLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.cypressLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.brazilNutLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
+    material.types.brazilNutLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.mahoganyLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.banyanLeaf.edgeDecal = edgeDecal.groupTypes.oak
     material.types.banyanRoots.edgeDecal = edgeDecal.groupTypes.banyanRoots
@@ -530,6 +591,8 @@ function mod:onload(material)
     material.types.cycad_trunk2.edgeDecal = edgeDecal.groupTypes.doumPalmTrunk
     material.types.banyanLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.juniperLeaf.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.juniperLeafSnow.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.leafyPine.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.juniperLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.dwarfBirchLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.dwarfBirchLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
@@ -544,11 +607,14 @@ function mod:onload(material)
     material.types.barrelCactus.edgeDecal = edgeDecal.groupTypes.agave
     material.types.cholla.edgeDecal = edgeDecal.groupTypes.agave
     material.types.euphorbia.edgeDecal = edgeDecal.groupTypes.agave
+    material.types.giantGroundselLeaf.edgeDecal = edgeDecal.groupTypes.agave
     material.types.mapleLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.mapleLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.mapleLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.arganLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
+    material.types.arganLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.carobLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
+    material.types.carobLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.alderLeaf.edgeDecal = edgeDecal.groupTypes.leavesBigger
     material.types.alderLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.alderLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesBigger
@@ -572,23 +638,28 @@ function mod:onload(material)
     material.types.baldCypressLeafSpring.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.baldCypressLeafAutumn.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.baldCypressLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
-    material.types.maritimePineLeaf.edgeDecal = edgeDecal.groupTypes.pine
+    material.types.maritimePineLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.maritimePineLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
-    material.types.stonePineLeaf.edgeDecal = edgeDecal.groupTypes.pine
+    material.types.stonePineLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.stonePineLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.spruceLeaf.edgeDecal = edgeDecal.groupTypes.pine
     material.types.spruceLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
-    material.types.larchLeaf.edgeDecal = edgeDecal.groupTypes.pine
-    material.types.larchLeafSpring.edgeDecal = edgeDecal.groupTypes.pine
-    material.types.larchLeafAutumn.edgeDecal = edgeDecal.groupTypes.pine
+    material.types.larchLeaf.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.larchLeafSpring.edgeDecal = edgeDecal.groupTypes.juniper
+    material.types.larchLeafAutumn.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.larchLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.chestnutLeaf.edgeDecal = edgeDecal.groupTypes.oak
     material.types.chestnutLeafSpring.edgeDecal = edgeDecal.groupTypes.oak
     material.types.chestnutLeafAutumn.edgeDecal = edgeDecal.groupTypes.oak
+    material.types.beechLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.beechLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.beechLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.beechLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafSpring.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hazelLeafAutumn.edgeDecal = edgeDecal.groupTypes.leavesSmaller
+    material.types.hazelLeafWinter.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.arcticWillowLeaf.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.arcticWillowLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.arcticWillowLeafSpring.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
@@ -597,20 +668,21 @@ function mod:onload(material)
     material.types.saxaulLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.elephantGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
     material.types.featherGrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
-    material.types.seaBuckthornLeaf.edgeDecal = edgeDecal.groupTypes.sagebrush
+    material.types.seaBuckthornLeaf.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.seaBuckthornLeafSmall.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.cacaoLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
     material.types.dragonsBloodLeaf.edgeDecal = edgeDecal.groupTypes.leavesA
+    material.types.dragonTreeLeaf.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.ephedraLeaf.edgeDecal = edgeDecal.groupTypes.juniper
     material.types.ephedraLeafSmall.edgeDecal = edgeDecal.groupTypes.pineSmall
     material.types.hennaLeaf.edgeDecal = edgeDecal.groupTypes.leavesSmaller
     material.types.hennaLeafSmall.edgeDecal = edgeDecal.groupTypes.leavesSmaller
-    material.types.myrrhLeaf.edgeDecal = edgeDecal.groupTypes.willowLeaf
+    material.types.myrrhLeaf.edgeDecal = edgeDecal.groupTypes.willowLeafSmall
     material.types.cordgrassHead.edgeDecal = edgeDecal.groupTypes.beard
     material.types.cottonGrassHead.edgeDecal = edgeDecal.groupTypes.beard
     material.types.lemongrassTop.edgeDecal = edgeDecal.groupTypes.wheatFlower
-    material.types.commonReedPlume.edgeDecal = edgeDecal.groupTypes.beard
-    material.types.giantReedFlower.edgeDecal = edgeDecal.groupTypes.beard
+    material.types.commonReedPlume.edgeDecal = edgeDecal.groupTypes.reedPlume
+    material.types.giantReedFlower.edgeDecal = edgeDecal.groupTypes.reedPlume
 end
 
 return mod

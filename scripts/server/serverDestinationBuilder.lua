@@ -10,19 +10,17 @@ local forests = {
         ["plant_acacia1"] = 1.0,
         ["plant_acacia2"] = 1.0,
         ["plant_acacia3"] = 1.0,
-        ["plant_baobab1"] = 0.05,
-        ["plant_baobab2"] = 0.05,
-        ["plant_banyan1"] = 0.05,
-        ["plant_banyan2"] = 0.05,
+        ["plant_acacia4"] = 1.0,
     },
     rainforest = {
-        ["plant_rubberTree1"] = 0.5,
-        ["plant_rubberTree2"] = 0.5,
-        ["plant_rubberTree3"] = 0.5,
-        ["plant_mahogany1"] = 0.5,
-        ["plant_mahogany2"] = 0.5,
-        ["plant_banyan1"] = 0.3,
-        ["plant_banyan2"] = 0.3,
+        ["plant_rubberTree1"] = 0.375,
+        ["plant_rubberTree2"] = 0.375,
+        ["plant_rubberTree3"] = 0.375,
+        ["plant_rubberTree4"] = 0.375,
+        ["plant_mahogany1"] = 0.25,
+        ["plant_mahogany2"] = 0.25,
+        ["plant_mahogany3"] = 0.25,
+        ["plant_mahogany4"] = 0.25,
         ["plant_kapok1"] = 0.3,
         ["plant_kapok2"] = 0.3,
         ["plant_kapok3"] = 0.3,
@@ -30,15 +28,28 @@ local forests = {
     mediterranean = {
         ["plant_oliveTree"] = 1.0,
         ["plant_oliveTree2"] = 1.0,
-        ["plant_cypress1"] = 1.0,
-        ["plant_stonePine1"] = 1.0,
-        ["plant_carobTree"] = 0.5,
-        ["plant_arganTree"] = 0.5,
+        ["plant_cypress1"] = 0.25,
+        ["plant_cypress2"] = 0.25,
+        ["plant_cypress3"] = 0.25,
+        ["plant_cypress4"] = 0.25,
+        ["plant_stonePine1"] = 0.25,
+        ["plant_stonePine2"] = 0.25,
+        ["plant_stonePine3"] = 0.25,
+        ["plant_stonePine4"] = 0.25,
+        ["plant_carobTree"] = 0.125,
+        ["plant_carobTree2"] = 0.125,
+        ["plant_carobTree3"] = 0.125,
+        ["plant_carobTree4"] = 0.125,
+        ["plant_arganTree"] = 0.125,
+        ["plant_arganTree2"] = 0.125,
+        ["plant_arganTree3"] = 0.125,
+        ["plant_arganTree4"] = 0.125,
     },
     subtropical = {
-        ["plant_rubberTree1"] = 0.5,
-        ["plant_rubberTree2"] = 0.5,
-        ["plant_rubberTree3"] = 0.5,
+        ["plant_rubberTree1"] = 0.375,
+        ["plant_rubberTree2"] = 0.375,
+        ["plant_rubberTree3"] = 0.375,
+        ["plant_rubberTree4"] = 0.375,
         ["plant_oak1"] = 0.5,
         ["plant_oak2"] = 0.5,
         ["plant_oak3"] = 0.5,
@@ -60,7 +71,14 @@ local forests = {
         ["plant_aspen1"] = 0.5,
         ["plant_aspen2"] = 0.5,
         ["plant_aspen3"] = 0.5,
-        ["plant_chestnut1"] = 0.5,
+        ["plant_chestnut1"] = 0.125,
+        ["plant_chestnut2"] = 0.125,
+        ["plant_chestnut3"] = 0.125,
+        ["plant_chestnut4"] = 0.125,
+        ["plant_beech1"] = 0.125,
+        ["plant_beech2"] = 0.125,
+        ["plant_beech3"] = 0.125,
+        ["plant_beech4"] = 0.125,
     },
     mixed = {
         ["plant_pine1"] = 1.0,
@@ -76,27 +94,40 @@ local forests = {
         ["plant_maple3"] = 0.5,
         ["plant_maple4"] = 0.5,
         ["plant_spruce1"] = 1.0,
-        ["plant_larch1"] = 0.5,
+        ["plant_larch1"] = 0.125,
+        ["plant_larch2"] = 0.125,
+        ["plant_larch3"] = 0.125,
+        ["plant_larch4"] = 0.125,
     },
     coniferous = {
         ["plant_pine1"] = 1.0,
         ["plant_pine2"] = 1.0,
         ["plant_pine3"] = 1.0,
         ["plant_pine4"] = 1.0,
-        ["plant_juniper1"] = 0.5,
-        ["plant_juniper2"] = 0.5,
+        ["plant_juniper1"] = 0.3,
+        ["plant_juniper2"] = 0.3,
+        ["plant_juniper3"] = 0.1,
+        ["plant_juniper4"] = 0.3,
         ["plant_spruce1"] = 1.0,
-        ["plant_larch1"] = 1.0,
+        ["plant_larch1"] = 0.25,
+        ["plant_larch2"] = 0.25,
+        ["plant_larch3"] = 0.25,
+        ["plant_larch4"] = 0.25,
     },
     tundra = {
         ["plant_pine1"] = 1.0,
         ["plant_pine2"] = 1.0,
         ["plant_pine3"] = 1.0,
         ["plant_pine4"] = 1.0,
-        ["plant_juniper1"] = 1.0,
-        ["plant_juniper2"] = 1.0,
+        ["plant_juniper1"] = 0.6,
+        ["plant_juniper2"] = 0.6,
+        ["plant_juniper3"] = 0.2,
+        ["plant_juniper4"] = 0.6,
         ["plant_dwarfBirch1"] = 1.0,
-        ["plant_larch1"] = 1.0,
+        ["plant_larch1"] = 0.25,
+        ["plant_larch2"] = 0.25,
+        ["plant_larch3"] = 0.25,
+        ["plant_larch4"] = 0.25,
     },
     parkland = {
         ["plant_aspen1"] = 1.0,
@@ -106,16 +137,20 @@ local forests = {
         ["plant_birch2"] = 1.0,
         ["plant_birch3"] = 1.0,
         ["plant_birch4"] = 1.0,
-        ["plant_juniper1"] = 0.5,
-        ["plant_juniper2"] = 0.5,
+        ["plant_juniper1"] = 0.3,
+        ["plant_juniper2"] = 0.3,
+        ["plant_juniper3"] = 0.1,
+        ["plant_juniper4"] = 0.3,
     },
     oakSavanna = {
         ["plant_oak1"] = 1.0,
         ["plant_oak2"] = 1.0,
         ["plant_oak3"] = 1.0,
         ["plant_oak4"] = 1.0,
-        ["plant_juniper1"] = 0.5,
-        ["plant_juniper2"] = 0.5,
+        ["plant_juniper1"] = 0.3,
+        ["plant_juniper2"] = 0.3,
+        ["plant_juniper3"] = 0.1,
+        ["plant_juniper4"] = 0.3,
         ["plant_pine1"] = 0.5,
         ["plant_pine3"] = 0.5,
     },
@@ -123,8 +158,15 @@ local forests = {
         ["plant_acacia1"] = 1.0,
         ["plant_acacia2"] = 1.0,
         ["plant_acacia3"] = 1.0,
-        ["plant_mesquiteTree"] = 1.0,
-        ["plant_arganTree"] = 0.5,
+        ["plant_acacia4"] = 1.0,
+        ["plant_mesquiteTree"] = 0.25,
+        ["plant_mesquiteTree2"] = 0.25,
+        ["plant_mesquiteTree3"] = 0.25,
+        ["plant_mesquiteTree4"] = 0.25,
+        ["plant_arganTree"] = 0.125,
+        ["plant_arganTree2"] = 0.125,
+        ["plant_arganTree3"] = 0.125,
+        ["plant_arganTree4"] = 0.125,
     },
 }
 
@@ -134,8 +176,8 @@ local gardens = {
     mediterranean = {"plant_oliveTree", "plant_figTree", "plant_grapevinePlant", "plant_orangeTree"},
     subtropical = {"plant_orangeTree", "plant_figTree", "plant_grapevinePlant", "plant_elderberryTree"},
     deciduous = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_raspberryBush", "plant_gooseberryBush", "plant_hazelBush", "plant_chestnut1"},
-    mixed = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_raspberryBush", "plant_gooseberryBush", "plant_lingonberryBush", "plant_hazelBush"},
-    coniferous = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_gooseberryBush", "plant_lingonberryBush"},
+    mixed = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_raspberryBush", "plant_gooseberryBush", "plant_lingonberryBush", "plant_hazelBush", "plant_blueberryBush1"},
+    coniferous = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_gooseberryBush", "plant_lingonberryBush", "plant_blueberryBush1"},
     tundra = {"plant_lingonberryBush", "plant_cloudberryBush", "plant_elderberryTree", "plant_raspberryBush"},
     parkland = {"plant_appleTree", "plant_lingonberryBush", "plant_raspberryBush", "plant_gooseberryBush"},
     oakSavanna = {"plant_appleTree", "plant_peachTree", "plant_elderberryTree", "plant_gooseberryBush"},
@@ -227,6 +269,48 @@ local function getSwaps(destinationState)
         local index = rng:integerForUniqueID(destinationState.destinationID, 8231 + i, #gardenKeys) + 1
         swaps.garden[gardenKeys[index]] = 1.0
         table.remove(gardenKeys, index)
+    end
+    if swaps.garden["plant_appleTree"] then
+        swaps.garden["plant_appleTree"] = 0.25
+        swaps.garden["plant_appleTree2"] = 0.25
+        swaps.garden["plant_appleTree3"] = 0.25
+        swaps.garden["plant_appleTree4"] = 0.25
+    end
+    if swaps.garden["plant_orangeTree"] then
+        swaps.garden["plant_orangeTree"] = 0.25
+        swaps.garden["plant_orangeTree2"] = 0.25
+        swaps.garden["plant_orangeTree3"] = 0.25
+        swaps.garden["plant_orangeTree4"] = 0.25
+    end
+    if swaps.garden["plant_elderberryTree"] then
+        swaps.garden["plant_elderberryTree"] = 0.25
+        swaps.garden["plant_elderberryTree2"] = 0.25
+        swaps.garden["plant_elderberryTree3"] = 0.25
+        swaps.garden["plant_elderberryTree4"] = 0.25
+    end
+    if swaps.garden["plant_hazelBush"] then
+        swaps.garden["plant_hazelBush"] = 0.25
+        swaps.garden["plant_hazelBush2"] = 0.25
+        swaps.garden["plant_hazelBush3"] = 0.25
+        swaps.garden["plant_hazelBush4"] = 0.25
+    end
+    if swaps.garden["plant_blueberryBush1"] then
+        swaps.garden["plant_blueberryBush1"] = 0.25
+        swaps.garden["plant_blueberryBush2"] = 0.25
+        swaps.garden["plant_blueberryBush3"] = 0.25
+        swaps.garden["plant_blueberryBush4"] = 0.25
+    end
+    if swaps.garden["plant_chestnut1"] then
+        swaps.garden["plant_chestnut1"] = 0.25
+        swaps.garden["plant_chestnut2"] = 0.25
+        swaps.garden["plant_chestnut3"] = 0.25
+        swaps.garden["plant_chestnut4"] = 0.25
+    end
+    if swaps.garden["plant_peachTree"] then
+        swaps.garden["plant_peachTree"] = 0.25
+        swaps.garden["plant_peachTree2"] = 0.25
+        swaps.garden["plant_peachTree3"] = 0.25
+        swaps.garden["plant_peachTree4"] = 0.25
     end
 
     for fromHerb,toHerb in pairs(medicineSwaps[region]) do

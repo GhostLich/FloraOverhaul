@@ -57,6 +57,7 @@ function mod:onload(storage)
     smallFruitStorage("carobPod", "carobPodRotten", 0.18)
     smallFruitStorage("stonePineCone", "stonePineConeRotten", 0.15)
     smallFruitStorage("chestnut", "chestnutRotten", 0.15)
+    smallFruitStorage("beechnut", "beechnutRotten", 0.12)
     smallFruitStorage("hazelnut", "hazelnutRotten", 0.12)
     smallFruitStorage("thyme", "thymeRotten", 0.12)
     smallFruitStorage("syrianRue", "syrianRueRotten", 0.12)
@@ -78,7 +79,7 @@ function mod:onload(storage)
     smallFruitStorage("agaveHeart", "agaveHeartRotten", 0.12)
     table.insert(storage.types.agaveHeart.resources, resource.types.agaveHeartCooked.index)
 
-    for i,key in ipairs({"palmSeed", "acaciaSeed", "kapokSeed", "rubberSeed", "mahoganySeed", "banyanSeed", "cycadSeed", "treeFernSpores", "mapleSeed", "arcticWillowSeed", "poplarSeed", "mangroveSeed", "oleanderSeed", "planeSeed", "tamariskSeed", "sagebrushSeed", "saxaulSeed", "groundFernSpores", "ephedraSeed", "hennaSeed", "myrrhSeed", "dragonsBloodSeed", "euphorbiaSeed"}) do
+    for i,key in ipairs({"palmSeed", "acaciaSeed", "kapokSeed", "rubberSeed", "mahoganySeed", "banyanSeed", "cycadSeed", "treeFernSpores", "mapleSeed", "arcticWillowSeed", "poplarSeed", "mangroveSeed", "oleanderSeed", "planeSeed", "tamariskSeed", "sagebrushSeed", "saxaulSeed", "groundFernSpores", "ephedraSeed", "hennaSeed", "myrrhSeed", "dragonsBloodSeed", "euphorbiaSeed", "giantGroundselSeed", "dragonTreeSeed"}) do
         table.insert(storage.types.seed.resources, resource.types[key].index)
         table.insert(storage.types.seed.resources, resource.types[key .. "Rotten"].index)
     end
@@ -141,6 +142,7 @@ function mod:onload(storage)
         windBlowAwayModerateChance = true,
     })
     smallFruitStorage("lingonberry", "lingonberryRotten", 0.12)
+    smallFruitStorage("blueberry", "blueberryRotten", 0.12)
     smallFruitStorage("cloudberry", "cloudberryRotten", 0.12)
 
     typeMaps:insert("storage", storage.types, {

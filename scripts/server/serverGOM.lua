@@ -65,6 +65,8 @@ function mod:onload(serverGOM)
         local mangroveTypes = {
             gameObject.types.mangrove1.index,
             gameObject.types.mangrove2.index,
+            gameObject.types.mangrove3.index,
+            gameObject.types.mangrove4.index,
         }
         local reedTypes = {
             gameObject.types.cattail.index,

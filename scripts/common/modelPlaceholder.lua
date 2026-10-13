@@ -39,6 +39,81 @@ function mod:onload(modelPlaceholder)
             },
         })
 
+        for i = 2,4 do
+            modelPlaceholder:addModel("whAppleTree" .. mj:tostring(i), {
+                {
+                    multiKeyBase = "apple",
+                    multiCount = 6,
+                    defaultModelName = "appleHangingFruit",
+                    resourceTypeIndex = resource.types.apple.index,
+                    scale = 1.0,
+                },
+            })
+            modelPlaceholder:addModel("whAppleTree" .. mj:tostring(i) .. "Winter", {
+                {
+                    multiKeyBase = "apple",
+                    multiCount = 6,
+                    defaultModelName = "appleHangingFruitWinter",
+                    resourceTypeIndex = resource.types.apple.index,
+                    scale = 1.0,
+                },
+            })
+        end
+
+        for i = 2,4 do
+            modelPlaceholder:addModel("whOrangeTree" .. mj:tostring(i), {
+                {
+                    multiKeyBase = "orange",
+                    multiCount = (i == 3 and 5 or 10),
+                    defaultModelName = "orangeHangingFruit",
+                    resourceTypeIndex = resource.types.orange.index,
+                    scale = 1.0,
+                },
+            })
+        end
+
+        for i = 2,4 do
+            modelPlaceholder:addModel("whElderberryTree" .. mj:tostring(i), {
+                {
+                    multiKeyBase = "elderberry",
+                    multiCount = 6,
+                    defaultModelName = "elderberryHangingFruit",
+                    resourceTypeIndex = resource.types.elderberry.index,
+                    scale = 1.0,
+                },
+            })
+            modelPlaceholder:addModel("whElderberryTree" .. mj:tostring(i) .. "Winter", {
+                {
+                    multiKeyBase = "elderberry",
+                    multiCount = 6,
+                    defaultModelName = "elderberryHangingFruitWinter",
+                    resourceTypeIndex = resource.types.elderberry.index,
+                    scale = 1.0,
+                },
+            })
+        end
+
+        for i = 2,4 do
+            modelPlaceholder:addModel("whPeachTree" .. mj:tostring(i), {
+                {
+                    multiKeyBase = "peach",
+                    multiCount = (i == 3 and 4 or 7),
+                    defaultModelName = "peachHangingFruit",
+                    resourceTypeIndex = resource.types.peach.index,
+                    scale = 1.0,
+                },
+            })
+            modelPlaceholder:addModel("whPeachTree" .. mj:tostring(i) .. "Winter", {
+                {
+                    multiKeyBase = "peach",
+                    multiCount = (i == 3 and 4 or 7),
+                    defaultModelName = "peachHangingFruitWinter",
+                    resourceTypeIndex = resource.types.peach.index,
+                    scale = 1.0,
+                },
+            })
+        end
+
         for i,modelName in ipairs({"whOliveTree", "whOliveTree2"}) do
             modelPlaceholder:addModel(modelName, {
                 {
@@ -73,18 +148,6 @@ function mod:onload(modelPlaceholder)
             })
         end
 
-        for i,modelName in ipairs({"whBaobab1", "whBaobab1Winter", "whBaobab2", "whBaobab2Winter"}) do
-            modelPlaceholder:addModel(modelName, {
-                {
-                    multiKeyBase = "baobabFruit",
-                    multiCount = 6,
-                    defaultModelName = "whBaobabFruitHangingFruit",
-                    resourceTypeIndex = resource.types.baobabFruit.index,
-                    scale = 1.0,
-                },
-            })
-        end
-
         for i = 1,3 do
             modelPlaceholder:addModel("whCactus" .. mj:tostring(i), {
                 {
@@ -96,14 +159,16 @@ function mod:onload(modelPlaceholder)
             })
         end
 
-        modelPlaceholder:addModel("whCardon", {
-            {
-                multiKeyBase = "cactusFruit",
-                multiCount = 4,
-                defaultModelName = "whCardonFruitHangingFruit",
-                resourceTypeIndex = resource.types.cactusFruit.index,
-            },
-        })
+        for i,modelName in ipairs({"whCardon", "whCardon2", "whCardon3"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "cactusFruit",
+                    multiCount = 4,
+                    defaultModelName = "whCardonFruitHangingFruit",
+                    resourceTypeIndex = resource.types.cactusFruit.index,
+                },
+            })
+        end
 
         modelPlaceholder:addModel("whPricklyPear", {
             {
@@ -123,16 +188,18 @@ function mod:onload(modelPlaceholder)
             },
         })
 
-        modelPlaceholder:addModel("whCholla", {
-            {
-                multiKeyBase = "chollaBud",
-                multiCount = 4,
-                defaultModelName = "whChollaBudHangingFruit",
-                resourceTypeIndex = resource.types.chollaBud.index,
-            },
-        })
+        for i,modelName in ipairs({"whCholla", "whCholla2", "whCholla3"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "chollaBud",
+                    multiCount = 4,
+                    defaultModelName = "whChollaBudHangingFruit",
+                    resourceTypeIndex = resource.types.chollaBud.index,
+                },
+            })
+        end
 
-        for i,modelName in ipairs({"whJuniper1", "whJuniper1Snow", "whJuniper2", "whJuniper2Snow"}) do
+        for i,modelName in ipairs({"whJuniper1", "whJuniper1Snow", "whJuniper2", "whJuniper2Snow", "whJuniper3", "whJuniper3Snow", "whJuniper4", "whJuniper4Snow"}) do
             modelPlaceholder:addModel(modelName, {
                 {
                     multiKeyBase = "juniperBerry",
@@ -161,16 +228,18 @@ function mod:onload(modelPlaceholder)
             },
         })
 
-        modelPlaceholder:addModel("whMesquiteTree", {
-            {
-                multiKeyBase = "mesquitePod",
-                multiCount = 6,
-                defaultModelName = "whMesquitePodHangingFruit",
-                resourceTypeIndex = resource.types.mesquitePod.index,
-            },
-        })
+        for i,modelName in ipairs({"whMesquiteTree", "whMesquiteTree2", "whMesquiteTree3", "whMesquiteTree4"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "mesquitePod",
+                    multiCount = 6,
+                    defaultModelName = "whMesquitePodHangingFruit",
+                    resourceTypeIndex = resource.types.mesquitePod.index,
+                },
+            })
+        end
 
-        for i,modelName in ipairs({"whHazelBush", "whHazelBushWinter"}) do
+        for i,modelName in ipairs({"whHazelBush", "whHazelBush2", "whHazelBush3", "whHazelBush4"}) do
             modelPlaceholder:addModel(modelName, {
                 {
                     multiKeyBase = "hazelnut",
@@ -190,6 +259,17 @@ function mod:onload(modelPlaceholder)
             },
         })
 
+        for i = 1,4 do
+            modelPlaceholder:addModel("whBlueberry" .. mj:tostring(i), {
+                {
+                    multiKeyBase = "blueberry",
+                    multiCount = 6,
+                    defaultModelName = "whBlueberryHangingFruit",
+                    resourceTypeIndex = resource.types.blueberry.index,
+                },
+            })
+        end
+
         modelPlaceholder:addModel("whCloudberryBush", {
             {
                 multiKeyBase = "cloudberry",
@@ -199,14 +279,16 @@ function mod:onload(modelPlaceholder)
             },
         })
 
-        modelPlaceholder:addModel("whSeaBuckthornBush", {
-            {
-                multiKeyBase = "seaBuckthorn",
-                multiCount = 6,
-                defaultModelName = "whSeaBuckthornHangingFruit",
-                resourceTypeIndex = resource.types.seaBuckthorn.index,
-            },
-        })
+        for i,modelName in ipairs({"whSeaBuckthornBush", "whSeaBuckthornBush2", "whSeaBuckthornBush3", "whSeaBuckthornBush4"}) do
+            modelPlaceholder:addModel(modelName, {
+                {
+                    multiKeyBase = "seaBuckthorn",
+                    multiCount = 6,
+                    defaultModelName = "whSeaBuckthornHangingFruit",
+                    resourceTypeIndex = resource.types.seaBuckthorn.index,
+                },
+            })
+        end
 
         modelPlaceholder:addModel("whGrapevinePlant", {
             {

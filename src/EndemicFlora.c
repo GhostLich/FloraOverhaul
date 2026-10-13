@@ -53,15 +53,16 @@ static uint32_t gameObjectType_broadleafTypes[BROADLEAF_TYPE_COUNT];
 static uint32_t gameObjectType_pineTypes[PINE_TYPE_COUNT];
 static uint32_t gameObjectType_pineBranch;
 
-#define WILLOW_TYPE_COUNT 2
+#define WILLOW_TYPE_COUNT 4
 static uint32_t gameObjectType_willowTypes[WILLOW_TYPE_COUNT];
 static uint32_t gameObjectType_willowBranch;
 static uint32_t gameObjectType_aspenBig;
 
 #define ACACIA_TYPE_COUNT 2
 static uint32_t gameObjectType_acaciaTypes[ACACIA_TYPE_COUNT];
-static uint32_t gameObjectType_acacia2;
-#define BAOBAB_TYPE_COUNT 2
+#define SMALL_ACACIA_TYPE_COUNT 2
+static uint32_t gameObjectType_smallAcaciaTypes[SMALL_ACACIA_TYPE_COUNT];
+#define BAOBAB_TYPE_COUNT 4
 static uint32_t gameObjectType_baobabTypes[BAOBAB_TYPE_COUNT];
 static uint32_t gameObjectType_acaciaBranch;
 
@@ -69,14 +70,15 @@ static uint32_t gameObjectType_acaciaBranch;
 static uint32_t gameObjectType_kapokTypes[KAPOK_TYPE_COUNT];
 static uint32_t gameObjectType_kapokBig;
 static uint32_t gameObjectType_kapokBranch;
-static uint32_t gameObjectType_brazilNutTree;
-#define MAHOGANY_TYPE_COUNT 2
+#define BRAZIL_NUT_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_brazilNutTreeTypes[BRAZIL_NUT_TREE_TYPE_COUNT];
+#define MAHOGANY_TYPE_COUNT 4
 static uint32_t gameObjectType_mahoganyTypes[MAHOGANY_TYPE_COUNT];
 
-#define BANYAN_TYPE_COUNT 2
+#define BANYAN_TYPE_COUNT 4
 static uint32_t gameObjectType_banyanTypes[BANYAN_TYPE_COUNT];
 
-#define RUBBER_TREE_TYPE_COUNT 3
+#define RUBBER_TREE_TYPE_COUNT 4
 static uint32_t gameObjectType_rubberTreeTypes[RUBBER_TREE_TYPE_COUNT];
 
 #define OAK_TYPE_COUNT 4
@@ -85,15 +87,20 @@ static uint32_t gameObjectType_oakTypes[OAK_TYPE_COUNT];
 #define OLIVE_TREE_TYPE_COUNT 2
 static uint32_t gameObjectType_oliveTreeTypes[OLIVE_TREE_TYPE_COUNT];
 static uint32_t gameObjectType_figTree;
-static uint32_t gameObjectType_cypress;
-#define JUNIPER_TYPE_COUNT 2
+#define CYPRESS_TYPE_COUNT 4
+static uint32_t gameObjectType_cypressTypes[CYPRESS_TYPE_COUNT];
+#define JUNIPER_TYPE_COUNT 10
 static uint32_t gameObjectType_juniperTypes[JUNIPER_TYPE_COUNT];
 
 static uint32_t gameObjectType_bananaTree;
-static uint32_t gameObjectType_orangeTree;
-static uint32_t gameObjectType_peachTree;
-static uint32_t gameObjectType_elderberryTree;
-static uint32_t gameObjectType_appleTree;
+#define ORANGE_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_orangeTreeTypes[ORANGE_TREE_TYPE_COUNT];
+#define PEACH_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_peachTreeTypes[PEACH_TREE_TYPE_COUNT];
+#define ELDERBERRY_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_elderberryTreeTypes[ELDERBERRY_TREE_TYPE_COUNT];
+#define APPLE_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_appleTreeTypes[APPLE_TREE_TYPE_COUNT];
 static uint32_t gameObjectType_coconutTree;
 static uint32_t gameObjectType_bamboo;
 static uint32_t gameObjectType_smallBamboo;
@@ -127,41 +134,60 @@ static uint32_t gameObjectType_mapleTypes[MAPLE_TYPE_COUNT];
 
 #define DOUM_PALM_TYPE_COUNT 3
 static uint32_t gameObjectType_doumPalmTypes[DOUM_PALM_TYPE_COUNT];
-#define DWARF_BIRCH_TYPE_COUNT 3
+#define DWARF_BIRCH_TYPE_COUNT 4
 static uint32_t gameObjectType_dwarfBirchTypes[DWARF_BIRCH_TYPE_COUNT];
 #define SAGEBRUSH_TYPE_COUNT 3
 static uint32_t gameObjectType_sagebrushTypes[SAGEBRUSH_TYPE_COUNT];
-static uint32_t gameObjectType_argan;
-static uint32_t gameObjectType_carob;
-#define ALDER_TYPE_COUNT 2
+#define ARGAN_TYPE_COUNT 4
+static uint32_t gameObjectType_arganTypes[ARGAN_TYPE_COUNT];
+#define CAROB_TYPE_COUNT 4
+static uint32_t gameObjectType_carobTypes[CAROB_TYPE_COUNT];
+#define ALDER_TYPE_COUNT 4
 static uint32_t gameObjectType_alderTypes[ALDER_TYPE_COUNT];
-static uint32_t gameObjectType_poplar;
-#define MANGROVE_TYPE_COUNT 2
+#define POPLAR_TYPE_COUNT 4
+static uint32_t gameObjectType_poplarTypes[POPLAR_TYPE_COUNT];
+#define MANGROVE_TYPE_COUNT 4
 static uint32_t gameObjectType_mangroveTypes[MANGROVE_TYPE_COUNT];
 static uint32_t gameObjectType_oleander;
-#define PLANE_TREE_TYPE_COUNT 2
+#define PLANE_TREE_TYPE_COUNT 4
 static uint32_t gameObjectType_planeTreeTypes[PLANE_TREE_TYPE_COUNT];
-static uint32_t gameObjectType_baldCypress;
-static uint32_t gameObjectType_tamarisk;
-static uint32_t gameObjectType_maritimePine;
-static uint32_t gameObjectType_stonePine;
+#define BALD_CYPRESS_TYPE_COUNT 4
+static uint32_t gameObjectType_baldCypressTypes[BALD_CYPRESS_TYPE_COUNT];
+#define TAMARISK_TYPE_COUNT 4
+static uint32_t gameObjectType_tamariskTypes[TAMARISK_TYPE_COUNT];
+#define MARITIME_PINE_TYPE_COUNT 4
+static uint32_t gameObjectType_maritimePineTypes[MARITIME_PINE_TYPE_COUNT];
+#define STONE_PINE_TYPE_COUNT 4
+static uint32_t gameObjectType_stonePineTypes[STONE_PINE_TYPE_COUNT];
 static uint32_t gameObjectType_spruce;
-static uint32_t gameObjectType_chestnut;
-static uint32_t gameObjectType_hazelBush;
+#define CHESTNUT_TYPE_COUNT 4
+static uint32_t gameObjectType_chestnutTypes[CHESTNUT_TYPE_COUNT];
+#define BEECH_TYPE_COUNT 4
+static uint32_t gameObjectType_beechTypes[BEECH_TYPE_COUNT];
+#define HAZEL_BUSH_TYPE_COUNT 4
+static uint32_t gameObjectType_hazelBushTypes[HAZEL_BUSH_TYPE_COUNT];
 static uint32_t gameObjectType_arcticWillow;
 static uint32_t gameObjectType_saxaul;
 static uint32_t gameObjectType_elephantGrass;
 static uint32_t gameObjectType_thyme;
-static uint32_t gameObjectType_agave;
+#define AGAVE_TYPE_COUNT 4
+static uint32_t gameObjectType_agaveTypes[AGAVE_TYPE_COUNT];
 static uint32_t gameObjectType_featherGrass;
-static uint32_t gameObjectType_seaBuckthorn;
+#define GIANT_GROUNDSEL_TYPE_COUNT 4
+static uint32_t gameObjectType_giantGroundselTypes[GIANT_GROUNDSEL_TYPE_COUNT];
+#define SEA_BUCKTHORN_TYPE_COUNT 4
+static uint32_t gameObjectType_seaBuckthornTypes[SEA_BUCKTHORN_TYPE_COUNT];
 static uint32_t gameObjectType_syrianRue;
 static uint32_t gameObjectType_angelica;
 static uint32_t gameObjectType_ephedra;
 static uint32_t gameObjectType_henna;
 static uint32_t gameObjectType_myrrh;
-static uint32_t gameObjectType_dragonsBlood;
-static uint32_t gameObjectType_larch;
+#define DRAGONS_BLOOD_TYPE_COUNT 4
+static uint32_t gameObjectType_dragonsBloodTypes[DRAGONS_BLOOD_TYPE_COUNT];
+#define DRAGON_TREE_TYPE_COUNT 3
+static uint32_t gameObjectType_dragonTreeTypes[DRAGON_TREE_TYPE_COUNT];
+#define LARCH_TYPE_COUNT 4
+static uint32_t gameObjectType_larchTypes[LARCH_TYPE_COUNT];
 static uint32_t gameObjectType_cacao;
 static uint32_t gameObjectType_papyrus;
 static uint32_t gameObjectType_giantReed;
@@ -174,8 +200,11 @@ static uint32_t gameObjectType_nettle;
 static uint32_t gameObjectType_lemongrass;
 static uint32_t gameObjectType_figTreeWild;
 static uint32_t gameObjectType_lingonberryBush;
+#define BLUEBERRY_BUSH_TYPE_COUNT 4
+static uint32_t gameObjectType_blueberryBushTypes[BLUEBERRY_BUSH_TYPE_COUNT];
 static uint32_t gameObjectType_cloudberryBush;
-static uint32_t gameObjectType_mesquiteTree;
+#define MESQUITE_TREE_TYPE_COUNT 4
+static uint32_t gameObjectType_mesquiteTreeTypes[MESQUITE_TREE_TYPE_COUNT];
 static uint32_t gameObjectType_grapevine;
 static uint32_t gameObjectType_barley;
 static uint32_t gameObjectType_watermelon;
@@ -187,11 +216,14 @@ static uint32_t gameObjectType_cottonGrass;
 
 #define CACTUS_TYPE_COUNT 3
 static uint32_t gameObjectType_cactusTypes[CACTUS_TYPE_COUNT];
-static uint32_t gameObjectType_cardon;
+#define CARDON_TYPE_COUNT 3
+static uint32_t gameObjectType_cardonTypes[CARDON_TYPE_COUNT];
 static uint32_t gameObjectType_pricklyPear;
 static uint32_t gameObjectType_barrelCactus;
-static uint32_t gameObjectType_cholla;
-static uint32_t gameObjectType_candelabraEuphorbia;
+#define CHOLLA_TYPE_COUNT 3
+static uint32_t gameObjectType_chollaTypes[CHOLLA_TYPE_COUNT];
+#define CANDELABRA_EUPHORBIA_TYPE_COUNT 3
+static uint32_t gameObjectType_candelabraEuphorbiaTypes[CANDELABRA_EUPHORBIA_TYPE_COUNT];
 
 static bool hasTypes = false;
 
@@ -254,6 +286,8 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 
 		gameObjectType_willowTypes[0] = threadState->getGameObjectTypeIndex(threadState, "willow1");
 		gameObjectType_willowTypes[1] = threadState->getGameObjectTypeIndex(threadState, "willow2");
+		gameObjectType_willowTypes[2] = threadState->getGameObjectTypeIndex(threadState, "willow3");
+		gameObjectType_willowTypes[3] = threadState->getGameObjectTypeIndex(threadState, "willow4");
 		gameObjectType_willowBranch = threadState->getGameObjectTypeIndex(threadState, "willowBranch");
 
 		gameObjectType_broadleafTypes[0] = threadState->getGameObjectTypeIndex(threadState, "birch1");
@@ -267,9 +301,12 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 
 		gameObjectType_acaciaTypes[0] = threadState->getGameObjectTypeIndex(threadState, "acacia1");
 		gameObjectType_acaciaTypes[1] = threadState->getGameObjectTypeIndex(threadState, "acacia3");
-		gameObjectType_acacia2 = threadState->getGameObjectTypeIndex(threadState, "acacia2");
+		gameObjectType_smallAcaciaTypes[0] = threadState->getGameObjectTypeIndex(threadState, "acacia2");
+		gameObjectType_smallAcaciaTypes[1] = threadState->getGameObjectTypeIndex(threadState, "acacia4");
 		gameObjectType_baobabTypes[0] = threadState->getGameObjectTypeIndex(threadState, "baobab1");
 		gameObjectType_baobabTypes[1] = threadState->getGameObjectTypeIndex(threadState, "baobab2");
+		gameObjectType_baobabTypes[2] = threadState->getGameObjectTypeIndex(threadState, "baobab3");
+		gameObjectType_baobabTypes[3] = threadState->getGameObjectTypeIndex(threadState, "baobab4");
 		gameObjectType_acaciaBranch = threadState->getGameObjectTypeIndex(threadState, "acaciaBranch");
 
 		gameObjectType_kapokTypes[0] = threadState->getGameObjectTypeIndex(threadState, "kapok1");
@@ -277,15 +314,23 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_kapokTypes[2] = threadState->getGameObjectTypeIndex(threadState, "kapok3");
 		gameObjectType_kapokBig = threadState->getGameObjectTypeIndex(threadState, "kapokBig1");
 		gameObjectType_kapokBranch = threadState->getGameObjectTypeIndex(threadState, "kapokBranch");
-		gameObjectType_brazilNutTree = threadState->getGameObjectTypeIndex(threadState, "brazilNutTree");
+		gameObjectType_brazilNutTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "brazilNutTree");
+		gameObjectType_brazilNutTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "brazilNutTree2");
+		gameObjectType_brazilNutTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "brazilNutTree3");
+		gameObjectType_brazilNutTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "brazilNutTree4");
 		gameObjectType_mahoganyTypes[0] = threadState->getGameObjectTypeIndex(threadState, "mahogany1");
 		gameObjectType_mahoganyTypes[1] = threadState->getGameObjectTypeIndex(threadState, "mahogany2");
+		gameObjectType_mahoganyTypes[2] = threadState->getGameObjectTypeIndex(threadState, "mahogany3");
+		gameObjectType_mahoganyTypes[3] = threadState->getGameObjectTypeIndex(threadState, "mahogany4");
 		gameObjectType_banyanTypes[0] = threadState->getGameObjectTypeIndex(threadState, "banyan1");
 		gameObjectType_banyanTypes[1] = threadState->getGameObjectTypeIndex(threadState, "banyan2");
+		gameObjectType_banyanTypes[2] = threadState->getGameObjectTypeIndex(threadState, "banyan3");
+		gameObjectType_banyanTypes[3] = threadState->getGameObjectTypeIndex(threadState, "banyan4");
 
 		gameObjectType_rubberTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "rubberTree1");
 		gameObjectType_rubberTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "rubberTree2");
 		gameObjectType_rubberTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "rubberTree3");
+		gameObjectType_rubberTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "rubberTree4");
 
 		gameObjectType_oakTypes[0] = threadState->getGameObjectTypeIndex(threadState, "oak1");
 		gameObjectType_oakTypes[1] = threadState->getGameObjectTypeIndex(threadState, "oak2");
@@ -295,15 +340,38 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_oliveTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "oliveTree");
 		gameObjectType_oliveTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "oliveTree2");
 		gameObjectType_figTree = threadState->getGameObjectTypeIndex(threadState, "figTree");
-		gameObjectType_cypress = threadState->getGameObjectTypeIndex(threadState, "cypress1");
+		gameObjectType_cypressTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cypress1");
+		gameObjectType_cypressTypes[1] = threadState->getGameObjectTypeIndex(threadState, "cypress2");
+		gameObjectType_cypressTypes[2] = threadState->getGameObjectTypeIndex(threadState, "cypress3");
+		gameObjectType_cypressTypes[3] = threadState->getGameObjectTypeIndex(threadState, "cypress4");
 		gameObjectType_juniperTypes[0] = threadState->getGameObjectTypeIndex(threadState, "juniper1");
 		gameObjectType_juniperTypes[1] = threadState->getGameObjectTypeIndex(threadState, "juniper2");
+		gameObjectType_juniperTypes[2] = threadState->getGameObjectTypeIndex(threadState, "juniper4");
+		gameObjectType_juniperTypes[3] = threadState->getGameObjectTypeIndex(threadState, "juniper1");
+		gameObjectType_juniperTypes[4] = threadState->getGameObjectTypeIndex(threadState, "juniper2");
+		gameObjectType_juniperTypes[5] = threadState->getGameObjectTypeIndex(threadState, "juniper4");
+		gameObjectType_juniperTypes[6] = threadState->getGameObjectTypeIndex(threadState, "juniper1");
+		gameObjectType_juniperTypes[7] = threadState->getGameObjectTypeIndex(threadState, "juniper2");
+		gameObjectType_juniperTypes[8] = threadState->getGameObjectTypeIndex(threadState, "juniper4");
+		gameObjectType_juniperTypes[9] = threadState->getGameObjectTypeIndex(threadState, "juniper3");
 
 		gameObjectType_bananaTree = threadState->getGameObjectTypeIndex(threadState, "bananaTree");
-		gameObjectType_orangeTree = threadState->getGameObjectTypeIndex(threadState, "orangeTree");
-		gameObjectType_peachTree = threadState->getGameObjectTypeIndex(threadState, "peachTree");
-		gameObjectType_elderberryTree = threadState->getGameObjectTypeIndex(threadState, "elderberryTree");
-		gameObjectType_appleTree = threadState->getGameObjectTypeIndex(threadState, "appleTree");
+		gameObjectType_orangeTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "orangeTree");
+		gameObjectType_orangeTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "orangeTree2");
+		gameObjectType_orangeTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "orangeTree3");
+		gameObjectType_orangeTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "orangeTree4");
+		gameObjectType_peachTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "peachTree");
+		gameObjectType_peachTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "peachTree2");
+		gameObjectType_peachTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "peachTree3");
+		gameObjectType_peachTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "peachTree4");
+		gameObjectType_elderberryTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "elderberryTree");
+		gameObjectType_elderberryTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "elderberryTree2");
+		gameObjectType_elderberryTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "elderberryTree3");
+		gameObjectType_elderberryTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "elderberryTree4");
+		gameObjectType_appleTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "appleTree");
+		gameObjectType_appleTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "appleTree2");
+		gameObjectType_appleTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "appleTree3");
+		gameObjectType_appleTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "appleTree4");
 		gameObjectType_coconutTree = threadState->getGameObjectTypeIndex(threadState, "coconutTree");
 		gameObjectType_bamboo = threadState->getGameObjectTypeIndex(threadState, "bamboo1");
 		gameObjectType_smallBamboo = threadState->getGameObjectTypeIndex(threadState, "bamboo2");
@@ -359,40 +427,97 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_dwarfBirchTypes[0] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch1");
 		gameObjectType_dwarfBirchTypes[1] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch2");
 		gameObjectType_dwarfBirchTypes[2] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch3");
+		gameObjectType_dwarfBirchTypes[3] = threadState->getGameObjectTypeIndex(threadState, "dwarfBirch4");
 		gameObjectType_sagebrushTypes[0] = threadState->getGameObjectTypeIndex(threadState, "sagebrush1");
 		gameObjectType_sagebrushTypes[1] = threadState->getGameObjectTypeIndex(threadState, "sagebrush2");
 		gameObjectType_sagebrushTypes[2] = threadState->getGameObjectTypeIndex(threadState, "sagebrush3");
-		gameObjectType_argan = threadState->getGameObjectTypeIndex(threadState, "arganTree");
-		gameObjectType_carob = threadState->getGameObjectTypeIndex(threadState, "carobTree");
+		gameObjectType_arganTypes[0] = threadState->getGameObjectTypeIndex(threadState, "arganTree");
+		gameObjectType_arganTypes[1] = threadState->getGameObjectTypeIndex(threadState, "arganTree2");
+		gameObjectType_arganTypes[2] = threadState->getGameObjectTypeIndex(threadState, "arganTree3");
+		gameObjectType_arganTypes[3] = threadState->getGameObjectTypeIndex(threadState, "arganTree4");
+		gameObjectType_carobTypes[0] = threadState->getGameObjectTypeIndex(threadState, "carobTree");
+		gameObjectType_carobTypes[1] = threadState->getGameObjectTypeIndex(threadState, "carobTree2");
+		gameObjectType_carobTypes[2] = threadState->getGameObjectTypeIndex(threadState, "carobTree3");
+		gameObjectType_carobTypes[3] = threadState->getGameObjectTypeIndex(threadState, "carobTree4");
 		gameObjectType_alderTypes[0] = threadState->getGameObjectTypeIndex(threadState, "alder1");
 		gameObjectType_alderTypes[1] = threadState->getGameObjectTypeIndex(threadState, "alder2");
-		gameObjectType_poplar = threadState->getGameObjectTypeIndex(threadState, "poplar1");
+		gameObjectType_alderTypes[2] = threadState->getGameObjectTypeIndex(threadState, "alder3");
+		gameObjectType_alderTypes[3] = threadState->getGameObjectTypeIndex(threadState, "alder4");
+		gameObjectType_poplarTypes[0] = threadState->getGameObjectTypeIndex(threadState, "poplar1");
+		gameObjectType_poplarTypes[1] = threadState->getGameObjectTypeIndex(threadState, "poplar2");
+		gameObjectType_poplarTypes[2] = threadState->getGameObjectTypeIndex(threadState, "poplar3");
+		gameObjectType_poplarTypes[3] = threadState->getGameObjectTypeIndex(threadState, "poplar4");
 		gameObjectType_mangroveTypes[0] = threadState->getGameObjectTypeIndex(threadState, "mangrove1");
 		gameObjectType_mangroveTypes[1] = threadState->getGameObjectTypeIndex(threadState, "mangrove2");
+		gameObjectType_mangroveTypes[2] = threadState->getGameObjectTypeIndex(threadState, "mangrove3");
+		gameObjectType_mangroveTypes[3] = threadState->getGameObjectTypeIndex(threadState, "mangrove4");
 		gameObjectType_oleander = threadState->getGameObjectTypeIndex(threadState, "oleander1");
 		gameObjectType_planeTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "planeTree1");
 		gameObjectType_planeTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "planeTree2");
-		gameObjectType_baldCypress = threadState->getGameObjectTypeIndex(threadState, "baldCypress1");
-		gameObjectType_tamarisk = threadState->getGameObjectTypeIndex(threadState, "tamarisk1");
-		gameObjectType_maritimePine = threadState->getGameObjectTypeIndex(threadState, "maritimePine1");
-		gameObjectType_stonePine = threadState->getGameObjectTypeIndex(threadState, "stonePine1");
+		gameObjectType_planeTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "planeTree3");
+		gameObjectType_planeTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "planeTree4");
+		gameObjectType_baldCypressTypes[0] = threadState->getGameObjectTypeIndex(threadState, "baldCypress1");
+		gameObjectType_baldCypressTypes[1] = threadState->getGameObjectTypeIndex(threadState, "baldCypress2");
+		gameObjectType_baldCypressTypes[2] = threadState->getGameObjectTypeIndex(threadState, "baldCypress3");
+		gameObjectType_baldCypressTypes[3] = threadState->getGameObjectTypeIndex(threadState, "baldCypress4");
+		gameObjectType_tamariskTypes[0] = threadState->getGameObjectTypeIndex(threadState, "tamarisk1");
+		gameObjectType_tamariskTypes[1] = threadState->getGameObjectTypeIndex(threadState, "tamarisk2");
+		gameObjectType_tamariskTypes[2] = threadState->getGameObjectTypeIndex(threadState, "tamarisk3");
+		gameObjectType_tamariskTypes[3] = threadState->getGameObjectTypeIndex(threadState, "tamarisk4");
+		gameObjectType_maritimePineTypes[0] = threadState->getGameObjectTypeIndex(threadState, "maritimePine1");
+		gameObjectType_maritimePineTypes[1] = threadState->getGameObjectTypeIndex(threadState, "maritimePine2");
+		gameObjectType_maritimePineTypes[2] = threadState->getGameObjectTypeIndex(threadState, "maritimePine3");
+		gameObjectType_maritimePineTypes[3] = threadState->getGameObjectTypeIndex(threadState, "maritimePine4");
+		gameObjectType_stonePineTypes[0] = threadState->getGameObjectTypeIndex(threadState, "stonePine1");
+		gameObjectType_stonePineTypes[1] = threadState->getGameObjectTypeIndex(threadState, "stonePine2");
+		gameObjectType_stonePineTypes[2] = threadState->getGameObjectTypeIndex(threadState, "stonePine3");
+		gameObjectType_stonePineTypes[3] = threadState->getGameObjectTypeIndex(threadState, "stonePine4");
 		gameObjectType_spruce = threadState->getGameObjectTypeIndex(threadState, "spruce1");
-		gameObjectType_chestnut = threadState->getGameObjectTypeIndex(threadState, "chestnut1");
-		gameObjectType_hazelBush = threadState->getGameObjectTypeIndex(threadState, "hazelBush");
+		gameObjectType_chestnutTypes[0] = threadState->getGameObjectTypeIndex(threadState, "chestnut1");
+		gameObjectType_chestnutTypes[1] = threadState->getGameObjectTypeIndex(threadState, "chestnut2");
+		gameObjectType_chestnutTypes[2] = threadState->getGameObjectTypeIndex(threadState, "chestnut3");
+		gameObjectType_chestnutTypes[3] = threadState->getGameObjectTypeIndex(threadState, "chestnut4");
+		gameObjectType_beechTypes[0] = threadState->getGameObjectTypeIndex(threadState, "beech1");
+		gameObjectType_beechTypes[1] = threadState->getGameObjectTypeIndex(threadState, "beech2");
+		gameObjectType_beechTypes[2] = threadState->getGameObjectTypeIndex(threadState, "beech3");
+		gameObjectType_beechTypes[3] = threadState->getGameObjectTypeIndex(threadState, "beech4");
+		gameObjectType_hazelBushTypes[0] = threadState->getGameObjectTypeIndex(threadState, "hazelBush");
+		gameObjectType_hazelBushTypes[1] = threadState->getGameObjectTypeIndex(threadState, "hazelBush2");
+		gameObjectType_hazelBushTypes[2] = threadState->getGameObjectTypeIndex(threadState, "hazelBush3");
+		gameObjectType_hazelBushTypes[3] = threadState->getGameObjectTypeIndex(threadState, "hazelBush4");
 		gameObjectType_arcticWillow = threadState->getGameObjectTypeIndex(threadState, "arcticWillow");
 		gameObjectType_saxaul = threadState->getGameObjectTypeIndex(threadState, "saxaul1");
 		gameObjectType_elephantGrass = threadState->getGameObjectTypeIndex(threadState, "elephantGrass");
 		gameObjectType_thyme = threadState->getGameObjectTypeIndex(threadState, "thymePlant");
-		gameObjectType_agave = threadState->getGameObjectTypeIndex(threadState, "agavePlant");
+		gameObjectType_agaveTypes[0] = threadState->getGameObjectTypeIndex(threadState, "agavePlant");
+		gameObjectType_agaveTypes[1] = threadState->getGameObjectTypeIndex(threadState, "agavePlant2");
+		gameObjectType_agaveTypes[2] = threadState->getGameObjectTypeIndex(threadState, "agavePlant3");
+		gameObjectType_agaveTypes[3] = threadState->getGameObjectTypeIndex(threadState, "agavePlant4");
 		gameObjectType_featherGrass = threadState->getGameObjectTypeIndex(threadState, "featherGrass");
-		gameObjectType_seaBuckthorn = threadState->getGameObjectTypeIndex(threadState, "seaBuckthornBush");
+		gameObjectType_giantGroundselTypes[0] = threadState->getGameObjectTypeIndex(threadState, "giantGroundsel");
+		gameObjectType_giantGroundselTypes[1] = threadState->getGameObjectTypeIndex(threadState, "giantGroundsel2");
+		gameObjectType_giantGroundselTypes[2] = threadState->getGameObjectTypeIndex(threadState, "giantGroundsel3");
+		gameObjectType_giantGroundselTypes[3] = threadState->getGameObjectTypeIndex(threadState, "giantGroundsel4");
+		gameObjectType_seaBuckthornTypes[0] = threadState->getGameObjectTypeIndex(threadState, "seaBuckthornBush");
+		gameObjectType_seaBuckthornTypes[1] = threadState->getGameObjectTypeIndex(threadState, "seaBuckthornBush2");
+		gameObjectType_seaBuckthornTypes[2] = threadState->getGameObjectTypeIndex(threadState, "seaBuckthornBush3");
+		gameObjectType_seaBuckthornTypes[3] = threadState->getGameObjectTypeIndex(threadState, "seaBuckthornBush4");
 		gameObjectType_syrianRue = threadState->getGameObjectTypeIndex(threadState, "syrianRuePlant");
 		gameObjectType_angelica = threadState->getGameObjectTypeIndex(threadState, "angelicaPlant");
 		gameObjectType_ephedra = threadState->getGameObjectTypeIndex(threadState, "ephedraBush");
 		gameObjectType_henna = threadState->getGameObjectTypeIndex(threadState, "hennaBush");
 		gameObjectType_myrrh = threadState->getGameObjectTypeIndex(threadState, "myrrhBush");
-		gameObjectType_dragonsBlood = threadState->getGameObjectTypeIndex(threadState, "dragonsBloodTree");
-		gameObjectType_larch = threadState->getGameObjectTypeIndex(threadState, "larch1");
+		gameObjectType_dragonsBloodTypes[0] = threadState->getGameObjectTypeIndex(threadState, "dragonsBloodTree");
+		gameObjectType_dragonsBloodTypes[1] = threadState->getGameObjectTypeIndex(threadState, "dragonsBloodTree2");
+		gameObjectType_dragonsBloodTypes[2] = threadState->getGameObjectTypeIndex(threadState, "dragonsBloodTree3");
+		gameObjectType_dragonsBloodTypes[3] = threadState->getGameObjectTypeIndex(threadState, "dragonsBloodTree4");
+		gameObjectType_dragonTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "dragonTree");
+		gameObjectType_dragonTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "dragonTree2");
+		gameObjectType_dragonTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "dragonTree3");
+		gameObjectType_larchTypes[0] = threadState->getGameObjectTypeIndex(threadState, "larch1");
+		gameObjectType_larchTypes[1] = threadState->getGameObjectTypeIndex(threadState, "larch2");
+		gameObjectType_larchTypes[2] = threadState->getGameObjectTypeIndex(threadState, "larch3");
+		gameObjectType_larchTypes[3] = threadState->getGameObjectTypeIndex(threadState, "larch4");
 		gameObjectType_cacao = threadState->getGameObjectTypeIndex(threadState, "cacaoTree");
 		gameObjectType_papyrus = threadState->getGameObjectTypeIndex(threadState, "papyrus");
 		gameObjectType_giantReed = threadState->getGameObjectTypeIndex(threadState, "giantReed");
@@ -405,8 +530,15 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_lemongrass = threadState->getGameObjectTypeIndex(threadState, "lemongrassPlant");
 		gameObjectType_figTreeWild = threadState->getGameObjectTypeIndex(threadState, "figTree");
 		gameObjectType_lingonberryBush = threadState->getGameObjectTypeIndex(threadState, "lingonberryBush");
+		gameObjectType_blueberryBushTypes[0] = threadState->getGameObjectTypeIndex(threadState, "blueberryBush1");
+		gameObjectType_blueberryBushTypes[1] = threadState->getGameObjectTypeIndex(threadState, "blueberryBush2");
+		gameObjectType_blueberryBushTypes[2] = threadState->getGameObjectTypeIndex(threadState, "blueberryBush3");
+		gameObjectType_blueberryBushTypes[3] = threadState->getGameObjectTypeIndex(threadState, "blueberryBush4");
 		gameObjectType_cloudberryBush = threadState->getGameObjectTypeIndex(threadState, "cloudberryBush");
-		gameObjectType_mesquiteTree = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree");
+		gameObjectType_mesquiteTreeTypes[0] = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree");
+		gameObjectType_mesquiteTreeTypes[1] = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree2");
+		gameObjectType_mesquiteTreeTypes[2] = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree3");
+		gameObjectType_mesquiteTreeTypes[3] = threadState->getGameObjectTypeIndex(threadState, "mesquiteTree4");
 		gameObjectType_grapevine = threadState->getGameObjectTypeIndex(threadState, "grapevinePlant");
 		gameObjectType_barley = threadState->getGameObjectTypeIndex(threadState, "barleyPlant");
 		gameObjectType_watermelon = threadState->getGameObjectTypeIndex(threadState, "watermelonPlant");
@@ -418,11 +550,17 @@ void spBiomeInit(SPBiomeThreadState* threadState)
 		gameObjectType_cactusTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cactus1");
 		gameObjectType_cactusTypes[1] = threadState->getGameObjectTypeIndex(threadState, "cactus2");
 		gameObjectType_cactusTypes[2] = threadState->getGameObjectTypeIndex(threadState, "cactus3");
-		gameObjectType_cardon = threadState->getGameObjectTypeIndex(threadState, "cardon");
+		gameObjectType_cardonTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cardon");
+		gameObjectType_cardonTypes[1] = threadState->getGameObjectTypeIndex(threadState, "cardon2");
+		gameObjectType_cardonTypes[2] = threadState->getGameObjectTypeIndex(threadState, "cardon3");
 		gameObjectType_pricklyPear = threadState->getGameObjectTypeIndex(threadState, "pricklyPear");
 		gameObjectType_barrelCactus = threadState->getGameObjectTypeIndex(threadState, "barrelCactus");
-		gameObjectType_cholla = threadState->getGameObjectTypeIndex(threadState, "cholla");
-		gameObjectType_candelabraEuphorbia = threadState->getGameObjectTypeIndex(threadState, "candelabraEuphorbia");
+		gameObjectType_chollaTypes[0] = threadState->getGameObjectTypeIndex(threadState, "cholla");
+		gameObjectType_chollaTypes[1] = threadState->getGameObjectTypeIndex(threadState, "cholla2");
+		gameObjectType_chollaTypes[2] = threadState->getGameObjectTypeIndex(threadState, "cholla3");
+		gameObjectType_candelabraEuphorbiaTypes[0] = threadState->getGameObjectTypeIndex(threadState, "candelabraEuphorbia");
+		gameObjectType_candelabraEuphorbiaTypes[1] = threadState->getGameObjectTypeIndex(threadState, "candelabraEuphorbia2");
+		gameObjectType_candelabraEuphorbiaTypes[2] = threadState->getGameObjectTypeIndex(threadState, "candelabraEuphorbia3");
 
 		hasTypes = true;
 	}
@@ -826,7 +964,7 @@ static int addSavanna(SPBiomeThreadState* threadState, uint32_t* types, int adde
 		}
 		for(int i = 0; i < treeCount; i++)
 		{
-			ADD_OBJECT(randomInt(faceUniqueID, 1303 + i, 3) == 0 ? gameObjectType_acacia2 : gameObjectType_acaciaTypes[randomInt(faceUniqueID, 1309 + i, ACACIA_TYPE_COUNT)]);
+			ADD_OBJECT(randomInt(faceUniqueID, 1303 + i, 3) == 0 ? gameObjectType_smallAcaciaTypes[randomInt(faceUniqueID, 1350 + i, SMALL_ACACIA_TYPE_COUNT)] : gameObjectType_acaciaTypes[randomInt(faceUniqueID, 1309 + i, ACACIA_TYPE_COUNT)]);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 4)
@@ -837,7 +975,7 @@ static int addSavanna(SPBiomeThreadState* threadState, uint32_t* types, int adde
 			{
 				if(info->riverDistance >= 0.008 && !info->tidal)
 				{
-					ADD_OBJECT(gameObjectType_acacia2);
+					ADD_OBJECT(gameObjectType_smallAcaciaTypes[randomInt(faceUniqueID, 1349, SMALL_ACACIA_TYPE_COUNT)]);
 				}
 			}
 			else if(!info->bambooGrove && info->riverDistance >= 0.008 && info->altitudeMeters < 2000.0)
@@ -910,7 +1048,7 @@ static int addGalleryForest(SPBiomeThreadState* threadState, uint32_t* types, in
 			treeCount = randomInt(faceUniqueID, 6101, 3) + 1;
 			if(info->lushSavanna && randomInt(faceUniqueID, 6111, 3) != 0 && isBrazilNutGrove(threadState, info, noiseLoc))
 			{
-				ADD_OBJECT(gameObjectType_brazilNutTree);
+				ADD_OBJECT(gameObjectType_brazilNutTreeTypes[randomInt(faceUniqueID, 1381, BRAZIL_NUT_TREE_TYPE_COUNT)]);
 				treeCount--;
 			}
 		}
@@ -972,7 +1110,7 @@ static int addRainforest(SPBiomeThreadState* threadState, uint32_t* types, int a
 			int treeCount = randomInt(faceUniqueID, 2311, info->forestDensity == 2 ? 2 : 3) + 1;
 			for(int i = 0; i < treeCount; i++)
 			{
-				ADD_OBJECT(gameObjectType_brazilNutTree);
+				ADD_OBJECT(gameObjectType_brazilNutTreeTypes[randomInt(faceUniqueID, 1382 + i, BRAZIL_NUT_TREE_TYPE_COUNT)]);
 			}
 		}
 		else if(info->forestDensity >= 2 && !tidal && info->altitudeMeters < 900.0 && info->steepness <= 0.5)
@@ -1281,10 +1419,10 @@ static uint32_t getRiversideTree(BiomeInfo* info, uint64_t faceUniqueID, int i)
 			}
 			if(randomInt(faceUniqueID, 3209 + i, 8) < cypressRolls)
 			{
-				return gameObjectType_baldCypress;
+				return gameObjectType_baldCypressTypes[randomInt(faceUniqueID, 1372 + i, BALD_CYPRESS_TYPE_COUNT)];
 			}
 		}
-		return gameObjectType_poplar;
+		return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 	}
 	if(info->riverDistance >= 0.008 && (info->drySummer || randomInt(faceUniqueID, 3208 + i, 2) == 0))
 	{
@@ -1325,16 +1463,16 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int
 		uint32_t seasideRoll = getStandRoll(info->standID, faceUniqueID, 4321, i, 10);
 		if(seasideRoll < 2)
 		{
-			return gameObjectType_maritimePine;
+			return gameObjectType_maritimePineTypes[randomInt(faceUniqueID, 1432 + i, MARITIME_PINE_TYPE_COUNT)];
 		}
 		if(seasideRoll < 5)
 		{
-			return gameObjectType_stonePine;
+			return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 		}
 	}
 	if(info->forestDensity == 1 && info->winterModerate && info->riverDistance >= 0.008 && info->altitudeMeters < 1300.0 && randomInt(faceUniqueID, 4331 + i, 10) == 0)
 	{
-		return gameObjectType_argan;
+		return gameObjectType_arganTypes[randomInt(faceUniqueID, 1362 + i, ARGAN_TYPE_COUNT)];
 	}
 	bool riverBank = info->riverDistance < 0.008;
 	bool lowland = info->altitudeMeters < 600.0;
@@ -1347,7 +1485,7 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int
 	{
 		if(info->winterModerate && lowland)
 		{
-			return gameObjectType_carob;
+			return gameObjectType_carobTypes[randomInt(faceUniqueID, 1392 + i, CAROB_TYPE_COUNT)];
 		}
 		return getMediterraneanOlive(info, faceUniqueID, i);
 	}
@@ -1363,9 +1501,9 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int
 		}
 		if(lowland && info->steepness < 0.3 && randomInt(faceUniqueID, 4342 + i, 2) == 0)
 		{
-			return gameObjectType_stonePine;
+			return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 		}
-		return gameObjectType_cypress;
+		return gameObjectType_cypressTypes[randomInt(faceUniqueID, 1412 + i, CYPRESS_TYPE_COUNT)];
 	}
 	if(roll < 17)
 	{
@@ -1375,7 +1513,7 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int
 	{
 		if(lowland && !riverBank)
 		{
-			return gameObjectType_stonePine;
+			return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 		}
 		return gameObjectType_juniperTypes[randomInt(faceUniqueID, 9631 + i, JUNIPER_TYPE_COUNT)];
 	}
@@ -1389,9 +1527,9 @@ static uint32_t getMediterraneanTree(BiomeInfo* info, uint64_t faceUniqueID, int
 	}
 	if(!lowland && !info->hot && !info->winterModerate)
 	{
-		return gameObjectType_chestnut;
+		return gameObjectType_chestnutTypes[randomInt(faceUniqueID, 1402 + i, CHESTNUT_TYPE_COUNT)];
 	}
-	return gameObjectType_stonePine;
+	return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 }
 
 static int addMediterranean(uint32_t* types, int addedCount, BiomeInfo* info, uint64_t faceUniqueID, int level)
@@ -1444,7 +1582,7 @@ static int addMediterranean(uint32_t* types, int addedCount, BiomeInfo* info, ui
 			}
 			else if(info->winterModerate && info->altitudeMeters < 600.0 && randomInt(faceUniqueID, 9642, 4) == 0)
 			{
-				ADD_OBJECT(gameObjectType_carob);
+				ADD_OBJECT(gameObjectType_carobTypes[randomInt(faceUniqueID, 9646, CAROB_TYPE_COUNT)]);
 			}
 			else
 			{
@@ -1492,7 +1630,7 @@ static int addHotSteppe(SPBiomeThreadState* threadState, uint32_t* types, int ad
 		{
 			if(randomInt(faceUniqueID, 5331 + i, 10) < arganChance)
 			{
-				ADD_OBJECT(gameObjectType_argan);
+				ADD_OBJECT(gameObjectType_arganTypes[randomInt(faceUniqueID, 1362 + i, ARGAN_TYPE_COUNT)]);
 			}
 			else if(randomInt(faceUniqueID, 5341 + i, 10) < juniperChance)
 			{
@@ -1500,7 +1638,7 @@ static int addHotSteppe(SPBiomeThreadState* threadState, uint32_t* types, int ad
 			}
 			else if(!info->winterCold || info->winterCool)
 			{
-				ADD_OBJECT(!info->winterCold && randomInt(faceUniqueID, 5321 + i, 10) < 3 ? gameObjectType_acaciaTypes[randomInt(faceUniqueID, 5311 + i, ACACIA_TYPE_COUNT)] : gameObjectType_acacia2);
+				ADD_OBJECT(!info->winterCold && randomInt(faceUniqueID, 5321 + i, 10) < 3 ? gameObjectType_acaciaTypes[randomInt(faceUniqueID, 5311 + i, ACACIA_TYPE_COUNT)] : gameObjectType_smallAcaciaTypes[randomInt(faceUniqueID, 1350 + i, SMALL_ACACIA_TYPE_COUNT)]);
 			}
 		}
 	}
@@ -1619,7 +1757,7 @@ static int addDesertRiver(uint32_t* types, int addedCount, BiomeInfo* info, uint
 				}
 				else if(info->hot && !info->beach && !coldWinter)
 				{
-					ADD_OBJECT(randomInt(faceUniqueID, 7421 + i, 3) == 0 ? gameObjectType_acaciaTypes[randomInt(faceUniqueID, 7431 + i, ACACIA_TYPE_COUNT)] : gameObjectType_acacia2);
+					ADD_OBJECT(randomInt(faceUniqueID, 7421 + i, 3) == 0 ? gameObjectType_acaciaTypes[randomInt(faceUniqueID, 7431 + i, ACACIA_TYPE_COUNT)] : gameObjectType_smallAcaciaTypes[randomInt(faceUniqueID, 1350 + i, SMALL_ACACIA_TYPE_COUNT)]);
 				}
 				continue;
 			}
@@ -1637,12 +1775,12 @@ static int addDesertRiver(uint32_t* types, int addedCount, BiomeInfo* info, uint
 					}
 					else
 					{
-						ADD_OBJECT(gameObjectType_poplar);
+						ADD_OBJECT(gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)]);
 					}
 				}
 				else if(roll == 4 && info->winterModerate)
 				{
-					ADD_OBJECT(gameObjectType_poplar);
+					ADD_OBJECT(gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)]);
 				}
 				else
 				{
@@ -1651,7 +1789,7 @@ static int addDesertRiver(uint32_t* types, int addedCount, BiomeInfo* info, uint
 			}
 			else if(!info->summerCold && !info->summerVeryCold && info->altitudeMeters < 2500.0)
 			{
-				ADD_OBJECT(gameObjectType_tamarisk);
+				ADD_OBJECT(gameObjectType_tamariskTypes[randomInt(faceUniqueID, 1452 + i, TAMARISK_TYPE_COUNT)]);
 			}
 		}
 	}
@@ -1817,7 +1955,7 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 			{
 				mesquiteChance = 0.016;
 			}
-			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, mesquiteChance * info->groveScale, 1, 3, gameObjectType_mesquiteTree);
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9321, mesquiteChance * info->groveScale, 1, 3, gameObjectType_mesquiteTreeTypes[randomInt(faceUniqueID, 9323, MESQUITE_TREE_TYPE_COUNT)]);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 2)
@@ -1834,6 +1972,19 @@ static int addWildPlants(uint32_t* types, int addedCount, BiomeInfo* info, uint6
 				lingonberryChance = 0.0015;
 			}
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9301, lingonberryChance * shadeScale, 1, 3, gameObjectType_lingonberryBush);
+		}
+		if(altitude > 0.0 && !info->beach && info->temperate && info->forestDensity >= 1 && !(info->desert || info->steppe || info->tropical || info->mediterranean || info->subtropical || info->summerHot || info->summerVeryCold || info->drySummer))
+		{
+			double blueberryChance = 0.004;
+			if(info->coniferous || info->mixedForest)
+			{
+				blueberryChance = 0.008;
+			}
+			if(info->subarctic)
+			{
+				blueberryChance = 0.002;
+			}
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9386, blueberryChance * shadeScale, 1, 3, gameObjectType_blueberryBushTypes[randomInt(faceUniqueID, 9388, BLUEBERRY_BUSH_TYPE_COUNT)]);
 		}
 		if(altitude > 0.0 && !info->beach && info->tundra && !info->tropicalLatitude && info->grove < -0.14 && !(info->desert || info->icecap || info->summerVeryCold))
 		{
@@ -1988,7 +2139,7 @@ static int addCacao(SPBiomeThreadState* threadState, uint32_t* types, int addedC
 
 static bool isFruitTree(uint32_t type)
 {
-	return type == gameObjectType_appleTree || type == gameObjectType_orangeTree || type == gameObjectType_peachTree || type == gameObjectType_elderberryTree || type == gameObjectType_bananaTree || type == gameObjectType_coconutTree;
+	return type == gameObjectType_appleTreeTypes[0] || type == gameObjectType_orangeTreeTypes[0] || type == gameObjectType_peachTreeTypes[0] || type == gameObjectType_elderberryTreeTypes[0] || type == gameObjectType_bananaTree || type == gameObjectType_coconutTree;
 }
 
 static bool isForestTree(uint32_t type)
@@ -2025,7 +2176,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 	{
 		if(roll < 1)
 		{
-			return gameObjectType_poplar;
+			return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 		}
 		if(roll < 11)
 		{
@@ -2041,7 +2192,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 			{
 				return gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
 			}
-			return gameObjectType_poplar;
+			return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 		}
 		if(roll < 15)
 		{
@@ -2049,7 +2200,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 		}
 		if(roll < 17)
 		{
-			return gameObjectType_larch;
+			return gameObjectType_larchTypes[randomInt(faceUniqueID, 1462 + i, LARCH_TYPE_COUNT)];
 		}
 		if(roll < 18 && !info->summerCold)
 		{
@@ -2078,17 +2229,17 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 				{
 					if(randomInt(faceUniqueID, 3431 + i, 2) == 0)
 					{
-						return gameObjectType_cypress;
+						return gameObjectType_cypressTypes[randomInt(faceUniqueID, 1412 + i, CYPRESS_TYPE_COUNT)];
 					}
 					return gameObjectType_juniperTypes[randomInt(faceUniqueID, 9701 + i, JUNIPER_TYPE_COUNT)];
 				}
-				return gameObjectType_argan;
+				return gameObjectType_arganTypes[randomInt(faceUniqueID, 1362 + i, ARGAN_TYPE_COUNT)];
 			}
 			if(info->altitudeMeters > 700.0 + randomInt(faceUniqueID, 3421 + i, 200))
 			{
 				return gameObjectType_juniperTypes[randomInt(faceUniqueID, 9701 + i, JUNIPER_TYPE_COUNT)];
 			}
-			return gameObjectType_carob;
+			return gameObjectType_carobTypes[randomInt(faceUniqueID, 1392 + i, CAROB_TYPE_COUNT)];
 		}
 		if(roll < 13)
 		{
@@ -2098,7 +2249,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 		{
 			if(roll == 14 && info->altitudeMeters < 1000.0)
 			{
-				return gameObjectType_stonePine;
+				return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 			}
 			return gameObjectType_juniperTypes[randomInt(faceUniqueID, 9701 + i, JUNIPER_TYPE_COUNT)];
 		}
@@ -2108,7 +2259,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 		}
 		if(info->altitudeMeters < 900.0 + randomInt(faceUniqueID, 3441 + i, 300))
 		{
-			return gameObjectType_stonePine;
+			return gameObjectType_stonePineTypes[randomInt(faceUniqueID, 1442 + i, STONE_PINE_TYPE_COUNT)];
 		}
 	}
 	else
@@ -2123,7 +2274,7 @@ static uint32_t getSteppeTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 			{
 				return gameObjectType_alderTypes[randomInt(faceUniqueID, 3206 + i, ALDER_TYPE_COUNT)];
 			}
-			return gameObjectType_poplar;
+			return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 		}
 		if(roll < 17)
 		{
@@ -2154,13 +2305,13 @@ static uint32_t getTundraTree(BiomeInfo* info, uint64_t faceUniqueID, int i, int
 	}
 	if(roll < 8)
 	{
-		return gameObjectType_larch;
+		return gameObjectType_larchTypes[randomInt(faceUniqueID, 1462 + i, LARCH_TYPE_COUNT)];
 	}
 	if(roll == 8)
 	{
 		if(info->nearRiver)
 		{
-			return gameObjectType_poplar;
+			return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 		}
 		return getBroadleaf(faceUniqueID, i, false);
 	}
@@ -2240,7 +2391,7 @@ static uint32_t getConiferTree(BiomeInfo* info, uint64_t faceUniqueID, int i, in
 			}
 			if(roll < spruceLimit + larchRolls)
 			{
-				return gameObjectType_larch;
+				return gameObjectType_larchTypes[randomInt(faceUniqueID, 1462 + i, LARCH_TYPE_COUNT)];
 			}
 			if(info->riverDistance < 0.008 && spruceLimit > 0)
 			{
@@ -2262,7 +2413,7 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 		}
 		if(roll == 16)
 		{
-			return gameObjectType_chestnut;
+			return gameObjectType_chestnutTypes[randomInt(faceUniqueID, 1402 + i, CHESTNUT_TYPE_COUNT)];
 		}
 		if(roll == 17 && !info->dryWinter)
 		{
@@ -2283,13 +2434,17 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 			}
 			return getBroadleaf(faceUniqueID, i, aspen);
 		}
+		if(roll >= 5 && roll < 8 && !info->summerHot && !info->hot && !info->drySummer && !info->winterVeryCold)
+		{
+			return gameObjectType_beechTypes[randomInt(faceUniqueID, 3391 + i, BEECH_TYPE_COUNT)];
+		}
 		if(roll < 8)
 		{
 			return gameObjectType_oakTypes[randomInt(faceUniqueID, 3202 + i, OAK_TYPE_COUNT)];
 		}
 		if(roll < 11 && (!info->winterVeryCold || (info->summerHot && roll == 8)) && info->riverDistance >= 0.008 && !info->seaside && !info->hot && (info->tropicalLatitude || info->altitudeMeters < 1800.0 + randomInt(faceUniqueID, 3212 + i, 300)))
 		{
-			return gameObjectType_chestnut;
+			return gameObjectType_chestnutTypes[randomInt(faceUniqueID, 1402 + i, CHESTNUT_TYPE_COUNT)];
 		}
 		if(roll < (uint32_t)(info->forestDensity == 1 ? 13 : 15) && !info->summerCold)
 		{
@@ -2299,7 +2454,7 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 		{
 			if(roll == 16 || info->hot)
 			{
-				return gameObjectType_poplar;
+				return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 			}
 			if(!info->seaside)
 			{
@@ -2308,13 +2463,9 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 		}
 		else if(info->winterModerate)
 		{
-			if(roll >= 15 && roll < 17)
+			if(roll >= 15 && roll < 19)
 			{
 				return gameObjectType_oakTypes[randomInt(faceUniqueID, 3202 + i, OAK_TYPE_COUNT)];
-			}
-			if(roll >= 17 && roll < 19)
-			{
-				return gameObjectType_rubberTreeTypes[randomInt(faceUniqueID, 3201 + i, RUBBER_TREE_TYPE_COUNT)];
 			}
 		}
 	}
@@ -2328,6 +2479,10 @@ static uint32_t getBroadleafTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 		{
 			return gameObjectType_oakTypes[randomInt(faceUniqueID, 3202 + i, OAK_TYPE_COUNT)];
 		}
+		if(roll >= 6 && roll < 8 && !info->summerHot && !info->hot && !info->drySummer && !info->winterVeryCold)
+		{
+			return gameObjectType_beechTypes[randomInt(faceUniqueID, 3391 + i, BEECH_TYPE_COUNT)];
+		}
 	}
 	return getBroadleaf(faceUniqueID, i, aspen);
 }
@@ -2337,7 +2492,7 @@ static uint32_t getTemperateTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 	uint32_t type = 0;
 	if(level == SP_SUBDIVISIONS - 6 && info->seaside && !info->winterVeryCold && getStandRoll(info->standID, faceUniqueID, 3104, i, 10) < 3)
 	{
-		return gameObjectType_maritimePine;
+		return gameObjectType_maritimePineTypes[randomInt(faceUniqueID, 1432 + i, MARITIME_PINE_TYPE_COUNT)];
 	}
 	if(!info->birch || (info->coniferous && getStandRoll(info->standID, faceUniqueID, 1171, i, 2) == 0))
 	{
@@ -2380,7 +2535,7 @@ static uint32_t getTemperateTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 				}
 				if(randomInt(faceUniqueID, 3102 + i, 100) < cypressChance)
 				{
-					return gameObjectType_baldCypress;
+					return gameObjectType_baldCypressTypes[randomInt(faceUniqueID, 1372 + i, BALD_CYPRESS_TYPE_COUNT)];
 				}
 			}
 			uint32_t riverRoll = randomInt(faceUniqueID, 3231 + i, 20);
@@ -2390,7 +2545,7 @@ static uint32_t getTemperateTree(BiomeInfo* info, uint64_t faceUniqueID, int i, 
 			}
 			if(riverRoll >= 6 && riverRoll < 10)
 			{
-				return gameObjectType_poplar;
+				return gameObjectType_poplarTypes[randomInt(faceUniqueID, 1422 + i, POPLAR_TYPE_COUNT)];
 			}
 		}
 	}
@@ -2497,7 +2652,7 @@ static int addForestTrees(SPBiomeThreadState* threadState, uint32_t* types, int 
 				{
 					if(info->altitudeMeters < 900.0 + randomInt(faceUniqueID, 1144, 200) && randomInt(faceUniqueID, 1143, 3) > 0)
 					{
-						ADD_OBJECT(gameObjectType_argan);
+						ADD_OBJECT(gameObjectType_arganTypes[randomInt(faceUniqueID, 1361, ARGAN_TYPE_COUNT)]);
 					}
 					else
 					{
@@ -2742,7 +2897,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			}
 		}
 
-		if(type == gameObjectType_orangeTree)
+		if(type == gameObjectType_orangeTreeTypes[0])
 		{
 			if(noFruitTrees || info.altitudeMeters > 2000.0 || (info.rainforest && info.forestDensity == 4))
 			{
@@ -2758,17 +2913,21 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			}
 			if(info.winterCold && !(info.winterCool && info.summerHot))
 			{
-				type = gameObjectType_peachTree;
+				type = gameObjectType_peachTreeTypes[0];
+			}
+			else
+			{
+				type = gameObjectType_orangeTreeTypes[randomInt(faceUniqueID, 1786 + i, ORANGE_TREE_TYPE_COUNT)];
 			}
 		}
-		else if(type == gameObjectType_peachTree)
+		else if(type == gameObjectType_peachTreeTypes[0])
 		{
 			if(info.polar || info.tundra || info.coniferous || info.summerVeryCold || !info.temperate)
 			{
 				continue;
 			}
 		}
-		else if(type == gameObjectType_appleTree)
+		else if(type == gameObjectType_appleTreeTypes[0])
 		{
 			if(info.polar || info.subarctic || info.winterModerate || info.winterHot)
 			{
@@ -2778,8 +2937,9 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			{
 				continue;
 			}
+			type = gameObjectType_appleTreeTypes[randomInt(faceUniqueID, 1766 + i, APPLE_TREE_TYPE_COUNT)];
 		}
-		else if(type == gameObjectType_elderberryTree)
+		else if(type == gameObjectType_elderberryTreeTypes[0])
 		{
 			if(info.polar || info.subarctic || info.summerVeryCold || (info.tundra && info.summerCold))
 			{
@@ -2875,7 +3035,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			continue;
 		}
 
-		if(type == gameObjectType_peachTree && (mediterranean || coolSteppe) && randomInt(faceUniqueID, 1770 + i, 2) == 0)
+		if(type == gameObjectType_peachTreeTypes[0] && (mediterranean || coolSteppe) && randomInt(faceUniqueID, 1770 + i, 2) == 0)
 		{
 			continue;
 		}
@@ -2907,7 +3067,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			{
 				continue;
 			}
-			if(type == gameObjectType_elderberryTree || type == gameObjectType_cropTypes[2])
+			if(type == gameObjectType_elderberryTreeTypes[0] || type == gameObjectType_cropTypes[2])
 			{
 				continue;
 			}
@@ -2915,6 +3075,15 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			{
 				continue;
 			}
+		}
+
+		if(type == gameObjectType_elderberryTreeTypes[0])
+		{
+			type = gameObjectType_elderberryTreeTypes[randomInt(faceUniqueID, 1796 + i, ELDERBERRY_TREE_TYPE_COUNT)];
+		}
+		else if(type == gameObjectType_peachTreeTypes[0])
+		{
+			type = gameObjectType_peachTreeTypes[randomInt(faceUniqueID, 1806 + i, PEACH_TREE_TYPE_COUNT)];
 		}
 
 		if(sunPercent != 100 && isSunPlant(type))
@@ -3059,23 +3228,23 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		if(oasis)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8501, 1, 4, 4, gameObjectType_datePalmTypes, DATE_PALM_TYPE_COUNT);
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8511, 2, 1, 1, &gameObjectType_tamarisk, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8511, 2, 1, 1, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 			if(doumLand)
 			{
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8521, 3, 1, 1, gameObjectType_doumPalmTypes, DOUM_PALM_TYPE_COUNT);
 			}
 			if(info.hot)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8771, 3, 1, 1, &gameObjectType_acacia2, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8771, 3, 1, 1, gameObjectType_smallAcaciaTypes, SMALL_ACACIA_TYPE_COUNT);
 			}
 		}
 		if(mediterraneanSteppe && !info.beach && altitude > 0.0 && (int)randomInt(faceUniqueID, 8790, 10) < groveScale)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8791, 1, 1, 0, &gameObjectType_acacia2, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8791, 1, 1, 0, gameObjectType_smallAcaciaTypes, SMALL_ACACIA_TYPE_COUNT);
 		}
 		if(subtropical && info.dryWinter && info.hot && (info.forestDensity == 1 || info.forestDensity == 2) && !info.beach && altitude > 0.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8801, info.forestDensity == 1 ? 3 : 8, 1, 1, &gameObjectType_acacia2, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8801, info.forestDensity == 1 ? 3 : 8, 1, 1, gameObjectType_smallAcaciaTypes, SMALL_ACACIA_TYPE_COUNT);
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8811, info.forestDensity == 1 ? 8 : 24, 1, 0, gameObjectType_acaciaTypes, ACACIA_TYPE_COUNT);
 		}
 		if(subtropical && info.dryWinter && info.hot && info.forestDensity > 0 && info.altitudeMeters < 1200.0 && !info.beach && !info.tidal && altitude > 0.0)
@@ -3086,14 +3255,14 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			if(info.hot)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8661, 2, 1, 1, &gameObjectType_acacia2, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8661, 2, 1, 1, gameObjectType_smallAcaciaTypes, SMALL_ACACIA_TYPE_COUNT);
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8781, 6, 1, 0, gameObjectType_acaciaTypes, ACACIA_TYPE_COUNT);
 			}
 			if(tamariskLand)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8671, 2, 1, 1, &gameObjectType_tamarisk, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8671, 2, 1, 1, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 			}
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8681, 1, 1, 2, &gameObjectType_mesquiteTree, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8681, 1, 1, 2, gameObjectType_mesquiteTreeTypes, MESQUITE_TREE_TYPE_COUNT);
 			if(!info.aridDesert)
 			{
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8871, 10, 1, 0, &gameObjectType_figTreeWild, 1);
@@ -3104,12 +3273,12 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			}
 			if(!info.aridDesert && info.winterModerate && !info.summerVeryHot && !info.tropicalLatitude && info.altitudeMeters < 1300.0)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8841, 4, 1, 0, &gameObjectType_argan, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8841, 4, 1, 0, gameObjectType_arganTypes, ARGAN_TYPE_COUNT);
 			}
 		}
 		if(coldOasis && tamariskLand)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8561, 2, 1, 1, &gameObjectType_tamarisk, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8561, 2, 1, 1, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 		}
 		if(coldDesert && !info.beach && altitude > 0.0)
 		{
@@ -3129,15 +3298,15 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		}
 		if(info.beach && info.nearRiver && altitude > 0.0 && (subtropical || (info.temperate && info.winterCold && info.summerHot && !info.drySummer)))
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8851, (subtropical || info.winterCool) ? 2 : 6, 1, 1, &gameObjectType_baldCypress, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8851, (subtropical || info.winterCool) ? 2 : 6, 1, 1, gameObjectType_baldCypressTypes, BALD_CYPRESS_TYPE_COUNT);
 		}
 		if(info.seaside && info.forestDensity <= 1 && !info.tropical && !info.winterVeryCold && (info.temperate || mediterranean) && groveScale > 0 && altitude > 0.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8111, 1, 2, 2, &gameObjectType_maritimePine, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8111, 1, 2, 2, gameObjectType_maritimePineTypes, MARITIME_PINE_TYPE_COUNT);
 		}
 		if(info.seaside && mediterraneanSteppe && altitude > 0.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8121, 3, 1, 1, &gameObjectType_maritimePine, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8121, 3, 1, 1, gameObjectType_maritimePineTypes, MARITIME_PINE_TYPE_COUNT);
 		}
 	}
 	else if(level == SP_SUBDIVISIONS - 4)
@@ -3153,7 +3322,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8201, info.winterCold ? 12 : 6, 2, 2, &gameObjectType_oleander, 1);
 				if(tamariskLand)
 				{
-					addedCount = addPatch(types, addedCount, faceUniqueID, 8891, 16, 1, 0, &gameObjectType_tamarisk, 1);
+					addedCount = addPatch(types, addedCount, faceUniqueID, 8891, 16, 1, 0, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 				}
 			}
 			else if((hotSteppe || info.desert) && !info.winterCold)
@@ -3173,11 +3342,11 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			if(info.altitudeMeters > 0.1 && info.altitudeMeters < 1.5 && riverDistance > 0.01 && dryLand)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8211, 12, 2, 2, &gameObjectType_tamarisk, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8211, 12, 2, 2, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 			}
 			if((info.desert || hotSteppe || (info.dryRiver && coolSteppe)) && info.nearRiver && altitude > 0.0)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 8911, 12, 1, 1, &gameObjectType_tamarisk, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8911, 12, 1, 1, gameObjectType_tamariskTypes, TAMARISK_TYPE_COUNT);
 			}
 		}
 		if(doumLand)
@@ -3216,19 +3385,19 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		if(aspenParkland && !info.beach && altitude > 0.0 && !info.nearRiver && info.grove > 0.0 && groveScale == 0)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8261, 6, 1, 2, gameObjectType_juniperTypes, JUNIPER_TYPE_COUNT);
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8691, 6, 2, 2, &gameObjectType_seaBuckthorn, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8691, 6, 2, 2, gameObjectType_seaBuckthornTypes, SEA_BUCKTHORN_TYPE_COUNT);
 		}
 		if(info.nearRiver && altitude > 0.0 && (aspenParkland || info.oakSavanna || coldDesert))
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8931, 6, 1, 1, &gameObjectType_seaBuckthorn, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8931, 6, 1, 1, gameObjectType_seaBuckthornTypes, SEA_BUCKTHORN_TYPE_COUNT);
 		}
 		if(coldOasis)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8941, 6, 1, 1, &gameObjectType_seaBuckthorn, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8941, 6, 1, 1, gameObjectType_seaBuckthornTypes, SEA_BUCKTHORN_TYPE_COUNT);
 		}
 		if(riverDistance > 0.05 && info.altitudeMeters > 0.5 && info.altitudeMeters < 6.0 && (info.temperate || coolSteppe) && coldWinter && !info.drySummer && info.forestDensity <= 2 && groveScale == 0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8951, 8, 2, 2, &gameObjectType_seaBuckthorn, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8951, 8, 2, 2, gameObjectType_seaBuckthornTypes, SEA_BUCKTHORN_TYPE_COUNT);
 		}
 		if(coldDesert && !info.beach && altitude > 0.0)
 		{
@@ -3244,7 +3413,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			}
 			if(patchNoise > 0.1 && info.altitudeMeters < 1500.0 && steepness < 0.3)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 9521, 12, 1, 1, &gameObjectType_seaBuckthorn, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 9521, 12, 1, 1, gameObjectType_seaBuckthornTypes, SEA_BUCKTHORN_TYPE_COUNT);
 			}
 		}
 		else if(hotSteppe && coldWinter && !info.beach && !info.nearRiver && altitude > 0.0)
@@ -3329,20 +3498,20 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			{
 				dragonsBloodChance = 8;
 			}
-			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, dragonsBloodChance, info.nearRiver ? 2 : 1, 1, &gameObjectType_dragonsBlood, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, dragonsBloodChance, info.nearRiver ? 2 : 1, 1, gameObjectType_dragonsBloodTypes, DRAGONS_BLOOD_TYPE_COUNT);
 		}
 		else if(info.lushSavanna && !info.beach && !info.tidal && !info.bambooGrove && altitude > 0.0 && info.altitudeMeters < 1500.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, info.nearRiver ? 12 : 60, 1, 1, &gameObjectType_dragonsBlood, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, info.nearRiver ? 12 : 60, 1, 1, gameObjectType_dragonsBloodTypes, DRAGONS_BLOOD_TYPE_COUNT);
 		}
 		else if(cloudForest && !info.beach && altitude > 0.0 && info.altitudeMeters < 2000.0)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, 40, 1, 1, &gameObjectType_dragonsBlood, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 9551, 40, 1, 1, gameObjectType_dragonsBloodTypes, DRAGONS_BLOOD_TYPE_COUNT);
 		}
 		if(bog && (arcticTundra || info.subarctic) && !info.summerVeryCold)
 		{
 			addedCount = addPatch(types, addedCount, faceUniqueID, 8581, 4, 1, 1, gameObjectType_dwarfBirchTypes, DWARF_BIRCH_TYPE_COUNT);
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8961, 12, 1, 0, &gameObjectType_larch, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8961, 12, 1, 0, gameObjectType_larchTypes, LARCH_TYPE_COUNT);
 			addedCount = addPatch(types, addedCount, faceUniqueID, 9071, 6, 1, 1, &gameObjectType_arcticWillow, 1);
 		}
 		else if(bog && !info.summerVeryCold)
@@ -3361,20 +3530,20 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 		{
 			if(info.nearRiver)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 9051, 60, 1, 1, &gameObjectType_elderberryTree, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 9051, 60, 1, 1, gameObjectType_elderberryTreeTypes, ELDERBERRY_TREE_TYPE_COUNT);
 			}
 			else if(groveScale == 0 || sunPercent > 100)
 			{
-				addedCount = addPatch(types, addedCount, faceUniqueID, 9051, 160, 1, 0, &gameObjectType_elderberryTree, 1);
+				addedCount = addPatch(types, addedCount, faceUniqueID, 9051, 160, 1, 0, gameObjectType_elderberryTreeTypes, ELDERBERRY_TREE_TYPE_COUNT);
 			}
 		}
 		if((info.deciduous || info.mixedForest) && !subtropical && !info.subarctic && !cloudForest && info.forestDensity > 0 && !info.beach && info.altitudeMeters > 1.5 && (int)randomInt(faceUniqueID, 8620, info.mixedForest ? 1600 : 800) < shadePercent)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8621, 1, 1, 2, &gameObjectType_hazelBush, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8621, 1, 1, 2, gameObjectType_hazelBushTypes, HAZEL_BUSH_TYPE_COUNT);
 		}
 		if((info.oakSavanna || aspenParkland) && !info.beach && info.altitudeMeters > 1.5 && (int)randomInt(faceUniqueID, 8620, 3200) < shadePercent)
 		{
-			addedCount = addPatch(types, addedCount, faceUniqueID, 8621, 1, 1, 2, &gameObjectType_hazelBush, 1);
+			addedCount = addPatch(types, addedCount, faceUniqueID, 8621, 1, 1, 2, gameObjectType_hazelBushTypes, HAZEL_BUSH_TYPE_COUNT);
 		}
 		if(info.subarctic && info.forestDensity <= 2 && !info.nearRiver && !info.beach && altitude > 0.0 && tundraPatch < -0.14)
 		{
@@ -3769,18 +3938,18 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				}
 				if(info.winterHot && info.altitudeMeters < 1000.0)
 				{
-					addedCount = addSpawn(types, addedCount, faceUniqueID, 9801, cardonChance, 1, 2, gameObjectType_cardon);
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9801, cardonChance, 1, 2, gameObjectType_cardonTypes[randomInt(faceUniqueID, 9803, CARDON_TYPE_COUNT)]);
 				}
-				addedCount = addSpawn(types, addedCount, faceUniqueID, 9811, chollaChance, 1, 3, gameObjectType_cholla);
+				addedCount = addSpawn(types, addedCount, faceUniqueID, 9811, chollaChance, 1, 3, gameObjectType_chollaTypes[randomInt(faceUniqueID, 9813, CHOLLA_TYPE_COUNT)]);
 				addedCount = addSpawn(types, addedCount, faceUniqueID, 9821, barrelChance, 1, 2, gameObjectType_barrelCactus);
 
 				if(info.savanna && !info.lushSavanna && info.forestDensity <= 1)
 				{
-					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.012 : 0.003, 1, 2, gameObjectType_candelabraEuphorbia);
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.012 : 0.003, 1, 2, gameObjectType_candelabraEuphorbiaTypes[randomInt(faceUniqueID, 9833, CANDELABRA_EUPHORBIA_TYPE_COUNT)]);
 				}
 				else if(hotSteppe && info.winterHot)
 				{
-					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.006 : 0.002, 1, 2, gameObjectType_candelabraEuphorbia);
+					addedCount = addSpawn(types, addedCount, faceUniqueID, 9831, steepness > 0.3 ? 0.006 : 0.002, 1, 2, gameObjectType_candelabraEuphorbiaTypes[randomInt(faceUniqueID, 9833, CANDELABRA_EUPHORBIA_TYPE_COUNT)]);
 				}
 			}
 		}
@@ -3807,6 +3976,15 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 				pricklyPearChance = 0.004;
 			}
 			addedCount = addSpawn(types, addedCount, faceUniqueID, 9841, pricklyPearChance, 1, 3, gameObjectType_pricklyPear);
+		}
+		if(!coldWinter && !info.beach && !info.nearRiver && !info.river && !oasis && altitude > 0.0 && info.altitudeMeters > 200.0 && info.altitudeMeters < 1600.0 && (info.desert || hotSteppe || (drySavanna && info.forestDensity <= 1)))
+		{
+			double dragonTreeChance = steepness > 0.3 ? 0.008 : 0.001;
+			if(info.seaside)
+			{
+				dragonTreeChance *= 2.0;
+			}
+			addedCount = addSpawn(types, addedCount, faceUniqueID, 9851, dragonTreeChance, 1, 2, gameObjectType_dragonTreeTypes[randomInt(faceUniqueID, 9853, DRAGON_TREE_TYPE_COUNT)]);
 		}
 		if(info.desert && !info.aridDesert && !coldDesert && !info.beach && altitude > 0.0)
 		{
@@ -3841,7 +4019,7 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			}
 			if(agaveChance > 0)
 			{
-				addedCount = addSunPatch(types, addedCount, faceUniqueID, 8711, agaveChance, 2, 2, &gameObjectType_agave, 1, sunPercent);
+				addedCount = addSunPatch(types, addedCount, faceUniqueID, 8711, agaveChance, 2, 2, gameObjectType_agaveTypes, AGAVE_TYPE_COUNT, sunPercent);
 			}
 		}
 		if(!info.beach && !info.tidal && altitude > 0.0)
@@ -3924,6 +4102,10 @@ int spBiomeGetTransientGameObjectTypesForFaceSubdivision(SPBiomeThreadState* thr
 			if(featherGrassChance > 0)
 			{
 				addedCount = addPatch(types, addedCount, faceUniqueID, 8721, featherGrassChance, info.desert ? 2 : 3, info.desert ? 1 : 2, &gameObjectType_featherGrass, 1);
+			}
+			if(info.tundra && info.tropicalLatitude && tundraPatch > 0.0)
+			{
+				addedCount = addPatch(types, addedCount, faceUniqueID, 8741, info.summerVeryCold ? 40 : 16, 1, 2, gameObjectType_giantGroundselTypes, GIANT_GROUNDSEL_TYPE_COUNT);
 			}
 		}
 		if(bog)

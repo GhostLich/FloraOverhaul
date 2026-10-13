@@ -6,6 +6,53 @@ local mod = {
 }
 
 local windStrengths = {
+    whWillow3 = vec2(0.993, 0.8),
+    whWillow3Spring = vec2(0.993, 0.8),
+    whWillow3Autumn = vec2(0.993, 0.8),
+    whWillow3Winter = vec2(0.999, 0.8),
+    whWillow4 = vec2(0.993, 0.8),
+    whWillow4Spring = vec2(0.993, 0.8),
+    whWillow4Autumn = vec2(0.993, 0.8),
+    whWillow4Winter = vec2(0.999, 0.8),
+    whPeachTree2 = vec2(0.98, 0.8),
+    whPeachTree2Spring = vec2(0.98, 0.8),
+    whPeachTree2Autumn = vec2(0.98, 0.8),
+    whPeachTree2Winter = vec2(0.998, 0.8),
+    whPeachTree3 = vec2(0.98, 0.8),
+    whPeachTree3Spring = vec2(0.98, 0.8),
+    whPeachTree3Autumn = vec2(0.98, 0.8),
+    whPeachTree3Winter = vec2(0.998, 0.8),
+    whPeachTree4 = vec2(0.98, 0.8),
+    whPeachTree4Spring = vec2(0.98, 0.8),
+    whPeachTree4Autumn = vec2(0.98, 0.8),
+    whPeachTree4Winter = vec2(0.998, 0.8),
+    whElderberryTree2 = vec2(0.98, 0.8),
+    whElderberryTree2Spring = vec2(0.98, 0.8),
+    whElderberryTree2Autumn = vec2(0.98, 0.8),
+    whElderberryTree2Winter = vec2(0.998, 0.8),
+    whElderberryTree3 = vec2(0.98, 0.8),
+    whElderberryTree3Spring = vec2(0.98, 0.8),
+    whElderberryTree3Autumn = vec2(0.98, 0.8),
+    whElderberryTree3Winter = vec2(0.998, 0.8),
+    whElderberryTree4 = vec2(0.98, 0.8),
+    whElderberryTree4Spring = vec2(0.98, 0.8),
+    whElderberryTree4Autumn = vec2(0.98, 0.8),
+    whElderberryTree4Winter = vec2(0.998, 0.8),
+    whOrangeTree2 = vec2(0.98, 0.8),
+    whOrangeTree3 = vec2(0.98, 0.8),
+    whOrangeTree4 = vec2(0.98, 0.8),
+    whAppleTree2 = vec2(0.98, 0.8),
+    whAppleTree2Spring = vec2(0.98, 0.8),
+    whAppleTree2Autumn = vec2(0.98, 0.8),
+    whAppleTree2Winter = vec2(0.998, 0.8),
+    whAppleTree3 = vec2(0.98, 0.8),
+    whAppleTree3Spring = vec2(0.98, 0.8),
+    whAppleTree3Autumn = vec2(0.98, 0.8),
+    whAppleTree3Winter = vec2(0.998, 0.8),
+    whAppleTree4 = vec2(0.98, 0.8),
+    whAppleTree4Spring = vec2(0.98, 0.8),
+    whAppleTree4Autumn = vec2(0.98, 0.8),
+    whAppleTree4Winter = vec2(0.998, 0.8),
     whFigTree = vec2(0.98, 0.8),
     whFigTreeSpring = vec2(0.98, 0.8),
     whFigTreeAutumn = vec2(0.98, 0.8),
@@ -38,23 +85,52 @@ local windStrengths = {
     whBaobab2Spring = vec2(1.0, 1.0),
     whBaobab2Autumn = vec2(1.0, 1.0),
     whBaobab2Winter = vec2(1.0, 1.0),
+    whBaobab3 = vec2(1.0, 1.0),
+    whBaobab3Spring = vec2(1.0, 1.0),
+    whBaobab3Autumn = vec2(1.0, 1.0),
+    whBaobab3Winter = vec2(1.0, 1.0),
+    whBaobab4 = vec2(1.0, 1.0),
+    whBaobab4Spring = vec2(1.0, 1.0),
+    whBaobab4Autumn = vec2(1.0, 1.0),
+    whBaobab4Winter = vec2(1.0, 1.0),
     whBaobabSapling = vec2(0.95, 0.8),
-    whBaobabFruitHangingFruit = vec2(1.0, 1.0),
     whWildPalm1 = vec2(0.997, 0.8),
     whWildPalm2 = vec2(0.997, 0.8),
     whWildPalm3 = vec2(0.995, 0.8),
     whLingonberryBush = vec2(0.9, 0.8),
     whLingonberryBushSapling = vec2(0.7, 0.6),
     whLingonberryHangingFruit = vec2(0.9, 0.8),
+    whBlueberry1 = vec2(0.95, 0.8),
+    whBlueberry1Spring = vec2(0.95, 0.8),
+    whBlueberry1Autumn = vec2(0.95, 0.8),
+    whBlueberry1Winter = vec2(0.95, 0.8),
+    whBlueberry2 = vec2(0.95, 0.8),
+    whBlueberry2Spring = vec2(0.95, 0.8),
+    whBlueberry2Autumn = vec2(0.95, 0.8),
+    whBlueberry2Winter = vec2(0.95, 0.8),
+    whBlueberry3 = vec2(0.95, 0.8),
+    whBlueberry3Spring = vec2(0.95, 0.8),
+    whBlueberry3Autumn = vec2(0.95, 0.8),
+    whBlueberry3Winter = vec2(0.95, 0.8),
+    whBlueberry4 = vec2(0.95, 0.8),
+    whBlueberry4Spring = vec2(0.95, 0.8),
+    whBlueberry4Autumn = vec2(0.95, 0.8),
+    whBlueberry4Winter = vec2(0.95, 0.8),
+    whBlueberryBushSapling = vec2(0.7, 0.6),
+    whBlueberryHangingFruit = vec2(0.95, 0.8),
     whCloudberryBush = vec2(0.9, 0.8),
     whCloudberryBushSapling = vec2(0.7, 0.6),
     whCloudberryHangingFruit = vec2(0.9, 0.8),
     whMesquiteTree = vec2(0.98, 0.8),
+    whMesquiteTree2 = vec2(0.98, 0.8),
+    whMesquiteTree3 = vec2(0.98, 0.8),
+    whMesquiteTree4 = vec2(0.98, 0.8),
     whMesquiteTreeSapling = vec2(0.95, 0.8),
     whMesquitePodHangingFruit = vec2(0.98, 0.8),
     whAcacia1 = vec2(0.993, 0.8),
     whAcacia2 = vec2(0.99, 0.8),
     whAcacia3 = vec2(0.993, 0.8),
+    whAcacia4 = vec2(0.99, 0.8),
     whAcaciaSapling = vec2(0.95, 0.8),
     whKapokBig1 = vec2(0.9995, 0.9),
     whKapok1 = vec2(0.999, 0.9),
@@ -64,6 +140,7 @@ local windStrengths = {
     whRubberTree1 = vec2(0.998, 0.8),
     whRubberTree2 = vec2(0.998, 0.8),
     whRubberTree3 = vec2(0.998, 0.8),
+    whRubberTree4 = vec2(0.998, 0.8),
     whRubberTreeSapling = vec2(0.95, 0.8),
     whOak1 = vec2(0.998, 0.8),
     whOak1Spring = vec2(0.998, 0.8),
@@ -87,14 +164,24 @@ local windStrengths = {
     whOliveTreeSapling = vec2(0.95, 0.8),
     whOliveHangingFruit = vec2(0.98, 0.8),
     whCypress1 = vec2(0.997, 0.8),
+    whCypress2 = vec2(0.997, 0.8),
+    whCypress3 = vec2(0.997, 0.8),
+    whCypress4 = vec2(0.997, 0.8),
     whCypressSapling = vec2(0.95, 0.8),
     whBrazilNutTree = vec2(0.9995, 0.9),
+    whBrazilNutTree2 = vec2(0.999, 0.9),
+    whBrazilNutTree3 = vec2(0.999, 0.9),
+    whBrazilNutTree4 = vec2(0.9995, 0.9),
     whBrazilNutTreeSapling = vec2(0.95, 0.8),
     whMahogany1 = vec2(0.999, 0.9),
     whMahogany2 = vec2(0.999, 0.9),
+    whMahogany3 = vec2(0.999, 0.9),
+    whMahogany4 = vec2(0.999, 0.9),
     whMahoganySapling = vec2(0.95, 0.8),
     whBanyan1 = vec2(0.998, 0.9),
     whBanyan2 = vec2(0.998, 0.9),
+    whBanyan3 = vec2(0.998, 0.9),
+    whBanyan4 = vec2(0.998, 0.9),
     whBanyanSapling = vec2(0.95, 0.8),
     whCycad1 = vec2(0.99, 0.8),
     whCycad2 = vec2(0.99, 0.8),
@@ -105,6 +192,10 @@ local windStrengths = {
     whJuniper1Snow = vec2(0.99, 0.8),
     whJuniper2 = vec2(0.99, 0.8),
     whJuniper2Snow = vec2(0.99, 0.8),
+    whJuniper3 = vec2(0.99, 0.8),
+    whJuniper3Snow = vec2(0.99, 0.8),
+    whJuniper4 = vec2(0.99, 0.8),
+    whJuniper4Snow = vec2(0.99, 0.8),
     whJuniperBerryHangingFruit = vec2(0.99, 0.8),
     whJuniperSapling = vec2(0.95, 0.8),
     whMaple1 = vec2(0.998, 0.8),
@@ -135,10 +226,30 @@ local windStrengths = {
     whAlder2Spring = vec2(0.998, 0.8),
     whAlder2Autumn = vec2(0.998, 0.8),
     whAlder2Winter = vec2(0.999, 0.8),
+    whAlder3 = vec2(0.998, 0.8),
+    whAlder3Spring = vec2(0.998, 0.8),
+    whAlder3Autumn = vec2(0.998, 0.8),
+    whAlder3Winter = vec2(0.999, 0.8),
+    whAlder4 = vec2(0.998, 0.8),
+    whAlder4Spring = vec2(0.998, 0.8),
+    whAlder4Autumn = vec2(0.998, 0.8),
+    whAlder4Winter = vec2(0.999, 0.8),
     whPoplar1 = vec2(0.999, 0.8),
     whPoplar1Spring = vec2(0.999, 0.8),
     whPoplar1Autumn = vec2(0.999, 0.8),
     whPoplar1Winter = vec2(0.999, 0.8),
+    whPoplar2 = vec2(0.999, 0.8),
+    whPoplar2Spring = vec2(0.999, 0.8),
+    whPoplar2Autumn = vec2(0.999, 0.8),
+    whPoplar2Winter = vec2(0.999, 0.8),
+    whPoplar3 = vec2(0.999, 0.8),
+    whPoplar3Spring = vec2(0.999, 0.8),
+    whPoplar3Autumn = vec2(0.999, 0.8),
+    whPoplar3Winter = vec2(0.999, 0.8),
+    whPoplar4 = vec2(0.999, 0.8),
+    whPoplar4Spring = vec2(0.999, 0.8),
+    whPoplar4Autumn = vec2(0.999, 0.8),
+    whPoplar4Winter = vec2(0.999, 0.8),
     whDwarfBirch1 = vec2(0.95, 0.8),
     whDwarfBirch1Spring = vec2(0.95, 0.8),
     whDwarfBirch1Autumn = vec2(0.95, 0.8),
@@ -151,11 +262,23 @@ local windStrengths = {
     whDwarfBirch3Spring = vec2(0.95, 0.8),
     whDwarfBirch3Autumn = vec2(0.95, 0.8),
     whDwarfBirch3Winter = vec2(0.98, 0.8),
+    whDwarfBirch4 = vec2(0.95, 0.8),
+    whDwarfBirch4Spring = vec2(0.95, 0.8),
+    whDwarfBirch4Autumn = vec2(0.95, 0.8),
+    whDwarfBirch4Winter = vec2(0.98, 0.8),
     whArganTree = vec2(0.98, 0.8),
+    whArganTree2 = vec2(0.98, 0.8),
+    whArganTree3 = vec2(0.98, 0.8),
+    whArganTree4 = vec2(0.98, 0.8),
     whCarobTree = vec2(0.98, 0.8),
+    whCarobTree2 = vec2(0.98, 0.8),
+    whCarobTree3 = vec2(0.98, 0.8),
+    whCarobTree4 = vec2(0.98, 0.8),
     whCarobPodHangingFruit = vec2(0.98, 0.8),
     whMangrove1 = vec2(0.997, 0.9),
     whMangrove2 = vec2(0.997, 0.9),
+    whMangrove3 = vec2(0.997, 0.9),
+    whMangrove4 = vec2(0.997, 0.9),
     whDoumPalm1 = vec2(0.997, 0.8),
     whDoumPalm2 = vec2(0.997, 0.8),
     whDoumPalm3 = vec2(0.997, 0.8),
@@ -179,27 +302,102 @@ local windStrengths = {
     whPlaneTree2Spring = vec2(0.998, 0.8),
     whPlaneTree2Autumn = vec2(0.998, 0.8),
     whPlaneTree2Winter = vec2(0.999, 0.8),
+    whPlaneTree3 = vec2(0.998, 0.8),
+    whPlaneTree3Spring = vec2(0.998, 0.8),
+    whPlaneTree3Autumn = vec2(0.998, 0.8),
+    whPlaneTree3Winter = vec2(0.999, 0.8),
+    whPlaneTree4 = vec2(0.998, 0.8),
+    whPlaneTree4Spring = vec2(0.998, 0.8),
+    whPlaneTree4Autumn = vec2(0.998, 0.8),
+    whPlaneTree4Winter = vec2(0.999, 0.8),
     whBaldCypress1 = vec2(0.998, 0.8),
     whBaldCypress1Spring = vec2(0.998, 0.8),
     whBaldCypress1Autumn = vec2(0.998, 0.8),
     whBaldCypress1Winter = vec2(0.999, 0.8),
+    whBaldCypress2 = vec2(0.998, 0.8),
+    whBaldCypress2Spring = vec2(0.998, 0.8),
+    whBaldCypress2Autumn = vec2(0.998, 0.8),
+    whBaldCypress2Winter = vec2(0.999, 0.8),
+    whBaldCypress3 = vec2(0.998, 0.8),
+    whBaldCypress3Spring = vec2(0.998, 0.8),
+    whBaldCypress3Autumn = vec2(0.998, 0.8),
+    whBaldCypress3Winter = vec2(0.999, 0.8),
+    whBaldCypress4 = vec2(0.998, 0.8),
+    whBaldCypress4Spring = vec2(0.998, 0.8),
+    whBaldCypress4Autumn = vec2(0.998, 0.8),
+    whBaldCypress4Winter = vec2(0.999, 0.8),
     whOleander1 = vec2(0.95, 0.8),
     whOleander1Spring = vec2(0.95, 0.8),
     whOleander1Autumn = vec2(0.95, 0.8),
     whOleander1Winter = vec2(0.95, 0.8),
     whTamarisk1 = vec2(0.99, 0.8),
+    whTamarisk2 = vec2(0.99, 0.8),
+    whTamarisk3 = vec2(0.99, 0.8),
+    whTamarisk4 = vec2(0.99, 0.8),
     whMaritimePine1 = vec2(0.997, 0.9),
     whMaritimePine1Snow = vec2(0.997, 0.9),
+    whMaritimePine2 = vec2(0.997, 0.9),
+    whMaritimePine2Snow = vec2(0.997, 0.9),
+    whMaritimePine3 = vec2(0.997, 0.9),
+    whMaritimePine3Snow = vec2(0.997, 0.9),
+    whMaritimePine4 = vec2(0.997, 0.9),
+    whMaritimePine4Snow = vec2(0.997, 0.9),
     whStonePine1 = vec2(0.997, 0.9),
     whStonePine1Snow = vec2(0.997, 0.9),
+    whStonePine2 = vec2(0.997, 0.9),
+    whStonePine2Snow = vec2(0.997, 0.9),
+    whStonePine3 = vec2(0.997, 0.9),
+    whStonePine3Snow = vec2(0.997, 0.9),
+    whStonePine4 = vec2(0.997, 0.9),
+    whStonePine4Snow = vec2(0.997, 0.9),
     whChestnut1 = vec2(0.998, 0.8),
     whChestnut1Spring = vec2(0.998, 0.8),
     whChestnut1Autumn = vec2(0.998, 0.8),
     whChestnut1Winter = vec2(0.999, 0.8),
+    whChestnut2 = vec2(0.998, 0.8),
+    whChestnut2Spring = vec2(0.998, 0.8),
+    whChestnut2Autumn = vec2(0.998, 0.8),
+    whChestnut2Winter = vec2(0.999, 0.8),
+    whChestnut3 = vec2(0.998, 0.8),
+    whChestnut3Spring = vec2(0.998, 0.8),
+    whChestnut3Autumn = vec2(0.998, 0.8),
+    whChestnut3Winter = vec2(0.999, 0.8),
+    whChestnut4 = vec2(0.998, 0.8),
+    whChestnut4Spring = vec2(0.998, 0.8),
+    whChestnut4Autumn = vec2(0.998, 0.8),
+    whChestnut4Winter = vec2(0.999, 0.8),
+    whBeech1 = vec2(0.998, 0.8),
+    whBeech1Spring = vec2(0.998, 0.8),
+    whBeech1Autumn = vec2(0.998, 0.8),
+    whBeech1Winter = vec2(0.999, 0.8),
+    whBeech2 = vec2(0.998, 0.8),
+    whBeech2Spring = vec2(0.998, 0.8),
+    whBeech2Autumn = vec2(0.998, 0.8),
+    whBeech2Winter = vec2(0.999, 0.8),
+    whBeech3 = vec2(0.998, 0.8),
+    whBeech3Spring = vec2(0.998, 0.8),
+    whBeech3Autumn = vec2(0.998, 0.8),
+    whBeech3Winter = vec2(0.999, 0.8),
+    whBeech4 = vec2(0.998, 0.8),
+    whBeech4Spring = vec2(0.998, 0.8),
+    whBeech4Autumn = vec2(0.998, 0.8),
+    whBeech4Winter = vec2(0.999, 0.8),
     whHazelBush = vec2(0.95, 0.8),
     whHazelBushSpring = vec2(0.95, 0.8),
     whHazelBushAutumn = vec2(0.95, 0.8),
     whHazelBushWinter = vec2(0.95, 0.8),
+    whHazelBush2 = vec2(0.95, 0.8),
+    whHazelBush2Spring = vec2(0.95, 0.8),
+    whHazelBush2Autumn = vec2(0.95, 0.8),
+    whHazelBush2Winter = vec2(0.95, 0.8),
+    whHazelBush3 = vec2(0.95, 0.8),
+    whHazelBush3Spring = vec2(0.95, 0.8),
+    whHazelBush3Autumn = vec2(0.95, 0.8),
+    whHazelBush3Winter = vec2(0.95, 0.8),
+    whHazelBush4 = vec2(0.95, 0.8),
+    whHazelBush4Spring = vec2(0.95, 0.8),
+    whHazelBush4Autumn = vec2(0.95, 0.8),
+    whHazelBush4Winter = vec2(0.95, 0.8),
     whHazelnutHangingFruit = vec2(0.95, 0.8),
     whArcticWillow = vec2(0.95, 0.8),
     whArcticWillowSpring = vec2(0.95, 0.8),
@@ -209,6 +407,9 @@ local windStrengths = {
     whElephantGrass = vec2(0.85, 0.6),
     whFeatherGrass = vec2(0.85, 0.6),
     whSeaBuckthornBush = vec2(0.95, 0.8),
+    whSeaBuckthornBush2 = vec2(0.95, 0.8),
+    whSeaBuckthornBush3 = vec2(0.95, 0.8),
+    whSeaBuckthornBush4 = vec2(0.95, 0.8),
     whSeaBuckthornHangingFruit = vec2(0.9, 0.8),
     whThymePlant = vec2(0.8, 0.6),
     whSyrianRuePlant = vec2(0.8, 0.6),
@@ -216,13 +417,31 @@ local windStrengths = {
     whEphedraBush = vec2(0.95, 0.8),
     whHennaBush = vec2(0.95, 0.8),
     whMyrrhBush = vec2(0.98, 0.8),
-    whDragonsBloodTree = vec2(0.98, 0.8),
+    whDragonsBloodTree = vec2(0.998, 0.8),
+    whDragonsBloodTree2 = vec2(0.99, 0.8),
+    whDragonsBloodTree3 = vec2(0.998, 0.8),
+    whDragonsBloodTree4 = vec2(0.998, 0.8),
+    whDragonTree = vec2(0.99, 0.8),
+    whDragonTree2 = vec2(0.99, 0.8),
+    whDragonTree3 = vec2(0.99, 0.8),
     whSpruce1 = vec2(0.997, 0.9),
     whSpruce1Snow = vec2(0.997, 0.9),
     whLarch1 = vec2(0.997, 0.9),
     whLarch1Spring = vec2(0.997, 0.9),
     whLarch1Autumn = vec2(0.997, 0.9),
     whLarch1Winter = vec2(0.999, 0.8),
+    whLarch2 = vec2(0.997, 0.9),
+    whLarch2Spring = vec2(0.997, 0.9),
+    whLarch2Autumn = vec2(0.997, 0.9),
+    whLarch2Winter = vec2(0.999, 0.8),
+    whLarch3 = vec2(0.997, 0.9),
+    whLarch3Spring = vec2(0.997, 0.9),
+    whLarch3Autumn = vec2(0.997, 0.9),
+    whLarch3Winter = vec2(0.999, 0.8),
+    whLarch4 = vec2(0.997, 0.9),
+    whLarch4Spring = vec2(0.997, 0.9),
+    whLarch4Autumn = vec2(0.997, 0.9),
+    whLarch4Winter = vec2(0.999, 0.8),
     whCacaoTree = vec2(0.98, 0.8),
     whCacaoPodHangingFruit = vec2(0.98, 0.8),
     whPapyrus = vec2(0.97, 0.8),
@@ -251,6 +470,7 @@ local windStrengths = {
     whStonePineSapling = vec2(0.95, 0.8),
     whSpruceSapling = vec2(0.95, 0.8),
     whChestnutSapling = vec2(0.95, 0.8),
+    whBeechSapling = vec2(0.95, 0.8),
     whHazelBushSapling = vec2(0.95, 0.8),
     whArcticWillowSapling = vec2(0.95, 0.8),
     whSaxaulSapling = vec2(0.95, 0.8),
@@ -289,6 +509,7 @@ local woodKeys = {
     "baldCypress",
     "tamarisk",
     "chestnut",
+    "beech",
     "larch",
     "maritimePine",
     "saxaul",
@@ -299,7 +520,7 @@ local woodKeys = {
 
 local moundBases = {
     appleTreeMound = {"whAcacia", "whArganTree", "whCacaoTree", "whFigTree", "whMahogany", "whOliveTree"},
-    birchMound = {"whAlder", "whArcticWillow", "whBaldCypress", "whChestnut", "whCypress", "whDwarfBirch", "whHazelBush", "whMaple", "whOak", "whPlaneTree", "whPoplar", "whRubberTree", "whSagebrush"},
+    birchMound = {"whAlder", "whArcticWillow", "whBaldCypress", "whBeech", "whChestnut", "whCypress", "whDwarfBirch", "whHazelBush", "whMaple", "whOak", "whPlaneTree", "whPoplar", "whRubberTree", "whSagebrush"},
     willowMound = {"whBanyan", "whMangrove"},
     aspenMound = {"whBaobab", "whBrazilNutTree", "whKapok"},
     coconutTreeMound = {"whCycad", "whDatePalm", "whTreeFern"},
@@ -501,6 +722,12 @@ function mod:onload(model)
             whSeaBuckthornHangingFruit = {
                 grape = "seaBuckthorn",
             },
+            whBlueberry = {
+                grape = "blueberry",
+            },
+            whBlueberryHangingFruit = {
+                grape = "blueberry",
+            },
         }
         remapModels.whGrapeRotten = {
             whDateRotten = {
@@ -508,6 +735,9 @@ function mod:onload(model)
             },
             whSeaBuckthornRotten = {
                 grapeRotten = "seaBuckthornRotten",
+            },
+            whBlueberryRotten = {
+                grapeRotten = "blueberryRotten",
             },
         }
         remapModels.pumpkinPlant = {
@@ -546,6 +776,12 @@ function mod:onload(model)
         remapModels.whChollaBud = {
             whChollaBudHangingFruit = {},
         }
+        remapModels.whLingonberryBushSapling = {
+            whBlueberryBushSapling = {
+                lingonberryLeaf = "blueberryLeaf",
+                lingonberryLeafLow = "blueberryLeafLow",
+            },
+        }
         remapModels.whLingonberry = {
             whLingonberryHangingFruit = {},
             whJuniperBerry = {
@@ -583,8 +819,25 @@ function mod:onload(model)
                 baobabFoliageLow = "baobabFoliageAutumnLow",
             },
         }
-        remapModels.whBaobabFruit = {
-            whBaobabFruitHangingFruit = {},
+        remapModels.whBaobab3 = {
+            whBaobab3Spring = {
+                baobabFoliage = "baobabFoliageSpring",
+                baobabFoliageLow = "baobabFoliageSpringLow",
+            },
+            whBaobab3Autumn = {
+                baobabFoliage = "baobabFoliageAutumn",
+                baobabFoliageLow = "baobabFoliageAutumnLow",
+            },
+        }
+        remapModels.whBaobab4 = {
+            whBaobab4Spring = {
+                baobabFoliage = "baobabFoliageSpring",
+                baobabFoliageLow = "baobabFoliageSpringLow",
+            },
+            whBaobab4Autumn = {
+                baobabFoliage = "baobabFoliageAutumn",
+                baobabFoliageLow = "baobabFoliageAutumnLow",
+            },
         }
         remapModels.whMesquitePod = {
             whMesquitePodHangingFruit = {},
@@ -602,6 +855,71 @@ function mod:onload(model)
         }
         remapModels.whMesquiteTreeMound = {
             whCarobTreeMound = {},
+        }
+        remapModels.appleTree.appleTreeSpring.appleLeaf = "appleLeafSpring"
+        remapModels.appleTree.appleTreeSpring.appleLeafLow = "appleLeafSpringLow"
+        remapModels.appleTree.appleTreeAutumn.appleLeaf = "autumn1Small"
+        remapModels.appleTree.appleTreeAutumn.appleLeafLow = "autumn1"
+        for i = 2,4 do
+            local name = "whAppleTree" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    appleLeaf = "appleLeafSpring",
+                    appleLeafLow = "appleLeafSpringLow",
+                },
+                [name .. "Autumn"] = {
+                    appleLeaf = "autumn1Small",
+                    appleLeafLow = "autumn1",
+                },
+            }
+        end
+        for i = 2,4 do
+            local name = "whElderberryTree" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    leafyBushElderberry = "leafyBushElderberrySpring",
+                    bushElderberry = "bushElderberrySpring",
+                },
+                [name .. "Autumn"] = {
+                    leafyBushElderberry = "autumn16Leaf",
+                    bushElderberry = "autumn16",
+                },
+            }
+        end
+        for i = 2,4 do
+            local name = "whPeachTree" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    leafyBushMid = "leafyBushMidSmallSpring",
+                    bushMid = "bushMidSpring",
+                },
+                [name .. "Autumn"] = {
+                    leafyBushMid = "autumn4Small",
+                    bushMid = "autumn4",
+                },
+            }
+        end
+        remapModels.peachTree.peachTreeSpring.leafyBushMid = "leafyBushMidSmallSpring"
+        remapModels.peachTree.peachTreeAutumn.leafyBushMid = "autumn4Small"
+        remapModels.whWillow3 = {
+            whWillow3Spring = {
+                leafyBushC = "leafyBushCSpring",
+                bushC = "bushCSpring",
+            },
+            whWillow3Autumn = {
+                leafyBushC = "autumn2LeafWillow",
+                bushC = "autumn2Willow",
+            },
+        }
+        remapModels.whWillow4 = {
+            whWillow4Spring = {
+                leafyBushC = "leafyBushCSpring",
+                bushC = "bushCSpring",
+            },
+            whWillow4Autumn = {
+                leafyBushC = "autumn3LeafWillow",
+                bushC = "autumn3Willow",
+            },
         }
         remapModels.whOak1 = {
             whOak1Spring = {
@@ -706,12 +1024,62 @@ function mod:onload(model)
                 poplarLeafLow = "poplarLeafAutumnLow",
             },
         }
+        remapModels.whPoplar2 = {
+            whPoplar2Spring = {
+                poplarLeaf = "poplarLeafSpring",
+                poplarLeafLow = "poplarLeafSpringLow",
+            },
+            whPoplar2Autumn = {
+                poplarLeaf = "poplarLeafAutumn",
+                poplarLeafLow = "poplarLeafAutumnLow",
+            },
+        }
+        remapModels.whPoplar3 = {
+            whPoplar3Spring = {
+                poplarLeaf = "poplarLeafSpring",
+                poplarLeafLow = "poplarLeafSpringLow",
+            },
+            whPoplar3Autumn = {
+                poplarLeaf = "poplarLeafAutumn",
+                poplarLeafLow = "poplarLeafAutumnLow",
+            },
+        }
+        remapModels.whPoplar4 = {
+            whPoplar4Spring = {
+                poplarLeaf = "poplarLeafSpring",
+                poplarLeafLow = "poplarLeafSpringLow",
+            },
+            whPoplar4Autumn = {
+                poplarLeaf = "poplarLeafAutumn",
+                poplarLeafLow = "poplarLeafAutumnLow",
+            },
+        }
         remapModels.whAlder2 = {
             whAlder2Spring = {
                 alderLeaf = "alderLeafSpring",
                 alderLeafLow = "alderLeafSpringLow",
             },
             whAlder2Autumn = {
+                alderLeaf = "alderLeafAutumn",
+                alderLeafLow = "alderLeafAutumnLow",
+            },
+        }
+        remapModels.whAlder3 = {
+            whAlder3Spring = {
+                alderLeaf = "alderLeafSpring",
+                alderLeafLow = "alderLeafSpringLow",
+            },
+            whAlder3Autumn = {
+                alderLeaf = "alderLeafAutumn",
+                alderLeafLow = "alderLeafAutumnLow",
+            },
+        }
+        remapModels.whAlder4 = {
+            whAlder4Spring = {
+                alderLeaf = "alderLeafSpring",
+                alderLeafLow = "alderLeafSpringLow",
+            },
+            whAlder4Autumn = {
                 alderLeaf = "alderLeafAutumn",
                 alderLeafLow = "alderLeafAutumnLow",
             },
@@ -732,6 +1100,16 @@ function mod:onload(model)
                 dwarfBirchLeafLow = "dwarfBirchLeafSpringLow",
             },
             whDwarfBirch2Autumn = {
+                dwarfBirchLeaf = "dwarfBirchLeafAutumn",
+                dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
+            },
+        }
+        remapModels.whDwarfBirch4 = {
+            whDwarfBirch4Spring = {
+                dwarfBirchLeaf = "dwarfBirchLeafSpring",
+                dwarfBirchLeafLow = "dwarfBirchLeafSpringLow",
+            },
+            whDwarfBirch4Autumn = {
                 dwarfBirchLeaf = "dwarfBirchLeafAutumn",
                 dwarfBirchLeafLow = "dwarfBirchLeafAutumnLow",
             },
@@ -766,6 +1144,70 @@ function mod:onload(model)
                 planeLeafLow = "planeLeafLowAutumn",
             },
         }
+        remapModels.whPlaneTree3 = {
+            whPlaneTree3Spring = {
+                planeLeaf = "planeLeafSpring",
+                planeLeafLow = "planeLeafLowSpring",
+            },
+            whPlaneTree3Autumn = {
+                planeLeaf = "planeLeafAutumn",
+                planeLeafLow = "planeLeafLowAutumn",
+            },
+        }
+        remapModels.whPlaneTree4 = {
+            whPlaneTree4Spring = {
+                planeLeaf = "planeLeafSpring",
+                planeLeafLow = "planeLeafLowSpring",
+            },
+            whPlaneTree4Autumn = {
+                planeLeaf = "planeLeafAutumn",
+                planeLeafLow = "planeLeafLowAutumn",
+            },
+        }
+        for i = 1,4 do
+            local name = "whBeech" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    beechLeaf = "beechLeafSpring",
+                    beechLeafLow = "beechLeafSpringLow",
+                },
+                [name .. "Autumn"] = {
+                    beechLeaf = "beechLeafAutumn",
+                    beechLeafLow = "beechLeafAutumnLow",
+                },
+            }
+        end
+        remapModels.whChestnut = {
+            whBeechnut = {
+                chestnut = "beechnut",
+                chestnut2 = "beechnut2",
+            },
+        }
+        remapModels.whChestnutRotten = {
+            whBeechnutRotten = {
+                chestnutRotten = "beechnutRotten",
+                chestnut2Rotten = "beechnut2Rotten",
+            },
+        }
+        remapModels.whChestnutSapling = {
+            whBeechSapling = {
+                chestnutLeafSmall = "beechLeafSmall",
+                chestnutBark = "beechBark",
+            },
+        }
+        for i = 2,4 do
+            local name = "whChestnut" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    chestnutLeaf = "chestnutLeafSpring",
+                    chestnutLeafLow = "chestnutLeafSpringLow",
+                },
+                [name .. "Autumn"] = {
+                    chestnutLeaf = "chestnutLeafAutumn",
+                    chestnutLeafLow = "chestnutLeafAutumnLow",
+                },
+            }
+        end
         remapModels.whChestnut1 = {
             whChestnut1Spring = {
                 chestnutLeaf = "chestnutLeafSpring",
@@ -776,16 +1218,29 @@ function mod:onload(model)
                 chestnutLeafLow = "chestnutLeafAutumnLow",
             },
         }
-        remapModels.whHazelBush = {
-            whHazelBushSpring = {
-                hazelLeaf = "hazelLeafSpring",
-                hazelLeafLow = "hazelLeafSpringLow",
-            },
-            whHazelBushAutumn = {
-                hazelLeaf = "hazelLeafAutumn",
-                hazelLeafLow = "hazelLeafAutumnLow",
-            },
-        }
+        remapModels.whHazelBush_distant = {}
+        for i,modelName in ipairs({"whHazelBush", "whHazelBush2", "whHazelBush3", "whHazelBush4"}) do
+            remapModels[modelName] = {
+                [modelName .. "Spring"] = {
+                    hazelLeaf = "hazelLeafSpring",
+                    hazelLeafLow = "hazelLeafSpringLow",
+                },
+                [modelName .. "Autumn"] = {
+                    hazelLeaf = "hazelLeafAutumn",
+                    hazelLeafLow = "hazelLeafAutumnLow",
+                },
+                [modelName .. "Winter"] = {
+                    hazelLeaf = "hazelLeafWinter",
+                    hazelLeafLow = "hazelLeafWinterLow",
+                },
+            }
+            if i > 1 then
+                remapModels.whHazelBush_distant[modelName .. "_distant"] = {}
+                remapModels.whHazelBush_distant[modelName .. "Spring_distant"] = remapModels[modelName][modelName .. "Spring"]
+                remapModels.whHazelBush_distant[modelName .. "Autumn_distant"] = remapModels[modelName][modelName .. "Autumn"]
+                remapModels.whHazelBush_distant[modelName .. "Winter_distant"] = remapModels[modelName][modelName .. "Winter"]
+            end
+        end
         remapModels.whArcticWillow = {
             whArcticWillowSpring = {
                 arcticWillowLeaf = "arcticWillowLeafSpring",
@@ -806,6 +1261,49 @@ function mod:onload(model)
                 larchLeafLow = "larchLeafLowAutumn",
             },
         }
+        remapModels.whLarch2 = {
+            whLarch2Spring = {
+                larchLeaf = "larchLeafSpring",
+                larchLeafLow = "larchLeafLowSpring",
+            },
+            whLarch2Autumn = {
+                larchLeaf = "larchLeafAutumn",
+                larchLeafLow = "larchLeafLowAutumn",
+            },
+        }
+        remapModels.whLarch3 = {
+            whLarch3Spring = {
+                larchLeaf = "larchLeafSpring",
+                larchLeafLow = "larchLeafLowSpring",
+            },
+            whLarch3Autumn = {
+                larchLeaf = "larchLeafAutumn",
+                larchLeafLow = "larchLeafLowAutumn",
+            },
+        }
+        remapModels.whLarch4 = {
+            whLarch4Spring = {
+                larchLeaf = "larchLeafSpring",
+                larchLeafLow = "larchLeafLowSpring",
+            },
+            whLarch4Autumn = {
+                larchLeaf = "larchLeafAutumn",
+                larchLeafLow = "larchLeafLowAutumn",
+            },
+        }
+        for i = 2,4 do
+            local name = "whBaldCypress" .. mj:tostring(i)
+            remapModels[name] = {
+                [name .. "Spring"] = {
+                    baldCypressLeaf = "baldCypressLeafSpring",
+                    baldCypressLeafLow = "baldCypressLeafSpringLow",
+                },
+                [name .. "Autumn"] = {
+                    baldCypressLeaf = "baldCypressLeafAutumn",
+                    baldCypressLeafLow = "baldCypressLeafAutumnLow",
+                },
+            }
+        end
         remapModels.whBaldCypress1 = {
             whBaldCypress1Spring = {
                 baldCypressLeaf = "baldCypressLeafSpring",
@@ -814,6 +1312,50 @@ function mod:onload(model)
             whBaldCypress1Autumn = {
                 baldCypressLeaf = "baldCypressLeafAutumn",
                 baldCypressLeafLow = "baldCypressLeafAutumnLow",
+            },
+        }
+        remapModels.whBlueberry1 = {
+            whBlueberry1Spring = {},
+            whBlueberry1Autumn = {
+                blueberryLeaf = "blueberryLeafAutumn",
+                blueberryLeafLow = "blueberryLeafAutumnLow",
+            },
+            whBlueberry1Winter = {
+                blueberryLeaf = "blueberryLeafWinter",
+                blueberryLeafLow = "blueberryLeafWinterLow",
+            },
+        }
+        remapModels.whBlueberry2 = {
+            whBlueberry2Spring = {},
+            whBlueberry2Autumn = {
+                blueberryLeaf = "blueberryLeafAutumn",
+                blueberryLeafLow = "blueberryLeafAutumnLow",
+            },
+            whBlueberry2Winter = {
+                blueberryLeaf = "blueberryLeafWinter",
+                blueberryLeafLow = "blueberryLeafWinterLow",
+            },
+        }
+        remapModels.whBlueberry3 = {
+            whBlueberry3Spring = {},
+            whBlueberry3Autumn = {
+                blueberryLeaf = "blueberryLeafAutumn",
+                blueberryLeafLow = "blueberryLeafAutumnLow",
+            },
+            whBlueberry3Winter = {
+                blueberryLeaf = "blueberryLeafWinter",
+                blueberryLeafLow = "blueberryLeafWinterLow",
+            },
+        }
+        remapModels.whBlueberry4 = {
+            whBlueberry4Spring = {},
+            whBlueberry4Autumn = {
+                blueberryLeaf = "blueberryLeafAutumn",
+                blueberryLeafLow = "blueberryLeafAutumnLow",
+            },
+            whBlueberry4Winter = {
+                blueberryLeaf = "blueberryLeafWinter",
+                blueberryLeafLow = "blueberryLeafWinterLow",
             },
         }
         remapModels.whGroundFern = {
@@ -857,12 +1399,24 @@ function mod:onload(model)
         remapModels.whLemongrassRotten = {
             whEphedraRotten = {},
         }
+        remapModels.whAgavePlantSapling = {
+            whGiantGroundselSapling = {
+                agaveLeaf = "giantGroundselLeaf",
+                agaveLeafLow = "giantGroundselLeafLow",
+            },
+            whDragonTreeSapling = {
+                agaveLeaf = "dragonTreeLeaf",
+                agaveLeafLow = "dragonTreeLeafLow",
+            },
+        }
         remapModels.whTamariskSeed = {
             whSagebrushSeed = {
                 tamariskSeed = "sagebrushSeed",
             },
             whSaxaulSeed = {},
             whEuphorbiaSeed = {},
+            whGiantGroundselSeed = {},
+            whDragonTreeSeed = {},
             whEphedraSeed = {},
             whHennaSeed = {},
             whMyrrhSeed = {},
@@ -889,6 +1443,8 @@ function mod:onload(model)
             },
             whSaxaulSeedRotten = {},
             whEuphorbiaSeedRotten = {},
+            whGiantGroundselSeedRotten = {},
+            whDragonTreeSeedRotten = {},
             whEphedraSeedRotten = {},
             whHennaSeedRotten = {},
             whMyrrhSeedRotten = {},

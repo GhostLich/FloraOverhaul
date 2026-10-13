@@ -54,6 +54,14 @@ function mod:onload(edgeDecal)
         },
         size = vec2(0.03, 0.03),
     })
+
+    mj:insertIndexed(edgeDecal.groupTypes, {
+        key = "reedPlume",
+        textureLocations = {
+            edgeDecal.textureLocations.hairA,
+        },
+        size = vec2(0.02, 0.001),
+    })
 end
 
 return mod
